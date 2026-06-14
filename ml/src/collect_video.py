@@ -231,10 +231,11 @@ def show_countdown(
             if not success:
                 raise RuntimeError("Could not read frames from the webcam.")
 
-            frame = cv2.resize(frame, (width, height))
-            frame = draw_overlay(
+            clean_frame = cv2.resize(frame, (width, height))
+            preview_frame = clean_frame.copy()
+            preview_frame = draw_overlay(
                 cv2,
-                frame,
+                preview_frame,
                 participant_id,
                 label,
                 repetition,
@@ -242,7 +243,7 @@ def show_countdown(
                 total_frames,
                 countdown_text,
             )
-            cv2.imshow(WINDOW_TITLE, frame)
+            cv2.imshow(WINDOW_TITLE, preview_frame)
 
             if is_cancel_key(cv2.waitKey(1)):
                 return False
@@ -316,11 +317,12 @@ def record_video(
             if not success:
                 raise RuntimeError("Could not read frames from the webcam.")
 
-            frame = cv2.resize(frame, (width, height))
+            clean_frame = cv2.resize(frame, (width, height))
             recorded_frames += 1
-            frame = draw_overlay(
+            preview_frame = clean_frame.copy()
+            preview_frame = draw_overlay(
                 cv2,
-                frame,
+                preview_frame,
                 participant_id,
                 label,
                 repetition,
@@ -329,8 +331,8 @@ def record_video(
                 "Recording",
             )
 
-            writer.write(frame)
-            cv2.imshow(WINDOW_TITLE, frame)
+            writer.write(clean_frame)
+            cv2.imshow(WINDOW_TITLE, preview_frame)
 
             wait_time_ms = max(1, int(1000 / fps))
             if is_cancel_key(cv2.waitKey(wait_time_ms)):

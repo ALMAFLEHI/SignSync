@@ -1,3 +1,14 @@
 __pycache__/
 *.pyc
-ml/data_raw/videos/**/*.mp4
+
+# Raw video dataset files
+ml/data_raw/videos/**/*
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Processed dataset outputs
+ml/data_processed/landmarks/**/*
+*.npy
+*.npz
