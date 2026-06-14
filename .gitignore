@@ -12,3 +12,6 @@ ml/data_raw/videos/**/*
 ml/data_processed/landmarks/**/*
 *.npy
 *.npz
+
+# Local MediaPipe model assets
+ml/models/*.task

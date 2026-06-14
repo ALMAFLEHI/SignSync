@@ -1,63 +1,63 @@
-"sample_id","participant_id","label","repetition","video_path","landmark_path","status","notes"
-"P01_deposit_R01","P01","deposit","1","ml/data_raw/videos/deposit/P01_deposit_R01.mp4","","raw_recorded","Sprint 2.2 first webcam test; frames=60; fps=20; width=640; height=480"
-"P01_A_R01","P01","A","1","ml/data_raw/videos/A/P01_A_R01.mp4","","raw_recorded","Alphabet test; frames=60; fps=20; width=640; height=480"
-"P01_0_R01","P01","0","1","ml/data_raw/videos/0/P01_0_R01.mp4","","raw_recorded","Digit test; frames=60; fps=20; width=640; height=480"
-"P01_deposit_R02","P01","deposit","2","ml/data_raw/videos/deposit/P01_deposit_R02.mp4","","raw_recorded","camera visibility test; frames=60; fps=20; width=640; height=480"
-"P01_deposit_R03","P01","deposit","3","ml/data_raw/videos/deposit/P01_deposit_R03.mp4","","raw_recorded","camera index 1 test; frames=60; fps=20; width=640; height=480"
-"P01_deposit_R04","P01","deposit","4","ml/data_raw/videos/deposit/P01_deposit_R04.mp4","","raw_recorded","final camera test; frames=60; fps=20; width=640; height=480"
-"P99_A_R01","P99","A","1","ml/data_raw/videos/A/P99_A_R01.mp4","","raw_recorded","overlay fix test; frames=60; fps=20; width=640; height=480"
-"P02_A_R01","P02","A","1","ml/data_raw/videos/A/P02_A_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_A_R02","P02","A","2","ml/data_raw/videos/A/P02_A_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_A_R03","P02","A","3","ml/data_raw/videos/A/P02_A_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_A_R04","P02","A","4","ml/data_raw/videos/A/P02_A_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_A_R05","P02","A","5","ml/data_raw/videos/A/P02_A_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_B_R01","P02","B","1","ml/data_raw/videos/B/P02_B_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_B_R02","P02","B","2","ml/data_raw/videos/B/P02_B_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_B_R03","P02","B","3","ml/data_raw/videos/B/P02_B_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_B_R04","P02","B","4","ml/data_raw/videos/B/P02_B_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_B_R05","P02","B","5","ml/data_raw/videos/B/P02_B_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_C_R01","P02","C","1","ml/data_raw/videos/C/P02_C_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_C_R02","P02","C","2","ml/data_raw/videos/C/P02_C_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_C_R03","P02","C","3","ml/data_raw/videos/C/P02_C_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_C_R04","P02","C","4","ml/data_raw/videos/C/P02_C_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_C_R05","P02","C","5","ml/data_raw/videos/C/P02_C_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_0_R01","P02","0","1","ml/data_raw/videos/0/P02_0_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_0_R02","P02","0","2","ml/data_raw/videos/0/P02_0_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_0_R03","P02","0","3","ml/data_raw/videos/0/P02_0_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_0_R04","P02","0","4","ml/data_raw/videos/0/P02_0_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_0_R05","P02","0","5","ml/data_raw/videos/0/P02_0_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_1_R01","P02","1","1","ml/data_raw/videos/1/P02_1_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_1_R02","P02","1","2","ml/data_raw/videos/1/P02_1_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_1_R03","P02","1","3","ml/data_raw/videos/1/P02_1_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_1_R04","P02","1","4","ml/data_raw/videos/1/P02_1_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_1_R05","P02","1","5","ml/data_raw/videos/1/P02_1_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_2_R01","P02","2","1","ml/data_raw/videos/2/P02_2_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_2_R02","P02","2","2","ml/data_raw/videos/2/P02_2_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_2_R03","P02","2","3","ml/data_raw/videos/2/P02_2_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_2_R04","P02","2","4","ml/data_raw/videos/2/P02_2_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_2_R05","P02","2","5","ml/data_raw/videos/2/P02_2_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_deposit_R01","P02","deposit","1","ml/data_raw/videos/deposit/P02_deposit_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_deposit_R02","P02","deposit","2","ml/data_raw/videos/deposit/P02_deposit_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_deposit_R03","P02","deposit","3","ml/data_raw/videos/deposit/P02_deposit_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_deposit_R04","P02","deposit","4","ml/data_raw/videos/deposit/P02_deposit_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_deposit_R05","P02","deposit","5","ml/data_raw/videos/deposit/P02_deposit_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_withdraw_R01","P02","withdraw","1","ml/data_raw/videos/withdraw/P02_withdraw_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_withdraw_R02","P02","withdraw","2","ml/data_raw/videos/withdraw/P02_withdraw_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_withdraw_R03","P02","withdraw","3","ml/data_raw/videos/withdraw/P02_withdraw_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_withdraw_R04","P02","withdraw","4","ml/data_raw/videos/withdraw/P02_withdraw_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_withdraw_R05","P02","withdraw","5","ml/data_raw/videos/withdraw/P02_withdraw_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_balance_R01","P02","balance","1","ml/data_raw/videos/balance/P02_balance_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_balance_R02","P02","balance","2","ml/data_raw/videos/balance/P02_balance_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_balance_R03","P02","balance","3","ml/data_raw/videos/balance/P02_balance_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_balance_R04","P02","balance","4","ml/data_raw/videos/balance/P02_balance_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_balance_R05","P02","balance","5","ml/data_raw/videos/balance/P02_balance_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_help_R01","P02","help","1","ml/data_raw/videos/help/P02_help_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_help_R02","P02","help","2","ml/data_raw/videos/help/P02_help_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_help_R03","P02","help","3","ml/data_raw/videos/help/P02_help_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_help_R04","P02","help","4","ml/data_raw/videos/help/P02_help_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_help_R05","P02","help","5","ml/data_raw/videos/help/P02_help_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_confirm_R01","P02","confirm","1","ml/data_raw/videos/confirm/P02_confirm_R01.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_confirm_R02","P02","confirm","2","ml/data_raw/videos/confirm/P02_confirm_R02.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_confirm_R03","P02","confirm","3","ml/data_raw/videos/confirm/P02_confirm_R03.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_confirm_R04","P02","confirm","4","ml/data_raw/videos/confirm/P02_confirm_R04.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
-"P02_confirm_R05","P02","confirm","5","ml/data_raw/videos/confirm/P02_confirm_R05.mp4","","raw_recorded","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+sample_id,participant_id,label,repetition,video_path,landmark_path,status,notes
+P01_deposit_R01,P01,deposit,1,ml/data_raw/videos/deposit/P01_deposit_R01.mp4,,raw_recorded,Sprint 2.2 first webcam test; frames=60; fps=20; width=640; height=480
+P01_A_R01,P01,A,1,ml/data_raw/videos/A/P01_A_R01.mp4,,raw_recorded,Alphabet test; frames=60; fps=20; width=640; height=480
+P01_0_R01,P01,0,1,ml/data_raw/videos/0/P01_0_R01.mp4,,raw_recorded,Digit test; frames=60; fps=20; width=640; height=480
+P01_deposit_R02,P01,deposit,2,ml/data_raw/videos/deposit/P01_deposit_R02.mp4,,raw_recorded,camera visibility test; frames=60; fps=20; width=640; height=480
+P01_deposit_R03,P01,deposit,3,ml/data_raw/videos/deposit/P01_deposit_R03.mp4,,raw_recorded,camera index 1 test; frames=60; fps=20; width=640; height=480
+P01_deposit_R04,P01,deposit,4,ml/data_raw/videos/deposit/P01_deposit_R04.mp4,,raw_recorded,final camera test; frames=60; fps=20; width=640; height=480
+P99_A_R01,P99,A,1,ml/data_raw/videos/A/P99_A_R01.mp4,,raw_recorded,overlay fix test; frames=60; fps=20; width=640; height=480
+P02_A_R01,P02,A,1,ml/data_raw/videos/A/P02_A_R01.mp4,ml/data_processed/landmarks/A/P02_A_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_A_R02,P02,A,2,ml/data_raw/videos/A/P02_A_R02.mp4,ml/data_processed/landmarks/A/P02_A_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_A_R03,P02,A,3,ml/data_raw/videos/A/P02_A_R03.mp4,ml/data_processed/landmarks/A/P02_A_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_A_R04,P02,A,4,ml/data_raw/videos/A/P02_A_R04.mp4,ml/data_processed/landmarks/A/P02_A_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_A_R05,P02,A,5,ml/data_raw/videos/A/P02_A_R05.mp4,ml/data_processed/landmarks/A/P02_A_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_B_R01,P02,B,1,ml/data_raw/videos/B/P02_B_R01.mp4,ml/data_processed/landmarks/B/P02_B_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_B_R02,P02,B,2,ml/data_raw/videos/B/P02_B_R02.mp4,ml/data_processed/landmarks/B/P02_B_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_B_R03,P02,B,3,ml/data_raw/videos/B/P02_B_R03.mp4,ml/data_processed/landmarks/B/P02_B_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_B_R04,P02,B,4,ml/data_raw/videos/B/P02_B_R04.mp4,ml/data_processed/landmarks/B/P02_B_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_B_R05,P02,B,5,ml/data_raw/videos/B/P02_B_R05.mp4,ml/data_processed/landmarks/B/P02_B_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_C_R01,P02,C,1,ml/data_raw/videos/C/P02_C_R01.mp4,ml/data_processed/landmarks/C/P02_C_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_C_R02,P02,C,2,ml/data_raw/videos/C/P02_C_R02.mp4,ml/data_processed/landmarks/C/P02_C_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_C_R03,P02,C,3,ml/data_raw/videos/C/P02_C_R03.mp4,ml/data_processed/landmarks/C/P02_C_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_C_R04,P02,C,4,ml/data_raw/videos/C/P02_C_R04.mp4,ml/data_processed/landmarks/C/P02_C_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_C_R05,P02,C,5,ml/data_raw/videos/C/P02_C_R05.mp4,ml/data_processed/landmarks/C/P02_C_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_0_R01,P02,0,1,ml/data_raw/videos/0/P02_0_R01.mp4,ml/data_processed/landmarks/0/P02_0_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_0_R02,P02,0,2,ml/data_raw/videos/0/P02_0_R02.mp4,ml/data_processed/landmarks/0/P02_0_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_0_R03,P02,0,3,ml/data_raw/videos/0/P02_0_R03.mp4,ml/data_processed/landmarks/0/P02_0_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_0_R04,P02,0,4,ml/data_raw/videos/0/P02_0_R04.mp4,ml/data_processed/landmarks/0/P02_0_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_0_R05,P02,0,5,ml/data_raw/videos/0/P02_0_R05.mp4,ml/data_processed/landmarks/0/P02_0_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_1_R01,P02,1,1,ml/data_raw/videos/1/P02_1_R01.mp4,ml/data_processed/landmarks/1/P02_1_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_1_R02,P02,1,2,ml/data_raw/videos/1/P02_1_R02.mp4,ml/data_processed/landmarks/1/P02_1_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_1_R03,P02,1,3,ml/data_raw/videos/1/P02_1_R03.mp4,ml/data_processed/landmarks/1/P02_1_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_1_R04,P02,1,4,ml/data_raw/videos/1/P02_1_R04.mp4,ml/data_processed/landmarks/1/P02_1_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_1_R05,P02,1,5,ml/data_raw/videos/1/P02_1_R05.mp4,ml/data_processed/landmarks/1/P02_1_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_2_R01,P02,2,1,ml/data_raw/videos/2/P02_2_R01.mp4,ml/data_processed/landmarks/2/P02_2_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_2_R02,P02,2,2,ml/data_raw/videos/2/P02_2_R02.mp4,ml/data_processed/landmarks/2/P02_2_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_2_R03,P02,2,3,ml/data_raw/videos/2/P02_2_R03.mp4,ml/data_processed/landmarks/2/P02_2_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_2_R04,P02,2,4,ml/data_raw/videos/2/P02_2_R04.mp4,ml/data_processed/landmarks/2/P02_2_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_2_R05,P02,2,5,ml/data_raw/videos/2/P02_2_R05.mp4,ml/data_processed/landmarks/2/P02_2_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_deposit_R01,P02,deposit,1,ml/data_raw/videos/deposit/P02_deposit_R01.mp4,ml/data_processed/landmarks/deposit/P02_deposit_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_deposit_R02,P02,deposit,2,ml/data_raw/videos/deposit/P02_deposit_R02.mp4,ml/data_processed/landmarks/deposit/P02_deposit_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_deposit_R03,P02,deposit,3,ml/data_raw/videos/deposit/P02_deposit_R03.mp4,ml/data_processed/landmarks/deposit/P02_deposit_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_deposit_R04,P02,deposit,4,ml/data_raw/videos/deposit/P02_deposit_R04.mp4,ml/data_processed/landmarks/deposit/P02_deposit_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_deposit_R05,P02,deposit,5,ml/data_raw/videos/deposit/P02_deposit_R05.mp4,ml/data_processed/landmarks/deposit/P02_deposit_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_withdraw_R01,P02,withdraw,1,ml/data_raw/videos/withdraw/P02_withdraw_R01.mp4,ml/data_processed/landmarks/withdraw/P02_withdraw_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_withdraw_R02,P02,withdraw,2,ml/data_raw/videos/withdraw/P02_withdraw_R02.mp4,ml/data_processed/landmarks/withdraw/P02_withdraw_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_withdraw_R03,P02,withdraw,3,ml/data_raw/videos/withdraw/P02_withdraw_R03.mp4,ml/data_processed/landmarks/withdraw/P02_withdraw_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_withdraw_R04,P02,withdraw,4,ml/data_raw/videos/withdraw/P02_withdraw_R04.mp4,ml/data_processed/landmarks/withdraw/P02_withdraw_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_withdraw_R05,P02,withdraw,5,ml/data_raw/videos/withdraw/P02_withdraw_R05.mp4,ml/data_processed/landmarks/withdraw/P02_withdraw_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_balance_R01,P02,balance,1,ml/data_raw/videos/balance/P02_balance_R01.mp4,ml/data_processed/landmarks/balance/P02_balance_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_balance_R02,P02,balance,2,ml/data_raw/videos/balance/P02_balance_R02.mp4,ml/data_processed/landmarks/balance/P02_balance_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_balance_R03,P02,balance,3,ml/data_raw/videos/balance/P02_balance_R03.mp4,ml/data_processed/landmarks/balance/P02_balance_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_balance_R04,P02,balance,4,ml/data_raw/videos/balance/P02_balance_R04.mp4,ml/data_processed/landmarks/balance/P02_balance_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_balance_R05,P02,balance,5,ml/data_raw/videos/balance/P02_balance_R05.mp4,ml/data_processed/landmarks/balance/P02_balance_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_help_R01,P02,help,1,ml/data_raw/videos/help/P02_help_R01.mp4,ml/data_processed/landmarks/help/P02_help_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_help_R02,P02,help,2,ml/data_raw/videos/help/P02_help_R02.mp4,ml/data_processed/landmarks/help/P02_help_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_help_R03,P02,help,3,ml/data_raw/videos/help/P02_help_R03.mp4,ml/data_processed/landmarks/help/P02_help_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_help_R04,P02,help,4,ml/data_raw/videos/help/P02_help_R04.mp4,ml/data_processed/landmarks/help/P02_help_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_help_R05,P02,help,5,ml/data_raw/videos/help/P02_help_R05.mp4,ml/data_processed/landmarks/help/P02_help_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_confirm_R01,P02,confirm,1,ml/data_raw/videos/confirm/P02_confirm_R01.mp4,ml/data_processed/landmarks/confirm/P02_confirm_R01_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_confirm_R02,P02,confirm,2,ml/data_raw/videos/confirm/P02_confirm_R02.mp4,ml/data_processed/landmarks/confirm/P02_confirm_R02_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_confirm_R03,P02,confirm,3,ml/data_raw/videos/confirm/P02_confirm_R03.mp4,ml/data_processed/landmarks/confirm/P02_confirm_R03_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_confirm_R04,P02,confirm,4,ml/data_raw/videos/confirm/P02_confirm_R04.mp4,ml/data_processed/landmarks/confirm/P02_confirm_R04_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
+P02_confirm_R05,P02,confirm,5,ml/data_raw/videos/confirm/P02_confirm_R05.mp4,ml/data_processed/landmarks/confirm/P02_confirm_R05_landmarks.npy,landmarks_extracted,Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480
