@@ -1,0 +1,3 @@
+model_name,feature_mode,validation_accuracy,selected_best,uses_scaler
+LogisticRegression,stats,0.909091,no,yes
+RandomForestClassifier,stats,1.000000,yes,no

@@ -1,0 +1,46 @@
+"""Model training configuration for Phase 2, Sprint 2.6."""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+
+DATASET_PATH = "ml/data_processed/datasets/signsync_trial_v1_2hand_60f.npz"
+LABEL_MAPPING_PATH = "ml/data_processed/datasets/signsync_trial_v1_label_mapping.json"
+SPLIT_CSV_PATH = "ml/data_processed/datasets/signsync_trial_v1_splits.csv"
+MODEL_OUTPUT_DIR = "ml/models/sprint_2_6"
+REPORT_OUTPUT_DIR = "docs/phase_2_evidence"
+MODEL_FILENAME = "signsync_trial_baseline_model.joblib"
+SCALER_FILENAME = "signsync_trial_baseline_scaler.joblib"
+LABEL_NAMES_FILENAME = "signsync_trial_label_names.json"
+TRAINING_REPORT_CSV = "sprint_2_6_training_report.csv"
+TRAINING_REPORT_MD = "sprint_2_6_training_report.md"
+EVALUATION_REPORT_CSV = "sprint_2_6_evaluation_report.csv"
+EVALUATION_REPORT_MD = "sprint_2_6_evaluation_report.md"
+CONFUSION_MATRIX_PNG = "sprint_2_6_confusion_matrix.png"
+METRICS_SUMMARY_JSON = "sprint_2_6_metrics_summary.json"
+
+DEFAULT_FEATURE_MODE = "stats"
+FEATURE_MODES = ("stats", "flatten")
+
+EXPECTED_SAMPLES = 55
+EXPECTED_FRAMES = 60
+EXPECTED_LANDMARK_DIM = 126
+EXPECTED_LABELS = 11
+EXPECTED_TRAIN = 33
+EXPECTED_VAL = 11
+EXPECTED_TEST = 11
+
+STATS_FEATURE_MULTIPLIER = 6
+STATS_FEATURE_SIZE = EXPECTED_LANDMARK_DIM * STATS_FEATURE_MULTIPLIER
+FLATTEN_FEATURE_SIZE = EXPECTED_FRAMES * EXPECTED_LANDMARK_DIM
+
+MODEL_OUTPUT_PATH = Path(MODEL_OUTPUT_DIR) / MODEL_FILENAME
+SCALER_OUTPUT_PATH = Path(MODEL_OUTPUT_DIR) / SCALER_FILENAME
+LABEL_NAMES_OUTPUT_PATH = Path(MODEL_OUTPUT_DIR) / LABEL_NAMES_FILENAME
+TRAINING_REPORT_CSV_PATH = Path(REPORT_OUTPUT_DIR) / TRAINING_REPORT_CSV
+TRAINING_REPORT_MD_PATH = Path(REPORT_OUTPUT_DIR) / TRAINING_REPORT_MD
+EVALUATION_REPORT_CSV_PATH = Path(REPORT_OUTPUT_DIR) / EVALUATION_REPORT_CSV
+EVALUATION_REPORT_MD_PATH = Path(REPORT_OUTPUT_DIR) / EVALUATION_REPORT_MD
+CONFUSION_MATRIX_PATH = Path(REPORT_OUTPUT_DIR) / CONFUSION_MATRIX_PNG
+METRICS_SUMMARY_PATH = Path(REPORT_OUTPUT_DIR) / METRICS_SUMMARY_JSON
