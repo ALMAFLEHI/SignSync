@@ -1,0 +1,5 @@
+split,sample_count,accuracy,macro_precision,macro_recall,macro_f1,weighted_precision,weighted_recall,weighted_f1
+train,33,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+validation,11,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+test,11,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+all,55,1.0,1.0,1.0,1.0,1.0,1.0,1.0

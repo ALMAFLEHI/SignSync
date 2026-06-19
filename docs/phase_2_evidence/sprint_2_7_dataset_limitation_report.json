@@ -1,0 +1,89 @@
+{
+  "dataset_path": "ml/data_processed/datasets/signsync_trial_v1_2hand_60f.npz",
+  "x_shape": [
+    55,
+    60,
+    126
+  ],
+  "y_shape": [
+    55
+  ],
+  "total_samples": 55,
+  "label_count": 11,
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "0",
+    "1",
+    "2",
+    "deposit",
+    "withdraw",
+    "balance",
+    "help",
+    "confirm"
+  ],
+  "samples_per_label": {
+    "0": 5,
+    "1": 5,
+    "2": 5,
+    "A": 5,
+    "B": 5,
+    "C": 5,
+    "balance": 5,
+    "confirm": 5,
+    "deposit": 5,
+    "help": 5,
+    "withdraw": 5
+  },
+  "split_counts": {
+    "test": 11,
+    "train": 33,
+    "val": 11
+  },
+  "participants": [
+    "P02"
+  ],
+  "participant_count": 1,
+  "repetitions_per_label": {
+    "0": 5,
+    "1": 5,
+    "2": 5,
+    "A": 5,
+    "B": 5,
+    "C": 5,
+    "balance": 5,
+    "confirm": 5,
+    "deposit": 5,
+    "help": 5,
+    "withdraw": 5
+  },
+  "test_samples_per_label": {
+    "0": 1,
+    "1": 1,
+    "2": 1,
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "balance": 1,
+    "confirm": 1,
+    "deposit": 1,
+    "help": 1,
+    "withdraw": 1
+  },
+  "small_dataset_detected": true,
+  "one_participant_detected": true,
+  "one_test_sample_per_class_detected": true,
+  "production_accuracy_claim_supported": false,
+  "risks": [
+    "Small sample size: the trial dataset contains only 55 samples.",
+    "Same participant: all trial samples are from one participant (P02).",
+    "Limited environmental variation: recordings do not represent varied cameras, rooms, or capture conditions.",
+    "Limited lighting and background variation: the trial data is not designed to test robustness to those changes.",
+    "No cross-participant test has been performed.",
+    "No full label coverage yet: only 11 of the 56 scoped labels are present.",
+    "Trial labels only: the saved model was trained and evaluated on the early trial vocabulary.",
+    "One test sample per class: an 11-sample test split cannot establish final production accuracy."
+  ],
+  "conclusion": "Sprint 2.6 validates the machine learning pipeline, but the current result should not be interpreted as final production accuracy. More samples, more labels, and ideally more participants are required before final model evaluation."
+}
