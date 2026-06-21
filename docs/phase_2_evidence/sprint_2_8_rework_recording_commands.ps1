@@ -1,0 +1,23 @@
+# SignSync Phase 2 Sprint 2.8 rework commands
+# Record only digit 7 and payment after cleanup is applied.
+
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 1 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 2 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 3 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 4 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 5 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 6 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 7 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 8 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 9 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label 7 --repetition 10 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 1 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 2 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 3 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 4 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 5 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 6 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 7 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 8 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 9 --camera-index 1 --notes "Sprint 2.8 rework recording"
+python ml/src/collect_video.py --participant P02 --label payment --repetition 10 --camera-index 1 --notes "Sprint 2.8 rework recording"

@@ -56,7 +56,7 @@ BANKING_INTENTS_V1: list[str] = [
     "password",
     "identity_verification",
     "cash",
-    "receipt",
+    "payment",
     "fee",
     "loan",
     "savings",
