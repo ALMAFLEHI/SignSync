@@ -15,3 +15,6 @@ ml/data_processed/landmarks/**/*
 
 # Local MediaPipe model assets
 ml/models/*.task
+
+# Trained model binaries
+ml/models/**/*.joblib

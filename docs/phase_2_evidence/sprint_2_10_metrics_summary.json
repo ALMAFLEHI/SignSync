@@ -1,0 +1,16 @@
+{
+  "dataset_path": "ml/data_processed/datasets/signsync_full_v1_2hand_60f.npz",
+  "feature_mode": "stats",
+  "feature_shape": [
+    505,
+    756
+  ],
+  "split_counts": {
+    "train": 348,
+    "val": 56,
+    "test": 101
+  },
+  "selected_model": "ExtraTreesClassifier",
+  "validation_accuracy": 0.9821428571428571,
+  "validation_macro_f1": 0.9761904761904762
+}
