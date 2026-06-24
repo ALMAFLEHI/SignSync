@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from labels import ALL_LABELS
+from labels import ALL_LABELS_V1
 
 
 TRIAL_LABELS: list[str] = [
@@ -34,10 +34,10 @@ EXPECTED_TOTAL_VIDEOS = len(TRIAL_LABELS) * DEFAULT_REPETITIONS
 
 def validate_trial_config() -> None:
     """Validate the trial scope before helper scripts use it."""
-    missing_labels = [label for label in TRIAL_LABELS if label not in ALL_LABELS]
+    missing_labels = [label for label in TRIAL_LABELS if label not in ALL_LABELS_V1]
     if missing_labels:
         raise ValueError(
-            "Trial labels must exist in ALL_LABELS. Missing labels: "
+            "Trial labels must exist in ALL_LABELS_V1. Missing labels: "
             f"{', '.join(missing_labels)}"
         )
 

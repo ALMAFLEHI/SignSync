@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from labels import ALL_LABELS
+from labels import ALL_LABELS_V1
 
 
 # These labels were already collected during the Sprint 2.3 trial dataset.
@@ -20,8 +20,8 @@ TRIAL_LABELS: list[str] = [
     "confirm",
 ]
 
-# Keep the original ALL_LABELS order so recording commands remain predictable.
-REMAINING_LABELS: list[str] = [label for label in ALL_LABELS if label not in TRIAL_LABELS]
+# Keep the frozen V1 order so completed Sprint 2.8 commands remain predictable.
+REMAINING_LABELS: list[str] = [label for label in ALL_LABELS_V1 if label not in TRIAL_LABELS]
 
 FULL_DATASET_PARTICIPANT = "P02"
 FULL_DATASET_CAMERA_INDEX = 1
@@ -39,9 +39,9 @@ EXPECTED_FULL_COLLECTION_VIDEOS = (
 
 def validate_full_collection_config() -> None:
     """Protect the fixed Sprint 2.8 scope before collection scripts use it."""
-    if len(ALL_LABELS) != EXPECTED_VOCABULARY_SIZE:
+    if len(ALL_LABELS_V1) != EXPECTED_VOCABULARY_SIZE:
         raise ValueError(
-            f"Expected {EXPECTED_VOCABULARY_SIZE} source labels, found {len(ALL_LABELS)}."
+            f"Expected {EXPECTED_VOCABULARY_SIZE} source labels, found {len(ALL_LABELS_V1)}."
         )
     if len(TRIAL_LABELS) != EXPECTED_TRIAL_LABEL_COUNT:
         raise ValueError(
@@ -50,10 +50,10 @@ def validate_full_collection_config() -> None:
     if len(set(TRIAL_LABELS)) != len(TRIAL_LABELS):
         raise ValueError("Sprint 2.8 trial labels must be unique.")
 
-    missing_trial_labels = [label for label in TRIAL_LABELS if label not in ALL_LABELS]
+    missing_trial_labels = [label for label in TRIAL_LABELS if label not in ALL_LABELS_V1]
     if missing_trial_labels:
         raise ValueError(
-            "Trial labels must exist in ALL_LABELS. Missing labels: "
+            "Trial labels must exist in ALL_LABELS_V1. Missing labels: "
             f"{', '.join(missing_trial_labels)}"
         )
     if len(REMAINING_LABELS) != EXPECTED_REMAINING_LABEL_COUNT:

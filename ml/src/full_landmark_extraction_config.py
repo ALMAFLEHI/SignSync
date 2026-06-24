@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from labels import ALL_LABELS
+from labels import ALL_LABELS_V1
 
 
 FULL_DATASET_PARTICIPANT = "P02"
@@ -21,7 +21,7 @@ TRIAL_LABELS: list[str] = [
     "help",
     "confirm",
 ]
-FULL_COLLECTION_LABELS: list[str] = [label for label in ALL_LABELS if label not in TRIAL_LABELS]
+FULL_COLLECTION_LABELS: list[str] = [label for label in ALL_LABELS_V1 if label not in TRIAL_LABELS]
 
 TRIAL_REPETITIONS = 5
 FULL_COLLECTION_REPETITIONS = 10
@@ -80,7 +80,7 @@ def expected_paths(participant_id: str, label: str, repetition: int) -> dict[str
 def iter_expected_samples(participant_id: str = FULL_DATASET_PARTICIPANT) -> list[dict[str, object]]:
     """Build every expected trial and full-collection sample in stable label order."""
     samples: list[dict[str, object]] = []
-    for label in ALL_LABELS:
+    for label in ALL_LABELS_V1:
         for repetition in range(1, repetitions_for_label(label) + 1):
             paths = expected_paths(participant_id, label, repetition)
             samples.append(
@@ -97,8 +97,8 @@ def iter_expected_samples(participant_id: str = FULL_DATASET_PARTICIPANT) -> lis
 
 def validate_full_landmark_config() -> None:
     """Validate Sprint 2.9 scope before extraction or verification uses it."""
-    if len(ALL_LABELS) != EXPECTED_SCOPED_LABELS:
-        raise ValueError(f"Expected {EXPECTED_SCOPED_LABELS} labels, found {len(ALL_LABELS)}.")
+    if len(ALL_LABELS_V1) != EXPECTED_SCOPED_LABELS:
+        raise ValueError(f"Expected {EXPECTED_SCOPED_LABELS} labels, found {len(ALL_LABELS_V1)}.")
     if len(TRIAL_LABELS) != EXPECTED_TRIAL_LABELS:
         raise ValueError(f"Expected {EXPECTED_TRIAL_LABELS} trial labels, found {len(TRIAL_LABELS)}.")
     if len(FULL_COLLECTION_LABELS) != EXPECTED_FULL_COLLECTION_LABELS:
@@ -106,9 +106,9 @@ def validate_full_landmark_config() -> None:
             f"Expected {EXPECTED_FULL_COLLECTION_LABELS} full collection labels, "
             f"found {len(FULL_COLLECTION_LABELS)}."
         )
-    if "payment" not in ALL_LABELS or "payment" not in FULL_COLLECTION_LABELS:
+    if "payment" not in ALL_LABELS_V1 or "payment" not in FULL_COLLECTION_LABELS:
         raise ValueError("Sprint 2.9 expects payment in the full collection label scope.")
-    if "receipt" in ALL_LABELS or "receipt" in FULL_COLLECTION_LABELS:
+    if "receipt" in ALL_LABELS_V1 or "receipt" in FULL_COLLECTION_LABELS:
         raise ValueError("Sprint 2.9 must not include receipt in the label scope.")
     if LANDMARK_OUTPUT_DIMENSION != 126 or HAND_MASK_DIMENSION != 2:
         raise ValueError("Sprint 2.9 must use a 126-value landmark row and a 2-value hand mask.")

@@ -10,7 +10,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-from labels import ALPHABET, ALL_LABELS, BANKING_INTENTS_V1, DIGITS
+from labels import ALPHABET, ALL_LABELS, BANKING_INTENTS, DIGITS
 
 
 PROJECT_NAME = "SignSync"
@@ -65,11 +65,11 @@ def parse_args() -> argparse.Namespace:
 
 
 def list_available_labels() -> None:
-    """Print the Sprint 2.1 labels grouped for easy correction by the user."""
+    """Print the active dataset labels grouped for easy correction by the user."""
     print("Available labels:")
     print(f"Alphabet: {', '.join(ALPHABET)}")
     print(f"Digits: {', '.join(DIGITS)}")
-    print(f"Banking intents: {', '.join(BANKING_INTENTS_V1)}")
+    print(f"Banking intents: {', '.join(BANKING_INTENTS)}")
 
 
 def validate_participant_id(participant_id: str) -> str:
@@ -84,7 +84,7 @@ def validate_participant_id(participant_id: str) -> str:
 
 
 def validate_label(label: str) -> str:
-    """Validate the requested label against the Sprint 2.1 vocabulary."""
+    """Validate the requested label against the active collection vocabulary."""
     normalized_label = label.strip()
     if normalized_label not in ALL_LABELS:
         print(f"Invalid label: {normalized_label}")

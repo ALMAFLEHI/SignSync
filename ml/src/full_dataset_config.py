@@ -4,14 +4,14 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from labels import ALPHABET, ALL_LABELS, BANKING_INTENTS_V1, DIGITS
+from labels import ALPHABET_LABELS, ALL_LABELS_V1, BANKING_INTENTS_V1, DIGIT_LABELS
 
 
 FULL_DATASET_PARTICIPANT = "P02"
 TRIAL_LABELS: list[str] = [
     "A", "B", "C", "0", "1", "2", "deposit", "withdraw", "balance", "help", "confirm",
 ]
-FULL_COLLECTION_LABELS: list[str] = [label for label in ALL_LABELS if label not in TRIAL_LABELS]
+FULL_COLLECTION_LABELS: list[str] = [label for label in ALL_LABELS_V1 if label not in TRIAL_LABELS]
 
 EXPECTED_LABELS = 56
 EXPECTED_SAMPLES = 505
@@ -55,9 +55,9 @@ CONFUSION_MATRIX_CSV_PATH = EVIDENCE_DIR / "sprint_2_10_confusion_matrix.csv"
 CONFUSION_MATRIX_PNG_PATH = EVIDENCE_DIR / "sprint_2_10_confusion_matrix.png"
 
 LABEL_GROUPS = {
-    "normal_mode": ALPHABET + BANKING_INTENTS_V1,
-    "number_mode": DIGITS,
-    "all_labels": ALL_LABELS,
+    "normal_mode": ALPHABET_LABELS + BANKING_INTENTS_V1,
+    "number_mode": DIGIT_LABELS,
+    "all_labels": ALL_LABELS_V1,
 }
 
 
@@ -106,7 +106,7 @@ def expected_paths(participant_id: str, label: str, repetition: int) -> dict[str
 def iter_expected_samples(participant_id: str = FULL_DATASET_PARTICIPANT) -> list[dict[str, object]]:
     """Build all 505 expected samples in stable label and repetition order."""
     samples: list[dict[str, object]] = []
-    for label_index, label in enumerate(ALL_LABELS):
+    for label_index, label in enumerate(ALL_LABELS_V1):
         for repetition in range(1, repetitions_for_label(label) + 1):
             paths = expected_paths(participant_id, label, repetition)
             samples.append(
@@ -125,18 +125,18 @@ def iter_expected_samples(participant_id: str = FULL_DATASET_PARTICIPANT) -> lis
 
 def validate_full_dataset_config() -> None:
     """Ensure the full dataset scope and future app mode metadata remain stable."""
-    if len(ALL_LABELS) != EXPECTED_LABELS:
-        raise ValueError(f"Expected {EXPECTED_LABELS} labels, found {len(ALL_LABELS)}.")
+    if len(ALL_LABELS_V1) != EXPECTED_LABELS:
+        raise ValueError(f"Expected {EXPECTED_LABELS} labels, found {len(ALL_LABELS_V1)}.")
     if len(TRIAL_LABELS) != 11 or len(FULL_COLLECTION_LABELS) != 45:
         raise ValueError("Expected 11 trial labels and 45 full collection labels.")
-    if "payment" not in ALL_LABELS or "receipt" in ALL_LABELS:
+    if "payment" not in ALL_LABELS_V1 or "receipt" in ALL_LABELS_V1:
         raise ValueError("The full dataset must include payment and exclude receipt.")
     if len(LABEL_GROUPS["normal_mode"]) != 46:
         raise ValueError("Normal Mode must include 26 alphabet and 20 banking labels.")
     if len(LABEL_GROUPS["number_mode"]) != 10:
         raise ValueError("Number Mode must include exactly 10 digit labels.")
-    if LABEL_GROUPS["all_labels"] != ALL_LABELS:
-        raise ValueError("All-label mode metadata must preserve ALL_LABELS order.")
+    if LABEL_GROUPS["all_labels"] != ALL_LABELS_V1:
+        raise ValueError("All-label mode metadata must preserve ALL_LABELS_V1 order.")
     samples = iter_expected_samples()
     split_counts = {split: sum(sample["split"] == split for sample in samples) for split in ("train", "val", "test")}
     if len(samples) != EXPECTED_SAMPLES:
