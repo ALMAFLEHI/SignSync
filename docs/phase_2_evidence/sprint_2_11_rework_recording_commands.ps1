@@ -1,0 +1,26 @@
+# SignSync Phase 2 Sprint 2.11 rework recording commands
+# Run after applying the safe rework cleanup.
+# These commands cover document, signature, account_number R01, and atm R01 only.
+
+python ml/src/collect_video.py --participant P02 --label document --repetition 1 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label document --repetition 2 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label document --repetition 3 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label document --repetition 4 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label document --repetition 5 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label document --repetition 6 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label document --repetition 7 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label document --repetition 8 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label document --repetition 9 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label document --repetition 10 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 1 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 2 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 3 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 4 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 5 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 6 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 7 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 8 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 9 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label signature --repetition 10 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label account_number --repetition 1 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"
+python ml/src/collect_video.py --participant P02 --label atm --repetition 1 --camera-index 1 --notes "Sprint 2.11 banking intent expansion"

@@ -19,6 +19,18 @@ SPRINT_2_11_REPETITIONS = 10
 SPRINT_2_11_NOTES = "Sprint 2.11 banking intent expansion"
 
 EXPANSION_LABELS: list[str] = BANKING_INTENTS_EXPANSION_V2
+REPLACED_EXPANSION_LABELS: list[str] = ["transaction_history", "dispute_transaction"]
+REWORK_ADDED_LABELS: list[str] = ["document", "signature"]
+REWORK_REDO_SAMPLES: list[tuple[str, int]] = [("account_number", 1), ("atm", 1)]
+REWORK_RECORDING_PLAN: list[tuple[str, int]] = [
+    *[
+        (label, repetition)
+        for label in REWORK_ADDED_LABELS
+        for repetition in range(1, SPRINT_2_11_REPETITIONS + 1)
+    ],
+    *REWORK_REDO_SAMPLES,
+]
+EXPECTED_REWORK_RECORDINGS = 22
 EXPECTED_NEW_LABELS = 30
 EXPECTED_NEW_VIDEOS = EXPECTED_NEW_LABELS * SPRINT_2_11_REPETITIONS
 EXPECTED_V2_BANKING_INTENTS = 50
@@ -76,6 +88,10 @@ def validate_sprint_2_11_config() -> None:
         raise ValueError("receipt must not be included in the Sprint 2.11 scope.")
     if "payment" not in ALL_LABELS_V2:
         raise ValueError("payment must remain in the active V2 vocabulary.")
+    if any(label in EXPANSION_LABELS for label in REPLACED_EXPANSION_LABELS):
+        raise ValueError("Replaced Sprint 2.11 labels must not remain expected.")
+    if any(label not in EXPANSION_LABELS for label in REWORK_ADDED_LABELS):
+        raise ValueError("Rework replacement labels must be included in Sprint 2.11.")
     if len(BANKING_INTENTS_V2) != EXPECTED_V2_BANKING_INTENTS:
         raise ValueError("Sprint 2.11 must have 50 V2 banking intents.")
     if len(ALL_LABELS_V2) != EXPECTED_V2_TOTAL_LABELS:
@@ -86,6 +102,8 @@ def validate_sprint_2_11_config() -> None:
         raise ValueError("Sprint 2.11 Number Mode must have 10 labels.")
     if len(iter_expected_samples()) != EXPECTED_NEW_VIDEOS:
         raise ValueError("Sprint 2.11 must plan exactly 300 new recordings.")
+    if len(REWORK_RECORDING_PLAN) != EXPECTED_REWORK_RECORDINGS:
+        raise ValueError("Sprint 2.11 rework must plan exactly 22 recordings.")
 
 
 validate_sprint_2_11_config()

@@ -1,0 +1,792 @@
+"sample_id","participant_id","label","repetition","video_path","landmark_path","status","notes"
+"P01_deposit_R01","P01","deposit","1","ml/data_raw/videos/deposit/P01_deposit_R01.mp4","","raw_recorded","Sprint 2.2 first webcam test; frames=60; fps=20; width=640; height=480"
+"P01_A_R01","P01","A","1","ml/data_raw/videos/A/P01_A_R01.mp4","","raw_recorded","Alphabet test; frames=60; fps=20; width=640; height=480"
+"P01_0_R01","P01","0","1","ml/data_raw/videos/0/P01_0_R01.mp4","","raw_recorded","Digit test; frames=60; fps=20; width=640; height=480"
+"P01_deposit_R02","P01","deposit","2","ml/data_raw/videos/deposit/P01_deposit_R02.mp4","","raw_recorded","camera visibility test; frames=60; fps=20; width=640; height=480"
+"P01_deposit_R03","P01","deposit","3","ml/data_raw/videos/deposit/P01_deposit_R03.mp4","","raw_recorded","camera index 1 test; frames=60; fps=20; width=640; height=480"
+"P01_deposit_R04","P01","deposit","4","ml/data_raw/videos/deposit/P01_deposit_R04.mp4","","raw_recorded","final camera test; frames=60; fps=20; width=640; height=480"
+"P99_A_R01","P99","A","1","ml/data_raw/videos/A/P99_A_R01.mp4","","raw_recorded","overlay fix test; frames=60; fps=20; width=640; height=480"
+"P02_A_R01","P02","A","1","ml/data_raw/videos/A/P02_A_R01.mp4","ml/data_processed/landmarks/A/P02_A_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_A_R02","P02","A","2","ml/data_raw/videos/A/P02_A_R02.mp4","ml/data_processed/landmarks/A/P02_A_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_A_R03","P02","A","3","ml/data_raw/videos/A/P02_A_R03.mp4","ml/data_processed/landmarks/A/P02_A_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_A_R04","P02","A","4","ml/data_raw/videos/A/P02_A_R04.mp4","ml/data_processed/landmarks/A/P02_A_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_A_R05","P02","A","5","ml/data_raw/videos/A/P02_A_R05.mp4","ml/data_processed/landmarks/A/P02_A_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_B_R01","P02","B","1","ml/data_raw/videos/B/P02_B_R01.mp4","ml/data_processed/landmarks/B/P02_B_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_B_R02","P02","B","2","ml/data_raw/videos/B/P02_B_R02.mp4","ml/data_processed/landmarks/B/P02_B_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_B_R03","P02","B","3","ml/data_raw/videos/B/P02_B_R03.mp4","ml/data_processed/landmarks/B/P02_B_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_B_R04","P02","B","4","ml/data_raw/videos/B/P02_B_R04.mp4","ml/data_processed/landmarks/B/P02_B_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_B_R05","P02","B","5","ml/data_raw/videos/B/P02_B_R05.mp4","ml/data_processed/landmarks/B/P02_B_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_C_R01","P02","C","1","ml/data_raw/videos/C/P02_C_R01.mp4","ml/data_processed/landmarks/C/P02_C_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_C_R02","P02","C","2","ml/data_raw/videos/C/P02_C_R02.mp4","ml/data_processed/landmarks/C/P02_C_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_C_R03","P02","C","3","ml/data_raw/videos/C/P02_C_R03.mp4","ml/data_processed/landmarks/C/P02_C_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_C_R04","P02","C","4","ml/data_raw/videos/C/P02_C_R04.mp4","ml/data_processed/landmarks/C/P02_C_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_C_R05","P02","C","5","ml/data_raw/videos/C/P02_C_R05.mp4","ml/data_processed/landmarks/C/P02_C_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_0_R01","P02","0","1","ml/data_raw/videos/0/P02_0_R01.mp4","ml/data_processed/landmarks/0/P02_0_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_0_R02","P02","0","2","ml/data_raw/videos/0/P02_0_R02.mp4","ml/data_processed/landmarks/0/P02_0_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_0_R03","P02","0","3","ml/data_raw/videos/0/P02_0_R03.mp4","ml/data_processed/landmarks/0/P02_0_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_0_R04","P02","0","4","ml/data_raw/videos/0/P02_0_R04.mp4","ml/data_processed/landmarks/0/P02_0_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_0_R05","P02","0","5","ml/data_raw/videos/0/P02_0_R05.mp4","ml/data_processed/landmarks/0/P02_0_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_1_R01","P02","1","1","ml/data_raw/videos/1/P02_1_R01.mp4","ml/data_processed/landmarks/1/P02_1_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_1_R02","P02","1","2","ml/data_raw/videos/1/P02_1_R02.mp4","ml/data_processed/landmarks/1/P02_1_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_1_R03","P02","1","3","ml/data_raw/videos/1/P02_1_R03.mp4","ml/data_processed/landmarks/1/P02_1_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_1_R04","P02","1","4","ml/data_raw/videos/1/P02_1_R04.mp4","ml/data_processed/landmarks/1/P02_1_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_1_R05","P02","1","5","ml/data_raw/videos/1/P02_1_R05.mp4","ml/data_processed/landmarks/1/P02_1_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_2_R01","P02","2","1","ml/data_raw/videos/2/P02_2_R01.mp4","ml/data_processed/landmarks/2/P02_2_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_2_R02","P02","2","2","ml/data_raw/videos/2/P02_2_R02.mp4","ml/data_processed/landmarks/2/P02_2_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_2_R03","P02","2","3","ml/data_raw/videos/2/P02_2_R03.mp4","ml/data_processed/landmarks/2/P02_2_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_2_R04","P02","2","4","ml/data_raw/videos/2/P02_2_R04.mp4","ml/data_processed/landmarks/2/P02_2_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_2_R05","P02","2","5","ml/data_raw/videos/2/P02_2_R05.mp4","ml/data_processed/landmarks/2/P02_2_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_deposit_R01","P02","deposit","1","ml/data_raw/videos/deposit/P02_deposit_R01.mp4","ml/data_processed/landmarks/deposit/P02_deposit_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_deposit_R02","P02","deposit","2","ml/data_raw/videos/deposit/P02_deposit_R02.mp4","ml/data_processed/landmarks/deposit/P02_deposit_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_deposit_R03","P02","deposit","3","ml/data_raw/videos/deposit/P02_deposit_R03.mp4","ml/data_processed/landmarks/deposit/P02_deposit_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_deposit_R04","P02","deposit","4","ml/data_raw/videos/deposit/P02_deposit_R04.mp4","ml/data_processed/landmarks/deposit/P02_deposit_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_deposit_R05","P02","deposit","5","ml/data_raw/videos/deposit/P02_deposit_R05.mp4","ml/data_processed/landmarks/deposit/P02_deposit_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_withdraw_R01","P02","withdraw","1","ml/data_raw/videos/withdraw/P02_withdraw_R01.mp4","ml/data_processed/landmarks/withdraw/P02_withdraw_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_withdraw_R02","P02","withdraw","2","ml/data_raw/videos/withdraw/P02_withdraw_R02.mp4","ml/data_processed/landmarks/withdraw/P02_withdraw_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_withdraw_R03","P02","withdraw","3","ml/data_raw/videos/withdraw/P02_withdraw_R03.mp4","ml/data_processed/landmarks/withdraw/P02_withdraw_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_withdraw_R04","P02","withdraw","4","ml/data_raw/videos/withdraw/P02_withdraw_R04.mp4","ml/data_processed/landmarks/withdraw/P02_withdraw_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_withdraw_R05","P02","withdraw","5","ml/data_raw/videos/withdraw/P02_withdraw_R05.mp4","ml/data_processed/landmarks/withdraw/P02_withdraw_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_balance_R01","P02","balance","1","ml/data_raw/videos/balance/P02_balance_R01.mp4","ml/data_processed/landmarks/balance/P02_balance_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_balance_R02","P02","balance","2","ml/data_raw/videos/balance/P02_balance_R02.mp4","ml/data_processed/landmarks/balance/P02_balance_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_balance_R03","P02","balance","3","ml/data_raw/videos/balance/P02_balance_R03.mp4","ml/data_processed/landmarks/balance/P02_balance_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_balance_R04","P02","balance","4","ml/data_raw/videos/balance/P02_balance_R04.mp4","ml/data_processed/landmarks/balance/P02_balance_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_balance_R05","P02","balance","5","ml/data_raw/videos/balance/P02_balance_R05.mp4","ml/data_processed/landmarks/balance/P02_balance_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_help_R01","P02","help","1","ml/data_raw/videos/help/P02_help_R01.mp4","ml/data_processed/landmarks/help/P02_help_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_help_R02","P02","help","2","ml/data_raw/videos/help/P02_help_R02.mp4","ml/data_processed/landmarks/help/P02_help_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_help_R03","P02","help","3","ml/data_raw/videos/help/P02_help_R03.mp4","ml/data_processed/landmarks/help/P02_help_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_help_R04","P02","help","4","ml/data_raw/videos/help/P02_help_R04.mp4","ml/data_processed/landmarks/help/P02_help_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_help_R05","P02","help","5","ml/data_raw/videos/help/P02_help_R05.mp4","ml/data_processed/landmarks/help/P02_help_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_confirm_R01","P02","confirm","1","ml/data_raw/videos/confirm/P02_confirm_R01.mp4","ml/data_processed/landmarks/confirm/P02_confirm_R01_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_confirm_R02","P02","confirm","2","ml/data_raw/videos/confirm/P02_confirm_R02.mp4","ml/data_processed/landmarks/confirm/P02_confirm_R02_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_confirm_R03","P02","confirm","3","ml/data_raw/videos/confirm/P02_confirm_R03.mp4","ml/data_processed/landmarks/confirm/P02_confirm_R03_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_confirm_R04","P02","confirm","4","ml/data_raw/videos/confirm/P02_confirm_R04.mp4","ml/data_processed/landmarks/confirm/P02_confirm_R04_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_confirm_R05","P02","confirm","5","ml/data_raw/videos/confirm/P02_confirm_R05.mp4","ml/data_processed/landmarks/confirm/P02_confirm_R05_landmarks.npy","landmarks_extracted","Sprint 2.3 trial dataset; frames=60; fps=20; width=640; height=480"
+"P02_D_R01","P02","D","1","ml/data_raw/videos/D/P02_D_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_D_R02","P02","D","2","ml/data_raw/videos/D/P02_D_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_D_R03","P02","D","3","ml/data_raw/videos/D/P02_D_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_D_R04","P02","D","4","ml/data_raw/videos/D/P02_D_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_D_R05","P02","D","5","ml/data_raw/videos/D/P02_D_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_D_R06","P02","D","6","ml/data_raw/videos/D/P02_D_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_D_R07","P02","D","7","ml/data_raw/videos/D/P02_D_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_D_R08","P02","D","8","ml/data_raw/videos/D/P02_D_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_D_R09","P02","D","9","ml/data_raw/videos/D/P02_D_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_D_R10","P02","D","10","ml/data_raw/videos/D/P02_D_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R01","P02","E","1","ml/data_raw/videos/E/P02_E_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R02","P02","E","2","ml/data_raw/videos/E/P02_E_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R03","P02","E","3","ml/data_raw/videos/E/P02_E_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R04","P02","E","4","ml/data_raw/videos/E/P02_E_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R05","P02","E","5","ml/data_raw/videos/E/P02_E_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R06","P02","E","6","ml/data_raw/videos/E/P02_E_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R07","P02","E","7","ml/data_raw/videos/E/P02_E_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R08","P02","E","8","ml/data_raw/videos/E/P02_E_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R09","P02","E","9","ml/data_raw/videos/E/P02_E_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_E_R10","P02","E","10","ml/data_raw/videos/E/P02_E_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R01","P02","F","1","ml/data_raw/videos/F/P02_F_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R02","P02","F","2","ml/data_raw/videos/F/P02_F_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R03","P02","F","3","ml/data_raw/videos/F/P02_F_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R04","P02","F","4","ml/data_raw/videos/F/P02_F_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R05","P02","F","5","ml/data_raw/videos/F/P02_F_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R06","P02","F","6","ml/data_raw/videos/F/P02_F_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R07","P02","F","7","ml/data_raw/videos/F/P02_F_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R08","P02","F","8","ml/data_raw/videos/F/P02_F_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R09","P02","F","9","ml/data_raw/videos/F/P02_F_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_F_R10","P02","F","10","ml/data_raw/videos/F/P02_F_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R01","P02","G","1","ml/data_raw/videos/G/P02_G_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R02","P02","G","2","ml/data_raw/videos/G/P02_G_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R03","P02","G","3","ml/data_raw/videos/G/P02_G_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R04","P02","G","4","ml/data_raw/videos/G/P02_G_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R05","P02","G","5","ml/data_raw/videos/G/P02_G_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R06","P02","G","6","ml/data_raw/videos/G/P02_G_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R07","P02","G","7","ml/data_raw/videos/G/P02_G_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R08","P02","G","8","ml/data_raw/videos/G/P02_G_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R09","P02","G","9","ml/data_raw/videos/G/P02_G_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_G_R10","P02","G","10","ml/data_raw/videos/G/P02_G_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R01","P02","H","1","ml/data_raw/videos/H/P02_H_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R02","P02","H","2","ml/data_raw/videos/H/P02_H_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R03","P02","H","3","ml/data_raw/videos/H/P02_H_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R04","P02","H","4","ml/data_raw/videos/H/P02_H_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R05","P02","H","5","ml/data_raw/videos/H/P02_H_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R06","P02","H","6","ml/data_raw/videos/H/P02_H_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R07","P02","H","7","ml/data_raw/videos/H/P02_H_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R08","P02","H","8","ml/data_raw/videos/H/P02_H_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R09","P02","H","9","ml/data_raw/videos/H/P02_H_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_H_R10","P02","H","10","ml/data_raw/videos/H/P02_H_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R01","P02","I","1","ml/data_raw/videos/I/P02_I_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R02","P02","I","2","ml/data_raw/videos/I/P02_I_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R03","P02","I","3","ml/data_raw/videos/I/P02_I_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R04","P02","I","4","ml/data_raw/videos/I/P02_I_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R05","P02","I","5","ml/data_raw/videos/I/P02_I_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R06","P02","I","6","ml/data_raw/videos/I/P02_I_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R07","P02","I","7","ml/data_raw/videos/I/P02_I_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R08","P02","I","8","ml/data_raw/videos/I/P02_I_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R09","P02","I","9","ml/data_raw/videos/I/P02_I_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_I_R10","P02","I","10","ml/data_raw/videos/I/P02_I_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R01","P02","J","1","ml/data_raw/videos/J/P02_J_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R02","P02","J","2","ml/data_raw/videos/J/P02_J_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R03","P02","J","3","ml/data_raw/videos/J/P02_J_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R04","P02","J","4","ml/data_raw/videos/J/P02_J_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R05","P02","J","5","ml/data_raw/videos/J/P02_J_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R06","P02","J","6","ml/data_raw/videos/J/P02_J_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R07","P02","J","7","ml/data_raw/videos/J/P02_J_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R08","P02","J","8","ml/data_raw/videos/J/P02_J_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R09","P02","J","9","ml/data_raw/videos/J/P02_J_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_J_R10","P02","J","10","ml/data_raw/videos/J/P02_J_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R01","P02","K","1","ml/data_raw/videos/K/P02_K_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R02","P02","K","2","ml/data_raw/videos/K/P02_K_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R03","P02","K","3","ml/data_raw/videos/K/P02_K_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R04","P02","K","4","ml/data_raw/videos/K/P02_K_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R05","P02","K","5","ml/data_raw/videos/K/P02_K_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R06","P02","K","6","ml/data_raw/videos/K/P02_K_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R07","P02","K","7","ml/data_raw/videos/K/P02_K_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R08","P02","K","8","ml/data_raw/videos/K/P02_K_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R09","P02","K","9","ml/data_raw/videos/K/P02_K_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_K_R10","P02","K","10","ml/data_raw/videos/K/P02_K_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R01","P02","L","1","ml/data_raw/videos/L/P02_L_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R02","P02","L","2","ml/data_raw/videos/L/P02_L_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R03","P02","L","3","ml/data_raw/videos/L/P02_L_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R04","P02","L","4","ml/data_raw/videos/L/P02_L_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R05","P02","L","5","ml/data_raw/videos/L/P02_L_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R06","P02","L","6","ml/data_raw/videos/L/P02_L_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R07","P02","L","7","ml/data_raw/videos/L/P02_L_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R08","P02","L","8","ml/data_raw/videos/L/P02_L_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R09","P02","L","9","ml/data_raw/videos/L/P02_L_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_L_R10","P02","L","10","ml/data_raw/videos/L/P02_L_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R01","P02","M","1","ml/data_raw/videos/M/P02_M_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R02","P02","M","2","ml/data_raw/videos/M/P02_M_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R03","P02","M","3","ml/data_raw/videos/M/P02_M_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R04","P02","M","4","ml/data_raw/videos/M/P02_M_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R05","P02","M","5","ml/data_raw/videos/M/P02_M_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R06","P02","M","6","ml/data_raw/videos/M/P02_M_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R07","P02","M","7","ml/data_raw/videos/M/P02_M_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R08","P02","M","8","ml/data_raw/videos/M/P02_M_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R09","P02","M","9","ml/data_raw/videos/M/P02_M_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_M_R10","P02","M","10","ml/data_raw/videos/M/P02_M_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R01","P02","N","1","ml/data_raw/videos/N/P02_N_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R02","P02","N","2","ml/data_raw/videos/N/P02_N_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R03","P02","N","3","ml/data_raw/videos/N/P02_N_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R04","P02","N","4","ml/data_raw/videos/N/P02_N_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R05","P02","N","5","ml/data_raw/videos/N/P02_N_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R06","P02","N","6","ml/data_raw/videos/N/P02_N_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R07","P02","N","7","ml/data_raw/videos/N/P02_N_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R08","P02","N","8","ml/data_raw/videos/N/P02_N_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R09","P02","N","9","ml/data_raw/videos/N/P02_N_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_N_R10","P02","N","10","ml/data_raw/videos/N/P02_N_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R01","P02","O","1","ml/data_raw/videos/O/P02_O_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R02","P02","O","2","ml/data_raw/videos/O/P02_O_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R03","P02","O","3","ml/data_raw/videos/O/P02_O_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R04","P02","O","4","ml/data_raw/videos/O/P02_O_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R05","P02","O","5","ml/data_raw/videos/O/P02_O_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R06","P02","O","6","ml/data_raw/videos/O/P02_O_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R07","P02","O","7","ml/data_raw/videos/O/P02_O_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R08","P02","O","8","ml/data_raw/videos/O/P02_O_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R09","P02","O","9","ml/data_raw/videos/O/P02_O_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_O_R10","P02","O","10","ml/data_raw/videos/O/P02_O_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R01","P02","P","1","ml/data_raw/videos/P/P02_P_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R02","P02","P","2","ml/data_raw/videos/P/P02_P_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R03","P02","P","3","ml/data_raw/videos/P/P02_P_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R04","P02","P","4","ml/data_raw/videos/P/P02_P_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R05","P02","P","5","ml/data_raw/videos/P/P02_P_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R06","P02","P","6","ml/data_raw/videos/P/P02_P_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R07","P02","P","7","ml/data_raw/videos/P/P02_P_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R08","P02","P","8","ml/data_raw/videos/P/P02_P_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R09","P02","P","9","ml/data_raw/videos/P/P02_P_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_P_R10","P02","P","10","ml/data_raw/videos/P/P02_P_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R01","P02","Q","1","ml/data_raw/videos/Q/P02_Q_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R02","P02","Q","2","ml/data_raw/videos/Q/P02_Q_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R03","P02","Q","3","ml/data_raw/videos/Q/P02_Q_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R04","P02","Q","4","ml/data_raw/videos/Q/P02_Q_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R05","P02","Q","5","ml/data_raw/videos/Q/P02_Q_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R06","P02","Q","6","ml/data_raw/videos/Q/P02_Q_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R07","P02","Q","7","ml/data_raw/videos/Q/P02_Q_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R08","P02","Q","8","ml/data_raw/videos/Q/P02_Q_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R09","P02","Q","9","ml/data_raw/videos/Q/P02_Q_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Q_R10","P02","Q","10","ml/data_raw/videos/Q/P02_Q_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R01","P02","R","1","ml/data_raw/videos/R/P02_R_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R02","P02","R","2","ml/data_raw/videos/R/P02_R_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R03","P02","R","3","ml/data_raw/videos/R/P02_R_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R04","P02","R","4","ml/data_raw/videos/R/P02_R_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R05","P02","R","5","ml/data_raw/videos/R/P02_R_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R06","P02","R","6","ml/data_raw/videos/R/P02_R_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R07","P02","R","7","ml/data_raw/videos/R/P02_R_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R08","P02","R","8","ml/data_raw/videos/R/P02_R_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R09","P02","R","9","ml/data_raw/videos/R/P02_R_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_R_R10","P02","R","10","ml/data_raw/videos/R/P02_R_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R01","P02","S","1","ml/data_raw/videos/S/P02_S_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R02","P02","S","2","ml/data_raw/videos/S/P02_S_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R03","P02","S","3","ml/data_raw/videos/S/P02_S_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R04","P02","S","4","ml/data_raw/videos/S/P02_S_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R05","P02","S","5","ml/data_raw/videos/S/P02_S_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R06","P02","S","6","ml/data_raw/videos/S/P02_S_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R07","P02","S","7","ml/data_raw/videos/S/P02_S_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R08","P02","S","8","ml/data_raw/videos/S/P02_S_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R09","P02","S","9","ml/data_raw/videos/S/P02_S_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_S_R10","P02","S","10","ml/data_raw/videos/S/P02_S_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R01","P02","T","1","ml/data_raw/videos/T/P02_T_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R02","P02","T","2","ml/data_raw/videos/T/P02_T_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R03","P02","T","3","ml/data_raw/videos/T/P02_T_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R04","P02","T","4","ml/data_raw/videos/T/P02_T_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R05","P02","T","5","ml/data_raw/videos/T/P02_T_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R06","P02","T","6","ml/data_raw/videos/T/P02_T_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R07","P02","T","7","ml/data_raw/videos/T/P02_T_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R08","P02","T","8","ml/data_raw/videos/T/P02_T_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R09","P02","T","9","ml/data_raw/videos/T/P02_T_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_T_R10","P02","T","10","ml/data_raw/videos/T/P02_T_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R01","P02","U","1","ml/data_raw/videos/U/P02_U_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R02","P02","U","2","ml/data_raw/videos/U/P02_U_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R03","P02","U","3","ml/data_raw/videos/U/P02_U_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R04","P02","U","4","ml/data_raw/videos/U/P02_U_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R05","P02","U","5","ml/data_raw/videos/U/P02_U_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R06","P02","U","6","ml/data_raw/videos/U/P02_U_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R07","P02","U","7","ml/data_raw/videos/U/P02_U_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R08","P02","U","8","ml/data_raw/videos/U/P02_U_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R09","P02","U","9","ml/data_raw/videos/U/P02_U_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_U_R10","P02","U","10","ml/data_raw/videos/U/P02_U_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R01","P02","V","1","ml/data_raw/videos/V/P02_V_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R02","P02","V","2","ml/data_raw/videos/V/P02_V_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R03","P02","V","3","ml/data_raw/videos/V/P02_V_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R04","P02","V","4","ml/data_raw/videos/V/P02_V_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R05","P02","V","5","ml/data_raw/videos/V/P02_V_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R06","P02","V","6","ml/data_raw/videos/V/P02_V_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R07","P02","V","7","ml/data_raw/videos/V/P02_V_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R08","P02","V","8","ml/data_raw/videos/V/P02_V_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R09","P02","V","9","ml/data_raw/videos/V/P02_V_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_V_R10","P02","V","10","ml/data_raw/videos/V/P02_V_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R01","P02","W","1","ml/data_raw/videos/W/P02_W_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R02","P02","W","2","ml/data_raw/videos/W/P02_W_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R03","P02","W","3","ml/data_raw/videos/W/P02_W_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R04","P02","W","4","ml/data_raw/videos/W/P02_W_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R05","P02","W","5","ml/data_raw/videos/W/P02_W_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R06","P02","W","6","ml/data_raw/videos/W/P02_W_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R07","P02","W","7","ml/data_raw/videos/W/P02_W_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R08","P02","W","8","ml/data_raw/videos/W/P02_W_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R09","P02","W","9","ml/data_raw/videos/W/P02_W_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_W_R10","P02","W","10","ml/data_raw/videos/W/P02_W_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R01","P02","X","1","ml/data_raw/videos/X/P02_X_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R02","P02","X","2","ml/data_raw/videos/X/P02_X_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R03","P02","X","3","ml/data_raw/videos/X/P02_X_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R04","P02","X","4","ml/data_raw/videos/X/P02_X_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R05","P02","X","5","ml/data_raw/videos/X/P02_X_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R06","P02","X","6","ml/data_raw/videos/X/P02_X_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R07","P02","X","7","ml/data_raw/videos/X/P02_X_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R08","P02","X","8","ml/data_raw/videos/X/P02_X_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R09","P02","X","9","ml/data_raw/videos/X/P02_X_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_X_R10","P02","X","10","ml/data_raw/videos/X/P02_X_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R01","P02","Y","1","ml/data_raw/videos/Y/P02_Y_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R02","P02","Y","2","ml/data_raw/videos/Y/P02_Y_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R03","P02","Y","3","ml/data_raw/videos/Y/P02_Y_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R04","P02","Y","4","ml/data_raw/videos/Y/P02_Y_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R05","P02","Y","5","ml/data_raw/videos/Y/P02_Y_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R06","P02","Y","6","ml/data_raw/videos/Y/P02_Y_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R07","P02","Y","7","ml/data_raw/videos/Y/P02_Y_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R08","P02","Y","8","ml/data_raw/videos/Y/P02_Y_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R09","P02","Y","9","ml/data_raw/videos/Y/P02_Y_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Y_R10","P02","Y","10","ml/data_raw/videos/Y/P02_Y_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R01","P02","Z","1","ml/data_raw/videos/Z/P02_Z_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R02","P02","Z","2","ml/data_raw/videos/Z/P02_Z_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R03","P02","Z","3","ml/data_raw/videos/Z/P02_Z_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R04","P02","Z","4","ml/data_raw/videos/Z/P02_Z_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R05","P02","Z","5","ml/data_raw/videos/Z/P02_Z_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R06","P02","Z","6","ml/data_raw/videos/Z/P02_Z_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R07","P02","Z","7","ml/data_raw/videos/Z/P02_Z_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R08","P02","Z","8","ml/data_raw/videos/Z/P02_Z_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R09","P02","Z","9","ml/data_raw/videos/Z/P02_Z_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_Z_R10","P02","Z","10","ml/data_raw/videos/Z/P02_Z_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R01","P02","3","1","ml/data_raw/videos/3/P02_3_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R02","P02","3","2","ml/data_raw/videos/3/P02_3_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R03","P02","3","3","ml/data_raw/videos/3/P02_3_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R04","P02","3","4","ml/data_raw/videos/3/P02_3_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R05","P02","3","5","ml/data_raw/videos/3/P02_3_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R06","P02","3","6","ml/data_raw/videos/3/P02_3_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R07","P02","3","7","ml/data_raw/videos/3/P02_3_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R08","P02","3","8","ml/data_raw/videos/3/P02_3_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R09","P02","3","9","ml/data_raw/videos/3/P02_3_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_3_R10","P02","3","10","ml/data_raw/videos/3/P02_3_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R01","P02","4","1","ml/data_raw/videos/4/P02_4_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R02","P02","4","2","ml/data_raw/videos/4/P02_4_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R03","P02","4","3","ml/data_raw/videos/4/P02_4_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R04","P02","4","4","ml/data_raw/videos/4/P02_4_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R05","P02","4","5","ml/data_raw/videos/4/P02_4_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R06","P02","4","6","ml/data_raw/videos/4/P02_4_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R07","P02","4","7","ml/data_raw/videos/4/P02_4_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R08","P02","4","8","ml/data_raw/videos/4/P02_4_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R09","P02","4","9","ml/data_raw/videos/4/P02_4_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_4_R10","P02","4","10","ml/data_raw/videos/4/P02_4_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R01","P02","5","1","ml/data_raw/videos/5/P02_5_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R02","P02","5","2","ml/data_raw/videos/5/P02_5_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R03","P02","5","3","ml/data_raw/videos/5/P02_5_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R04","P02","5","4","ml/data_raw/videos/5/P02_5_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R05","P02","5","5","ml/data_raw/videos/5/P02_5_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R06","P02","5","6","ml/data_raw/videos/5/P02_5_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R07","P02","5","7","ml/data_raw/videos/5/P02_5_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R08","P02","5","8","ml/data_raw/videos/5/P02_5_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R09","P02","5","9","ml/data_raw/videos/5/P02_5_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_5_R10","P02","5","10","ml/data_raw/videos/5/P02_5_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R01","P02","6","1","ml/data_raw/videos/6/P02_6_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R02","P02","6","2","ml/data_raw/videos/6/P02_6_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R03","P02","6","3","ml/data_raw/videos/6/P02_6_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R04","P02","6","4","ml/data_raw/videos/6/P02_6_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R05","P02","6","5","ml/data_raw/videos/6/P02_6_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R06","P02","6","6","ml/data_raw/videos/6/P02_6_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R07","P02","6","7","ml/data_raw/videos/6/P02_6_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R08","P02","6","8","ml/data_raw/videos/6/P02_6_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R09","P02","6","9","ml/data_raw/videos/6/P02_6_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_6_R10","P02","6","10","ml/data_raw/videos/6/P02_6_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R01","P02","8","1","ml/data_raw/videos/8/P02_8_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R02","P02","8","2","ml/data_raw/videos/8/P02_8_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R03","P02","8","3","ml/data_raw/videos/8/P02_8_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R04","P02","8","4","ml/data_raw/videos/8/P02_8_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R05","P02","8","5","ml/data_raw/videos/8/P02_8_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R06","P02","8","6","ml/data_raw/videos/8/P02_8_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R07","P02","8","7","ml/data_raw/videos/8/P02_8_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R08","P02","8","8","ml/data_raw/videos/8/P02_8_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R09","P02","8","9","ml/data_raw/videos/8/P02_8_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_8_R10","P02","8","10","ml/data_raw/videos/8/P02_8_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R01","P02","9","1","ml/data_raw/videos/9/P02_9_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R02","P02","9","2","ml/data_raw/videos/9/P02_9_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R03","P02","9","3","ml/data_raw/videos/9/P02_9_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R04","P02","9","4","ml/data_raw/videos/9/P02_9_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R05","P02","9","5","ml/data_raw/videos/9/P02_9_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R06","P02","9","6","ml/data_raw/videos/9/P02_9_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R07","P02","9","7","ml/data_raw/videos/9/P02_9_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R08","P02","9","8","ml/data_raw/videos/9/P02_9_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R09","P02","9","9","ml/data_raw/videos/9/P02_9_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_9_R10","P02","9","10","ml/data_raw/videos/9/P02_9_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R01","P02","transfer","1","ml/data_raw/videos/transfer/P02_transfer_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R02","P02","transfer","2","ml/data_raw/videos/transfer/P02_transfer_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R03","P02","transfer","3","ml/data_raw/videos/transfer/P02_transfer_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R04","P02","transfer","4","ml/data_raw/videos/transfer/P02_transfer_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R05","P02","transfer","5","ml/data_raw/videos/transfer/P02_transfer_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R06","P02","transfer","6","ml/data_raw/videos/transfer/P02_transfer_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R07","P02","transfer","7","ml/data_raw/videos/transfer/P02_transfer_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R08","P02","transfer","8","ml/data_raw/videos/transfer/P02_transfer_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R09","P02","transfer","9","ml/data_raw/videos/transfer/P02_transfer_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_transfer_R10","P02","transfer","10","ml/data_raw/videos/transfer/P02_transfer_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R01","P02","account","1","ml/data_raw/videos/account/P02_account_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R02","P02","account","2","ml/data_raw/videos/account/P02_account_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R03","P02","account","3","ml/data_raw/videos/account/P02_account_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R04","P02","account","4","ml/data_raw/videos/account/P02_account_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R05","P02","account","5","ml/data_raw/videos/account/P02_account_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R06","P02","account","6","ml/data_raw/videos/account/P02_account_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R07","P02","account","7","ml/data_raw/videos/account/P02_account_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R08","P02","account","8","ml/data_raw/videos/account/P02_account_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R09","P02","account","9","ml/data_raw/videos/account/P02_account_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_account_R10","P02","account","10","ml/data_raw/videos/account/P02_account_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R01","P02","card","1","ml/data_raw/videos/card/P02_card_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R02","P02","card","2","ml/data_raw/videos/card/P02_card_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R03","P02","card","3","ml/data_raw/videos/card/P02_card_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R04","P02","card","4","ml/data_raw/videos/card/P02_card_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R05","P02","card","5","ml/data_raw/videos/card/P02_card_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R06","P02","card","6","ml/data_raw/videos/card/P02_card_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R07","P02","card","7","ml/data_raw/videos/card/P02_card_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R08","P02","card","8","ml/data_raw/videos/card/P02_card_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R09","P02","card","9","ml/data_raw/videos/card/P02_card_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_card_R10","P02","card","10","ml/data_raw/videos/card/P02_card_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R01","P02","pin","1","ml/data_raw/videos/pin/P02_pin_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R02","P02","pin","2","ml/data_raw/videos/pin/P02_pin_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R03","P02","pin","3","ml/data_raw/videos/pin/P02_pin_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R04","P02","pin","4","ml/data_raw/videos/pin/P02_pin_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R05","P02","pin","5","ml/data_raw/videos/pin/P02_pin_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R06","P02","pin","6","ml/data_raw/videos/pin/P02_pin_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R07","P02","pin","7","ml/data_raw/videos/pin/P02_pin_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R08","P02","pin","8","ml/data_raw/videos/pin/P02_pin_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R09","P02","pin","9","ml/data_raw/videos/pin/P02_pin_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_pin_R10","P02","pin","10","ml/data_raw/videos/pin/P02_pin_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R01","P02","password","1","ml/data_raw/videos/password/P02_password_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R02","P02","password","2","ml/data_raw/videos/password/P02_password_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R03","P02","password","3","ml/data_raw/videos/password/P02_password_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R04","P02","password","4","ml/data_raw/videos/password/P02_password_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R05","P02","password","5","ml/data_raw/videos/password/P02_password_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R06","P02","password","6","ml/data_raw/videos/password/P02_password_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R07","P02","password","7","ml/data_raw/videos/password/P02_password_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R08","P02","password","8","ml/data_raw/videos/password/P02_password_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R09","P02","password","9","ml/data_raw/videos/password/P02_password_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_password_R10","P02","password","10","ml/data_raw/videos/password/P02_password_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R01","P02","identity_verification","1","ml/data_raw/videos/identity_verification/P02_identity_verification_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R02","P02","identity_verification","2","ml/data_raw/videos/identity_verification/P02_identity_verification_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R03","P02","identity_verification","3","ml/data_raw/videos/identity_verification/P02_identity_verification_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R04","P02","identity_verification","4","ml/data_raw/videos/identity_verification/P02_identity_verification_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R05","P02","identity_verification","5","ml/data_raw/videos/identity_verification/P02_identity_verification_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R06","P02","identity_verification","6","ml/data_raw/videos/identity_verification/P02_identity_verification_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R07","P02","identity_verification","7","ml/data_raw/videos/identity_verification/P02_identity_verification_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R08","P02","identity_verification","8","ml/data_raw/videos/identity_verification/P02_identity_verification_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R09","P02","identity_verification","9","ml/data_raw/videos/identity_verification/P02_identity_verification_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_identity_verification_R10","P02","identity_verification","10","ml/data_raw/videos/identity_verification/P02_identity_verification_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R01","P02","cash","1","ml/data_raw/videos/cash/P02_cash_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R02","P02","cash","2","ml/data_raw/videos/cash/P02_cash_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R03","P02","cash","3","ml/data_raw/videos/cash/P02_cash_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R04","P02","cash","4","ml/data_raw/videos/cash/P02_cash_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R05","P02","cash","5","ml/data_raw/videos/cash/P02_cash_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R06","P02","cash","6","ml/data_raw/videos/cash/P02_cash_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R07","P02","cash","7","ml/data_raw/videos/cash/P02_cash_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R08","P02","cash","8","ml/data_raw/videos/cash/P02_cash_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R09","P02","cash","9","ml/data_raw/videos/cash/P02_cash_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_cash_R10","P02","cash","10","ml/data_raw/videos/cash/P02_cash_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fee_R01","P02","fee","1","ml/data_raw/videos/fee/P02_fee_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fee_R02","P02","fee","2","ml/data_raw/videos/fee/P02_fee_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fee_R04","P02","fee","4","ml/data_raw/videos/fee/P02_fee_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fee_R05","P02","fee","5","ml/data_raw/videos/fee/P02_fee_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fee_R06","P02","fee","6","ml/data_raw/videos/fee/P02_fee_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fee_R07","P02","fee","7","ml/data_raw/videos/fee/P02_fee_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fee_R08","P02","fee","8","ml/data_raw/videos/fee/P02_fee_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fee_R09","P02","fee","9","ml/data_raw/videos/fee/P02_fee_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fee_R10","P02","fee","10","ml/data_raw/videos/fee/P02_fee_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R01","P02","loan","1","ml/data_raw/videos/loan/P02_loan_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R02","P02","loan","2","ml/data_raw/videos/loan/P02_loan_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R03","P02","loan","3","ml/data_raw/videos/loan/P02_loan_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R04","P02","loan","4","ml/data_raw/videos/loan/P02_loan_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R05","P02","loan","5","ml/data_raw/videos/loan/P02_loan_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R06","P02","loan","6","ml/data_raw/videos/loan/P02_loan_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R07","P02","loan","7","ml/data_raw/videos/loan/P02_loan_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R08","P02","loan","8","ml/data_raw/videos/loan/P02_loan_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R09","P02","loan","9","ml/data_raw/videos/loan/P02_loan_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_loan_R10","P02","loan","10","ml/data_raw/videos/loan/P02_loan_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R01","P02","savings","1","ml/data_raw/videos/savings/P02_savings_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R02","P02","savings","2","ml/data_raw/videos/savings/P02_savings_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R03","P02","savings","3","ml/data_raw/videos/savings/P02_savings_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R04","P02","savings","4","ml/data_raw/videos/savings/P02_savings_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R05","P02","savings","5","ml/data_raw/videos/savings/P02_savings_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R06","P02","savings","6","ml/data_raw/videos/savings/P02_savings_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R07","P02","savings","7","ml/data_raw/videos/savings/P02_savings_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R08","P02","savings","8","ml/data_raw/videos/savings/P02_savings_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R09","P02","savings","9","ml/data_raw/videos/savings/P02_savings_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_savings_R10","P02","savings","10","ml/data_raw/videos/savings/P02_savings_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R01","P02","open_account","1","ml/data_raw/videos/open_account/P02_open_account_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R02","P02","open_account","2","ml/data_raw/videos/open_account/P02_open_account_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R03","P02","open_account","3","ml/data_raw/videos/open_account/P02_open_account_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R04","P02","open_account","4","ml/data_raw/videos/open_account/P02_open_account_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R05","P02","open_account","5","ml/data_raw/videos/open_account/P02_open_account_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R06","P02","open_account","6","ml/data_raw/videos/open_account/P02_open_account_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R07","P02","open_account","7","ml/data_raw/videos/open_account/P02_open_account_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R08","P02","open_account","8","ml/data_raw/videos/open_account/P02_open_account_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R09","P02","open_account","9","ml/data_raw/videos/open_account/P02_open_account_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_open_account_R10","P02","open_account","10","ml/data_raw/videos/open_account/P02_open_account_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R01","P02","close_account","1","ml/data_raw/videos/close_account/P02_close_account_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R02","P02","close_account","2","ml/data_raw/videos/close_account/P02_close_account_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R03","P02","close_account","3","ml/data_raw/videos/close_account/P02_close_account_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R04","P02","close_account","4","ml/data_raw/videos/close_account/P02_close_account_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R05","P02","close_account","5","ml/data_raw/videos/close_account/P02_close_account_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R06","P02","close_account","6","ml/data_raw/videos/close_account/P02_close_account_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R07","P02","close_account","7","ml/data_raw/videos/close_account/P02_close_account_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R08","P02","close_account","8","ml/data_raw/videos/close_account/P02_close_account_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R09","P02","close_account","9","ml/data_raw/videos/close_account/P02_close_account_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_close_account_R10","P02","close_account","10","ml/data_raw/videos/close_account/P02_close_account_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R01","P02","fraud","1","ml/data_raw/videos/fraud/P02_fraud_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R02","P02","fraud","2","ml/data_raw/videos/fraud/P02_fraud_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R03","P02","fraud","3","ml/data_raw/videos/fraud/P02_fraud_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R04","P02","fraud","4","ml/data_raw/videos/fraud/P02_fraud_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R05","P02","fraud","5","ml/data_raw/videos/fraud/P02_fraud_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R06","P02","fraud","6","ml/data_raw/videos/fraud/P02_fraud_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R07","P02","fraud","7","ml/data_raw/videos/fraud/P02_fraud_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R08","P02","fraud","8","ml/data_raw/videos/fraud/P02_fraud_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R09","P02","fraud","9","ml/data_raw/videos/fraud/P02_fraud_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_fraud_R10","P02","fraud","10","ml/data_raw/videos/fraud/P02_fraud_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R01","P02","block_card","1","ml/data_raw/videos/block_card/P02_block_card_R01.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R02","P02","block_card","2","ml/data_raw/videos/block_card/P02_block_card_R02.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R03","P02","block_card","3","ml/data_raw/videos/block_card/P02_block_card_R03.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R04","P02","block_card","4","ml/data_raw/videos/block_card/P02_block_card_R04.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R05","P02","block_card","5","ml/data_raw/videos/block_card/P02_block_card_R05.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R06","P02","block_card","6","ml/data_raw/videos/block_card/P02_block_card_R06.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R07","P02","block_card","7","ml/data_raw/videos/block_card/P02_block_card_R07.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R08","P02","block_card","8","ml/data_raw/videos/block_card/P02_block_card_R08.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R09","P02","block_card","9","ml/data_raw/videos/block_card/P02_block_card_R09.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_block_card_R10","P02","block_card","10","ml/data_raw/videos/block_card/P02_block_card_R10.mp4","","raw_recorded","Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480"
+"P02_7_R01","P02","7","1","ml/data_raw/videos/7/P02_7_R01.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_7_R02","P02","7","2","ml/data_raw/videos/7/P02_7_R02.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_7_R03","P02","7","3","ml/data_raw/videos/7/P02_7_R03.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_7_R04","P02","7","4","ml/data_raw/videos/7/P02_7_R04.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_7_R05","P02","7","5","ml/data_raw/videos/7/P02_7_R05.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_7_R06","P02","7","6","ml/data_raw/videos/7/P02_7_R06.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_7_R07","P02","7","7","ml/data_raw/videos/7/P02_7_R07.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_7_R08","P02","7","8","ml/data_raw/videos/7/P02_7_R08.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_7_R09","P02","7","9","ml/data_raw/videos/7/P02_7_R09.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_7_R10","P02","7","10","ml/data_raw/videos/7/P02_7_R10.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R01","P02","payment","1","ml/data_raw/videos/payment/P02_payment_R01.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R02","P02","payment","2","ml/data_raw/videos/payment/P02_payment_R02.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R03","P02","payment","3","ml/data_raw/videos/payment/P02_payment_R03.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R04","P02","payment","4","ml/data_raw/videos/payment/P02_payment_R04.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R05","P02","payment","5","ml/data_raw/videos/payment/P02_payment_R05.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R06","P02","payment","6","ml/data_raw/videos/payment/P02_payment_R06.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R07","P02","payment","7","ml/data_raw/videos/payment/P02_payment_R07.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R08","P02","payment","8","ml/data_raw/videos/payment/P02_payment_R08.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R09","P02","payment","9","ml/data_raw/videos/payment/P02_payment_R09.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+"P02_payment_R10","P02","payment","10","ml/data_raw/videos/payment/P02_payment_R10.mp4","","raw_recorded","Sprint 2.8 rework recording; frames=60; fps=20; width=640; height=480"
+P02_fee_R03,P02,fee,3,ml/data_raw/videos/fee/P02_fee_R03.mp4,,raw_recorded,Sprint 2.8 full dataset collection; frames=60; fps=20; width=640; height=480
+P02_statement_R01,P02,statement,1,ml/data_raw/videos/statement/P02_statement_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_statement_R02,P02,statement,2,ml/data_raw/videos/statement/P02_statement_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_statement_R03,P02,statement,3,ml/data_raw/videos/statement/P02_statement_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_statement_R04,P02,statement,4,ml/data_raw/videos/statement/P02_statement_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_statement_R05,P02,statement,5,ml/data_raw/videos/statement/P02_statement_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_statement_R06,P02,statement,6,ml/data_raw/videos/statement/P02_statement_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_statement_R07,P02,statement,7,ml/data_raw/videos/statement/P02_statement_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_statement_R08,P02,statement,8,ml/data_raw/videos/statement/P02_statement_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_statement_R09,P02,statement,9,ml/data_raw/videos/statement/P02_statement_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_statement_R10,P02,statement,10,ml/data_raw/videos/statement/P02_statement_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R01,P02,bill_payment,1,ml/data_raw/videos/bill_payment/P02_bill_payment_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R02,P02,bill_payment,2,ml/data_raw/videos/bill_payment/P02_bill_payment_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R03,P02,bill_payment,3,ml/data_raw/videos/bill_payment/P02_bill_payment_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R04,P02,bill_payment,4,ml/data_raw/videos/bill_payment/P02_bill_payment_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R05,P02,bill_payment,5,ml/data_raw/videos/bill_payment/P02_bill_payment_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R06,P02,bill_payment,6,ml/data_raw/videos/bill_payment/P02_bill_payment_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R07,P02,bill_payment,7,ml/data_raw/videos/bill_payment/P02_bill_payment_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R08,P02,bill_payment,8,ml/data_raw/videos/bill_payment/P02_bill_payment_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R09,P02,bill_payment,9,ml/data_raw/videos/bill_payment/P02_bill_payment_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_bill_payment_R10,P02,bill_payment,10,ml/data_raw/videos/bill_payment/P02_bill_payment_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R01,P02,online_banking,1,ml/data_raw/videos/online_banking/P02_online_banking_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R02,P02,online_banking,2,ml/data_raw/videos/online_banking/P02_online_banking_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R03,P02,online_banking,3,ml/data_raw/videos/online_banking/P02_online_banking_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R04,P02,online_banking,4,ml/data_raw/videos/online_banking/P02_online_banking_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R05,P02,online_banking,5,ml/data_raw/videos/online_banking/P02_online_banking_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R06,P02,online_banking,6,ml/data_raw/videos/online_banking/P02_online_banking_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R07,P02,online_banking,7,ml/data_raw/videos/online_banking/P02_online_banking_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R08,P02,online_banking,8,ml/data_raw/videos/online_banking/P02_online_banking_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R09,P02,online_banking,9,ml/data_raw/videos/online_banking/P02_online_banking_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_online_banking_R10,P02,online_banking,10,ml/data_raw/videos/online_banking/P02_online_banking_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R01,P02,mobile_banking,1,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R02,P02,mobile_banking,2,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R03,P02,mobile_banking,3,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R04,P02,mobile_banking,4,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R05,P02,mobile_banking,5,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R06,P02,mobile_banking,6,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R07,P02,mobile_banking,7,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R08,P02,mobile_banking,8,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R09,P02,mobile_banking,9,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_mobile_banking_R10,P02,mobile_banking,10,ml/data_raw/videos/mobile_banking/P02_mobile_banking_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R01,P02,atm,1,ml/data_raw/videos/atm/P02_atm_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R02,P02,atm,2,ml/data_raw/videos/atm/P02_atm_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R03,P02,atm,3,ml/data_raw/videos/atm/P02_atm_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R04,P02,atm,4,ml/data_raw/videos/atm/P02_atm_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R05,P02,atm,5,ml/data_raw/videos/atm/P02_atm_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R06,P02,atm,6,ml/data_raw/videos/atm/P02_atm_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R07,P02,atm,7,ml/data_raw/videos/atm/P02_atm_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R08,P02,atm,8,ml/data_raw/videos/atm/P02_atm_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R09,P02,atm,9,ml/data_raw/videos/atm/P02_atm_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_atm_R10,P02,atm,10,ml/data_raw/videos/atm/P02_atm_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R01,P02,branch,1,ml/data_raw/videos/branch/P02_branch_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R02,P02,branch,2,ml/data_raw/videos/branch/P02_branch_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R03,P02,branch,3,ml/data_raw/videos/branch/P02_branch_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R04,P02,branch,4,ml/data_raw/videos/branch/P02_branch_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R05,P02,branch,5,ml/data_raw/videos/branch/P02_branch_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R06,P02,branch,6,ml/data_raw/videos/branch/P02_branch_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R07,P02,branch,7,ml/data_raw/videos/branch/P02_branch_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R08,P02,branch,8,ml/data_raw/videos/branch/P02_branch_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R09,P02,branch,9,ml/data_raw/videos/branch/P02_branch_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_branch_R10,P02,branch,10,ml/data_raw/videos/branch/P02_branch_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R01,P02,cheque,1,ml/data_raw/videos/cheque/P02_cheque_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R02,P02,cheque,2,ml/data_raw/videos/cheque/P02_cheque_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R03,P02,cheque,3,ml/data_raw/videos/cheque/P02_cheque_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R04,P02,cheque,4,ml/data_raw/videos/cheque/P02_cheque_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R05,P02,cheque,5,ml/data_raw/videos/cheque/P02_cheque_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R06,P02,cheque,6,ml/data_raw/videos/cheque/P02_cheque_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R07,P02,cheque,7,ml/data_raw/videos/cheque/P02_cheque_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R08,P02,cheque,8,ml/data_raw/videos/cheque/P02_cheque_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R09,P02,cheque,9,ml/data_raw/videos/cheque/P02_cheque_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_cheque_R10,P02,cheque,10,ml/data_raw/videos/cheque/P02_cheque_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R01,P02,currency_exchange,1,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R02,P02,currency_exchange,2,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R03,P02,currency_exchange,3,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R04,P02,currency_exchange,4,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R05,P02,currency_exchange,5,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R06,P02,currency_exchange,6,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R07,P02,currency_exchange,7,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R08,P02,currency_exchange,8,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R09,P02,currency_exchange,9,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_currency_exchange_R10,P02,currency_exchange,10,ml/data_raw/videos/currency_exchange/P02_currency_exchange_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R01,P02,exchange_rate,1,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R02,P02,exchange_rate,2,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R03,P02,exchange_rate,3,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R04,P02,exchange_rate,4,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R05,P02,exchange_rate,5,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R06,P02,exchange_rate,6,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R07,P02,exchange_rate,7,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R08,P02,exchange_rate,8,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R09,P02,exchange_rate,9,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_exchange_rate_R10,P02,exchange_rate,10,ml/data_raw/videos/exchange_rate/P02_exchange_rate_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R01,P02,interest_rate,1,ml/data_raw/videos/interest_rate/P02_interest_rate_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R02,P02,interest_rate,2,ml/data_raw/videos/interest_rate/P02_interest_rate_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R03,P02,interest_rate,3,ml/data_raw/videos/interest_rate/P02_interest_rate_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R04,P02,interest_rate,4,ml/data_raw/videos/interest_rate/P02_interest_rate_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R05,P02,interest_rate,5,ml/data_raw/videos/interest_rate/P02_interest_rate_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R06,P02,interest_rate,6,ml/data_raw/videos/interest_rate/P02_interest_rate_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R07,P02,interest_rate,7,ml/data_raw/videos/interest_rate/P02_interest_rate_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R08,P02,interest_rate,8,ml/data_raw/videos/interest_rate/P02_interest_rate_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R09,P02,interest_rate,9,ml/data_raw/videos/interest_rate/P02_interest_rate_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_interest_rate_R10,P02,interest_rate,10,ml/data_raw/videos/interest_rate/P02_interest_rate_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R01,P02,fixed_deposit,1,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R02,P02,fixed_deposit,2,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R03,P02,fixed_deposit,3,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R04,P02,fixed_deposit,4,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R05,P02,fixed_deposit,5,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R06,P02,fixed_deposit,6,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R07,P02,fixed_deposit,7,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R08,P02,fixed_deposit,8,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R09,P02,fixed_deposit,9,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_fixed_deposit_R10,P02,fixed_deposit,10,ml/data_raw/videos/fixed_deposit/P02_fixed_deposit_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R01,P02,credit_card,1,ml/data_raw/videos/credit_card/P02_credit_card_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R02,P02,credit_card,2,ml/data_raw/videos/credit_card/P02_credit_card_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R03,P02,credit_card,3,ml/data_raw/videos/credit_card/P02_credit_card_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R04,P02,credit_card,4,ml/data_raw/videos/credit_card/P02_credit_card_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R05,P02,credit_card,5,ml/data_raw/videos/credit_card/P02_credit_card_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R06,P02,credit_card,6,ml/data_raw/videos/credit_card/P02_credit_card_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R07,P02,credit_card,7,ml/data_raw/videos/credit_card/P02_credit_card_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R08,P02,credit_card,8,ml/data_raw/videos/credit_card/P02_credit_card_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R09,P02,credit_card,9,ml/data_raw/videos/credit_card/P02_credit_card_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_credit_card_R10,P02,credit_card,10,ml/data_raw/videos/credit_card/P02_credit_card_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R01,P02,debit_card,1,ml/data_raw/videos/debit_card/P02_debit_card_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R02,P02,debit_card,2,ml/data_raw/videos/debit_card/P02_debit_card_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R03,P02,debit_card,3,ml/data_raw/videos/debit_card/P02_debit_card_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R04,P02,debit_card,4,ml/data_raw/videos/debit_card/P02_debit_card_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R05,P02,debit_card,5,ml/data_raw/videos/debit_card/P02_debit_card_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R06,P02,debit_card,6,ml/data_raw/videos/debit_card/P02_debit_card_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R07,P02,debit_card,7,ml/data_raw/videos/debit_card/P02_debit_card_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R08,P02,debit_card,8,ml/data_raw/videos/debit_card/P02_debit_card_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R09,P02,debit_card,9,ml/data_raw/videos/debit_card/P02_debit_card_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_debit_card_R10,P02,debit_card,10,ml/data_raw/videos/debit_card/P02_debit_card_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R01,P02,lost_card,1,ml/data_raw/videos/lost_card/P02_lost_card_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R02,P02,lost_card,2,ml/data_raw/videos/lost_card/P02_lost_card_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R03,P02,lost_card,3,ml/data_raw/videos/lost_card/P02_lost_card_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R04,P02,lost_card,4,ml/data_raw/videos/lost_card/P02_lost_card_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R05,P02,lost_card,5,ml/data_raw/videos/lost_card/P02_lost_card_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R06,P02,lost_card,6,ml/data_raw/videos/lost_card/P02_lost_card_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R07,P02,lost_card,7,ml/data_raw/videos/lost_card/P02_lost_card_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R08,P02,lost_card,8,ml/data_raw/videos/lost_card/P02_lost_card_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R09,P02,lost_card,9,ml/data_raw/videos/lost_card/P02_lost_card_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_lost_card_R10,P02,lost_card,10,ml/data_raw/videos/lost_card/P02_lost_card_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R01,P02,replace_card,1,ml/data_raw/videos/replace_card/P02_replace_card_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R02,P02,replace_card,2,ml/data_raw/videos/replace_card/P02_replace_card_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R03,P02,replace_card,3,ml/data_raw/videos/replace_card/P02_replace_card_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R04,P02,replace_card,4,ml/data_raw/videos/replace_card/P02_replace_card_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R05,P02,replace_card,5,ml/data_raw/videos/replace_card/P02_replace_card_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R06,P02,replace_card,6,ml/data_raw/videos/replace_card/P02_replace_card_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R07,P02,replace_card,7,ml/data_raw/videos/replace_card/P02_replace_card_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R08,P02,replace_card,8,ml/data_raw/videos/replace_card/P02_replace_card_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R09,P02,replace_card,9,ml/data_raw/videos/replace_card/P02_replace_card_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_replace_card_R10,P02,replace_card,10,ml/data_raw/videos/replace_card/P02_replace_card_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R01,P02,change_pin,1,ml/data_raw/videos/change_pin/P02_change_pin_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R02,P02,change_pin,2,ml/data_raw/videos/change_pin/P02_change_pin_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R03,P02,change_pin,3,ml/data_raw/videos/change_pin/P02_change_pin_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R04,P02,change_pin,4,ml/data_raw/videos/change_pin/P02_change_pin_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R05,P02,change_pin,5,ml/data_raw/videos/change_pin/P02_change_pin_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R06,P02,change_pin,6,ml/data_raw/videos/change_pin/P02_change_pin_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R07,P02,change_pin,7,ml/data_raw/videos/change_pin/P02_change_pin_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R08,P02,change_pin,8,ml/data_raw/videos/change_pin/P02_change_pin_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R09,P02,change_pin,9,ml/data_raw/videos/change_pin/P02_change_pin_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_change_pin_R10,P02,change_pin,10,ml/data_raw/videos/change_pin/P02_change_pin_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R01,P02,reset_password,1,ml/data_raw/videos/reset_password/P02_reset_password_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R02,P02,reset_password,2,ml/data_raw/videos/reset_password/P02_reset_password_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R03,P02,reset_password,3,ml/data_raw/videos/reset_password/P02_reset_password_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R04,P02,reset_password,4,ml/data_raw/videos/reset_password/P02_reset_password_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R05,P02,reset_password,5,ml/data_raw/videos/reset_password/P02_reset_password_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R06,P02,reset_password,6,ml/data_raw/videos/reset_password/P02_reset_password_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R07,P02,reset_password,7,ml/data_raw/videos/reset_password/P02_reset_password_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R08,P02,reset_password,8,ml/data_raw/videos/reset_password/P02_reset_password_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R09,P02,reset_password,9,ml/data_raw/videos/reset_password/P02_reset_password_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_reset_password_R10,P02,reset_password,10,ml/data_raw/videos/reset_password/P02_reset_password_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R01,P02,refund,1,ml/data_raw/videos/refund/P02_refund_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R02,P02,refund,2,ml/data_raw/videos/refund/P02_refund_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R03,P02,refund,3,ml/data_raw/videos/refund/P02_refund_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R04,P02,refund,4,ml/data_raw/videos/refund/P02_refund_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R05,P02,refund,5,ml/data_raw/videos/refund/P02_refund_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R06,P02,refund,6,ml/data_raw/videos/refund/P02_refund_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R07,P02,refund,7,ml/data_raw/videos/refund/P02_refund_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R08,P02,refund,8,ml/data_raw/videos/refund/P02_refund_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R09,P02,refund,9,ml/data_raw/videos/refund/P02_refund_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_refund_R10,P02,refund,10,ml/data_raw/videos/refund/P02_refund_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R01,P02,complaint,1,ml/data_raw/videos/complaint/P02_complaint_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R02,P02,complaint,2,ml/data_raw/videos/complaint/P02_complaint_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R03,P02,complaint,3,ml/data_raw/videos/complaint/P02_complaint_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R04,P02,complaint,4,ml/data_raw/videos/complaint/P02_complaint_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R05,P02,complaint,5,ml/data_raw/videos/complaint/P02_complaint_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R06,P02,complaint,6,ml/data_raw/videos/complaint/P02_complaint_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R07,P02,complaint,7,ml/data_raw/videos/complaint/P02_complaint_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R08,P02,complaint,8,ml/data_raw/videos/complaint/P02_complaint_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R09,P02,complaint,9,ml/data_raw/videos/complaint/P02_complaint_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_complaint_R10,P02,complaint,10,ml/data_raw/videos/complaint/P02_complaint_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R01,P02,appointment,1,ml/data_raw/videos/appointment/P02_appointment_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R02,P02,appointment,2,ml/data_raw/videos/appointment/P02_appointment_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R03,P02,appointment,3,ml/data_raw/videos/appointment/P02_appointment_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R04,P02,appointment,4,ml/data_raw/videos/appointment/P02_appointment_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R05,P02,appointment,5,ml/data_raw/videos/appointment/P02_appointment_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R06,P02,appointment,6,ml/data_raw/videos/appointment/P02_appointment_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R07,P02,appointment,7,ml/data_raw/videos/appointment/P02_appointment_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R08,P02,appointment,8,ml/data_raw/videos/appointment/P02_appointment_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R09,P02,appointment,9,ml/data_raw/videos/appointment/P02_appointment_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_appointment_R10,P02,appointment,10,ml/data_raw/videos/appointment/P02_appointment_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R01,P02,customer_service,1,ml/data_raw/videos/customer_service/P02_customer_service_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R02,P02,customer_service,2,ml/data_raw/videos/customer_service/P02_customer_service_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R03,P02,customer_service,3,ml/data_raw/videos/customer_service/P02_customer_service_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R04,P02,customer_service,4,ml/data_raw/videos/customer_service/P02_customer_service_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R05,P02,customer_service,5,ml/data_raw/videos/customer_service/P02_customer_service_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R06,P02,customer_service,6,ml/data_raw/videos/customer_service/P02_customer_service_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R07,P02,customer_service,7,ml/data_raw/videos/customer_service/P02_customer_service_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R08,P02,customer_service,8,ml/data_raw/videos/customer_service/P02_customer_service_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R09,P02,customer_service,9,ml/data_raw/videos/customer_service/P02_customer_service_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_customer_service_R10,P02,customer_service,10,ml/data_raw/videos/customer_service/P02_customer_service_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R01,P02,update_details,1,ml/data_raw/videos/update_details/P02_update_details_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R02,P02,update_details,2,ml/data_raw/videos/update_details/P02_update_details_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R03,P02,update_details,3,ml/data_raw/videos/update_details/P02_update_details_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R04,P02,update_details,4,ml/data_raw/videos/update_details/P02_update_details_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R05,P02,update_details,5,ml/data_raw/videos/update_details/P02_update_details_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R06,P02,update_details,6,ml/data_raw/videos/update_details/P02_update_details_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R07,P02,update_details,7,ml/data_raw/videos/update_details/P02_update_details_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R08,P02,update_details,8,ml/data_raw/videos/update_details/P02_update_details_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R09,P02,update_details,9,ml/data_raw/videos/update_details/P02_update_details_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_update_details_R10,P02,update_details,10,ml/data_raw/videos/update_details/P02_update_details_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R01,P02,phone_number,1,ml/data_raw/videos/phone_number/P02_phone_number_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R02,P02,phone_number,2,ml/data_raw/videos/phone_number/P02_phone_number_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R03,P02,phone_number,3,ml/data_raw/videos/phone_number/P02_phone_number_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R04,P02,phone_number,4,ml/data_raw/videos/phone_number/P02_phone_number_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R05,P02,phone_number,5,ml/data_raw/videos/phone_number/P02_phone_number_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R06,P02,phone_number,6,ml/data_raw/videos/phone_number/P02_phone_number_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R07,P02,phone_number,7,ml/data_raw/videos/phone_number/P02_phone_number_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R08,P02,phone_number,8,ml/data_raw/videos/phone_number/P02_phone_number_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R09,P02,phone_number,9,ml/data_raw/videos/phone_number/P02_phone_number_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_phone_number_R10,P02,phone_number,10,ml/data_raw/videos/phone_number/P02_phone_number_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R01,P02,email_address,1,ml/data_raw/videos/email_address/P02_email_address_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R02,P02,email_address,2,ml/data_raw/videos/email_address/P02_email_address_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R03,P02,email_address,3,ml/data_raw/videos/email_address/P02_email_address_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R04,P02,email_address,4,ml/data_raw/videos/email_address/P02_email_address_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R05,P02,email_address,5,ml/data_raw/videos/email_address/P02_email_address_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R06,P02,email_address,6,ml/data_raw/videos/email_address/P02_email_address_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R07,P02,email_address,7,ml/data_raw/videos/email_address/P02_email_address_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R08,P02,email_address,8,ml/data_raw/videos/email_address/P02_email_address_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R09,P02,email_address,9,ml/data_raw/videos/email_address/P02_email_address_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_email_address_R10,P02,email_address,10,ml/data_raw/videos/email_address/P02_email_address_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R01,P02,address_change,1,ml/data_raw/videos/address_change/P02_address_change_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R02,P02,address_change,2,ml/data_raw/videos/address_change/P02_address_change_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R03,P02,address_change,3,ml/data_raw/videos/address_change/P02_address_change_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R04,P02,address_change,4,ml/data_raw/videos/address_change/P02_address_change_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R05,P02,address_change,5,ml/data_raw/videos/address_change/P02_address_change_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R06,P02,address_change,6,ml/data_raw/videos/address_change/P02_address_change_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R07,P02,address_change,7,ml/data_raw/videos/address_change/P02_address_change_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R08,P02,address_change,8,ml/data_raw/videos/address_change/P02_address_change_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R09,P02,address_change,9,ml/data_raw/videos/address_change/P02_address_change_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_address_change_R10,P02,address_change,10,ml/data_raw/videos/address_change/P02_address_change_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_account_number_R02,P02,account_number,2,ml/data_raw/videos/account_number/P02_account_number_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_account_number_R03,P02,account_number,3,ml/data_raw/videos/account_number/P02_account_number_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_account_number_R04,P02,account_number,4,ml/data_raw/videos/account_number/P02_account_number_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_account_number_R05,P02,account_number,5,ml/data_raw/videos/account_number/P02_account_number_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_account_number_R06,P02,account_number,6,ml/data_raw/videos/account_number/P02_account_number_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_account_number_R07,P02,account_number,7,ml/data_raw/videos/account_number/P02_account_number_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_account_number_R08,P02,account_number,8,ml/data_raw/videos/account_number/P02_account_number_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_account_number_R09,P02,account_number,9,ml/data_raw/videos/account_number/P02_account_number_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_account_number_R10,P02,account_number,10,ml/data_raw/videos/account_number/P02_account_number_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R01,P02,card_limit,1,ml/data_raw/videos/card_limit/P02_card_limit_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R02,P02,card_limit,2,ml/data_raw/videos/card_limit/P02_card_limit_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R03,P02,card_limit,3,ml/data_raw/videos/card_limit/P02_card_limit_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R04,P02,card_limit,4,ml/data_raw/videos/card_limit/P02_card_limit_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R05,P02,card_limit,5,ml/data_raw/videos/card_limit/P02_card_limit_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R06,P02,card_limit,6,ml/data_raw/videos/card_limit/P02_card_limit_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R07,P02,card_limit,7,ml/data_raw/videos/card_limit/P02_card_limit_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R08,P02,card_limit,8,ml/data_raw/videos/card_limit/P02_card_limit_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R09,P02,card_limit,9,ml/data_raw/videos/card_limit/P02_card_limit_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_card_limit_R10,P02,card_limit,10,ml/data_raw/videos/card_limit/P02_card_limit_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R01,P02,daily_limit,1,ml/data_raw/videos/daily_limit/P02_daily_limit_R01.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R02,P02,daily_limit,2,ml/data_raw/videos/daily_limit/P02_daily_limit_R02.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R03,P02,daily_limit,3,ml/data_raw/videos/daily_limit/P02_daily_limit_R03.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R04,P02,daily_limit,4,ml/data_raw/videos/daily_limit/P02_daily_limit_R04.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R05,P02,daily_limit,5,ml/data_raw/videos/daily_limit/P02_daily_limit_R05.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R06,P02,daily_limit,6,ml/data_raw/videos/daily_limit/P02_daily_limit_R06.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R07,P02,daily_limit,7,ml/data_raw/videos/daily_limit/P02_daily_limit_R07.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R08,P02,daily_limit,8,ml/data_raw/videos/daily_limit/P02_daily_limit_R08.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R09,P02,daily_limit,9,ml/data_raw/videos/daily_limit/P02_daily_limit_R09.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480
+P02_daily_limit_R10,P02,daily_limit,10,ml/data_raw/videos/daily_limit/P02_daily_limit_R10.mp4,,raw_recorded,Sprint 2.11 banking intent expansion; frames=60; fps=20; width=640; height=480

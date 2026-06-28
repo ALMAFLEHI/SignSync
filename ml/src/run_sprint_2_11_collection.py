@@ -1,4 +1,4 @@
-"""Interactively guide manual Sprint 2.11 collection for new banking labels only."""
+"""Interactively guide manual Sprint 2.11 collection for current expansion labels."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ COLLECT_VIDEO_PATH = Path("ml") / "src" / "collect_video.py"
 def parse_args() -> argparse.Namespace:
     """Parse manual recording controls for the fixed Sprint 2.11 expansion scope."""
     parser = argparse.ArgumentParser(
-        description="Run or dry-run the Sprint 2.11 30-label banking intent collection."
+        description="Run or dry-run the current Sprint 2.11 30-label collection."
     )
     parser.add_argument("--participant", default=SPRINT_2_11_PARTICIPANT)
     parser.add_argument("--camera-index", type=int, default=SPRINT_2_11_CAMERA_INDEX)

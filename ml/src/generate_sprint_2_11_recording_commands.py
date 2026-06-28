@@ -1,4 +1,4 @@
-"""Generate, but never run, Sprint 2.11 manual banking-intent recording commands."""
+"""Generate, but never run, current Sprint 2.11 recording commands."""
 
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ MARKDOWN_COMMANDS_PATH = EVIDENCE_DIR / "sprint_2_11_recording_commands.md"
 def parse_args() -> argparse.Namespace:
     """Allow participant and camera overrides without changing the 300-video scope."""
     parser = argparse.ArgumentParser(
-        description="Generate Sprint 2.11 commands for 30 new banking intent labels."
+        description="Generate commands for the current 30-label Sprint 2.11 scope."
     )
     parser.add_argument("--participant", default=SPRINT_2_11_PARTICIPANT)
     parser.add_argument("--camera-index", type=int, default=SPRINT_2_11_CAMERA_INDEX)

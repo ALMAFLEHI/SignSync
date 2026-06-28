@@ -35,7 +35,7 @@ BANKING_INTENTS_V1: list[str] = [
 # Sprint 2.11 adds these banking intents for a later expanded-dataset evaluation.
 BANKING_INTENTS_EXPANSION_V2: list[str] = [
     "statement",
-    "transaction_history",
+    "document",
     "bill_payment",
     "online_banking",
     "mobile_banking",
@@ -53,7 +53,7 @@ BANKING_INTENTS_EXPANSION_V2: list[str] = [
     "change_pin",
     "reset_password",
     "refund",
-    "dispute_transaction",
+    "signature",
     "complaint",
     "appointment",
     "customer_service",

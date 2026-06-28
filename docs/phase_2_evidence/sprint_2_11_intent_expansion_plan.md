@@ -11,7 +11,7 @@ The completed V1 vocabulary supports a controlled 56-label baseline. The additio
 ## New Banking Intents
 
 - statement
-- transaction_history
+- document
 - bill_payment
 - online_banking
 - mobile_banking
@@ -29,7 +29,7 @@ The completed V1 vocabulary supports a controlled 56-label baseline. The additio
 - change_pin
 - reset_password
 - refund
-- dispute_transaction
+- signature
 - complaint
 - appointment
 - customer_service
@@ -49,6 +49,17 @@ The completed V1 vocabulary supports a controlled 56-label baseline. The additio
 - Repetitions per label: 10
 - Expected new raw videos: 300
 - Metadata note: `Sprint 2.11 banking intent expansion`
+
+## Sprint 2.11 Rework: Replace Missing Labels and Redo Incorrect Samples
+
+Real collection showed that `transaction_history` and `dispute_transaction` were not practical enough for the current FYP recording scope. The Sprint 2.11 vocabulary was reworked without changing the total V2 label count.
+
+- `transaction_history` replaced by `document`
+- `dispute_transaction` replaced by `signature`
+- redo `atm` R01
+- redo `account_number` R01
+- expected rework recordings: 22
+- final Sprint 2.11 expected videos: 300
 
 ## Scope Boundary
 

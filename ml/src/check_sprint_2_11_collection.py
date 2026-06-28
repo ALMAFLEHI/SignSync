@@ -13,6 +13,8 @@ from sprint_2_11_intent_expansion_config import (
     EXPECTED_NEW_VIDEOS,
     EXPANSION_LABELS,
     METADATA_PATH,
+    REPLACED_EXPANSION_LABELS,
+    REWORK_ADDED_LABELS,
     SPRINT_2_11_NOTES,
     SPRINT_2_11_PARTICIPANT,
     SPRINT_2_11_REPETITIONS,
@@ -188,6 +190,8 @@ def write_reports(
 - Expected new raw videos: {EXPECTED_NEW_VIDEOS}
 - V1 labels counted in this report: no
 - Receipt expected: no
+- Replaced labels expected: no ({', '.join(REPLACED_EXPANSION_LABELS)})
+- Replacement labels expected: yes ({', '.join(REWORK_ADDED_LABELS)})
 
 ## Result
 {'PASS' if passed else 'FAIL'}

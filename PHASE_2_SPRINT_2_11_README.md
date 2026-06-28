@@ -31,9 +31,23 @@ Sprint 2.11 expands the SignSync banking vocabulary by 30 new banking intents an
 
 ## New Banking Intents
 
-`statement`, `transaction_history`, `bill_payment`, `online_banking`, `mobile_banking`, `atm`, `branch`, `cheque`, `currency_exchange`, `exchange_rate`, `interest_rate`, `fixed_deposit`, `credit_card`, `debit_card`, `lost_card`, `replace_card`, `change_pin`, `reset_password`, `refund`, `dispute_transaction`, `complaint`, `appointment`, `customer_service`, `update_details`, `phone_number`, `email_address`, `address_change`, `account_number`, `card_limit`, `daily_limit`
+`statement`, `document`, `bill_payment`, `online_banking`, `mobile_banking`, `atm`, `branch`, `cheque`, `currency_exchange`, `exchange_rate`, `interest_rate`, `fixed_deposit`, `credit_card`, `debit_card`, `lost_card`, `replace_card`, `change_pin`, `reset_password`, `refund`, `signature`, `complaint`, `appointment`, `customer_service`, `update_details`, `phone_number`, `email_address`, `address_change`, `account_number`, `card_limit`, `daily_limit`
 
 `payment` remains included. `receipt` remains excluded.
+
+## Sprint 2.11 Rework: Replace Missing Labels and Redo Incorrect Samples
+
+During real collection, `transaction_history` and `dispute_transaction` were skipped because no clear practical ASL sign was selected. They were replaced with useful banking-service labels that are easier to perform:
+
+- `transaction_history` replaced by `document`
+- `dispute_transaction` replaced by `signature`
+
+The rework also prepares two samples to be recorded again:
+
+- redo `atm` R01
+- redo `account_number` R01
+
+Expected rework recordings: 22. The final Sprint 2.11 expected videos remain 300.
 
 ## Recording Scope
 
@@ -63,6 +77,26 @@ python ml/src/check_sprint_2_11_collection.py --participant P02
 ```
 
 Do not run the real collection command until you are ready to record manually. The collection check is intended to run only after all 300 recordings are complete.
+
+## Rework Commands
+
+Run these commands from the project root when continuing the Sprint 2.11 rework.
+
+```powershell
+python -m py_compile ml/src/labels.py ml/src/sprint_2_11_intent_expansion_config.py ml/src/check_sprint_2_11_collection.py ml/src/sprint_2_11_rework_labels.py ml/src/generate_sprint_2_11_rework_commands.py ml/src/run_sprint_2_11_rework_collection.py
+
+python ml/src/sprint_2_11_rework_labels.py --dry-run
+
+python ml/src/sprint_2_11_rework_labels.py --apply
+
+python ml/src/generate_sprint_2_11_rework_commands.py
+
+python ml/src/run_sprint_2_11_rework_collection.py --dry-run
+
+python ml/src/run_sprint_2_11_rework_collection.py --participant P02 --camera-index 1
+
+python ml/src/check_sprint_2_11_collection.py --participant P02
+```
 
 ## Suggested Evidence Screenshots
 

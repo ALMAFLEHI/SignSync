@@ -24,6 +24,8 @@ from sprint_2_11_intent_expansion_config import (
     EXPECTED_NEW_VIDEOS,
     METADATA_PATH,
     RAW_VIDEO_ROOT,
+    REPLACED_EXPANSION_LABELS,
+    REWORK_ADDED_LABELS,
     SPRINT_2_11_REPETITIONS,
     iter_expected_samples,
 )
@@ -119,6 +121,18 @@ def main() -> int:
     )
     add_check(checks, "receipt excluded", "receipt" not in ALL_LABELS_V2, "receipt absent")
     add_check(checks, "payment included", "payment" in ALL_LABELS_V2, "payment present")
+    add_check(
+        checks,
+        "replaced labels excluded",
+        all(label not in BANKING_INTENTS_EXPANSION_V2 for label in REPLACED_EXPANSION_LABELS),
+        ", ".join(REPLACED_EXPANSION_LABELS),
+    )
+    add_check(
+        checks,
+        "replacement labels included",
+        all(label in BANKING_INTENTS_EXPANSION_V2 for label in REWORK_ADDED_LABELS),
+        ", ".join(REWORK_ADDED_LABELS),
+    )
     add_check(
         checks,
         "V2 Normal Mode count",
