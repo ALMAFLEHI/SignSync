@@ -1,0 +1,31 @@
+{
+  "model_version": "signsync_expanded_v2",
+  "input_type": "statistical_features",
+  "input_shape": [
+    1,
+    756
+  ],
+  "source_sequence_shape": [
+    60,
+    126
+  ],
+  "landmark_dimension": 126,
+  "target_frames": 60,
+  "feature_order": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "first_frame",
+    "last_frame"
+  ],
+  "output_shape": [
+    1,
+    86
+  ],
+  "total_labels": 86,
+  "normal_mode_labels": 76,
+  "number_mode_labels": 10,
+  "label_order_matches_output_indices": true,
+  "flutter_note": "Collect 60 frames of MediaPipe landmarks, compute mean/std/min/max/first_frame/last_frame features, run TFLite inference, and map output index to labels.txt."
+}

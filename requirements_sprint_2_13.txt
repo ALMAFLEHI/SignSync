@@ -1,0 +1,8 @@
+# Sprint 2.13 TensorFlow/TFLite preparation requirements.
+# Install in a compatible Python environment only after confirmation.
+numpy
+pandas
+scikit-learn
+matplotlib
+joblib
+tensorflow-cpu

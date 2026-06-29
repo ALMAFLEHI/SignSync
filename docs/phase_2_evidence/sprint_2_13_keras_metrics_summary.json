@@ -1,0 +1,13 @@
+{
+  "feature_dataset": "ml/data_processed/datasets/signsync_expanded_v2_stats_756f.npz",
+  "selected_candidate": "medium",
+  "hidden_units": [
+    512,
+    256,
+    128
+  ],
+  "validation_accuracy": 0.9302325581395349,
+  "validation_macro_f1": 0.9108527131782946,
+  "keras_model": "ml/models/sprint_2_13/signsync_expanded_v2_keras_best.keras",
+  "saved_model": "ml/models/sprint_2_13/saved_model/signsync_expanded_v2_keras_best"
+}

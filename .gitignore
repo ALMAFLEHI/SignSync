@@ -1,5 +1,8 @@
 __pycache__/
 *.pyc
+.venv/
+.venv-tflite/
+venv/
 
 # Raw video dataset files
 ml/data_raw/videos/**/*
@@ -18,3 +21,8 @@ ml/models/*.task
 
 # Trained model binaries
 ml/models/**/*.joblib
+*.keras
+*.h5
+*.tflite
+*.pb
+ml/models/**/saved_model/**/*

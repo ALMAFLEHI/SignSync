@@ -1,0 +1,24 @@
+# Sprint 2.13 TFLite Export Checklist
+
+- [x] TensorFlow/TFLite environment check script created.
+- [x] Sprint 2.13 TFLite config created.
+- [x] TFLite feature preparation script created.
+- [x] TFLite feature verification script created.
+- [x] Keras MLP training script created.
+- [x] Keras evaluation script created.
+- [x] Keras-to-TFLite conversion script created.
+- [x] TFLite test script created.
+- [x] TFLite prediction utility created.
+- [x] Flutter model asset staging script created.
+- [x] Sprint 2.13 README and plan created.
+- [x] TensorFlow environment ready.
+- [x] Feature dataset created.
+- [x] Feature dataset verification passed.
+- [x] Keras model trained.
+- [x] Keras model evaluated.
+- [x] TFLite conversion completed.
+- [x] TFLite test completed.
+- [x] Flutter model assets created.
+- [x] No Flutter UI files created.
+- [x] No new videos recorded.
+- [x] Sprint 2.14 not started.
