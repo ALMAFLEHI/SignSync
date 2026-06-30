@@ -26,3 +26,7 @@ ml/models/**/*.joblib
 *.tflite
 *.pb
 ml/models/**/saved_model/**/*
+
+# Flutter runtime model assets required by Sprint 2.14 prototype
+!flutter_app/assets/models/model_float32.tflite
+!flutter_app/assets/models/model_dynamic_range.tflite

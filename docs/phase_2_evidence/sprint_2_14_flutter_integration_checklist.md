@@ -1,0 +1,23 @@
+# Sprint 2.14 Flutter Integration Checklist
+
+- [x] Flutter project exists in `flutter_app`.
+- [x] Sprint 2.13 model assets copied into Flutter assets.
+- [x] Sprint 2.13 metadata assets copied into Flutter assets.
+- [x] Test feature export script created.
+- [x] Test feature JSON files exported.
+- [x] `pubspec.yaml` dependencies updated.
+- [x] `pubspec.yaml` asset entries added.
+- [x] Label metadata loading implemented.
+- [x] Label and model contract validation implemented.
+- [x] TFLite model loading implemented.
+- [x] TFLite inference implemented for `[1, 756]` float32 input.
+- [x] Normal Mode filtering implemented.
+- [x] Number Mode filtering implemented.
+- [x] Feature engine added for future 60x126 live landmark input.
+- [x] Test feature loader implemented.
+- [x] Flutter UI prototype implemented.
+- [x] Basic Flutter tests added.
+- [x] No live camera recognition added.
+- [x] No video recording added.
+- [x] No model retraining or reconversion performed.
+- [x] Sprint 2.15 not started.
