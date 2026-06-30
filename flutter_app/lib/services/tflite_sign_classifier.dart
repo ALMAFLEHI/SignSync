@@ -1,4 +1,5 @@
 import 'dart:developer' as developer;
+import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
@@ -34,6 +35,7 @@ class TfliteSignClassifier {
         ? AppConfig.dynamicRangeModelAsset
         : AppConfig.float32ModelAsset;
     try {
+      _validateWindowsRuntimeIfNeeded();
       _interpreter = await Interpreter.fromAsset(asset);
       _modelAsset = asset;
       _validateTensorShapes();
@@ -44,7 +46,7 @@ class TfliteSignClassifier {
         error: error,
         stackTrace: stackTrace,
       );
-      rethrow;
+      throw StateError(_formatLoadError(error));
     }
   }
 
@@ -119,6 +121,37 @@ class TfliteSignClassifier {
         'Expected TFLite output shape [1, 86], found $outputShape.',
       );
     }
+  }
+
+  void _validateWindowsRuntimeIfNeeded() {
+    if (!Platform.isWindows) {
+      return;
+    }
+
+    final dllFile = File(_windowsRuntimeDllPath);
+    if (!dllFile.existsSync()) {
+      throw StateError(
+        'Windows desktop requires the TensorFlow Lite C runtime DLL. '
+        'Add libtensorflowlite_c-win.dll to flutter_app/blobs, then rerun '
+        'flutter run -d windows. Expected runtime copy path: $_windowsRuntimeDllPath. '
+        'Android/mobile remains the main Sprint 2.14 target.',
+      );
+    }
+  }
+
+  String get _windowsRuntimeDllPath {
+    return '${File(Platform.resolvedExecutable).parent.path}'
+        '${Platform.pathSeparator}blobs'
+        '${Platform.pathSeparator}libtensorflowlite_c-win.dll';
+  }
+
+  String _formatLoadError(Object error) {
+    if (Platform.isWindows) {
+      return 'TFLite Windows runtime could not be loaded. Ensure '
+          'flutter_app/blobs/libtensorflowlite_c-win.dll is present and that '
+          'the Microsoft Visual C++ Redistributable is installed. Details: $error';
+    }
+    return error.toString();
   }
 
   List<int> _indicesForMode(SignMode mode) {

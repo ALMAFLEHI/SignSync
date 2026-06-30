@@ -106,3 +106,18 @@ install(DIRECTORY "${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}"
 install(FILES "${AOT_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
   CONFIGURATIONS Profile;Release
   COMPONENT Runtime)
+
+# TensorFlow Lite C runtime required by tflite_flutter on Windows desktop.
+# The plugin loads this DLL from <exe folder>/blobs/libtensorflowlite_c-win.dll.
+# Keep this conditional so Windows can still launch and show a clear runtime
+# message when the optional desktop DLL has not been provided yet.
+set(TFLITE_WINDOWS_DLL "${PROJECT_BUILD_DIR}/../blobs/libtensorflowlite_c-win.dll")
+if(EXISTS "${TFLITE_WINDOWS_DLL}")
+  install(
+    FILES "${TFLITE_WINDOWS_DLL}"
+    DESTINATION "${INSTALL_BUNDLE_DATA_DIR}/../blobs/"
+    COMPONENT Runtime
+  )
+else()
+  message(WARNING "TensorFlow Lite Windows DLL not found at ${TFLITE_WINDOWS_DLL}. TFLite model loading will be disabled on Windows desktop until the DLL is added.")
+endif()

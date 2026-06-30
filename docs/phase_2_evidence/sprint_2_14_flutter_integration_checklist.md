@@ -17,6 +17,11 @@
 - [x] Test feature loader implemented.
 - [x] Flutter UI prototype implemented.
 - [x] Basic Flutter tests added.
+- [x] Android emulator loaded label metadata successfully.
+- [x] Android emulator loaded `model_dynamic_range.tflite` successfully.
+- [x] Android emulator predicted all 5 exported test feature samples correctly.
+- [x] Normal Mode manual prediction evidence saved.
+- [x] Number Mode filter evidence saved.
 - [x] No live camera recognition added.
 - [x] No video recording added.
 - [x] No model retraining or reconversion performed.

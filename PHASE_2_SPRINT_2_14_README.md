@@ -85,18 +85,38 @@ flutter test
 flutter run
 ```
 
+## Windows Desktop Runtime Note
+
+`tflite_flutter` requires the TensorFlow Lite C runtime DLL on Windows desktop:
+
+```text
+flutter_app/blobs/libtensorflowlite_c-win.dll
+```
+
+The Windows CMake setup copies this file into the build output when it exists. If it is missing, the app opens and shows a clear runtime message instead of crashing. Android/mobile remains the main on-device target for this project.
+
+## Android Validation Result
+
+- Android emulator test passed.
+- Label metadata loaded successfully.
+- TFLite model loaded successfully.
+- Selected model: `model_dynamic_range.tflite`.
+- `P02_A_R01` predicted `A` correctly with 94.97% confidence.
+- `P02_payment_R01` predicted `payment` correctly with 99.99% confidence.
+- `P02_document_R01` predicted `document` correctly with 100.00% confidence.
+- `P02_signature_R01` predicted `signature` correctly with 100.00% confidence.
+- `P02_atm_R01` predicted `atm` correctly with 99.85% confidence.
+- Normal Mode and Number Mode filtering worked correctly.
+
 ## Evidence Screenshots
 
-- `01_sprint_2_14_flutter_pub_get.png`
-- `02_sprint_2_14_flutter_analyze_passed.png`
-- `03_sprint_2_14_test_features_exported.png`
-- `04_sprint_2_14_app_home_model_loaded.png`
-- `05_sprint_2_14_normal_mode_A_prediction.png`
-- `06_sprint_2_14_normal_mode_payment_prediction.png`
-- `07_sprint_2_14_normal_mode_document_prediction.png`
-- `08_sprint_2_14_normal_mode_signature_prediction.png`
-- `09_sprint_2_14_normal_mode_atm_prediction.png`
-- `10_sprint_2_14_number_mode_filter_demo.png`
+- `01_sprint_2_14_android_model_loaded.png`
+- `02_sprint_2_14_normal_mode_A_prediction.png`
+- `03_sprint_2_14_normal_mode_payment_prediction.png`
+- `04_sprint_2_14_normal_mode_document_prediction.png`
+- `05_sprint_2_14_normal_mode_signature_prediction.png`
+- `06_sprint_2_14_normal_mode_atm_prediction.png`
+- `07_sprint_2_14_number_mode_filter_demo.png`
 
 ## Acceptance Criteria
 

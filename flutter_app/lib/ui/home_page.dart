@@ -53,11 +53,15 @@ class _HomePageState extends State<HomePage> {
 
     try {
       final metadata = await _labelService.load();
+      setState(() {
+        _metadata = metadata;
+        _statusMessage = 'Label metadata loaded. Loading TFLite model...';
+      });
+
       final classifier = TfliteSignClassifier(metadata: metadata);
       await classifier.load();
 
       setState(() {
-        _metadata = metadata;
         _classifier = classifier;
         _statusMessage = 'Ready for offline test feature inference.';
         _isLoading = false;
@@ -65,7 +69,9 @@ class _HomePageState extends State<HomePage> {
     } catch (error) {
       setState(() {
         _errorMessage = error.toString();
-        _statusMessage = 'Setup failed. Check model assets and metadata.';
+        _statusMessage = _metadata == null
+            ? 'Setup failed. Check model assets and metadata.'
+            : 'Label metadata loaded. TFLite runtime is not available yet.';
         _isLoading = false;
       });
     }

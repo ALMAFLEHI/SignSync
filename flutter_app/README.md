@@ -18,3 +18,13 @@ flutter analyze
 flutter test
 flutter run
 ```
+
+## Windows Desktop Runtime
+
+For Windows desktop only, `tflite_flutter` needs:
+
+```text
+blobs/libtensorflowlite_c-win.dll
+```
+
+When this DLL exists, `windows/CMakeLists.txt` copies it into the Windows build output. Without it, the app still opens and shows a clear runtime message. Android/mobile remains the main target for on-device inference.
