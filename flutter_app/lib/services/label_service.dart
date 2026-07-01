@@ -4,23 +4,43 @@ import 'dart:developer' as developer;
 import 'package:flutter/services.dart';
 
 import '../config/app_config.dart';
+import '../models/sign_mode.dart';
 
 class LabelMetadata {
   const LabelMetadata({
     required this.labels,
     required this.labelMapping,
     required this.allLabels,
+    required this.alphabetModeLabels,
     required this.normalModeLabels,
     required this.numberModeLabels,
+    required this.bankingIntentModeLabels,
     required this.modelMetadata,
   });
 
   final List<String> labels;
   final Map<String, int> labelMapping;
   final List<String> allLabels;
+  final List<String> alphabetModeLabels;
   final List<String> normalModeLabels;
   final List<String> numberModeLabels;
+  final List<String> bankingIntentModeLabels;
   final Map<String, Object?> modelMetadata;
+
+  List<String> labelsForMode(SignMode mode) {
+    switch (mode) {
+      case SignMode.alphabet:
+        return alphabetModeLabels;
+      case SignMode.number:
+        return numberModeLabels;
+      case SignMode.bankingIntent:
+        return bankingIntentModeLabels;
+    }
+  }
+
+  List<int> indicesForMode(SignMode mode) {
+    return indicesForLabels(labelsForMode(mode));
+  }
 
   List<int> indicesForLabels(Iterable<String> selectedLabels) {
     return selectedLabels
@@ -66,8 +86,10 @@ class LabelService {
         labels: labels,
         labelMapping: labelMapping,
         allLabels: _readStringList(groups, 'all_labels'),
+        alphabetModeLabels: _readStringList(groups, 'alphabet_mode'),
         normalModeLabels: _readStringList(groups, 'normal_mode'),
         numberModeLabels: _readStringList(groups, 'number_mode'),
+        bankingIntentModeLabels: _readStringList(groups, 'banking_intent_mode'),
         modelMetadata: modelMetadata,
       );
       validate(metadata);
@@ -99,6 +121,12 @@ class LabelService {
         'Expected 86 all_labels entries, found ${metadata.allLabels.length}.',
       );
     }
+    if (metadata.alphabetModeLabels.length !=
+        AppConfig.expectedAlphabetModeLabels) {
+      throw StateError(
+        'Expected 26 alphabet mode labels, found ${metadata.alphabetModeLabels.length}.',
+      );
+    }
     if (metadata.normalModeLabels.length !=
         AppConfig.expectedNormalModeLabels) {
       throw StateError(
@@ -109,6 +137,12 @@ class LabelService {
         AppConfig.expectedNumberModeLabels) {
       throw StateError(
         'Expected 10 number mode labels, found ${metadata.numberModeLabels.length}.',
+      );
+    }
+    if (metadata.bankingIntentModeLabels.length !=
+        AppConfig.expectedBankingIntentModeLabels) {
+      throw StateError(
+        'Expected 50 banking intent mode labels, found ${metadata.bankingIntentModeLabels.length}.',
       );
     }
     if (inputShape.length != 2 ||

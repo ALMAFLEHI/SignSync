@@ -17,6 +17,8 @@ class AppConfig {
   static const int expectedOutputClasses = 86;
   static const int expectedFrameCount = 60;
   static const int expectedFrameWidth = 126;
+  static const int expectedAlphabetModeLabels = 26;
   static const int expectedNormalModeLabels = 76;
   static const int expectedNumberModeLabels = 10;
+  static const int expectedBankingIntentModeLabels = 50;
 }

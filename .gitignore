@@ -3,6 +3,8 @@ __pycache__/
 .venv/
 .venv-tflite/
 venv/
+.tool_appdata/
+.tool_localappdata/
 
 # Raw video dataset files
 ml/data_raw/videos/**/*

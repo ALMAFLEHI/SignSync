@@ -6,6 +6,7 @@ import '../models/sign_mode.dart';
 import '../services/label_service.dart';
 import '../services/test_feature_loader.dart';
 import '../services/tflite_sign_classifier.dart';
+import 'live_camera_page.dart';
 import 'widgets/mode_selector.dart';
 import 'widgets/prediction_card.dart';
 import 'widgets/test_sample_buttons.dart';
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
 
   LabelMetadata? _metadata;
   TfliteSignClassifier? _classifier;
-  SignMode _selectedMode = SignMode.normal;
+  SignMode _selectedMode = SignMode.bankingIntent;
   TestFeatureSample? _selectedSample;
   PredictionResult? _prediction;
   String? _statusMessage;
@@ -156,6 +157,8 @@ class _HomePageState extends State<HomePage> {
               onSampleSelected: _runSample,
             ),
             const SizedBox(height: 12),
+            const _LiveCameraEntryPanel(),
+            const SizedBox(height: 12),
             PredictionCard(
               sample: _selectedSample,
               prediction: _prediction,
@@ -175,8 +178,6 @@ class _HomePageState extends State<HomePage> {
             ],
             const SizedBox(height: 12),
             const _PrivacyPanel(),
-            const SizedBox(height: 12),
-            const _NextSprintPanel(),
           ],
         ),
       ),
@@ -354,23 +355,38 @@ class _PrivacyPanel extends StatelessWidget {
   }
 }
 
-class _NextSprintPanel extends StatelessWidget {
-  const _NextSprintPanel();
+class _LiveCameraEntryPanel extends StatelessWidget {
+  const _LiveCameraEntryPanel();
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    return Card(
       child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Row(
+        padding: const EdgeInsets.all(16),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.videocam_outlined, color: Color(0xFF64748B)),
-            SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                'Live camera landmark capture will be added in Sprint 2.15.',
-              ),
+            Text(
+              'Live Camera Prototype',
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Use Android camera input to capture MediaPipe landmarks, build a 756-feature vector, and run the existing TFLite classifier.',
+            ),
+            const SizedBox(height: 12),
+            FilledButton.icon(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const LiveCameraPage(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.videocam),
+              label: const Text('Open Live Camera'),
             ),
           ],
         ),

@@ -155,12 +155,7 @@ class TfliteSignClassifier {
   }
 
   List<int> _indicesForMode(SignMode mode) {
-    switch (mode) {
-      case SignMode.normal:
-        return metadata.indicesForLabels(metadata.normalModeLabels);
-      case SignMode.number:
-        return metadata.indicesForLabels(metadata.numberModeLabels);
-    }
+    return metadata.indicesForMode(mode);
   }
 
   List<TopPrediction> _topPredictions(

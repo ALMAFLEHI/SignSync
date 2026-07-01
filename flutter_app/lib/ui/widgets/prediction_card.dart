@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/prediction_result.dart';
+import '../../models/prediction_source.dart';
 import '../../models/sign_mode.dart';
 
 class PredictionCard extends StatelessWidget {
@@ -9,11 +10,13 @@ class PredictionCard extends StatelessWidget {
     required this.sample,
     required this.prediction,
     required this.isPredicting,
+    this.source = PredictionSource.testFeature,
   });
 
   final TestFeatureSample? sample;
   final PredictionResult? prediction;
   final bool isPredicting;
+  final PredictionSource source;
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +42,18 @@ class PredictionCard extends StatelessWidget {
             const SizedBox(height: 12),
             if (isPredicting)
               const LinearProgressIndicator()
-            else if (currentSample == null || currentPrediction == null)
-              const Text('Choose a test sample to run local inference.')
+            else if (currentPrediction == null)
+              Text(
+                source == PredictionSource.liveCamera
+                    ? 'Capture 60 valid landmark frames to run live inference.'
+                    : 'Choose a test sample to run local inference.',
+              )
             else ...[
-              _ResultRow(label: 'Sample', value: currentSample.sampleId),
-              _ResultRow(label: 'True label', value: currentSample.trueLabel),
+              _ResultRow(label: 'Source', value: source.displayName),
+              if (currentSample != null) ...[
+                _ResultRow(label: 'Sample', value: currentSample.sampleId),
+                _ResultRow(label: 'True label', value: currentSample.trueLabel),
+              ],
               _ResultRow(
                 label: 'Predicted label',
                 value: currentPrediction.predictedLabel,
@@ -62,15 +72,16 @@ class PredictionCard extends StatelessWidget {
                 value: currentPrediction.rawOutputLength.toString(),
               ),
               const SizedBox(height: 8),
-              Chip(
-                avatar: Icon(
-                  isCorrect ? Icons.check_circle : Icons.cancel,
-                  color: isCorrect
-                      ? const Color(0xFF047857)
-                      : const Color(0xFFB91C1C),
+              if (currentSample != null)
+                Chip(
+                  avatar: Icon(
+                    isCorrect ? Icons.check_circle : Icons.cancel,
+                    color: isCorrect
+                        ? const Color(0xFF047857)
+                        : const Color(0xFFB91C1C),
+                  ),
+                  label: Text(isCorrect ? 'Correct' : 'Incorrect'),
                 ),
-                label: Text(isCorrect ? 'Correct' : 'Incorrect'),
-              ),
             ],
           ],
         ),
