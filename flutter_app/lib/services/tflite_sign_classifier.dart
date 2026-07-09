@@ -8,15 +8,18 @@ import '../config/app_config.dart';
 import '../models/prediction_result.dart';
 import '../models/sign_mode.dart';
 import 'label_service.dart';
+import 'prediction_decision_policy.dart';
 
 class TfliteSignClassifier {
   TfliteSignClassifier({
     required this.metadata,
     this.preferDynamicRangeModel = AppConfig.preferDynamicRangeModel,
+    this.decisionPolicy = const PredictionDecisionPolicy(),
   });
 
   final LabelMetadata metadata;
   final bool preferDynamicRangeModel;
+  final PredictionDecisionPolicy decisionPolicy;
 
   Interpreter? _interpreter;
   String? _modelAsset;
@@ -76,6 +79,10 @@ class TfliteSignClassifier {
 
     final selectedIndices = _indicesForMode(mode);
     final topPredictions = _topPredictions(probabilities, selectedIndices);
+    final decision = decisionPolicy.decide(
+      filteredTopPredictions: topPredictions,
+      mode: mode,
+    );
     final rawTopPredictions = _topPredictions(
       probabilities,
       List<int>.generate(probabilities.length, (index) => index),
@@ -84,6 +91,7 @@ class TfliteSignClassifier {
     return PredictionResult(
       predictedLabel: topPredictions.first.label,
       confidence: topPredictions.first.probability,
+      decision: decision,
       topPredictions: topPredictions,
       rawTopPredictions: rawTopPredictions,
       rawOutputLength: probabilities.length,

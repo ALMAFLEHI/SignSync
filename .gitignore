@@ -18,6 +18,13 @@ ml/data_processed/landmarks/**/*
 *.npy
 *.npz
 
+# Phone-camera pilot landmark samples
+ml/data_phone/landmark_samples/**/*.json
+ml/data_phone/imported_landmarks/**/*.json
+ml/data_phone/imported_landmarks/import_status.json
+!ml/data_phone/landmark_samples/.gitkeep
+!ml/data_phone/imported_landmarks/.gitkeep
+
 # Local MediaPipe model assets
 ml/models/*.task
 

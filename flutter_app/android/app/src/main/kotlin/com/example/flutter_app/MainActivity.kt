@@ -31,6 +31,7 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.StandardMessageCodec
 import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.platform.PlatformViewFactory
+import java.io.File
 import java.util.Locale
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -139,6 +140,7 @@ private class LiveCameraBridge {
                 sendEvent("captureReset", mapOf("message" to "Live landmark buffer reset."))
                 result.success(null)
             }
+            "getPhoneSampleDirectory" -> getPhoneSampleDirectory(result)
             else -> result.notImplemented()
         }
     }
@@ -452,6 +454,25 @@ private class LiveCameraBridge {
         mainHandler.post {
             channel?.invokeMethod(method, payload)
         }
+    }
+
+    private fun getPhoneSampleDirectory(result: MethodChannel.Result) {
+        val currentActivity = activity
+        if (currentActivity == null) {
+            result.error("activity_missing", "Android activity is not attached.", null)
+            return
+        }
+        val baseDirectory = currentActivity.getExternalFilesDir(null)
+        if (baseDirectory == null) {
+            result.error("storage_missing", "Android external files directory is not available.", null)
+            return
+        }
+        val sampleDirectory = File(baseDirectory, "signsync_phone_samples")
+        if (!sampleDirectory.exists() && !sampleDirectory.mkdirs()) {
+            result.error("storage_create_failed", "Could not create phone sample directory.", null)
+            return
+        }
+        result.success(sampleDirectory.absolutePath)
     }
 
     private data class HandDetection(

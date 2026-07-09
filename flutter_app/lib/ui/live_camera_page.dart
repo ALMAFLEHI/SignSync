@@ -12,6 +12,7 @@ import '../models/sign_mode.dart';
 import '../services/label_service.dart';
 import '../services/live_landmark_service.dart';
 import '../services/live_recognition_service.dart';
+import '../services/stabilized_prediction_tracker.dart';
 import '../services/tflite_sign_classifier.dart';
 import 'widgets/mode_selector.dart';
 import 'widgets/prediction_card.dart';
@@ -26,12 +27,15 @@ class LiveCameraPage extends StatefulWidget {
 
 class _LiveCameraPageState extends State<LiveCameraPage> {
   final LabelService _labelService = LabelService();
+  final StabilizedPredictionTracker _stabilizedTracker =
+      StabilizedPredictionTracker();
   late final LiveLandmarkService _landmarkService;
 
   TfliteSignClassifier? _classifier;
   LiveRecognitionService? _recognitionService;
   LiveLandmarkFrame? _lastFrame;
   LivePredictionSession? _session;
+  StabilizedPrediction? _stabilizedPrediction;
   SignMode _selectedMode = SignMode.bankingIntent;
 
   String _statusMessage = 'Loading live camera prototype assets...';
@@ -194,6 +198,8 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
       _isCapturing = false;
       _isPredicting = false;
       _session = null;
+      _stabilizedTracker.reset();
+      _stabilizedPrediction = _stabilizedTracker.current;
       _statusMessage = 'Capture buffer reset.';
     });
   }
@@ -257,14 +263,20 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
         mode: _selectedMode,
         captureMetrics: metrics,
       );
+      final stabilizedPrediction = _stabilizedTracker.add(session.prediction);
       if (!mounted) {
         return;
       }
       setState(() {
         _session = session;
+        _stabilizedPrediction = stabilizedPrediction;
         _isPredicting = false;
         _validFrameCount = metrics.validFrameCount;
-        _statusMessage = 'Live prediction complete.';
+        _statusMessage =
+            stabilizedPrediction.completedCaptures >=
+                stabilizedPrediction.requiredCaptures
+            ? 'Stabilized prediction updated.'
+            : 'Single capture prediction complete. Repeat for 3-capture stabilization.';
       });
     } catch (error) {
       if (!mounted) {
@@ -282,6 +294,8 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
     setState(() {
       _selectedMode = mode;
       _session = null;
+      _stabilizedTracker.reset();
+      _stabilizedPrediction = _stabilizedTracker.current;
     });
   }
 
@@ -333,6 +347,10 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
               source: PredictionSource.liveCamera,
             ),
             if (session != null) ...[
+              const SizedBox(height: 12),
+              _StabilizedPredictionCard(
+                stabilizedPrediction: _stabilizedPrediction,
+              ),
               const SizedBox(height: 12),
               _RuntimeMetricsCard(session: session),
               const SizedBox(height: 12),
@@ -587,6 +605,66 @@ class _RuntimeMetricsCard extends StatelessWidget {
             _StatusRow(
               label: 'End-to-end prediction',
               value: '${session.endToEndMs} ms',
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _StabilizedPredictionCard extends StatelessWidget {
+  const _StabilizedPredictionCard({required this.stabilizedPrediction});
+
+  final StabilizedPrediction? stabilizedPrediction;
+
+  @override
+  Widget build(BuildContext context) {
+    final prediction = stabilizedPrediction;
+    if (prediction == null) {
+      return const SizedBox.shrink();
+    }
+
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Stabilized Prediction',
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 12),
+            _StatusRow(
+              label: 'Captures',
+              value:
+                  '${prediction.completedCaptures} / ${prediction.requiredCaptures}',
+            ),
+            _StatusRow(
+              label: 'Agreement',
+              value:
+                  '${prediction.agreementCount} / ${prediction.requiredAgreement}',
+            ),
+            _StatusRow(label: 'Output', value: prediction.displayLabel),
+            const SizedBox(height: 8),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (
+                  var index = 0;
+                  index < prediction.captureLabels.length;
+                  index += 1
+                )
+                  Chip(
+                    label: Text(
+                      'Capture ${index + 1}: ${prediction.captureLabels[index] ?? 'Try Again'}',
+                    ),
+                  ),
+              ],
             ),
           ],
         ),

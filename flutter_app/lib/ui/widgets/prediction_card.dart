@@ -25,7 +25,8 @@ class PredictionCard extends StatelessWidget {
     final isCorrect =
         currentSample != null &&
         currentPrediction != null &&
-        currentSample.trueLabel == currentPrediction.predictedLabel;
+        currentPrediction.decision.accepted &&
+        currentSample.trueLabel == currentPrediction.decision.displayLabel;
 
     return Card(
       child: Padding(
@@ -55,7 +56,11 @@ class PredictionCard extends StatelessWidget {
                 _ResultRow(label: 'True label', value: currentSample.trueLabel),
               ],
               _ResultRow(
-                label: 'Predicted label',
+                label: 'Final output',
+                value: currentPrediction.decision.displayLabel,
+              ),
+              _ResultRow(
+                label: 'Filtered top label',
                 value: currentPrediction.predictedLabel,
               ),
               _ResultRow(
@@ -70,6 +75,32 @@ class PredictionCard extends StatelessWidget {
               _ResultRow(
                 label: 'Raw output length',
                 value: currentPrediction.rawOutputLength.toString(),
+              ),
+              _ResultRow(
+                label: 'Confidence threshold',
+                value:
+                    '${(currentPrediction.decision.confidenceThreshold * 100).toStringAsFixed(0)}%',
+              ),
+              _ResultRow(
+                label: 'Top-2 gap',
+                value:
+                    '${(currentPrediction.decision.top2Gap * 100).toStringAsFixed(1)}%',
+              ),
+              const SizedBox(height: 8),
+              Chip(
+                avatar: Icon(
+                  currentPrediction.decision.accepted
+                      ? Icons.check_circle
+                      : Icons.replay,
+                  color: currentPrediction.decision.accepted
+                      ? const Color(0xFF047857)
+                      : const Color(0xFFB45309),
+                ),
+                label: Text(
+                  currentPrediction.decision.accepted
+                      ? 'Accepted'
+                      : (currentPrediction.decision.reason ?? 'Try Again'),
+                ),
               ),
               const SizedBox(height: 8),
               if (currentSample != null)

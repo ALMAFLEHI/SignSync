@@ -83,6 +83,19 @@ class LiveLandmarkService {
     }
   }
 
+  Future<String> getPhoneSampleDirectory() async {
+    if (!Platform.isAndroid) {
+      throw UnsupportedError(
+        'Phone sample storage is available on Android only.',
+      );
+    }
+    final path = await _channel.invokeMethod<String>('getPhoneSampleDirectory');
+    if (path == null || path.isEmpty) {
+      throw StateError('Android phone sample directory was not returned.');
+    }
+    return path;
+  }
+
   Future<void> dispose() async {
     _channel.setMethodCallHandler(null);
     await stopCamera();

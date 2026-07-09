@@ -1,0 +1,8 @@
+item,value
+status,PENDING
+reason,Phone sample target not reached.
+phone_transfer,0
+phone_address_change,0
+phone_document,0
+phone_signature,0
+phone_atm,0

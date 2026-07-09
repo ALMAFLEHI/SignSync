@@ -7,6 +7,7 @@ import '../services/label_service.dart';
 import '../services/test_feature_loader.dart';
 import '../services/tflite_sign_classifier.dart';
 import 'live_camera_page.dart';
+import 'phone_dataset_collection_page.dart';
 import 'widgets/mode_selector.dart';
 import 'widgets/prediction_card.dart';
 import 'widgets/test_sample_buttons.dart';
@@ -158,6 +159,8 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 12),
             const _LiveCameraEntryPanel(),
+            const SizedBox(height: 12),
+            const _PhoneDatasetEntryPanel(),
             const SizedBox(height: 12),
             PredictionCard(
               sample: _selectedSample,
@@ -387,6 +390,46 @@ class _LiveCameraEntryPanel extends StatelessWidget {
               },
               icon: const Icon(Icons.videocam),
               label: const Text('Open Live Camera'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PhoneDatasetEntryPanel extends StatelessWidget {
+  const _PhoneDatasetEntryPanel();
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Phone Dataset Collection',
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Capture 60-frame landmark JSON samples for the five weak Sprint 2.16A labels. No raw video is saved.',
+            ),
+            const SizedBox(height: 12),
+            OutlinedButton.icon(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const PhoneDatasetCollectionPage(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.dataset_outlined),
+              label: const Text('Open Collection'),
             ),
           ],
         ),

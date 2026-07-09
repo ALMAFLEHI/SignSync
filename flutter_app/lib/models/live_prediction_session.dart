@@ -31,3 +31,23 @@ class LivePredictionSession {
   final int inferenceMs;
   final int endToEndMs;
 }
+
+class StabilizedPrediction {
+  const StabilizedPrediction({
+    required this.displayLabel,
+    required this.accepted,
+    required this.completedCaptures,
+    required this.requiredCaptures,
+    required this.agreementCount,
+    required this.requiredAgreement,
+    required this.captureLabels,
+  });
+
+  final String displayLabel;
+  final bool accepted;
+  final int completedCaptures;
+  final int requiredCaptures;
+  final int agreementCount;
+  final int requiredAgreement;
+  final List<String?> captureLabels;
+}
