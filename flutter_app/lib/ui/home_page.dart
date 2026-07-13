@@ -417,7 +417,7 @@ class _PhoneDatasetEntryPanel extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             const Text(
-              'Capture 60-frame landmark JSON samples for the five weak Sprint 2.16A labels. No raw video is saved.',
+              'Capture 60-frame landmark JSON samples for the four active weak Sprint 2.16A labels. No raw video is saved.',
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(

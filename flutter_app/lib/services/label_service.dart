@@ -15,6 +15,7 @@ class LabelMetadata {
     required this.normalModeLabels,
     required this.numberModeLabels,
     required this.bankingIntentModeLabels,
+    required this.removedBankingIntents,
     required this.modelMetadata,
   });
 
@@ -25,6 +26,7 @@ class LabelMetadata {
   final List<String> normalModeLabels;
   final List<String> numberModeLabels;
   final List<String> bankingIntentModeLabels;
+  final List<String> removedBankingIntents;
   final Map<String, Object?> modelMetadata;
 
   List<String> labelsForMode(SignMode mode) {
@@ -90,6 +92,10 @@ class LabelService {
         normalModeLabels: _readStringList(groups, 'normal_mode'),
         numberModeLabels: _readStringList(groups, 'number_mode'),
         bankingIntentModeLabels: _readStringList(groups, 'banking_intent_mode'),
+        removedBankingIntents: _readStringList(
+          groups,
+          'removed_banking_intents',
+        ),
         modelMetadata: modelMetadata,
       );
       validate(metadata);
@@ -142,7 +148,27 @@ class LabelService {
     if (metadata.bankingIntentModeLabels.length !=
         AppConfig.expectedBankingIntentModeLabels) {
       throw StateError(
-        'Expected 50 banking intent mode labels, found ${metadata.bankingIntentModeLabels.length}.',
+        'Expected 40 banking intent mode labels, found ${metadata.bankingIntentModeLabels.length}.',
+      );
+    }
+    if (metadata.removedBankingIntents.length !=
+        AppConfig.expectedRemovedBankingIntents) {
+      throw StateError(
+        'Expected 10 removed banking intents, found ${metadata.removedBankingIntents.length}.',
+      );
+    }
+    if (metadata.bankingIntentModeLabels.any(
+      metadata.removedBankingIntents.contains,
+    )) {
+      throw StateError(
+        'Removed banking intents cannot appear in active Banking Intent Mode.',
+      );
+    }
+    if (metadata.bankingIntentModeLabels.any(
+      (label) => !metadata.labels.contains(label),
+    )) {
+      throw StateError(
+        'Every active banking intent must remain mapped by the historical model.',
       );
     }
     if (inputShape.length != 2 ||

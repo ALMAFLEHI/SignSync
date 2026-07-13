@@ -1,6 +1,5 @@
 label,valid_samples,target,status
 transfer,0,20,PENDING
-address_change,0,20,PENDING
 document,0,20,PENDING
 signature,0,20,PENDING
 atm,0,20,PENDING

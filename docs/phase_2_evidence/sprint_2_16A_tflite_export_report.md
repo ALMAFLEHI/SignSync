@@ -2,27 +2,6 @@
 
 ## Result
 
-PENDING
+PENDING. No 76-class model has been trained, so no TFLite conversion or Flutter asset replacement was performed.
 
-## Reason
-
-No updated model was trained yet, so no Sprint 2.16A TFLite export was created.
-
-## Required Future Contract
-
-The future Sprint 2.16A model must keep:
-
-- input shape: `[1, 756]`
-- input dtype: `float32`
-- output shape: `[1, 86]`
-- output dtype: `float32`
-
-## Planned Output Folder
-
-```text
-ml/models/sprint_2_16A/
-```
-
-## Scope Note
-
-No TFLite reconversion or Flutter model asset replacement was performed in this setup commit.
+The future TFLite contract is `[1, 756]` float32 input and `[1, 76]` float32 output. Future metadata will be generated only after conversion and output verification. The current Flutter TFLite assets, `labels.txt`, `label_mapping.json`, and model metadata correctly remain 86-class.

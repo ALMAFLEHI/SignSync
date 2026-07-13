@@ -1,4 +1,4 @@
-"""Versioned SignSync dataset vocabularies for the Phase 2 collection workflows."""
+"""Versioned SignSync dataset vocabularies for the Phase 2 workflows."""
 
 # Keep the core ASL label groups independent so V1 and V2 can share them safely.
 ALPHABET_LABELS: list[str] = [
@@ -66,13 +66,76 @@ BANKING_INTENTS_EXPANSION_V2: list[str] = [
     "daily_limit",
 ]
 
-BANKING_INTENTS_V2: list[str] = BANKING_INTENTS_V1 + BANKING_INTENTS_EXPANSION_V2
+BANKING_INTENTS_V2_50: list[str] = BANKING_INTENTS_V1 + BANKING_INTENTS_EXPANSION_V2
+
+# V3 narrows only the active/future scope. Historical V2 data and models stay intact.
+REMOVED_BANKING_INTENTS_V3_10: list[str] = [
+    "online_banking",
+    "mobile_banking",
+    "currency_exchange",
+    "exchange_rate",
+    "fixed_deposit",
+    "customer_service",
+    "update_details",
+    "phone_number",
+    "email_address",
+    "address_change",
+]
+
+BANKING_INTENTS_V3_40: list[str] = [
+    "deposit",
+    "withdraw",
+    "balance",
+    "transfer",
+    "account",
+    "card",
+    "pin",
+    "password",
+    "identity_verification",
+    "cash",
+    "payment",
+    "fee",
+    "loan",
+    "savings",
+    "open_account",
+    "close_account",
+    "fraud",
+    "block_card",
+    "help",
+    "confirm",
+    "statement",
+    "document",
+    "bill_payment",
+    "atm",
+    "branch",
+    "cheque",
+    "interest_rate",
+    "credit_card",
+    "debit_card",
+    "lost_card",
+    "replace_card",
+    "change_pin",
+    "reset_password",
+    "refund",
+    "signature",
+    "complaint",
+    "appointment",
+    "account_number",
+    "card_limit",
+    "daily_limit",
+]
+
+# Historical aliases are retained so completed Sprint 2.11-2.15 scripts reproduce.
+BANKING_INTENTS_V2: list[str] = BANKING_INTENTS_V2_50
 
 ALL_LABELS_V1: list[str] = ALPHABET_LABELS + DIGIT_LABELS + BANKING_INTENTS_V1
-ALL_LABELS_V2: list[str] = ALPHABET_LABELS + DIGIT_LABELS + BANKING_INTENTS_V2
+ALL_LABELS_V2_86: list[str] = ALPHABET_LABELS + DIGIT_LABELS + BANKING_INTENTS_V2_50
+ALL_LABELS_V3_76: list[str] = ALPHABET_LABELS + DIGIT_LABELS + BANKING_INTENTS_V3_40
+ALL_LABELS_V2: list[str] = ALL_LABELS_V2_86
 
 NORMAL_MODE_LABELS_V1: list[str] = ALPHABET_LABELS + BANKING_INTENTS_V1
 NORMAL_MODE_LABELS_V2: list[str] = ALPHABET_LABELS + BANKING_INTENTS_V2
+NORMAL_MODE_LABELS_V3: list[str] = ALPHABET_LABELS + BANKING_INTENTS_V3_40
 NUMBER_MODE_LABELS: list[str] = DIGIT_LABELS
 
 # Existing scripts retain their original public names. New recording uses V2 by default.
@@ -89,16 +152,20 @@ def _validate_unique(labels: list[str], label_group_name: str) -> None:
 
 
 def _validate_labels() -> None:
-    """Protect the frozen V1 scope and the Sprint 2.11 expanded V2 scope."""
+    """Protect historical V1/V2 scopes and the active Sprint 2.16A V3 scope."""
     for label_group, label_group_name in (
         (ALPHABET_LABELS, "Alphabet labels"),
         (DIGIT_LABELS, "Digit labels"),
         (BANKING_INTENTS_V1, "V1 banking intents"),
         (BANKING_INTENTS_EXPANSION_V2, "V2 banking intent expansion"),
         (BANKING_INTENTS_V2, "V2 banking intents"),
+        (REMOVED_BANKING_INTENTS_V3_10, "V3 removed banking intents"),
+        (BANKING_INTENTS_V3_40, "V3 active banking intents"),
         (ALL_LABELS_V1, "V1 all labels"),
         (ALL_LABELS_V2, "V2 all labels"),
+        (ALL_LABELS_V3_76, "V3 all labels"),
         (NORMAL_MODE_LABELS_V2, "V2 Normal Mode labels"),
+        (NORMAL_MODE_LABELS_V3, "V3 Normal Mode labels"),
         (NUMBER_MODE_LABELS, "Number Mode labels"),
     ):
         _validate_unique(label_group, label_group_name)
@@ -115,6 +182,20 @@ def _validate_labels() -> None:
         )
     if len(ALL_LABELS_V2) != 86:
         raise ValueError(f"V2 must contain 86 labels, found {len(ALL_LABELS_V2)}.")
+    if len(REMOVED_BANKING_INTENTS_V3_10) != 10:
+        raise ValueError("V3 must document exactly 10 removed banking intents.")
+    if len(BANKING_INTENTS_V3_40) != 40:
+        raise ValueError(
+            f"V3 must contain 40 banking intents, found {len(BANKING_INTENTS_V3_40)}."
+        )
+    if set(REMOVED_BANKING_INTENTS_V3_10).intersection(BANKING_INTENTS_V3_40):
+        raise ValueError("Removed V3 banking intents must not appear in the active V3 scope.")
+    if set(BANKING_INTENTS_V2_50) != (
+        set(BANKING_INTENTS_V3_40) | set(REMOVED_BANKING_INTENTS_V3_10)
+    ):
+        raise ValueError("V3 retained and removed banking intents must partition V2 exactly.")
+    if len(ALL_LABELS_V3_76) != 76:
+        raise ValueError(f"V3 must contain 76 labels, found {len(ALL_LABELS_V3_76)}.")
     if len(NORMAL_MODE_LABELS_V2) != 76:
         raise ValueError(
             "V2 Normal Mode must contain 76 alphabet and banking labels, "

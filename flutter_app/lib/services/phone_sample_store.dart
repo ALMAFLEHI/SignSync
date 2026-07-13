@@ -11,7 +11,6 @@ class PhoneSampleStore {
   static const String device = 'Samsung Android phone';
   static const List<String> weakLabels = <String>[
     'transfer',
-    'address_change',
     'document',
     'signature',
     'atm',

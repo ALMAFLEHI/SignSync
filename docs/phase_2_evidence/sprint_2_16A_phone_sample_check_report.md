@@ -6,7 +6,7 @@ PENDING
 ## Summary
 - Sample folder: ml/data_phone/landmark_samples
 - Valid samples found: 0
-- Minimum target: 100
+- Minimum target: 80
 - Invalid samples: 0
 - Duplicate sample_id rows: 0
 
@@ -14,7 +14,6 @@ PENDING
 | Label | Valid Samples | Target | Status |
 | --- | ---: | ---: | --- |
 | transfer | 0 | 20 | PENDING |
-| address_change | 0 | 20 | PENDING |
 | document | 0 | 20 | PENDING |
 | signature | 0 | 20 | PENDING |
 | atm | 0 | 20 | PENDING |

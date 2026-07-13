@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 from collections import Counter
 
+from labels import ALL_LABELS_V3_76, REMOVED_BANKING_INTENTS_V3_10
 from phone_dataset_config import (
     DATASET_REPORT_MD_PATH,
     LANDMARK_DIMENSION,
@@ -33,14 +34,63 @@ def main() -> int:
         X = dataset["X"]
         y = dataset["y"]
         labels = dataset["labels"].astype(str)
+        label_names = dataset["label_names"].astype(str).tolist()
+        sample_ids = dataset["sample_ids"].astype(str)
         splits = dataset["splits"].astype(str)
 
     rows.append({"check": "X rank", "status": "PASS" if X.ndim == 3 else "FAIL", "detail": str(X.shape)})
+    v3_mapping = {label: index for index, label in enumerate(ALL_LABELS_V3_76)}
     rows.append(
         {
             "check": "sequence shape",
             "status": "PASS" if X.shape[1:] == (TARGET_FRAMES, LANDMARK_DIMENSION) else "FAIL",
             "detail": str(X.shape[1:]),
+        }
+    )
+    rows.append(
+        {
+            "check": "active class contract",
+            "status": "PASS" if label_names == ALL_LABELS_V3_76 else "FAIL",
+            "detail": str(len(label_names)),
+        }
+    )
+    rows.append(
+        {
+            "check": "active labels only",
+            "status": "PASS" if set(labels) == set(ALL_LABELS_V3_76) else "FAIL",
+            "detail": str(len(set(labels))),
+        }
+    )
+    rows.append(
+        {
+            "check": "removed labels excluded",
+            "status": "PASS"
+            if not set(labels).intersection(REMOVED_BANKING_INTENTS_V3_10)
+            else "FAIL",
+            "detail": "0 removed labels expected",
+        }
+    )
+    rows.append(
+        {
+            "check": "unique sample IDs",
+            "status": "PASS" if len(sample_ids) == len(set(sample_ids)) else "FAIL",
+            "detail": str(len(sample_ids)),
+        }
+    )
+    rows.append(
+        {
+            "check": "label indices",
+            "status": "PASS"
+            if len(y)
+            and np.array_equal(
+                y,
+                np.asarray(
+                    [v3_mapping[label] for label in labels],
+                    dtype=np.int64,
+                ),
+            )
+            else "FAIL",
+            "detail": "indices match V3 label order" if len(y) else "empty",
         }
     )
     rows.append({"check": "y length", "status": "PASS" if len(y) == len(X) else "FAIL", "detail": str(len(y))})

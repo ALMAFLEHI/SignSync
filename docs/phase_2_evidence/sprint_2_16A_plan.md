@@ -2,56 +2,19 @@
 
 ## Goal
 
-Sprint 2.16A is a phone-camera weak-label pilot for SignSync. The goal is to improve live demo reliability without replacing or deleting the existing laptop-camera dataset.
+Use the approved 76-class V3 scope for future dataset preparation while preserving the historical 86-class workflow. Improve four retained weak banking labels using phone-camera landmark samples.
 
-## Scope
+## Completed Setup
 
-- Improve Flutter live prediction robustness.
-- Add confidence thresholds per recognition mode.
-- Add top-2 gap checking.
-- Add a simple 3-capture majority-vote stabilization workflow.
-- Add a phone-camera landmark JSON collection page.
-- Add Python scripts to validate, import, and prepare a mixed laptop + phone dataset.
-- Keep the model output contract at `[1, 86]`.
+- Versioned the historical 50-intent/86-class V2 scope.
+- Added the active 40-intent/76-class V3 scope.
+- Excluded exactly 10 approved labels from future training without deleting data.
+- Restricted Flutter Banking Intent Mode to the active 40 labels while retaining 86 raw model outputs for debugging.
+- Revised the phone pilot to `transfer`, `document`, `signature`, and `atm`.
+- Prepared validation and future mixed-dataset scripts.
 
-## Weak Labels
+## Pending Execution
 
-Exactly five labels are targeted:
+Record at least 20 landmark samples per pilot label, for 80 minimum total. After validation, combine active historical samples with phone samples, prepare 756 features, train a 76-output Keras model, convert and verify TFLite, then update Flutter assets and perform a live retest.
 
-- `transfer`
-- `address_change`
-- `document`
-- `signature`
-- `atm`
-
-Minimum target: 20 phone-camera landmark samples per weak label, 100 total.
-
-## Phone Sample Strategy
-
-Samples are captured on the Samsung Android phone as landmark JSON only. No raw video is saved. Each sample contains 60 frames and 126 landmark values per frame.
-
-Participant/source:
-
-- participant: `P02_PHONE`
-- source: `phone_live_landmark`
-- device: `Samsung Android phone`
-
-## Model Improvement Strategy
-
-Once enough phone samples are pulled to `ml/data_phone/landmark_samples/`, the Python pipeline will combine:
-
-- old laptop-camera expanded dataset
-- new phone-camera weak-label samples
-
-Retraining and TFLite export are pending until valid phone samples exist. No fake samples are created.
-
-## Hand Ordering Note
-
-The Android bridge returns 126 values in a fixed layout:
-
-- values `0-62`: left hand
-- values `63-125`: right hand
-
-MediaPipe handedness is used first. If handedness is missing, detections fall back to normalized average x-position. Missing hand slots are zero-filled. Frames with no hands are not added to the 60-frame buffer.
-
-This matches the previous Python layout as closely as possible, with the known limitation that live front-camera mirroring and MediaPipe handedness may not always be identical to laptop-video extraction.
+No training, conversion, Flutter model replacement, Sprint 2.16B, or Sprint 2.17 work occurs until the samples exist.

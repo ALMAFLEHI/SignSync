@@ -2,30 +2,14 @@
 
 ## Result
 
-PENDING
+PENDING. No model retraining was performed because the required phone samples do not exist yet.
 
-## Reason
+## Future Contract
 
-Retraining is intentionally not started because no valid phone-camera landmark samples have been pulled into `ml/data_phone/landmark_samples/` yet.
+- Input: `[1, 756]` float32 statistical features
+- Output: `[1, 76]` float32 probabilities
+- Banking scope: 40 active intents
+- Phone pilot: `transfer`, `document`, `signature`, `atm`
+- Model folder: `ml/models/sprint_2_16A_v3_40/`
 
-## Planned Training
-
-After the 100-sample phone pilot target is reached:
-
-1. Create the mixed laptop + phone sequence dataset.
-2. Prepare 756 statistical features.
-3. Train a TFLite-compatible Keras model.
-4. Evaluate overall performance and weak-label performance.
-5. Select a model only if weak-label reliability improves without damaging strong-label behavior.
-
-## Weak Labels To Report
-
-- `transfer`
-- `address_change`
-- `document`
-- `signature`
-- `atm`
-
-## Scope Note
-
-No model retraining was performed in this setup commit.
+The historical 86-class model remains archived and operational. Training starts only after at least 80 valid phone samples and successful mixed-dataset validation.

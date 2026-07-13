@@ -1,83 +1,47 @@
-# Phase 2, Sprint 2.16A: Phone-Camera Weak Label Dataset Pilot and Accuracy Improvement Setup
+# Phase 2, Sprint 2.16A: Active Scope Revision and Phone Dataset Pilot
 
-## Sprint Status
+## Status
 
-Setup complete. Waiting for the user to record and pull phone-camera landmark samples before retraining.
+Scope revision complete. Waiting for manual phone-camera landmark recording before mixed-dataset creation and retraining.
 
-## Goal
+## Active Vocabulary
 
-Sprint 2.16A starts a controlled improvement loop for five weak banking-intent labels found during Sprint 2.15 live phone testing.
+- Alphabet labels: 26
+- Digit labels: 10
+- Banking intents: 40
+- Future model classes: 76
+- Historical model classes: 86
 
-Target weak labels:
+The 50-intent V2 vocabulary, historical datasets, mappings, models, and evidence remain preserved. Ten banking intents are excluded only from the active V3 scope and future training.
+
+## Revised Phone Pilot
+
+Record at least 20 phone landmark samples for each retained weak label:
 
 - `transfer`
-- `address_change`
 - `document`
 - `signature`
 - `atm`
 
-## What Was Added
+Minimum total: 80 samples. Each JSON sample uses participant `P02_PHONE`, source `phone_live_landmark`, 60 frames, and 126 values per frame. No raw video is saved.
 
-- Confidence thresholds:
-  - Alphabet Mode: 0.65
-  - Number Mode: 0.60
-  - Banking Intent Mode: 0.70
-- Top-2 confidence gap check: 0.15
-- Try Again output for low-confidence or ambiguous predictions
-- 3-capture majority vote stabilization
-- Phone Dataset Collection page in Flutter
-- Local JSON landmark sample saving
-- Python validation/import/dataset setup scripts
-- Sprint 2.16A evidence reports
+## Workflow
 
-## Phone Sample Workflow
-
-In Flutter:
-
-1. Open `Phone Dataset Collection`.
-2. Select one weak label.
-3. Start camera.
-4. Capture and save a 60-frame sample.
-5. Repeat until each weak label has 20 samples.
-
-Android save path:
-
-```text
-/storage/emulated/0/Android/data/com.example.flutter_app/files/signsync_phone_samples/
-```
-
-Pull samples to PC:
+1. Open `Phone Dataset Collection` in the Android app.
+2. Record 20 or more samples for each of the four labels.
+3. Pull the JSON files to `ml/data_phone/landmark_samples/`.
+4. Run:
 
 ```powershell
-adb pull /storage/emulated/0/Android/data/com.example.flutter_app/files/signsync_phone_samples "D:\SWE  MOODLE\Year 3 Semester 2\FYP Part 2\SignSync\ml\data_phone\landmark_samples"
-```
-
-## Python Commands
-
-```powershell
+python ml/src/check_active_scope_v3.py
 python ml/src/check_phone_landmark_samples.py
 python ml/src/import_phone_landmark_samples.py
 python ml/src/prepare_phone_augmented_dataset.py --participant P02_PHONE
 python ml/src/check_phone_augmented_dataset.py
 ```
 
-## Current Limitation
+The future dataset is `signsync_scope_v3_40_phone_pilot_v1_2hand_60f.npz`. The future model contract is `[1, 756]` input and `[1, 76]` output. The current Flutter model and metadata remain 86-class until a validated 76-class model is trained and exported.
 
-No phone samples exist in `ml/data_phone/landmark_samples/` yet. Therefore:
+## Boundaries
 
-- mixed dataset creation is pending
-- retraining is pending
-- TFLite export is pending
-- Flutter model asset update is pending
-- live weak-label retest is pending
-
-## Scope Confirmation
-
-- old laptop-camera dataset kept
-- no old data deleted
-- no fake samples created
-- no raw video saved
-- no cloud/server processing
-- no Sprint 2.16B work
-- no Sprint 2.17 work
-- no 100% accuracy claim
+No historical data was deleted, no fake samples were generated, no retraining or TFLite conversion was performed, and Sprint 2.16B/2.17 were not started.

@@ -18,9 +18,10 @@ class AppConfig {
   static const int expectedFrameCount = 60;
   static const int expectedFrameWidth = 126;
   static const int expectedAlphabetModeLabels = 26;
-  static const int expectedNormalModeLabels = 76;
+  static const int expectedNormalModeLabels = 66;
   static const int expectedNumberModeLabels = 10;
-  static const int expectedBankingIntentModeLabels = 50;
+  static const int expectedBankingIntentModeLabels = 40;
+  static const int expectedRemovedBankingIntents = 10;
 
   static const double alphabetConfidenceThreshold = 0.65;
   static const double numberConfidenceThreshold = 0.60;
