@@ -25,6 +25,10 @@ ml/data_phone/imported_landmarks/import_status.json
 !ml/data_phone/landmark_samples/.gitkeep
 !ml/data_phone/imported_landmarks/.gitkeep
 
+# Local phone dataset fixtures and backups
+ml/data_phone/fixtures/**/*.json
+ml/data_phone/*_backup.zip
+
 # Local MediaPipe model assets
 ml/models/*.task
 
@@ -39,3 +43,6 @@ ml/models/**/saved_model/**/*
 # Flutter runtime model assets required by Sprint 2.14 prototype
 !flutter_app/assets/models/model_float32.tflite
 !flutter_app/assets/models/model_dynamic_range.tflite
+
+# Local pre-deployment model backups
+flutter_app/assets/model_backups/

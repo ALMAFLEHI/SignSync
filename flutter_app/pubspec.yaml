@@ -67,6 +67,7 @@ flutter:
     - assets/metadata/label_mapping.json
     - assets/metadata/label_groups.json
     - assets/metadata/tflite_model_metadata.json
+    - assets/metadata/preprocessing_config.json
     - assets/mediapipe/hand_landmarker.task
     - assets/test_features/
 

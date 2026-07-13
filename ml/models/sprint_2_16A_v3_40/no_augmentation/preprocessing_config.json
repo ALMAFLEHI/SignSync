@@ -1,0 +1,24 @@
+{
+  "source_sequence_shape": [
+    60,
+    126
+  ],
+  "feature_order": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "first_frame",
+    "last_frame"
+  ],
+  "feature_width": 756,
+  "standard_deviation_ddof": 0,
+  "left_hand_indices": [
+    0,
+    62
+  ],
+  "right_hand_indices": [
+    63,
+    125
+  ]
+}

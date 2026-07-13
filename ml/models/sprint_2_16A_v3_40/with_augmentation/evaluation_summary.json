@@ -1,0 +1,157 @@
+{
+  "name": "experiment_b_with_augmentation",
+  "display_name": "Experiment B: 76-class with augmentation",
+  "full_test_samples": 161,
+  "full_accuracy": 0.9192546583850931,
+  "full_macro_precision": 0.9327119883040935,
+  "full_macro_recall": 0.9172932330827068,
+  "full_macro_f1": 0.9106986215538847,
+  "full_weighted_precision": 0.9319013112491372,
+  "full_weighted_recall": 0.9192546583850931,
+  "full_weighted_f1": 0.9107734398107069,
+  "phone_test_samples": 20,
+  "phone_accuracy": 0.95,
+  "phone_macro_f1": 0.9722222222222222,
+  "phone_per_label": {
+    "transfer": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "accuracy": 1.0,
+      "support": 5
+    },
+    "document": {
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1": 0.8888888888888888,
+      "accuracy": 0.8,
+      "support": 5
+    },
+    "signature": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "accuracy": 1.0,
+      "support": 5
+    },
+    "atm": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "accuracy": 1.0,
+      "support": 5
+    }
+  },
+  "threshold_pass_rate": 0.95,
+  "try_again_rate": 0.050000000000000044,
+  "high_confidence_wrong": 0,
+  "control_accuracy": 0.8571428571428571,
+  "control_results": {
+    "A": 1.0,
+    "7": 1.0,
+    "deposit": 1.0,
+    "payment": 0.5,
+    "balance": 1.0
+  },
+  "top_confused_pairs": [
+    {
+      "true_label": "3",
+      "predicted_label": "H",
+      "count": 2
+    },
+    {
+      "true_label": "document",
+      "predicted_label": "card",
+      "count": 2
+    },
+    {
+      "true_label": "N",
+      "predicted_label": "T",
+      "count": 1
+    },
+    {
+      "true_label": "V",
+      "predicted_label": "U",
+      "count": 1
+    },
+    {
+      "true_label": "Z",
+      "predicted_label": "transfer",
+      "count": 1
+    },
+    {
+      "true_label": "appointment",
+      "predicted_label": "loan",
+      "count": 1
+    },
+    {
+      "true_label": "cash",
+      "predicted_label": "signature",
+      "count": 1
+    },
+    {
+      "true_label": "confirm",
+      "predicted_label": "lost_card",
+      "count": 1
+    },
+    {
+      "true_label": "open_account",
+      "predicted_label": "statement",
+      "count": 1
+    },
+    {
+      "true_label": "password",
+      "predicted_label": "transfer",
+      "count": 1
+    }
+  ],
+  "model_size_bytes": 585720,
+  "keras_model_size_bytes": 6789897,
+  "tflite_verification": {
+    "float32": {
+      "input_shape": [
+        1,
+        756
+      ],
+      "output_shape": [
+        1,
+        76
+      ],
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "loads_successfully": true,
+      "model_size_bytes": 2255812,
+      "top1_agreement_with_keras": 1.0,
+      "max_abs_probability_difference": 4.172325134277344e-07
+    },
+    "dynamic_range": {
+      "input_shape": [
+        1,
+        756
+      ],
+      "output_shape": [
+        1,
+        76
+      ],
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "loads_successfully": true,
+      "model_size_bytes": 585720,
+      "top1_agreement_with_keras": 1.0,
+      "max_abs_probability_difference": 0.002166926860809326
+    },
+    "fixtures_checked": 12,
+    "labels": 76,
+    "removed_labels_in_metadata": []
+  },
+  "epochs_trained": 52,
+  "best_epoch": 32,
+  "early_stopped": true,
+  "best_train_accuracy": 0.9479926824569702,
+  "best_val_accuracy": 0.9270833134651184,
+  "best_train_loss": 0.16248296201229095,
+  "best_val_loss": 0.6900007128715515,
+  "original_training_samples": 548,
+  "augmented_training_samples": 548,
+  "effective_training_samples": 1096
+}

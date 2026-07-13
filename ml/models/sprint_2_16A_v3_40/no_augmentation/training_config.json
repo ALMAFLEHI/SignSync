@@ -1,0 +1,36 @@
+{
+  "seed": 42,
+  "architecture": [
+    512,
+    256,
+    128
+  ],
+  "dropout": 0.25,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "loss": "SparseCategoricalCrossentropy",
+  "batch_size": 32,
+  "maximum_epochs": 200,
+  "early_stopping_monitor": "val_accuracy",
+  "early_stopping_patience": 20,
+  "model_checkpointing": true,
+  "class_weighting": "balanced inverse-frequency",
+  "feature_order": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "first_frame",
+    "last_frame"
+  ],
+  "input_shape": [
+    1,
+    756
+  ],
+  "output_shape": [
+    1,
+    76
+  ],
+  "augmentation_enabled": false,
+  "augmentation_config": null
+}

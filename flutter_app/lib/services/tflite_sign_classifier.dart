@@ -73,7 +73,8 @@ class TfliteSignClassifier {
     final probabilities = output.first;
     if (probabilities.length != AppConfig.expectedOutputClasses) {
       throw StateError(
-        'Expected 86 output probabilities, found ${probabilities.length}.',
+        'Expected ${AppConfig.expectedOutputClasses} output probabilities, '
+        'found ${probabilities.length}.',
       );
     }
 
@@ -126,7 +127,8 @@ class TfliteSignClassifier {
       AppConfig.expectedOutputClasses,
     ])) {
       throw StateError(
-        'Expected TFLite output shape [1, 86], found $outputShape.',
+        'Expected TFLite output shape '
+        '[1, ${AppConfig.expectedOutputClasses}], found $outputShape.',
       );
     }
   }

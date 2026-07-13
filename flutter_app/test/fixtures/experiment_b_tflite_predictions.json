@@ -1,0 +1,54 @@
+{
+  "fixture_version": "sprint_2_16A_experiment_B_deployment_v1",
+  "model_sha256": "88cdc0367f40e50081e5bde7644ede242937061843cb68ea1235214e62308ddd",
+  "input_shape": [
+    1,
+    756
+  ],
+  "output_shape": [
+    1,
+    76
+  ],
+  "predictions": [
+    {
+      "sample_id": "P02_PHONE_transfer_R21",
+      "expected_label": "transfer",
+      "dynamic_top1": "transfer",
+      "dynamic_top1_confidence": 1.0,
+      "dynamic_top2": "identity_verification",
+      "dynamic_top2_confidence": 2.400310660880986e-24,
+      "float_top1": "transfer",
+      "float_dynamic_max_abs_difference": 6.04708032214861e-25
+    },
+    {
+      "sample_id": "P02_PHONE_document_R21",
+      "expected_label": "document",
+      "dynamic_top1": "document",
+      "dynamic_top1_confidence": 0.9999864101409912,
+      "dynamic_top2": "signature",
+      "dynamic_top2_confidence": 1.3522272638510913e-05,
+      "float_top1": "document",
+      "float_dynamic_max_abs_difference": 7.152557373046875e-07
+    },
+    {
+      "sample_id": "P02_PHONE_signature_R21",
+      "expected_label": "signature",
+      "dynamic_top1": "signature",
+      "dynamic_top1_confidence": 0.999966025352478,
+      "dynamic_top2": "document",
+      "dynamic_top2_confidence": 3.398340777494013e-05,
+      "float_top1": "signature",
+      "float_dynamic_max_abs_difference": 3.219578502466902e-06
+    },
+    {
+      "sample_id": "P02_PHONE_atm_R21",
+      "expected_label": "atm",
+      "dynamic_top1": "atm",
+      "dynamic_top1_confidence": 0.999997615814209,
+      "dynamic_top2": "V",
+      "dynamic_top2_confidence": 2.3870045424700947e-06,
+      "float_top1": "atm",
+      "float_dynamic_max_abs_difference": 1.794198851712281e-07
+    }
+  ]
+}

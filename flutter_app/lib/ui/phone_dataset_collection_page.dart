@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../config/app_config.dart';
+import '../config/phone_dataset_scope.dart';
 import '../models/live_landmark_frame.dart';
 import '../models/live_prediction_session.dart';
 import '../services/live_landmark_service.dart';
@@ -24,13 +25,13 @@ class _PhoneDatasetCollectionPageState
 
   PhoneSampleStore? _sampleStore;
   LiveLandmarkFrame? _lastFrame;
-  String _selectedLabel = PhoneSampleStore.weakLabels.first;
+  String _selectedLabel = PhoneSampleStore.sprint216BCollectionLabels.first;
   String _statusMessage = 'Preparing phone dataset collection...';
   String? _errorMessage;
   String? _sampleDirectoryPath;
   PhoneSampleSaveResult? _lastSaveResult;
   Map<String, int> _counts = {
-    for (final label in PhoneSampleStore.weakLabels) label: 0,
+    for (final label in PhoneSampleStore.sprint216BCollectionLabels) label: 0,
   };
   bool _isCameraStarting = false;
   bool _isCameraStarted = false;
@@ -76,7 +77,7 @@ class _PhoneDatasetCollectionPageState
         _sampleStore = store;
         _sampleDirectoryPath = directoryPath;
         _counts = counts;
-        _statusMessage = 'Ready to collect phone-camera landmark samples.';
+        _statusMessage = 'Ready to collect the remaining 36 banking intents.';
       });
     } catch (error) {
       if (!mounted) {
@@ -124,7 +125,7 @@ class _PhoneDatasetCollectionPageState
       setState(() {
         _isCameraStarted = true;
         _isCameraStarting = false;
-        _statusMessage = 'Camera started. Select a weak label and capture.';
+        _statusMessage = 'Camera started. Select a banking label and capture.';
       });
     } catch (error) {
       if (!mounted) {
@@ -148,6 +149,14 @@ class _PhoneDatasetCollectionPageState
     if (!_isCameraStarted) {
       setState(() {
         _errorMessage = 'Start the camera before capturing a sample.';
+      });
+      return;
+    }
+    if ((_counts[_selectedLabel] ?? 0) >= PhoneDatasetScope.samplesPerLabel) {
+      setState(() {
+        _errorMessage =
+            '$_selectedLabel is complete at ${PhoneDatasetScope.samplesPerLabel}/'
+            '${PhoneDatasetScope.samplesPerLabel}.';
       });
       return;
     }
@@ -176,6 +185,138 @@ class _PhoneDatasetCollectionPageState
       _lastSaveResult = null;
       _statusMessage = 'Capture reset.';
     });
+  }
+
+  Future<void> _stopCamera() async {
+    await _landmarkService.stopCamera();
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _isCameraStarted = false;
+      _isCameraStarting = false;
+      _isCapturing = false;
+      _isSaving = false;
+      _validFrameCount = 0;
+      _lastFrame = null;
+      _statusMessage = 'Camera stopped.';
+    });
+  }
+
+  Future<void> _requestLabelChange(String label) async {
+    if (label == _selectedLabel || _isCapturing || _isSaving) {
+      return;
+    }
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Change collection label?'),
+        content: Text(
+          'Move from $_selectedLabel to $label? The next capture will be '
+          'saved only under $label.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: const Text('Change Label'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true || !mounted) {
+      return;
+    }
+    setState(() {
+      _selectedLabel = label;
+      _lastSaveResult = null;
+      _validFrameCount = 0;
+      _errorMessage = null;
+      _statusMessage = 'Selected $label.';
+    });
+  }
+
+  Future<void> _selectNextIncomplete() async {
+    final labels = PhoneSampleStore.sprint216BCollectionLabels;
+    final startIndex = labels.indexOf(_selectedLabel);
+    for (var offset = 1; offset <= labels.length; offset += 1) {
+      final label = labels[(startIndex + offset) % labels.length];
+      if ((_counts[label] ?? 0) < PhoneDatasetScope.samplesPerLabel) {
+        await _requestLabelChange(label);
+        return;
+      }
+    }
+    setState(() {
+      _statusMessage = 'All 36 Sprint 2.16B labels are complete.';
+    });
+  }
+
+  Future<void> _deleteLastSavedSample() async {
+    final store = _sampleStore;
+    if (store == null || _isCapturing || _isSaving) {
+      return;
+    }
+    try {
+      final candidate = await store.lastSavedSampleForLabel(_selectedLabel);
+      if (!mounted) {
+        return;
+      }
+      if (candidate == null) {
+        setState(() {
+          _statusMessage = 'No valid saved sample exists for $_selectedLabel.';
+        });
+        return;
+      }
+      final confirmed = await showDialog<bool>(
+        context: context,
+        builder: (dialogContext) => AlertDialog(
+          title: const Text('Delete last saved sample?'),
+          content: Text(
+            'Delete only ${candidate.sampleId} '
+            '(R${PhoneSampleStore.formatRepetition(candidate.repetition)}) '
+            'from $_selectedLabel?',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(false),
+              child: const Text('Cancel'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.of(dialogContext).pop(true),
+              child: const Text('Delete Sample'),
+            ),
+          ],
+        ),
+      );
+      if (confirmed != true) {
+        return;
+      }
+      final deleted = await store.deleteLastSavedSample(
+        label: _selectedLabel,
+        expectedSampleId: candidate.sampleId,
+      );
+      final counts = await store.countSamplesByLabel();
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _counts = counts;
+        _lastSaveResult = null;
+        _validFrameCount = 0;
+        _statusMessage = 'Deleted ${deleted.sampleId} only.';
+      });
+    } catch (error) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _errorMessage = error.toString();
+        _statusMessage = 'Could not delete the last saved sample.';
+      });
+    }
   }
 
   void _handleStatus(String message) {
@@ -262,9 +403,18 @@ class _PhoneDatasetCollectionPageState
   @override
   Widget build(BuildContext context) {
     final lastFrame = _lastFrame;
+    final totalSamples = _counts.values.fold<int>(
+      0,
+      (total, count) => total + count,
+    );
+    final completedLabels = _counts.values
+        .where((count) => count >= PhoneDatasetScope.samplesPerLabel)
+        .length;
+    final selectedComplete =
+        (_counts[_selectedLabel] ?? 0) >= PhoneDatasetScope.samplesPerLabel;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Phone Dataset Collection')),
+      appBar: AppBar(title: const Text('Sprint 2.16B Banking Collection')),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
@@ -275,19 +425,24 @@ class _PhoneDatasetCollectionPageState
               _ErrorPanel(message: _errorMessage!),
             ],
             const SizedBox(height: 12),
+            _OverallProgressCard(
+              selectedLabel: _selectedLabel,
+              selectedCount: _counts[_selectedLabel] ?? 0,
+              totalSamples: totalSamples,
+              completedLabels: completedLabels,
+            ),
+            const SizedBox(height: 12),
+            const _PilotSummaryCard(),
+            const SizedBox(height: 12),
             _CameraPreviewCard(preview: _landmarkService.buildPreview()),
             const SizedBox(height: 12),
             _LabelSelector(
               selectedLabel: _selectedLabel,
               counts: _counts,
-              onChanged: _isCapturing || _isSaving
+              onChanged: _isCapturing || _isSaving ? null : _requestLabelChange,
+              onSelectNext: _isCapturing || _isSaving
                   ? null
-                  : (label) {
-                      setState(() {
-                        _selectedLabel = label;
-                        _lastSaveResult = null;
-                      });
-                    },
+                  : _selectNextIncomplete,
             ),
             const SizedBox(height: 12),
             _CollectionStatusCard(
@@ -303,9 +458,12 @@ class _PhoneDatasetCollectionPageState
               isCameraStarted: _isCameraStarted,
               isCapturing: _isCapturing,
               isSaving: _isSaving,
+              selectedLabelComplete: selectedComplete,
               onStartCamera: _startCamera,
               onStartCapture: _startCapture,
               onResetCapture: _resetCapture,
+              onStopCamera: _stopCamera,
+              onDeleteLastSample: _deleteLastSavedSample,
             ),
             if (_lastSaveResult != null) ...[
               const SizedBox(height: 12),
@@ -331,12 +489,18 @@ class _Header extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Sprint 2.16A Phone Dataset Pilot',
+          'Sprint 2.16B Full Banking Intent Expansion',
           style: Theme.of(
             context,
           ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 4),
+        const Text(
+          'Collect real Samsung A55 landmarks for the remaining 36 banking '
+          'intents: 25 samples each, 900 new samples total. Only landmark '
+          'JSON is stored locally; raw video is not saved.',
+        ),
+        const SizedBox(height: 8),
         Text(
           statusMessage,
           style: const TextStyle(
@@ -345,6 +509,90 @@ class _Header extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _OverallProgressCard extends StatelessWidget {
+  const _OverallProgressCard({
+    required this.selectedLabel,
+    required this.selectedCount,
+    required this.totalSamples,
+    required this.completedLabels,
+  });
+
+  final String selectedLabel;
+  final int selectedCount;
+  final int totalSamples;
+  final int completedLabels;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Collection Progress',
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 10),
+            _StatusRow(label: 'Selected label', value: selectedLabel),
+            _StatusRow(
+              label: 'Selected progress',
+              value: '$selectedCount / ${PhoneDatasetScope.samplesPerLabel}',
+            ),
+            _StatusRow(
+              label: 'Overall progress',
+              value: '$totalSamples / ${PhoneDatasetScope.newSampleTarget}',
+            ),
+            _StatusRow(
+              label: 'Completed labels',
+              value: '$completedLabels / 36',
+            ),
+            const SizedBox(height: 8),
+            LinearProgressIndicator(
+              value: totalSamples / PhoneDatasetScope.newSampleTarget,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PilotSummaryCard extends StatelessWidget {
+  const _PilotSummaryCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Sprint 2.16A Completed (Protected)',
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 8),
+            for (final label in PhoneSampleStore.sprint216APilotLabels)
+              _StatusRow(label: label, value: '25 / 25'),
+            const SizedBox(height: 4),
+            const Text(
+              'These labels are not selectable or deletable from this page.',
+              style: TextStyle(color: Color(0xFF64748B)),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -363,19 +611,31 @@ class _CameraPreviewCard extends StatelessWidget {
   }
 }
 
-class _LabelSelector extends StatelessWidget {
+class _LabelSelector extends StatefulWidget {
   const _LabelSelector({
     required this.selectedLabel,
     required this.counts,
     required this.onChanged,
+    required this.onSelectNext,
   });
 
   final String selectedLabel;
   final Map<String, int> counts;
   final ValueChanged<String>? onChanged;
+  final VoidCallback? onSelectNext;
+
+  @override
+  State<_LabelSelector> createState() => _LabelSelectorState();
+}
+
+class _LabelSelectorState extends State<_LabelSelector> {
+  String _query = '';
 
   @override
   Widget build(BuildContext context) {
+    final labels = PhoneSampleStore.sprint216BCollectionLabels
+        .where((label) => label.toLowerCase().contains(_query.toLowerCase()))
+        .toList(growable: false);
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -383,21 +643,45 @@ class _LabelSelector extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Weak Label Target',
+              'Remaining Banking Intent',
               style: Theme.of(
                 context,
               ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
             ),
+            const SizedBox(height: 4),
+            Text(
+              '${PhoneSampleStore.sprint216BCollectionLabels.length} selectable '
+              'labels, ${PhoneDatasetScope.samplesPerLabel} samples each',
+              style: const TextStyle(color: Color(0xFF64748B)),
+            ),
             const SizedBox(height: 12),
-            for (final label in PhoneSampleStore.weakLabels) ...[
+            TextField(
+              onChanged: (value) => setState(() => _query = value.trim()),
+              decoration: const InputDecoration(
+                labelText: 'Search banking labels',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 10),
+            OutlinedButton.icon(
+              onPressed: widget.onSelectNext,
+              icon: const Icon(Icons.skip_next),
+              label: const Text('Select Next Incomplete'),
+            ),
+            const SizedBox(height: 10),
+            if (labels.isEmpty)
+              const Text('No banking labels match this search.'),
+            for (final label in labels) ...[
               _LabelOption(
                 label: label,
-                count: counts[label] ?? 0,
-                selected: selectedLabel == label,
-                onTap: onChanged == null ? null : () => onChanged!(label),
+                count: widget.counts[label] ?? 0,
+                selected: widget.selectedLabel == label,
+                onTap: widget.onChanged == null
+                    ? null
+                    : () => widget.onChanged!(label),
               ),
-              if (label != PhoneSampleStore.weakLabels.last)
-                const SizedBox(height: 8),
+              const SizedBox(height: 8),
             ],
           ],
         ),
@@ -422,10 +706,11 @@ class _LabelOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final remaining = (PhoneSampleStore.targetSamplesPerLabel - count).clamp(
+    final remaining = (PhoneDatasetScope.samplesPerLabel - count).clamp(
       0,
-      PhoneSampleStore.targetSamplesPerLabel,
+      PhoneDatasetScope.samplesPerLabel,
     );
+    final completed = remaining == 0;
     return Material(
       color: selected
           ? colorScheme.primary.withValues(alpha: 0.08)
@@ -445,10 +730,16 @@ class _LabelOption extends StatelessWidget {
           child: Row(
             children: [
               Icon(
-                selected
+                completed
+                    ? Icons.check_circle
+                    : selected
                     ? Icons.radio_button_checked
                     : Icons.radio_button_unchecked,
-                color: selected ? colorScheme.primary : const Color(0xFF94A3B8),
+                color: completed
+                    ? const Color(0xFF15803D)
+                    : selected
+                    ? colorScheme.primary
+                    : const Color(0xFF94A3B8),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -460,7 +751,7 @@ class _LabelOption extends StatelessWidget {
                   ),
                 ),
               ),
-              Text('$count / ${PhoneSampleStore.targetSamplesPerLabel}'),
+              Text('$count / ${PhoneDatasetScope.samplesPerLabel}'),
               const SizedBox(width: 8),
               Text(
                 remaining == 0 ? 'done' : '$remaining left',
@@ -514,6 +805,14 @@ class _CollectionStatusCard extends StatelessWidget {
               value: frame?.handDetected == true ? 'Yes' : 'No',
             ),
             _StatusRow(
+              label: 'Left slot',
+              value: frame?.leftDetected == true ? 'Detected' : 'Zeros',
+            ),
+            _StatusRow(
+              label: 'Right slot',
+              value: frame?.rightDetected == true ? 'Detected' : 'Zeros',
+            ),
+            _StatusRow(
               label: 'Frame dimension',
               value: frame?.isValid == true
                   ? AppConfig.expectedFrameWidth.toString()
@@ -543,18 +842,24 @@ class _ControlPanel extends StatelessWidget {
     required this.isCameraStarted,
     required this.isCapturing,
     required this.isSaving,
+    required this.selectedLabelComplete,
     required this.onStartCamera,
     required this.onStartCapture,
     required this.onResetCapture,
+    required this.onStopCamera,
+    required this.onDeleteLastSample,
   });
 
   final bool isCameraStarting;
   final bool isCameraStarted;
   final bool isCapturing;
   final bool isSaving;
+  final bool selectedLabelComplete;
   final VoidCallback onStartCamera;
   final VoidCallback onStartCapture;
   final VoidCallback onResetCapture;
+  final VoidCallback onStopCamera;
+  final VoidCallback onDeleteLastSample;
 
   @override
   Widget build(BuildContext context) {
@@ -578,7 +883,9 @@ class _ControlPanel extends StatelessWidget {
               label: const Text('Start Camera'),
             ),
             FilledButton.icon(
-              onPressed: disabled || !isCameraStarted ? null : onStartCapture,
+              onPressed: disabled || !isCameraStarted || selectedLabelComplete
+                  ? null
+                  : onStartCapture,
               icon: isSaving
                   ? const SizedBox(
                       width: 18,
@@ -592,6 +899,16 @@ class _ControlPanel extends StatelessWidget {
               onPressed: disabled ? null : onResetCapture,
               icon: const Icon(Icons.restart_alt),
               label: const Text('Reset'),
+            ),
+            OutlinedButton.icon(
+              onPressed: disabled || !isCameraStarted ? null : onStopCamera,
+              icon: const Icon(Icons.videocam_off),
+              label: const Text('Stop Camera'),
+            ),
+            TextButton.icon(
+              onPressed: disabled ? null : onDeleteLastSample,
+              icon: const Icon(Icons.delete_outline),
+              label: const Text('Delete Last Saved Sample'),
             ),
           ],
         ),

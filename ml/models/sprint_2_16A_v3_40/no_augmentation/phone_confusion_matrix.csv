@@ -1,0 +1,5 @@
+true_label,deposit,withdraw,balance,transfer,account,card,pin,password,identity_verification,cash,payment,fee,loan,savings,open_account,close_account,fraud,block_card,help,confirm,statement,document,bill_payment,atm,branch,cheque,interest_rate,credit_card,debit_card,lost_card,replace_card,change_pin,reset_password,refund,signature,complaint,appointment,account_number,card_limit,daily_limit
+transfer,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+document,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+signature,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+atm,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

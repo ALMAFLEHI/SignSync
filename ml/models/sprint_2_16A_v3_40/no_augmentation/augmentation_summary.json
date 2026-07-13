@@ -1,0 +1,391 @@
+{
+  "enabled": false,
+  "split": "not_applicable",
+  "derivatives_per_original": 0,
+  "original_training_samples": 548,
+  "augmented_training_samples": 0,
+  "effective_training_samples": 548,
+  "augmentation_types": {},
+  "per_label": {
+    "0": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "1": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "2": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "3": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "4": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "5": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "6": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "7": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "8": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "9": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "A": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "B": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "C": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "D": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "E": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "F": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "G": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "H": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "I": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "J": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "K": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "L": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "M": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "N": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "O": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "P": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "Q": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "R": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "S": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "T": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "U": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "V": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "W": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "X": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "Y": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "Z": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "account": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "account_number": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "appointment": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "atm": {
+      "original": 22,
+      "augmented": 0,
+      "effective": 22
+    },
+    "balance": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "bill_payment": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "block_card": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "branch": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "card": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "card_limit": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "cash": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "change_pin": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "cheque": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "close_account": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "complaint": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "confirm": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "credit_card": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "daily_limit": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "debit_card": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "deposit": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "document": {
+      "original": 22,
+      "augmented": 0,
+      "effective": 22
+    },
+    "fee": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "fraud": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "help": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    },
+    "identity_verification": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "interest_rate": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "loan": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "lost_card": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "open_account": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "password": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "payment": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "pin": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "refund": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "replace_card": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "reset_password": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "savings": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "signature": {
+      "original": 22,
+      "augmented": 0,
+      "effective": 22
+    },
+    "statement": {
+      "original": 7,
+      "augmented": 0,
+      "effective": 7
+    },
+    "transfer": {
+      "original": 22,
+      "augmented": 0,
+      "effective": 22
+    },
+    "withdraw": {
+      "original": 3,
+      "augmented": 0,
+      "effective": 3
+    }
+  }
+}

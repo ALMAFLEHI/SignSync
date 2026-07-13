@@ -1,0 +1,37 @@
+{
+  "float32": {
+    "input_shape": [
+      1,
+      756
+    ],
+    "output_shape": [
+      1,
+      76
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "loads_successfully": true,
+    "model_size_bytes": 2255812,
+    "top1_agreement_with_keras": 1.0,
+    "max_abs_probability_difference": 4.172325134277344e-07
+  },
+  "dynamic_range": {
+    "input_shape": [
+      1,
+      756
+    ],
+    "output_shape": [
+      1,
+      76
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "loads_successfully": true,
+    "model_size_bytes": 585720,
+    "top1_agreement_with_keras": 1.0,
+    "max_abs_probability_difference": 0.002166926860809326
+  },
+  "fixtures_checked": 12,
+  "labels": 76,
+  "removed_labels_in_metadata": []
+}

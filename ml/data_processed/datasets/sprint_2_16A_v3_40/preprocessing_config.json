@@ -1,0 +1,47 @@
+{
+  "sequence_shape": [
+    60,
+    126
+  ],
+  "feature_order": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "first_frame",
+    "last_frame"
+  ],
+  "feature_shape": [
+    756
+  ],
+  "standard_deviation_ddof": 0,
+  "output_classes": 76,
+  "summary": {
+    "historical_total": 805,
+    "historical_active": 705,
+    "historical_removed": 100,
+    "historical_splits": {
+      "train": 488,
+      "val": 76,
+      "test": 141
+    },
+    "phone_total": 100,
+    "phone_splits": {
+      "train": 60,
+      "val": 20,
+      "test": 20
+    },
+    "mixed_total": 805,
+    "mixed_splits": {
+      "train": 548,
+      "val": 96,
+      "test": 161
+    },
+    "classes": 76,
+    "minimum_class_count": 5,
+    "maximum_class_count": 35,
+    "class_imbalance_ratio": 7.0
+  },
+  "phone_split_manifest": "ml/data_phone/splits/sprint_2_16A_phone_split_manifest.csv",
+  "combined_manifest": "ml/data_phone/splits/sprint_2_16A_combined_dataset_manifest.csv"
+}

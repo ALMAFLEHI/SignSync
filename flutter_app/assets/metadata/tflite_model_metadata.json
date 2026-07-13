@@ -1,16 +1,24 @@
 {
-  "model_version": "signsync_expanded_v2",
+  "model_version": "sprint_2_16A_v3_40_experiment_B",
+  "experiment": "with_augmentation",
+  "primary_deployment_variant": "dynamic_range",
+  "source_model": "ml/models/sprint_2_16A_v3_40/with_augmentation/model_dynamic_range.tflite",
+  "fallback_model": "ml/models/sprint_2_16A_v3_40/with_augmentation/model_float32.tflite",
   "input_type": "statistical_features",
   "input_shape": [
     1,
     756
   ],
+  "output_shape": [
+    1,
+    76
+  ],
+  "input_dtype": "float32",
+  "output_dtype": "float32",
   "source_sequence_shape": [
     60,
     126
   ],
-  "landmark_dimension": 126,
-  "target_frames": 60,
   "feature_order": [
     "mean",
     "std",
@@ -19,13 +27,29 @@
     "first_frame",
     "last_frame"
   ],
-  "output_shape": [
-    1,
-    86
+  "feature_width": 756,
+  "standard_deviation_ddof": 0,
+  "left_hand_indices": [
+    0,
+    62
   ],
-  "total_labels": 86,
-  "normal_mode_labels": 76,
+  "right_hand_indices": [
+    63,
+    125
+  ],
+  "missing_hand_representation": "zeros",
+  "total_labels": 76,
+  "alphabet_mode_labels": 26,
   "number_mode_labels": 10,
+  "banking_intent_mode_labels": 40,
   "label_order_matches_output_indices": true,
-  "flutter_note": "Collect 60 frames of MediaPipe landmarks, compute mean/std/min/max/first_frame/last_frame features, run TFLite inference, and map output index to labels.txt."
+  "removed_labels_present": [],
+  "source_sha256": {
+    "dynamic_range_tflite": "88cdc0367f40e50081e5bde7644ede242937061843cb68ea1235214e62308ddd",
+    "float32_tflite": "36ec44e5ebefd1c7de56161a305324488bfd6cfc58337ca9b2679198f424fac8",
+    "labels": "9e710a861af68e88f1b1caf0b8499789a017bbd6ca676a99d6c188ef26aa609e",
+    "label_mapping": "7fc92ebe04c2dfad1ef997b145fb777093ca850e693e4f7b8d3006ed0d7ccaad",
+    "label_groups": "8a1236765a782a2bc69ca3c473f8c93d7dc9971f8d0161337687dbb7084f7ec4",
+    "preprocessing_config": "a0d01659aecd0798d6ce929a304e22044672b203eaa8d0b31c475834faffb4d6"
+  }
 }

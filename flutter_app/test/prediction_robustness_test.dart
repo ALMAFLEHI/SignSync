@@ -48,6 +48,22 @@ void main() {
       expect(decision.displayLabel, PredictionDecisionPolicy.tryAgainLabel);
       expect(decision.reason, contains('too close'));
     });
+
+    test('returns Try Again for low-confidence document/card ambiguity', () {
+      final decision = policy.decide(
+        mode: SignMode.bankingIntent,
+        filteredTopPredictions: const [
+          TopPrediction(label: 'card', probability: 0.605791, index: 41),
+          TopPrediction(label: 'document', probability: 0.350086, index: 57),
+        ],
+      );
+
+      expect(decision.accepted, isFalse);
+      expect(decision.displayLabel, PredictionDecisionPolicy.tryAgainLabel);
+      expect(decision.confidenceThreshold, 0.70);
+      expect(decision.minimumTop2Gap, 0.15);
+      expect(decision.reason, contains('Confidence below'));
+    });
   });
 
   group('StabilizedPredictionTracker', () {
@@ -91,7 +107,7 @@ PredictionResult _prediction(String label, {required bool accepted}) {
     ),
     topPredictions: [top],
     rawTopPredictions: [top],
-    rawOutputLength: 86,
+    rawOutputLength: 76,
     selectedMode: SignMode.bankingIntent,
     modelAsset: 'test.tflite',
   );

@@ -10,15 +10,16 @@ class AppConfig {
   static const String labelGroupsAsset = 'assets/metadata/label_groups.json';
   static const String modelMetadataAsset =
       'assets/metadata/tflite_model_metadata.json';
+  static const String preprocessingConfigAsset =
+      'assets/metadata/preprocessing_config.json';
   static const String testFeatureAssetFolder = 'assets/test_features';
 
   static const bool preferDynamicRangeModel = true;
   static const int expectedInputWidth = 756;
-  static const int expectedOutputClasses = 86;
+  static const int expectedOutputClasses = 76;
   static const int expectedFrameCount = 60;
   static const int expectedFrameWidth = 126;
   static const int expectedAlphabetModeLabels = 26;
-  static const int expectedNormalModeLabels = 66;
   static const int expectedNumberModeLabels = 10;
   static const int expectedBankingIntentModeLabels = 40;
   static const int expectedRemovedBankingIntents = 10;

@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "valid_samples": 100,
+  "invalid_samples": 0,
+  "label_counts": {
+    "transfer": 25,
+    "document": 25,
+    "signature": 25,
+    "atm": 25
+  },
+  "split_counts": {
+    "train": 60,
+    "val": 20,
+    "test": 20
+  },
+  "unique_sample_ids": 100,
+  "unique_label_repetitions": 100,
+  "all_zero_frames": 0,
+  "no_hand_frames": 0,
+  "one_hand_frames": 3471,
+  "both_hand_frames": 2529,
+  "samples_with_no_detected_hands": 0,
+  "samples_with_only_one_detected_hand": 21,
+  "samples_with_both_hands": 79,
+  "exact_duplicate_sequences": 0,
+  "near_identical_sequences": 0,
+  "minimum_pairwise_mae": 0.004880912324908308,
+  "minimum_pairwise_mae_samples": [
+    "P02_PHONE_atm_R20",
+    "P02_PHONE_atm_R24"
+  ],
+  "obvious_outlier_values": 0,
+  "coordinate_summary": {
+    "x": {
+      "min": -0.08134602010250092,
+      "p01": 0.1375871068239212,
+      "median": 0.4635765552520752,
+      "p99": 0.8631620192527772,
+      "max": 1.0638364553451538
+    },
+    "y": {
+      "min": 0.14779284596443176,
+      "p01": 0.42067736864089966,
+      "median": 0.738599419593811,
+      "p99": 0.95532749414444,
+      "max": 1.129348635673523
+    },
+    "z": {
+      "min": -0.7009055018424988,
+      "p01": -0.4040536892414093,
+      "median": -0.11117739975452423,
+      "p99": 9.984547477870394e-07,
+      "max": 0.21120193600654602
+    }
+  },
+  "feature_matrix_shape": [
+    100,
+    756
+  ],
+  "feature_width": 756,
+  "feature_order": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "first_frame",
+    "last_frame"
+  ],
+  "feature_precision_max_abs_diff": 2.980232238769531e-07,
+  "device_metadata": "Samsung Android phone",
+  "physical_device": "Samsung Galaxy A55",
+  "errors": []
+}

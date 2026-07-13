@@ -57,15 +57,10 @@ confirm
 statement
 document
 bill_payment
-online_banking
-mobile_banking
 atm
 branch
 cheque
-currency_exchange
-exchange_rate
 interest_rate
-fixed_deposit
 credit_card
 debit_card
 lost_card
@@ -76,11 +71,6 @@ refund
 signature
 complaint
 appointment
-customer_service
-update_details
-phone_number
-email_address
-address_change
 account_number
 card_limit
 daily_limit

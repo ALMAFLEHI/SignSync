@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('loads and validates Sprint 2.13 label metadata assets', () async {
+  test('loads and validates Sprint 2.16A Experiment B metadata', () async {
     final metadata = await LabelService().load();
 
     expect(metadata.labels, hasLength(AppConfig.expectedOutputClasses));
@@ -24,7 +24,9 @@ void main() {
       hasLength(AppConfig.expectedBankingIntentModeLabels),
     );
     expect(metadata.removedBankingIntents, hasLength(10));
-    expect(metadata.modelMetadata['output_shape'], <int>[1, 86]);
+    expect(metadata.modelMetadata['output_shape'], <int>[1, 76]);
+    expect(metadata.modelMetadata['input_dtype'], 'float32');
+    expect(metadata.modelMetadata['output_dtype'], 'float32');
   });
 
   test('filters Alphabet Mode predictions to A-Z only', () async {
@@ -142,24 +144,10 @@ void main() {
     ];
     expect(metadata.removedBankingIntents, orderedEquals(removed));
     for (final label in removed) {
+      expect(metadata.labels, isNot(contains(label)));
+      expect(metadata.labelMapping, isNot(contains(label)));
       expect(metadata.bankingIntentModeLabels, isNot(contains(label)));
     }
-
-    final probabilities = List<double>.filled(
-      AppConfig.expectedOutputClasses,
-      0,
-    );
-    probabilities[metadata.labelMapping['address_change']!] = 0.99;
-    probabilities[metadata.labelMapping['transfer']!] = 0.75;
-
-    expect(
-      _topLabelForMode(
-        metadata: metadata,
-        probabilities: probabilities,
-        mode: SignMode.bankingIntent,
-      ),
-      'transfer',
-    );
   });
 
   test('phone pilot offers only four retained weak labels', () {
@@ -170,8 +158,8 @@ void main() {
     expect(PhoneSampleStore.weakLabels, isNot(contains('address_change')));
     expect(
       PhoneSampleStore.weakLabels.length *
-          PhoneSampleStore.targetSamplesPerLabel,
-      80,
+          PhoneSampleStore.sprint216ATargetSamplesPerLabel,
+      100,
     );
   });
 }

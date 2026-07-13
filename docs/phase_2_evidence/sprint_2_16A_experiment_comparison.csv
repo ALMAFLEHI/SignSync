@@ -1,0 +1,4 @@
+model,phone_accuracy,phone_macro_f1,transfer_accuracy,document_accuracy,signature_accuracy,atm_accuracy,full_accuracy,full_macro_f1,full_weighted_f1,control_accuracy,threshold_pass_rate,try_again_rate,high_confidence_wrong,model_size_bytes,epochs_trained,best_epoch,augmented_training_samples
+baseline_historical_86,0.25,0.17857142857142858,0.0,0.0,1.0,0.0,0.8322981366459627,0.8467836257309941,0.8146307798481712,1.0,0.5,0.5,5,587192,,,0
+experiment_a_no_augmentation,0.85,0.8351648351648351,1.0,1.0,0.4,1.0,0.8819875776397516,0.8496348336905611,0.8571784566669477,1.0,0.95,0.050000000000000044,2,585720,53,33,0
+experiment_b_with_augmentation,0.95,0.9722222222222222,1.0,0.8,1.0,1.0,0.9192546583850931,0.9106986215538847,0.9107734398107069,0.8571428571428571,0.95,0.050000000000000044,0,585720,52,32,548

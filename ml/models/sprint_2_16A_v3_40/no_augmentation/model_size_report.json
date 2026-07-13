@@ -1,0 +1,6 @@
+{
+  "model_keras_bytes": 6789896,
+  "best_checkpoint_keras_bytes": 6789896,
+  "model_float32_tflite_bytes": 2255812,
+  "model_dynamic_range_tflite_bytes": 585720
+}

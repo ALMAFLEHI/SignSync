@@ -125,6 +125,55 @@ BANKING_INTENTS_V3_40: list[str] = [
     "daily_limit",
 ]
 
+# Sprint 2.16A proved the phone-domain method using these four pilot intents.
+SPRINT_2_16A_PILOT_INTENTS_4: list[str] = [
+    "transfer",
+    "document",
+    "signature",
+    "atm",
+]
+
+# Sprint 2.16B collects phone landmarks for every active banking intent not in
+# the completed pilot. The order is the retained V3 banking order.
+SPRINT_2_16B_REMAINING_BANKING_INTENTS_36: list[str] = [
+    "deposit",
+    "withdraw",
+    "balance",
+    "account",
+    "card",
+    "pin",
+    "password",
+    "identity_verification",
+    "cash",
+    "payment",
+    "fee",
+    "loan",
+    "savings",
+    "open_account",
+    "close_account",
+    "fraud",
+    "block_card",
+    "help",
+    "confirm",
+    "statement",
+    "bill_payment",
+    "branch",
+    "cheque",
+    "interest_rate",
+    "credit_card",
+    "debit_card",
+    "lost_card",
+    "replace_card",
+    "change_pin",
+    "reset_password",
+    "refund",
+    "complaint",
+    "appointment",
+    "account_number",
+    "card_limit",
+    "daily_limit",
+]
+
 # Historical aliases are retained so completed Sprint 2.11-2.15 scripts reproduce.
 BANKING_INTENTS_V2: list[str] = BANKING_INTENTS_V2_50
 
@@ -161,6 +210,11 @@ def _validate_labels() -> None:
         (BANKING_INTENTS_V2, "V2 banking intents"),
         (REMOVED_BANKING_INTENTS_V3_10, "V3 removed banking intents"),
         (BANKING_INTENTS_V3_40, "V3 active banking intents"),
+        (SPRINT_2_16A_PILOT_INTENTS_4, "Sprint 2.16A pilot intents"),
+        (
+            SPRINT_2_16B_REMAINING_BANKING_INTENTS_36,
+            "Sprint 2.16B remaining banking intents",
+        ),
         (ALL_LABELS_V1, "V1 all labels"),
         (ALL_LABELS_V2, "V2 all labels"),
         (ALL_LABELS_V3_76, "V3 all labels"),
@@ -188,6 +242,33 @@ def _validate_labels() -> None:
         raise ValueError(
             f"V3 must contain 40 banking intents, found {len(BANKING_INTENTS_V3_40)}."
         )
+    if len(SPRINT_2_16A_PILOT_INTENTS_4) != 4:
+        raise ValueError("Sprint 2.16A must retain exactly four pilot intents.")
+    if len(SPRINT_2_16B_REMAINING_BANKING_INTENTS_36) != 36:
+        raise ValueError("Sprint 2.16B must contain exactly 36 remaining intents.")
+    if set(SPRINT_2_16A_PILOT_INTENTS_4).intersection(
+        SPRINT_2_16B_REMAINING_BANKING_INTENTS_36
+    ):
+        raise ValueError("Sprint 2.16A pilot and Sprint 2.16B remaining scopes overlap.")
+    reconstructed_active_scope = [
+        label
+        for label in BANKING_INTENTS_V3_40
+        if label not in SPRINT_2_16A_PILOT_INTENTS_4
+    ]
+    if reconstructed_active_scope != SPRINT_2_16B_REMAINING_BANKING_INTENTS_36:
+        raise ValueError("Sprint 2.16B labels must preserve active V3 order.")
+    if set(SPRINT_2_16A_PILOT_INTENTS_4).union(
+        SPRINT_2_16B_REMAINING_BANKING_INTENTS_36
+    ) != set(BANKING_INTENTS_V3_40):
+        raise ValueError("Sprint 2.16A and 2.16B scopes must reconstruct V3 exactly.")
+    if set(SPRINT_2_16B_REMAINING_BANKING_INTENTS_36).intersection(
+        REMOVED_BANKING_INTENTS_V3_10
+    ):
+        raise ValueError("Removed labels cannot appear in Sprint 2.16B.")
+    if set(SPRINT_2_16B_REMAINING_BANKING_INTENTS_36).intersection(
+        ALPHABET_LABELS + DIGIT_LABELS
+    ):
+        raise ValueError("Sprint 2.16B is banking-intent-only.")
     if set(REMOVED_BANKING_INTENTS_V3_10).intersection(BANKING_INTENTS_V3_40):
         raise ValueError("Removed V3 banking intents must not appear in the active V3 scope.")
     if set(BANKING_INTENTS_V2_50) != (

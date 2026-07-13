@@ -1,11 +1,11 @@
 # Sprint 2.16A Phone Sample Check Report
 
 ## Result
-PENDING
+PASS
 
 ## Summary
 - Sample folder: ml/data_phone/landmark_samples
-- Valid samples found: 0
+- Valid samples found: 100
 - Minimum target: 80
 - Invalid samples: 0
 - Duplicate sample_id rows: 0
@@ -13,10 +13,10 @@ PENDING
 ## Counts
 | Label | Valid Samples | Target | Status |
 | --- | ---: | ---: | --- |
-| transfer | 0 | 20 | PENDING |
-| document | 0 | 20 | PENDING |
-| signature | 0 | 20 | PENDING |
-| atm | 0 | 20 | PENDING |
+| transfer | 25 | 20 | PASS |
+| document | 25 | 20 | PASS |
+| signature | 25 | 20 | PASS |
+| atm | 25 | 20 | PASS |
 
 ## Invalid Samples
 - None
