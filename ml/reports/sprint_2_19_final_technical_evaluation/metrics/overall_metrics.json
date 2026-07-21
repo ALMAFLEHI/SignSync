@@ -1,0 +1,19 @@
+{
+  "test_samples": 200,
+  "label_count": 40,
+  "samples_per_class": 5,
+  "correct_predictions": 191,
+  "incorrect_predictions": 9,
+  "accuracy": 0.955,
+  "accuracy_wilson_95_ci": {
+    "lower": 0.9167032959981803,
+    "upper": 0.976147456998507
+  },
+  "macro_precision": 0.9625,
+  "macro_recall": 0.9550000000000001,
+  "macro_f1": 0.9541666666666666,
+  "weighted_precision": 0.9625,
+  "weighted_recall": 0.955,
+  "weighted_f1": 0.9541666666666667,
+  "formal_evidence_scope": "locked 200-sample held-out Samsung A55 landmark test set"
+}

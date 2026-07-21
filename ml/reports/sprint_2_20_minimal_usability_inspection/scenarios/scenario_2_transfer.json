@@ -1,0 +1,30 @@
+{
+  "evaluator_count": 1,
+  "evaluator_role": "developer/researcher",
+  "method": "automated Flutter widget walkthrough using the real guided workflow and predefined intent input",
+  "external_participant_data": false,
+  "test_file": "flutter_app/test/sprint_2_20_usability_inspection_test.dart",
+  "scenario_id": 2,
+  "name": "Transfer request",
+  "injected_intent": "transfer",
+  "result": "PASS",
+  "fake_test_values": {
+    "amount": "1500",
+    "beneficiary_account": "1234563321"
+  },
+  "steps": [
+    "confirm Transfer",
+    "select transfer_money",
+    "enter amount and masked beneficiary",
+    "review",
+    "show to banker",
+    "new interaction"
+  ],
+  "expectations": {
+    "exactly_four_queries": "PASS",
+    "amount": "PASS",
+    "beneficiary_masked_ending_3321": "PASS",
+    "readable_final_request": "PASS",
+    "new_interaction_clears_data": "PASS"
+  }
+}

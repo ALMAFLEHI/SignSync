@@ -1,0 +1,50 @@
+{
+  "project": "SignSync",
+  "sprint": "2.17",
+  "created_at": "2026-07-19T00:41:37+00:00",
+  "training_script": "ml/src/train_sprint_2_17_account_corrected_v2.py",
+  "git_commit": "d878231147ac3e3b9add20a3a2e2b6d91e279e6c",
+  "python": "3.12.13",
+  "tensorflow": "2.21.0",
+  "numpy": "2.5.0",
+  "scikit_learn": "1.9.0",
+  "seed": 21617,
+  "dataset_order_seed": 21617,
+  "input_shape": [
+    1,
+    756
+  ],
+  "output_shape": [
+    1,
+    40
+  ],
+  "dtype": "float32",
+  "feature_order": [
+    "mean",
+    "population_std",
+    "minimum",
+    "maximum",
+    "first_frame",
+    "last_frame"
+  ],
+  "architecture": [
+    512,
+    256,
+    128
+  ],
+  "dropout": 0.25,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "maximum_epochs": 200,
+  "early_stopping_monitor": "validation macro F1",
+  "early_stopping_patience": 20,
+  "loss": "SparseCategoricalCrossentropy",
+  "class_weighting": "balanced inverse-frequency",
+  "winning_experiment": "experiment_B_phone_augmentation",
+  "best_epoch": 40,
+  "bounded_tuning_triggered": false,
+  "locked_model": "ml/models/sprint_2_17_final_40class_account_corrected_v2/models/signsync_40class_account_corrected_v2.keras",
+  "test_evaluation_status": "completed_once",
+  "deployment_status": "candidate_not_deployed"
+}

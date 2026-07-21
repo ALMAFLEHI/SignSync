@@ -1,0 +1,40 @@
+{
+  "experiment_id": "experiment_C_phone_augmentation_historical",
+  "description": "Experiment B plus 260 final-label historical training samples",
+  "dataset_composition": [
+    "600 real phone train",
+    "600 augmented phone train",
+    "260 historical final-label train"
+  ],
+  "real_phone_training_samples": 600,
+  "augmented_phone_training_samples": 600,
+  "historical_training_samples": 260,
+  "effective_training_samples": 1460,
+  "validation_samples": 200,
+  "seed": 21617,
+  "hidden_units": [
+    512,
+    256,
+    128
+  ],
+  "dropout": 0.25,
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "maximum_epochs": 200,
+  "epochs_trained": 53,
+  "best_epoch": 33,
+  "early_stopped": true,
+  "training_duration_seconds": 55.683986200005165,
+  "parameter_count": 558481,
+  "keras_model_size_bytes": 6733924,
+  "validation_accuracy": 0.99,
+  "validation_macro_precision": 0.9916666666666668,
+  "validation_macro_recall": 0.99,
+  "validation_macro_f1": 0.98989898989899,
+  "validation_weighted_precision": 0.9916666666666667,
+  "validation_weighted_recall": 0.99,
+  "validation_weighted_f1": 0.98989898989899,
+  "validation_high_confidence_wrong": 2,
+  "checkpoint_sha256": "dc7150f2f835690b83fc1d5444ecc564dde33e9e39b16889206b3386b06e3822",
+  "test_data_accessed": false
+}

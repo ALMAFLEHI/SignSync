@@ -1,0 +1,169 @@
+{
+  "project": "SignSync",
+  "sprint": "2.19",
+  "status": "COMPLETED_REVISED_VALID_EVALUATION",
+  "formal_offline_evaluation": {
+    "source": "ml/models/sprint_2_17_final_40class_account_corrected_v2/metrics/final_test_predictions.csv",
+    "samples": 200,
+    "classes": 40,
+    "samples_per_class": 5,
+    "augmented_validation_or_test_samples": false
+  },
+  "a55_deployment_smoke_test": {
+    "device": "Samsung Galaxy A55",
+    "all_40_intents_user_confirmed": true,
+    "formal_accuracy_claimed": false,
+    "representative_screenshots": [
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Final_Model_Diagnostics_PASS.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Model_Hashes_And_Runtime_Metrics_01.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Model_Hashes_And_Runtime_Metrics_02.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Live_Diagnostics_Document.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Live_Diagnostics_Credit_Card.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Live_Diagnostics_Complaint.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Account_Intent_Confirmation.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Document_Intent_Confirmation.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Credit_Card_Intent_Confirmation.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Complaint_Intent_Confirmation.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Account_Manual_Details.png",
+      "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Account_Banker_View.png"
+    ]
+  },
+  "automated_deployment_validation": {
+    "status": "PASS",
+    "source": "corrected Sprint 2.18 deployment verification",
+    "flutter_analyze": "PASS",
+    "flutter_tests": 90,
+    "android_debug_build": "PASS",
+    "deployment_checker": "PASS",
+    "rerun_in_sprint_2_19": false,
+    "reason_not_rerun": "Sprint 2.19 made no Flutter source changes"
+  },
+  "optional_400_trial_protocol": "PREPARED BUT NOT EXECUTED - OPTIONAL FUTURE WORK",
+  "confidence_threshold": 0.8,
+  "minimum_margin": 0.0,
+  "model_or_dataset_modified": false,
+  "training_or_conversion_performed": false,
+  "new_human_trials_required": false,
+  "sprint_2_20_started": false,
+  "privacy": {
+    "offline_on_device_inference": true,
+    "cloud_processing": false,
+    "database_added": false,
+    "customer_banking_data_in_evaluation": false
+  },
+  "prediction_validation": {
+    "status": "PASS",
+    "rows": 200,
+    "labels": 40,
+    "samples_per_label": 5,
+    "frozen_label_order": [
+      "deposit",
+      "withdraw",
+      "balance",
+      "transfer",
+      "account",
+      "card",
+      "pin",
+      "password",
+      "identity_verification",
+      "cash",
+      "payment",
+      "fee",
+      "loan",
+      "savings",
+      "open_account",
+      "close_account",
+      "fraud",
+      "block_card",
+      "help",
+      "confirm",
+      "statement",
+      "document",
+      "bill_payment",
+      "atm",
+      "branch",
+      "cheque",
+      "interest_rate",
+      "credit_card",
+      "debit_card",
+      "lost_card",
+      "replace_card",
+      "change_pin",
+      "reset_password",
+      "refund",
+      "signature",
+      "complaint",
+      "appointment",
+      "account_number",
+      "card_limit",
+      "daily_limit"
+    ],
+    "confidence_values_finite_and_bounded": true,
+    "index_mapping": "PASS",
+    "forbidden_labels_absent": true,
+    "threshold": 0.8,
+    "minimum_margin": 0.0
+  },
+  "technical_targets": [
+    {
+      "target": "Held-out test accuracy >= 90%",
+      "status": "PASS",
+      "evidence_scope": "formal offline"
+    },
+    {
+      "target": "Held-out macro F1 >= 90%",
+      "status": "PASS",
+      "evidence_scope": "formal offline"
+    },
+    {
+      "target": "Corrected account recall >= 90%",
+      "status": "PASS",
+      "evidence_scope": "formal offline"
+    },
+    {
+      "target": "Corrected savings recall >= 90%",
+      "status": "PASS",
+      "evidence_scope": "formal offline"
+    },
+    {
+      "target": "Zero account/savings direct confusion",
+      "status": "PASS",
+      "evidence_scope": "formal offline"
+    },
+    {
+      "target": "Keras/TFLite top-1 parity 100%",
+      "status": "PASS",
+      "evidence_scope": "corrected package verification"
+    },
+    {
+      "target": "Model input/output contract",
+      "status": "PASS",
+      "evidence_scope": "corrected Sprint 2.18 automated deployment"
+    },
+    {
+      "target": "Query mapping",
+      "status": "PASS",
+      "evidence_scope": "corrected Sprint 2.18 automated deployment"
+    },
+    {
+      "target": "Dataset integrity",
+      "status": "PASS",
+      "evidence_scope": "integrity audit"
+    },
+    {
+      "target": "Offline/on-device privacy",
+      "status": "PASS",
+      "evidence_scope": "deployment design and screenshots"
+    },
+    {
+      "target": "A55 deployment smoke test",
+      "status": "PASS",
+      "evidence_scope": "user-confirmed all-intent coverage plus representative screenshots"
+    },
+    {
+      "target": "Large formal live-device statistical study",
+      "status": "PARTIAL",
+      "evidence_scope": "400-trial protocol prepared but not executed; recorded as a limitation"
+    }
+  ]
+}

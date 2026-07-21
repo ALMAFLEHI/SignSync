@@ -1,0 +1,38 @@
+{
+  "experiment_id": "experiment_A_phone_only",
+  "description": "600 real phone training samples; no augmentation or historical data",
+  "dataset_composition": [
+    "600 real phone train"
+  ],
+  "real_phone_training_samples": 600,
+  "augmented_phone_training_samples": 0,
+  "historical_training_samples": 0,
+  "effective_training_samples": 600,
+  "validation_samples": 200,
+  "seed": 21617,
+  "hidden_units": [
+    512,
+    256,
+    128
+  ],
+  "dropout": 0.25,
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "maximum_epochs": 200,
+  "epochs_trained": 66,
+  "best_epoch": 46,
+  "early_stopped": true,
+  "training_duration_seconds": 47.14538100000209,
+  "parameter_count": 558481,
+  "keras_model_size_bytes": 6733923,
+  "validation_accuracy": 0.99,
+  "validation_macro_precision": 0.9916666666666668,
+  "validation_macro_recall": 0.99,
+  "validation_macro_f1": 0.98989898989899,
+  "validation_weighted_precision": 0.9916666666666667,
+  "validation_weighted_recall": 0.99,
+  "validation_weighted_f1": 0.98989898989899,
+  "validation_high_confidence_wrong": 1,
+  "checkpoint_sha256": "3617046422966a654c2b952ea07bac43bf43c2c345d76ac99c8d93439ea326ae",
+  "test_data_accessed": false
+}

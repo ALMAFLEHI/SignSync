@@ -1,0 +1,93 @@
+{
+  "target_count": 14,
+  "status_counts": {
+    "PARTIAL": 1,
+    "PASS": 13
+  },
+  "targets": [
+    {
+      "target_id": 1,
+      "target": "All four walkthrough scenarios complete exactly as specified",
+      "status": "PARTIAL",
+      "evidence": "Three pass exactly; document completes safely but does not directly bypass optional details."
+    },
+    {
+      "target_id": 2,
+      "target": "No critical usability defects",
+      "status": "PASS",
+      "evidence": "Zero severity-4 findings."
+    },
+    {
+      "target_id": 3,
+      "target": "No major blocker in the main workflow",
+      "status": "PASS",
+      "evidence": "Zero severity-3 findings."
+    },
+    {
+      "target_id": 4,
+      "target": "All primary actions have visible labels",
+      "status": "PASS",
+      "evidence": "Code and screenshot inspection."
+    },
+    {
+      "target_id": 5,
+      "target": "All key pages provide system feedback",
+      "status": "PASS",
+      "evidence": "Walkthrough observations."
+    },
+    {
+      "target_id": 6,
+      "target": "Users can cancel or restart safely",
+      "status": "PASS",
+      "evidence": "Scenario 4 and reset tests."
+    },
+    {
+      "target_id": 7,
+      "target": "Sensitive manual values are masked",
+      "status": "PASS",
+      "evidence": "Scenarios 1 and 2."
+    },
+    {
+      "target_id": 8,
+      "target": "Previous session values clear after reset",
+      "status": "PASS",
+      "evidence": "All reset-path tests."
+    },
+    {
+      "target_id": 9,
+      "target": "Banker view uses non-technical wording",
+      "status": "PASS",
+      "evidence": "Banker view inspection."
+    },
+    {
+      "target_id": 10,
+      "target": "Light and dark modes remain readable",
+      "status": "PASS",
+      "evidence": "Existing theme tests and screenshots."
+    },
+    {
+      "target_id": 11,
+      "target": "Privacy messages are visible",
+      "status": "PASS",
+      "evidence": "Home, manual details, and banker view."
+    },
+    {
+      "target_id": 12,
+      "target": "Developer tools remain separated",
+      "status": "PASS",
+      "evidence": "Normal navigation and Settings inspection."
+    },
+    {
+      "target_id": 13,
+      "target": "No customer information is persisted",
+      "status": "PASS",
+      "evidence": "Controller and persistence inspection."
+    },
+    {
+      "target_id": 14,
+      "target": "No overflow or crash occurs in tested screens",
+      "status": "PASS",
+      "evidence": "Flutter widget suite."
+    }
+  ]
+}

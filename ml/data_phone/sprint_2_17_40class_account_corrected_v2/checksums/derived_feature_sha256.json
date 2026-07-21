@@ -1,0 +1,8 @@
+{
+  "ml/data_phone/sprint_2_17_40class_account_corrected_v2/features/phone_train_features.npz": "6a8d9b7d18e5d91c60e3538b718cdc49621cf05bc9798bd3a7aa29bded96958b",
+  "ml/data_phone/sprint_2_17_40class_account_corrected_v2/features/phone_validation_features.npz": "a8ad76e4833563175862c3900c58f21f72c85702573f3c96965d1affb84327b6",
+  "ml/data_phone/sprint_2_17_40class_account_corrected_v2/features/phone_test_features_locked.npz": "4afe46a92dce0b43ded663efbc4cf8321a7b8126d2c14500b9f38ef613c13f99",
+  "ml/data_phone/sprint_2_17_40class_account_corrected_v2/features/phone_train_augmented_features.npz": "4aaf86234f823c92f091c1bc64ae30dd50f5370c4c5c7ccececb5fa482d8af9a",
+  "ml/data_phone/sprint_2_17_40class_account_corrected_v2/features/historical_banking_train_features.npz": "b3055adb9aca44cbc5faae74349a1cd11d79e37e515ffe471d63d29b8b926fca",
+  "ml/data_phone/sprint_2_17_40class_account_corrected_v2/augmentation/phone_train_augmentation_manifest.csv": "8ec15d26b494073f16be045c447618e8a6b5d0f17e55c8e897e0ceca551f2455"
+}

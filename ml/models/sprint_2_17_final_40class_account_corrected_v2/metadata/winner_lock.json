@@ -1,0 +1,38 @@
+{
+  "status": "winner_locked_test_evaluated",
+  "locked_at": "2026-07-19T00:41:37+00:00",
+  "selection_data": "phone validation only",
+  "selection_rule": [
+    "highest validation macro F1",
+    "then validation accuracy",
+    "then fewer high-confidence wrong predictions",
+    "then smaller Keras model"
+  ],
+  "winning_experiment": "experiment_B_phone_augmentation",
+  "winning_checkpoint_source": "ml/models/sprint_2_17_final_40class_account_corrected_v2/experiments/experiment_B_phone_augmentation/best_checkpoint.keras",
+  "locked_keras_model": "ml/models/sprint_2_17_final_40class_account_corrected_v2/models/signsync_40class_account_corrected_v2.keras",
+  "locked_keras_sha256": "f1d543e0d0e5e8c699b53da5dd7caaebc160695599c4c2d078c6fdddd1db120d",
+  "validation_metrics": {
+    "validation_accuracy": 0.99,
+    "validation_macro_precision": 0.9916666666666668,
+    "validation_macro_recall": 0.99,
+    "validation_macro_f1": 0.98989898989899,
+    "validation_weighted_f1": 0.98989898989899,
+    "validation_high_confidence_wrong": 2
+  },
+  "confidence_recommendation": {
+    "minimum_confidence": 0.8,
+    "minimum_top2_margin": 0.0,
+    "accepted_samples": 197,
+    "coverage": 0.985,
+    "accepted_accuracy": 0.9949238578680203,
+    "rejection_rate": 0.015000000000000013,
+    "high_confidence_wrong": 1,
+    "selected_using": "phone validation only",
+    "minimum_required_coverage": 0.7,
+    "explanation": "Highest accepted validation accuracy among candidates with at least 70% coverage; ties prefer higher coverage and less restrictive thresholds."
+  },
+  "test_evaluation_status": "completed_once",
+  "test_evaluated_at": "2026-07-19T00:42:54+00:00",
+  "final_test_metrics": "ml/models/sprint_2_17_final_40class_account_corrected_v2/metrics/final_test_metrics.json"
+}

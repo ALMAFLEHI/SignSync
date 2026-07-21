@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "tolerance": 1e-12,
+  "metrics": {
+    "accuracy": {
+      "recalculated": 0.955,
+      "saved": 0.955,
+      "expected": 0.955,
+      "passed": true
+    },
+    "macro_precision": {
+      "recalculated": 0.9625,
+      "saved": 0.9625,
+      "expected": 0.9625,
+      "passed": true
+    },
+    "macro_recall": {
+      "recalculated": 0.9550000000000001,
+      "saved": 0.9550000000000001,
+      "expected": 0.955,
+      "passed": true
+    },
+    "macro_f1": {
+      "recalculated": 0.9541666666666666,
+      "saved": 0.9541666666666666,
+      "expected": 0.9541666666666666,
+      "passed": true
+    },
+    "weighted_f1": {
+      "recalculated": 0.9541666666666667,
+      "saved": 0.9541666666666666,
+      "expected": 0.9541666666666666,
+      "passed": true
+    }
+  }
+}

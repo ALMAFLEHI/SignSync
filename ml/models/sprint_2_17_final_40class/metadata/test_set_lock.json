@@ -1,0 +1,20 @@
+{
+  "status": "evaluated_once_closed",
+  "created_at": "2026-07-18T10:40:36+00:00",
+  "test_samples": 200,
+  "test_manifest": "ml/models/sprint_2_17_final_40class/manifests/phone_test_manifest.csv",
+  "test_manifest_sha256": "d72b28df4a6bec08b9b73cf45df596c7418aefa4a1867a72fc96475ff2d6ca9b",
+  "selection_prohibition": [
+    "hyperparameter tuning",
+    "epoch selection",
+    "threshold selection",
+    "architecture selection",
+    "augmentation selection",
+    "model comparison",
+    "early stopping"
+  ],
+  "evaluated_at": "2026-07-18T10:52:48+00:00",
+  "evaluated_model_sha256": "3617046422966a654c2b952ea07bac43bf43c2c345d76ac99c8d93439ea326ae",
+  "aggregate_evaluation_runs": 1,
+  "final_test_metrics": "ml/models/sprint_2_17_final_40class/metrics/final_test_metrics.json"
+}

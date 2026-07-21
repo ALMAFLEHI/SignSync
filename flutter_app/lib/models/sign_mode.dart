@@ -1,6 +1,8 @@
 enum SignMode { alphabet, number, bankingIntent }
 
 extension SignModeLabel on SignMode {
+  bool get isActiveForFinalModel => this == SignMode.bankingIntent;
+
   String get displayName {
     switch (this) {
       case SignMode.alphabet:
@@ -15,11 +17,11 @@ extension SignModeLabel on SignMode {
   String get description {
     switch (this) {
       case SignMode.alphabet:
-        return 'A-Z only';
+        return 'Historical mode unavailable with the final 40-class model';
       case SignMode.number:
-        return 'Digits 0-9 only';
+        return 'Historical mode unavailable with the final 40-class model';
       case SignMode.bankingIntent:
-        return 'Banking intent labels only';
+        return 'Final 40 banking intents';
     }
   }
 }

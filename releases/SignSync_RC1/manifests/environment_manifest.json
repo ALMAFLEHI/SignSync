@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-07-19T05:15:00Z",
+  "flutter": "3.38.0 stable a0e9b9dbf7",
+  "dart": "3.10.0-290.4.beta",
+  "python_system": "3.14.6",
+  "python_test_runtime": "3.12.13",
+  "java": "21.0.9 LTS",
+  "gradle": "8.14",
+  "android_gradle_plugin": "8.11.1",
+  "kotlin_plugin": "2.2.20",
+  "camerax": "1.6.1",
+  "mediapipe_tasks_vision": "0.10.35",
+  "package_id": "com.example.flutter_app",
+  "ios_bundle_id": "com.example.flutterApp",
+  "version_name": "1.0.0",
+  "version_code": 1,
+  "min_sdk": 24,
+  "target_sdk": 36,
+  "device": {
+    "model": "SM-A556E",
+    "android": "16",
+    "install": "PASS",
+    "launch": "PASS"
+  }
+}

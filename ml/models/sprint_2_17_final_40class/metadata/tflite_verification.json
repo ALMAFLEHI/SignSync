@@ -1,0 +1,127 @@
+{
+  "created_at": "2026-07-18T10:56:54+00:00",
+  "status": "PASS",
+  "parity_samples": 40,
+  "selection": "one locked test sample per class; each class prioritizes a test error, then its lowest-confidence sample",
+  "label_order": [
+    "deposit",
+    "withdraw",
+    "balance",
+    "transfer",
+    "account",
+    "card",
+    "pin",
+    "password",
+    "identity_verification",
+    "cash",
+    "payment",
+    "fee",
+    "loan",
+    "savings",
+    "open_account",
+    "close_account",
+    "fraud",
+    "block_card",
+    "help",
+    "confirm",
+    "statement",
+    "document",
+    "bill_payment",
+    "atm",
+    "branch",
+    "cheque",
+    "interest_rate",
+    "credit_card",
+    "debit_card",
+    "lost_card",
+    "replace_card",
+    "change_pin",
+    "reset_password",
+    "refund",
+    "signature",
+    "complaint",
+    "appointment",
+    "account_number",
+    "card_limit",
+    "daily_limit"
+  ],
+  "keras_contract": {
+    "input_shape": [
+      1,
+      756
+    ],
+    "output_shape": [
+      1,
+      40
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32"
+  },
+  "float32_contract": {
+    "model": "ml/models/sprint_2_17_final_40class/models/signsync_40class_float32.tflite",
+    "loads_successfully": true,
+    "input_shape": [
+      1,
+      756
+    ],
+    "input_dtype": "float32",
+    "output_shape": [
+      1,
+      40
+    ],
+    "output_dtype": "float32"
+  },
+  "dynamic_range_contract": {
+    "model": "ml/models/sprint_2_17_final_40class/models/signsync_40class_dynamic_range.tflite",
+    "loads_successfully": true,
+    "input_shape": [
+      1,
+      756
+    ],
+    "input_dtype": "float32",
+    "output_shape": [
+      1,
+      40
+    ],
+    "output_dtype": "float32"
+  },
+  "keras_float32_top1_agreement": 1.0,
+  "keras_dynamic_top1_agreement": 1.0,
+  "float32_global_max_abs_difference": 5.960464477539062e-07,
+  "float32_global_mean_abs_difference": 3.472672815973965e-09,
+  "dynamic_global_max_abs_difference": 0.016163408756256104,
+  "dynamic_global_mean_abs_difference": 9.684024553280324e-05,
+  "model_sizes_bytes": {
+    "keras": 6734168,
+    "float32_tflite": 2237236,
+    "dynamic_range_tflite": 580536
+  },
+  "model_sha256": {
+    "keras": "3617046422966a654c2b952ea07bac43bf43c2c345d76ac99c8d93439ea326ae",
+    "float32_tflite": "a819b655b5341223641ed62f7cc36c593d222beebac4156fe7972079ef8602be",
+    "dynamic_range_tflite": "25efbcef375769f50fa4ad8f46cc18bb816e89982a86225d9e9e7771267c14ad"
+  },
+  "desktop_latency": {
+    "float32_tflite": {
+      "scope": "development-machine TFLite interpreter latency; not Samsung A55 latency",
+      "warmup_runs": 10,
+      "measured_runs": 100,
+      "mean_ms": 0.112835,
+      "median_ms": 0.10550000000000001,
+      "p95_ms": 0.17204999999999998,
+      "minimum_ms": 0.0766,
+      "maximum_ms": 0.2201
+    },
+    "dynamic_range_tflite": {
+      "scope": "development-machine TFLite interpreter latency; not Samsung A55 latency",
+      "warmup_runs": 10,
+      "measured_runs": 100,
+      "mean_ms": 0.020495,
+      "median_ms": 0.0183,
+      "p95_ms": 0.02911,
+      "minimum_ms": 0.0132,
+      "maximum_ms": 0.0899
+    }
+  },
+  "deployment_status": "candidate_not_deployed"
+}

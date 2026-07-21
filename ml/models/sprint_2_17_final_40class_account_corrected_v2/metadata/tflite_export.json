@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-07-19T00:44:04+00:00",
+  "source_keras_model": "ml/models/sprint_2_17_final_40class_account_corrected_v2/models/signsync_40class_account_corrected_v2.keras",
+  "source_keras_sha256": "f1d543e0d0e5e8c699b53da5dd7caaebc160695599c4c2d078c6fdddd1db120d",
+  "float32_tflite": "ml/models/sprint_2_17_final_40class_account_corrected_v2/models/signsync_40class_account_corrected_v2_float32.tflite",
+  "float32_tflite_sha256": "d9686110bacfb1f1c5b3bfbf33b2c515393344869a3dceaff325903a34df278c",
+  "dynamic_range_tflite": "ml/models/sprint_2_17_final_40class_account_corrected_v2/models/signsync_40class_account_corrected_v2_dynamic_range.tflite",
+  "dynamic_range_tflite_sha256": "bd46131ff20ecb96f240c867c60804a2d9f514ac4f56d63f64e8b60188187a17",
+  "input_shape": [
+    1,
+    756
+  ],
+  "output_shape": [
+    1,
+    40
+  ],
+  "label_count": 40,
+  "deployment_status": "candidate_not_deployed",
+  "flutter_assets_modified": false
+}

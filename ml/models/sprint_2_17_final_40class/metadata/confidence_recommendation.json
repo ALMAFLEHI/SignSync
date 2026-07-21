@@ -1,0 +1,12 @@
+{
+  "minimum_confidence": 0.9,
+  "minimum_top2_margin": 0.0,
+  "accepted_samples": 192,
+  "coverage": 0.96,
+  "accepted_accuracy": 1.0,
+  "rejection_rate": 0.040000000000000036,
+  "high_confidence_wrong": 0,
+  "selected_using": "phone validation only",
+  "minimum_required_coverage": 0.7,
+  "explanation": "Highest accepted validation accuracy among candidates with at least 70% coverage; ties prefer higher coverage and less restrictive thresholds."
+}

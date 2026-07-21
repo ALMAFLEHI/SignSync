@@ -4,40 +4,45 @@ import 'dart:developer' as developer;
 import 'package:flutter/services.dart';
 
 import '../config/app_config.dart';
+import '../config/banking_intent_scope.dart';
 import '../models/sign_mode.dart';
 
 class LabelMetadata {
   const LabelMetadata({
     required this.labels,
     required this.labelMapping,
-    required this.allLabels,
-    required this.alphabetModeLabels,
-    required this.numberModeLabels,
-    required this.bankingIntentModeLabels,
     required this.removedBankingIntents,
     required this.modelMetadata,
-    required this.preprocessingConfig,
+    required this.featureContract,
+    required this.confidenceRecommendation,
+    required this.deploymentManifest,
+    required this.queryIntentIds,
+    required this.queryCount,
   });
 
   final List<String> labels;
   final Map<String, int> labelMapping;
-  final List<String> allLabels;
-  final List<String> alphabetModeLabels;
-  final List<String> numberModeLabels;
-  final List<String> bankingIntentModeLabels;
   final List<String> removedBankingIntents;
   final Map<String, Object?> modelMetadata;
-  final Map<String, Object?> preprocessingConfig;
+  final Map<String, Object?> featureContract;
+  final Map<String, Object?> confidenceRecommendation;
+  final Map<String, Object?> deploymentManifest;
+  final List<String> queryIntentIds;
+  final int queryCount;
+
+  List<String> get allLabels => labels;
+  List<String> get alphabetModeLabels => const <String>[];
+  List<String> get numberModeLabels => const <String>[];
+  List<String> get bankingIntentModeLabels => labels;
+  bool get queryMappingMatches => _sameOrder(labels, queryIntentIds);
 
   List<String> labelsForMode(SignMode mode) {
-    switch (mode) {
-      case SignMode.alphabet:
-        return alphabetModeLabels;
-      case SignMode.number:
-        return numberModeLabels;
-      case SignMode.bankingIntent:
-        return bankingIntentModeLabels;
+    if (!mode.isActiveForFinalModel) {
+      throw UnsupportedError(
+        'Historical recognition mode is unavailable with the final 40-class model.',
+      );
     }
+    return bankingIntentModeLabels;
   }
 
   List<int> indicesForMode(SignMode mode) {
@@ -49,9 +54,7 @@ class LabelMetadata {
         .map((label) {
           final index = labelMapping[label];
           if (index == null) {
-            throw StateError(
-              'Label "$label" is missing from label_mapping.json.',
-            );
+            throw StateError('Label "$label" is missing from final metadata.');
           }
           return index;
         })
@@ -60,55 +63,64 @@ class LabelMetadata {
 }
 
 class LabelService {
+  LabelService({AssetBundle? assetBundle})
+    : _assetBundle = assetBundle ?? rootBundle;
+
+  final AssetBundle _assetBundle;
+
   Future<LabelMetadata> load() async {
     try {
-      final labelsText = await rootBundle.loadString(AppConfig.labelsAsset);
-      final mappingText = await rootBundle.loadString(
-        AppConfig.labelMappingAsset,
+      final labels = _readJsonStringList(
+        await _assetBundle.loadString(AppConfig.labelsAsset),
+        'labels',
       );
-      final groupsText = await rootBundle.loadString(
-        AppConfig.labelGroupsAsset,
+      final modelMetadata = _readJsonObject(
+        await _assetBundle.loadString(AppConfig.modelMetadataAsset),
+        'model metadata',
       );
-      final metadataText = await rootBundle.loadString(
-        AppConfig.modelMetadataAsset,
+      final featureContract = _readJsonObject(
+        await _assetBundle.loadString(AppConfig.featureContractAsset),
+        'feature contract',
       );
-      final preprocessingText = await rootBundle.loadString(
-        AppConfig.preprocessingConfigAsset,
+      final confidenceRecommendation = _readJsonObject(
+        await _assetBundle.loadString(AppConfig.confidenceRecommendationAsset),
+        'confidence recommendation',
       );
-
-      final labels = labelsText
-          .split(RegExp(r'\r?\n'))
-          .where((label) => label.trim().isNotEmpty)
-          .map((label) => label.trim())
+      final deploymentManifest = _readJsonObject(
+        await _assetBundle.loadString(AppConfig.deploymentManifestAsset),
+        'deployment manifest',
+      );
+      final queryData = _readJsonObject(
+        await _assetBundle.loadString(AppConfig.bankingQueriesAsset),
+        'query configuration',
+      );
+      final queryIntents = _readObjectList(queryData, 'intents');
+      final queryIntentIds = queryIntents
+          .map((intent) => intent['id'].toString())
           .toList(growable: false);
-      final labelMapping = (jsonDecode(mappingText) as Map<String, dynamic>)
-          .map((key, value) => MapEntry(key, (value as num).toInt()));
-      final groups = jsonDecode(groupsText) as Map<String, dynamic>;
-      final modelMetadata = (jsonDecode(metadataText) as Map<String, dynamic>)
-          .cast<String, Object?>();
-      final preprocessingConfig =
-          (jsonDecode(preprocessingText) as Map<String, dynamic>)
-              .cast<String, Object?>();
+      final queryCount = queryIntents.fold<int>(
+        0,
+        (total, intent) => total + _readList(intent, 'queries').length,
+      );
 
       final metadata = LabelMetadata(
         labels: labels,
-        labelMapping: labelMapping,
-        allLabels: _readStringList(groups, 'all_labels'),
-        alphabetModeLabels: _readStringList(groups, 'alphabet_mode'),
-        numberModeLabels: _readStringList(groups, 'number_mode'),
-        bankingIntentModeLabels: _readStringList(groups, 'banking_intent_mode'),
-        removedBankingIntents: _readStringList(
-          groups,
-          'removed_banking_intents',
-        ),
+        labelMapping: <String, int>{
+          for (final entry in labels.indexed) entry.$2: entry.$1,
+        },
+        removedBankingIntents: BankingIntentScope.removedIntents,
         modelMetadata: modelMetadata,
-        preprocessingConfig: preprocessingConfig,
+        featureContract: featureContract,
+        confidenceRecommendation: confidenceRecommendation,
+        deploymentManifest: deploymentManifest,
+        queryIntentIds: queryIntentIds,
+        queryCount: queryCount,
       );
       validate(metadata);
       return metadata;
     } catch (error, stackTrace) {
       developer.log(
-        'Label metadata loading failed',
+        'Final model metadata loading failed',
         error: error,
         stackTrace: stackTrace,
       );
@@ -117,172 +129,184 @@ class LabelService {
   }
 
   void validate(LabelMetadata metadata) {
-    final inputShape = (metadata.modelMetadata['input_shape'] as List<dynamic>)
-        .map((value) => (value as num).toInt())
-        .toList();
-    final outputShape =
-        (metadata.modelMetadata['output_shape'] as List<dynamic>)
-            .map((value) => (value as num).toInt())
-            .toList();
-
-    if (metadata.labels.length != AppConfig.expectedOutputClasses) {
+    BankingIntentScope.validate();
+    if (metadata.labels.length != AppConfig.expectedOutputClasses ||
+        metadata.labels.toSet().length != AppConfig.expectedOutputClasses) {
+      throw StateError('The final model requires exactly 40 unique labels.');
+    }
+    if (!_sameOrder(metadata.labels, BankingIntentScope.frozenIntents)) {
+      throw StateError('Final model labels do not match the frozen order.');
+    }
+    if (!_sameOrder(metadata.queryIntentIds, metadata.labels) ||
+        metadata.queryCount != 160) {
       throw StateError(
-        'Expected ${AppConfig.expectedOutputClasses} labels, '
-        'found ${metadata.labels.length}.',
+        'Query configuration must match all 40 model labels in exact order.',
       );
     }
-    if (metadata.allLabels.length != AppConfig.expectedOutputClasses) {
+    if (metadata.labels.any((label) => RegExp(r'^[A-Z0-9]$').hasMatch(label)) ||
+        metadata.labels.any(BankingIntentScope.removedIntents.contains)) {
       throw StateError(
-        'Expected ${AppConfig.expectedOutputClasses} all_labels entries, '
-        'found ${metadata.allLabels.length}.',
-      );
-    }
-    if (metadata.alphabetModeLabels.length !=
-        AppConfig.expectedAlphabetModeLabels) {
-      throw StateError(
-        'Expected 26 alphabet mode labels, found ${metadata.alphabetModeLabels.length}.',
-      );
-    }
-    if (metadata.numberModeLabels.length !=
-        AppConfig.expectedNumberModeLabels) {
-      throw StateError(
-        'Expected 10 number mode labels, found ${metadata.numberModeLabels.length}.',
-      );
-    }
-    if (metadata.bankingIntentModeLabels.length !=
-        AppConfig.expectedBankingIntentModeLabels) {
-      throw StateError(
-        'Expected 40 banking intent mode labels, found ${metadata.bankingIntentModeLabels.length}.',
-      );
-    }
-    if (metadata.removedBankingIntents.length !=
-        AppConfig.expectedRemovedBankingIntents) {
-      throw StateError(
-        'Expected 10 removed banking intents, found ${metadata.removedBankingIntents.length}.',
-      );
-    }
-    if (metadata.labels.toSet().length != metadata.labels.length) {
-      throw StateError('Model labels must be unique.');
-    }
-    if (!_sameOrder(metadata.labels, metadata.allLabels)) {
-      throw StateError('labels.txt and all_labels must use the same order.');
-    }
-    final groupedLabels = <String>[
-      ...metadata.alphabetModeLabels,
-      ...metadata.numberModeLabels,
-      ...metadata.bankingIntentModeLabels,
-    ];
-    if (!_sameOrder(metadata.labels, groupedLabels)) {
-      throw StateError(
-        'Alphabet, number, and banking mode groups must match model order.',
+        'Alphabet, digit, and removed labels cannot enter the final model.',
       );
     }
     if (metadata.labelMapping.length != metadata.labels.length ||
         metadata.labels.indexed.any(
           (entry) => metadata.labelMapping[entry.$2] != entry.$1,
         )) {
-      throw StateError('label_mapping.json must match labels.txt order.');
+      throw StateError('The final label-to-index mapping is inconsistent.');
     }
-    if (metadata.removedBankingIntents.any(
-      (label) =>
-          metadata.labels.contains(label) ||
-          metadata.labelMapping.containsKey(label) ||
-          metadata.bankingIntentModeLabels.contains(label),
-    )) {
+
+    final manifest = metadata.deploymentManifest;
+    _requireShape(manifest, 'input_shape', const <int>[1, 756]);
+    _requireShape(manifest, 'output_shape', const <int>[1, 40]);
+    if (manifest['input_dtype'] != 'float32' ||
+        manifest['output_dtype'] != 'float32' ||
+        manifest['label_count'] != AppConfig.expectedOutputClasses ||
+        manifest['confidence_threshold'] !=
+            AppConfig.bankingIntentConfidenceThreshold ||
+        manifest['minimum_margin'] != AppConfig.minimumTop2Gap ||
+        manifest['default_model_asset'] != AppConfig.dynamicRangeModelAsset ||
+        manifest['fallback_model_asset'] != AppConfig.float32ModelAsset ||
+        manifest['labels_asset'] != AppConfig.labelsAsset ||
+        manifest['deployment_status'] != AppConfig.deploymentStatus ||
+        manifest['model_version'] != AppConfig.modelVersion) {
       throw StateError(
-        'Removed banking intents cannot appear in deployed model metadata.',
+        'Deployment manifest does not match active runtime config.',
       );
     }
-    if (metadata.bankingIntentModeLabels.any(
-      (label) => !metadata.labels.contains(label),
-    )) {
+
+    final modelContract = _readObject(metadata.modelMetadata, 'contract');
+    _requireShape(modelContract, 'input_shape', const <int>[1, 756]);
+    _requireShape(modelContract, 'output_shape', const <int>[1, 40]);
+    final packagedLabels = _readStringList(
+      metadata.modelMetadata,
+      'label_order',
+    );
+    if (metadata.modelMetadata['label_count'] != 40 ||
+        !_sameOrder(packagedLabels, metadata.labels) ||
+        modelContract['input_dtype'] != 'float32' ||
+        modelContract['output_dtype'] != 'float32') {
+      throw StateError('Packaged model metadata does not match deployment.');
+    }
+
+    _requireShape(metadata.featureContract, 'sequence_shape', const <int>[
+      60,
+      126,
+    ]);
+    _requireShape(metadata.featureContract, 'model_input_shape', const <int>[
+      1,
+      756,
+    ]);
+    if (!_sameOrder(
+          _readStringList(metadata.featureContract, 'statistic_order'),
+          const <String>[
+            'mean',
+            'population_std',
+            'minimum',
+            'maximum',
+            'first_frame',
+            'last_frame',
+          ],
+        ) ||
+        _readObject(metadata.featureContract, 'standard_deviation')['ddof'] !=
+            0 ||
+        metadata.featureContract['dtype'] != 'float32') {
       throw StateError(
-        'Every active banking intent must remain mapped by the historical model.',
+        'Feature contract does not match Flutter preprocessing.',
       );
     }
-    if (inputShape.length != 2 ||
-        inputShape[0] != 1 ||
-        inputShape[1] != AppConfig.expectedInputWidth) {
+    if (metadata.confidenceRecommendation['minimum_confidence'] !=
+            AppConfig.bankingIntentConfidenceThreshold ||
+        metadata.confidenceRecommendation['minimum_top2_margin'] !=
+            AppConfig.minimumTop2Gap ||
+        metadata.confidenceRecommendation['selected_using'] !=
+            'phone validation only') {
       throw StateError(
-        'Expected model input shape [1, 756], found $inputShape.',
+        'Confidence policy differs from the frozen recommendation.',
       );
     }
-    if (outputShape.length != 2 ||
-        outputShape[0] != 1 ||
-        outputShape[1] != AppConfig.expectedOutputClasses) {
-      throw StateError(
-        'Expected model output shape '
-        '[1, ${AppConfig.expectedOutputClasses}], found $outputShape.',
-      );
-    }
-    if (metadata.modelMetadata['total_labels'] !=
-        AppConfig.expectedOutputClasses) {
-      throw StateError('Model metadata total_labels must be 76.');
-    }
-    if (metadata.modelMetadata['input_dtype'] != 'float32' ||
-        metadata.modelMetadata['output_dtype'] != 'float32') {
-      throw StateError('The deployed TFLite contract must use float32 I/O.');
-    }
-    _validatePreprocessing(metadata.preprocessingConfig);
   }
 
-  void _validatePreprocessing(Map<String, Object?> config) {
-    final sourceShape = _readIntList(config, 'source_sequence_shape');
-    final featureOrder = _readObjectStringList(config, 'feature_order');
-    final leftHandIndices = _readIntList(config, 'left_hand_indices');
-    final rightHandIndices = _readIntList(config, 'right_hand_indices');
-    if (!_sameOrder(sourceShape, const <int>[60, 126]) ||
-        config['feature_width'] != AppConfig.expectedInputWidth ||
-        !_sameOrder(featureOrder, const <String>[
-          'mean',
-          'std',
-          'min',
-          'max',
-          'first_frame',
-          'last_frame',
-        ]) ||
-        config['standard_deviation_ddof'] != 0 ||
-        !_sameOrder(leftHandIndices, const <int>[0, 62]) ||
-        !_sameOrder(rightHandIndices, const <int>[63, 125])) {
-      throw StateError('Preprocessing metadata does not match Flutter.');
+  Map<String, Object?> _readJsonObject(String raw, String name) {
+    final value = jsonDecode(raw);
+    if (value is! Map<String, Object?>) {
+      throw FormatException('$name must be a JSON object.');
     }
+    return value;
   }
 
-  List<int> _readIntList(Map<String, Object?> data, String key) {
-    final values = data[key];
-    if (values is! List) {
-      throw StateError('$key is missing or is not a list.');
+  List<String> _readJsonStringList(String raw, String name) {
+    final value = jsonDecode(raw);
+    if (value is! List<Object?> || value.any((item) => item is! String)) {
+      throw FormatException('$name must be a JSON string list.');
     }
-    return values
-        .map((value) => (value as num).toInt())
-        .toList(growable: false);
+    return value.cast<String>().toList(growable: false);
   }
 
-  List<String> _readObjectStringList(Map<String, Object?> data, String key) {
-    final values = data[key];
-    if (values is! List) {
-      throw StateError('$key is missing or is not a list.');
+  void _requireShape(
+    Map<String, Object?> source,
+    String key,
+    List<int> expected,
+  ) {
+    final actual = _readIntList(source, key);
+    if (!_sameOrder(actual, expected)) {
+      throw StateError('$key must be $expected, found $actual.');
     }
-    return values.map((value) => value.toString()).toList(growable: false);
   }
+}
 
-  bool _sameOrder<T>(List<T> left, List<T> right) {
-    if (left.length != right.length) {
+Map<String, Object?> _readObject(Map<String, Object?> data, String key) {
+  final value = data[key];
+  if (value is! Map<String, Object?>) {
+    throw StateError('$key is missing or is not an object.');
+  }
+  return value;
+}
+
+List<Object?> _readList(Map<String, Object?> data, String key) {
+  final value = data[key];
+  if (value is! List<Object?>) {
+    throw StateError('$key is missing or is not a list.');
+  }
+  return value;
+}
+
+List<Map<String, Object?>> _readObjectList(
+  Map<String, Object?> data,
+  String key,
+) {
+  return _readList(data, key)
+      .map((value) {
+        if (value is! Map<String, Object?>) {
+          throw StateError('$key must contain objects.');
+        }
+        return value;
+      })
+      .toList(growable: false);
+}
+
+List<int> _readIntList(Map<String, Object?> data, String key) {
+  return _readList(
+    data,
+    key,
+  ).map((value) => (value as num).toInt()).toList(growable: false);
+}
+
+List<String> _readStringList(Map<String, Object?> data, String key) {
+  return _readList(
+    data,
+    key,
+  ).map((value) => value.toString()).toList(growable: false);
+}
+
+bool _sameOrder<T>(List<T> left, List<T> right) {
+  if (left.length != right.length) {
+    return false;
+  }
+  for (var index = 0; index < left.length; index += 1) {
+    if (left[index] != right[index]) {
       return false;
     }
-    for (var index = 0; index < left.length; index += 1) {
-      if (left[index] != right[index]) {
-        return false;
-      }
-    }
-    return true;
   }
-
-  List<String> _readStringList(Map<String, dynamic> data, String key) {
-    final values = data[key];
-    if (values is! List) {
-      throw StateError('$key is missing or is not a list.');
-    }
-    return values.map((value) => value.toString()).toList(growable: false);
-  }
+  return true;
 }

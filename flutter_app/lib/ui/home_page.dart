@@ -1,186 +1,62 @@
 import 'package:flutter/material.dart';
 
 import '../config/app_config.dart';
-import '../models/prediction_result.dart';
-import '../models/sign_mode.dart';
-import '../services/label_service.dart';
-import '../services/test_feature_loader.dart';
-import '../services/tflite_sign_classifier.dart';
-import 'live_camera_page.dart';
-import 'phone_dataset_collection_page.dart';
-import 'widgets/mode_selector.dart';
-import 'widgets/prediction_card.dart';
-import 'widgets/test_sample_buttons.dart';
-import 'widgets/top_predictions_list.dart';
+import '../theme/signsync_theme.dart';
+import 'banking_interaction_page.dart';
+import 'settings_page.dart';
+import 'widgets/privacy_status_chip.dart';
+import 'widgets/section_header.dart';
+import 'widgets/signsync_logo.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final LabelService _labelService = LabelService();
-  final TestFeatureLoader _testFeatureLoader = TestFeatureLoader();
-
-  LabelMetadata? _metadata;
-  TfliteSignClassifier? _classifier;
-  SignMode _selectedMode = SignMode.bankingIntent;
-  TestFeatureSample? _selectedSample;
-  PredictionResult? _prediction;
-  String? _statusMessage;
-  String? _errorMessage;
-  bool _isLoading = true;
-  bool _isPredicting = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _initialize();
+  void _openLiveBankingInteraction(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => const BankingInteractionPage()),
+    );
   }
 
-  @override
-  void dispose() {
-    _classifier?.close();
-    super.dispose();
-  }
-
-  Future<void> _initialize() async {
-    setState(() {
-      _isLoading = true;
-      _errorMessage = null;
-      _statusMessage = 'Loading labels and TFLite model...';
-    });
-
-    try {
-      final metadata = await _labelService.load();
-      setState(() {
-        _metadata = metadata;
-        _statusMessage = 'Label metadata loaded. Loading TFLite model...';
-      });
-
-      final classifier = TfliteSignClassifier(metadata: metadata);
-      await classifier.load();
-
-      setState(() {
-        _classifier = classifier;
-        _statusMessage = 'Ready for offline test feature inference.';
-        _isLoading = false;
-      });
-    } catch (error) {
-      setState(() {
-        _errorMessage = error.toString();
-        _statusMessage = _metadata == null
-            ? 'Setup failed. Check model assets and metadata.'
-            : 'Label metadata loaded. TFLite runtime is not available yet.';
-        _isLoading = false;
-      });
-    }
-  }
-
-  Future<void> _runSample(String sampleId) async {
-    final classifier = _classifier;
-    if (classifier == null || !classifier.isLoaded) {
-      setState(() {
-        _errorMessage = 'Model is not loaded yet.';
-      });
-      return;
-    }
-
-    setState(() {
-      _isPredicting = true;
-      _errorMessage = null;
-    });
-
-    try {
-      final sample = await _testFeatureLoader.load(sampleId);
-      final prediction = classifier.predict(sample.features, _selectedMode);
-      setState(() {
-        _selectedSample = sample;
-        _prediction = prediction;
-        _isPredicting = false;
-      });
-    } catch (error) {
-      setState(() {
-        _errorMessage = error.toString();
-        _isPredicting = false;
-      });
-    }
-  }
-
-  void _updateMode(SignMode mode) {
-    setState(() {
-      _selectedMode = mode;
-      _prediction = null;
-      _selectedSample = null;
-    });
+  void _openSettings(BuildContext context) {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute<void>(builder: (_) => const SettingsPage()));
   }
 
   @override
   Widget build(BuildContext context) {
-    final classifier = _classifier;
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text(AppConfig.appTitle),
+        title: const SignSyncWordmark(markSize: 34),
         actions: [
           IconButton(
-            tooltip: 'Reload assets',
-            onPressed: _isLoading ? null : _initialize,
-            icon: const Icon(Icons.refresh),
+            tooltip: 'Settings',
+            onPressed: () => _openSettings(context),
+            icon: const Icon(
+              Icons.settings_outlined,
+              semanticLabel: 'Open SignSync settings',
+            ),
           ),
+          const SizedBox(width: 4),
         ],
       ),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 28),
           children: [
-            _Header(statusMessage: _statusMessage),
-            const SizedBox(height: 12),
-            _StatusPanel(
-              labelsLoaded: _metadata != null,
-              modelLoaded: classifier?.isLoaded ?? false,
-              selectedModel:
-                  classifier?.selectedModelAsset ??
-                  AppConfig.dynamicRangeModelAsset,
-              isLoading: _isLoading,
+            _BrandIntroduction(
+              onStart: () => _openLiveBankingInteraction(context),
             ),
-            if (_errorMessage != null) ...[
-              const SizedBox(height: 12),
-              _ErrorPanel(message: _errorMessage!),
-            ],
-            const SizedBox(height: 12),
-            ModeSelector(selectedMode: _selectedMode, onChanged: _updateMode),
-            const SizedBox(height: 12),
-            TestSampleButtons(
-              enabled: !_isLoading && !_isPredicting && classifier != null,
-              onSampleSelected: _runSample,
+            const SizedBox(height: 28),
+            const SectionHeader(
+              title: 'How it works',
+              description:
+                  'A guided path from a banking sign to a clear request.',
             ),
             const SizedBox(height: 12),
-            const _LiveCameraEntryPanel(),
-            const SizedBox(height: 12),
-            const _PhoneDatasetEntryPanel(),
-            const SizedBox(height: 12),
-            PredictionCard(
-              sample: _selectedSample,
-              prediction: _prediction,
-              isPredicting: _isPredicting,
-            ),
-            if (_prediction != null) ...[
-              const SizedBox(height: 12),
-              TopPredictionsList(
-                title: '${_selectedMode.displayName} Top Predictions',
-                predictions: _prediction!.topPredictions,
-              ),
-              const SizedBox(height: 12),
-              TopPredictionsList(
-                title: 'Raw Model Top Predictions',
-                predictions: _prediction!.rawTopPredictions,
-              ),
-            ],
-            const SizedBox(height: 12),
-            const _PrivacyPanel(),
+            const _HowItWorks(),
+            const SizedBox(height: 28),
+            const _PrivacyNotice(),
           ],
         ),
       ),
@@ -188,253 +64,198 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class _Header extends StatelessWidget {
-  const _Header({required this.statusMessage});
+class _BrandIntroduction extends StatelessWidget {
+  const _BrandIntroduction({required this.onStart});
 
-  final String? statusMessage;
+  final VoidCallback onStart;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    final colors = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SignSyncLogo(size: 64),
+          const SizedBox(height: 16),
+          Text(
+            AppConfig.appTitle,
+            style: Theme.of(
+              context,
+            ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Private, on-device banking communication assistance.',
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: colors.onSurfaceVariant,
+              height: 1.4,
+            ),
+          ),
+          const SizedBox(height: 16),
+          const Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              PrivacyStatusChip(
+                icon: Icons.offline_bolt_outlined,
+                label: 'Offline processing',
+              ),
+              PrivacyStatusChip(
+                icon: Icons.videocam_off_outlined,
+                label: 'No video upload',
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton.icon(
+              key: const ValueKey('start-banking-interaction'),
+              onPressed: onStart,
+              icon: const Icon(Icons.sign_language_outlined),
+              label: const Text('Start Banking Interaction'),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'Recognizes banking intents only. Exact names, amounts, dates, and '
+            'account details will be entered manually.',
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: colors.onSurfaceVariant),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HowItWorks extends StatelessWidget {
+  const _HowItWorks();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
       children: [
-        Text(
-          AppConfig.appTitle,
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            fontWeight: FontWeight.w700,
-            color: const Color(0xFF102A43),
-          ),
+        _StepRow(
+          number: 1,
+          icon: Icons.sign_language_outlined,
+          title: 'Perform a banking sign',
+          description: 'Use the camera to communicate one banking intent.',
         ),
-        const SizedBox(height: 4),
-        Text(
-          AppConfig.appSubtitle,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyLarge?.copyWith(color: const Color(0xFF486581)),
+        _StepRow(
+          number: 2,
+          icon: Icons.verified_outlined,
+          title: 'Confirm the detected intent',
+          description: 'Review the banking intent before continuing.',
         ),
-        const SizedBox(height: 8),
-        Text(
-          statusMessage ?? '',
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: const Color(0xFF0F766E),
-            fontWeight: FontWeight.w600,
-          ),
+        _StepRow(
+          number: 3,
+          icon: Icons.list_alt_outlined,
+          title: 'Select the exact request',
+          description: 'Choose a predefined request and add optional details.',
+        ),
+        _StepRow(
+          number: 4,
+          icon: Icons.co_present_outlined,
+          title: 'Show the request to the banker',
+          description: 'Present clear text for an in-branch conversation.',
+          showDivider: false,
         ),
       ],
     );
   }
 }
 
-class _StatusPanel extends StatelessWidget {
-  const _StatusPanel({
-    required this.labelsLoaded,
-    required this.modelLoaded,
-    required this.selectedModel,
-    required this.isLoading,
-  });
-
-  final bool labelsLoaded;
-  final bool modelLoaded;
-  final String selectedModel;
-  final bool isLoading;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Prototype Status',
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 12),
-            _StatusRow(
-              icon: labelsLoaded ? Icons.check_circle : Icons.pending,
-              label: 'Label metadata',
-              value: labelsLoaded ? 'Loaded' : 'Not loaded',
-            ),
-            _StatusRow(
-              icon: modelLoaded ? Icons.check_circle : Icons.pending,
-              label: 'TFLite model',
-              value: isLoading
-                  ? 'Loading'
-                  : (modelLoaded ? 'Loaded' : 'Not loaded'),
-            ),
-            _StatusRow(
-              icon: Icons.memory,
-              label: 'Selected model',
-              value: selectedModel.split('/').last,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _StatusRow extends StatelessWidget {
-  const _StatusRow({
+class _StepRow extends StatelessWidget {
+  const _StepRow({
+    required this.number,
     required this.icon,
-    required this.label,
-    required this.value,
+    required this.title,
+    required this.description,
+    this.showDivider = true,
   });
 
+  final int number;
   final IconData icon;
-  final String label;
-  final String value;
+  final String title;
+  final String description;
+  final bool showDivider;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+    final colors = Theme.of(context).colorScheme;
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: colors.primaryContainer,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(icon, color: colors.onPrimaryContainer),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '$number. $title',
+                      style: const TextStyle(fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      description,
+                      style: TextStyle(color: colors.onSurfaceVariant),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        if (showDivider) const Divider(height: 1),
+      ],
+    );
+  }
+}
+
+class _PrivacyNotice extends StatelessWidget {
+  const _PrivacyNotice();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.secondaryContainer,
+        borderRadius: BorderRadius.circular(SignSyncTheme.radius),
+      ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 18, color: Theme.of(context).colorScheme.primary),
-          const SizedBox(width: 8),
-          Expanded(child: Text(label)),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.w600)),
+          Icon(
+            Icons.lock_outline,
+            color: Theme.of(context).colorScheme.onSecondaryContainer,
+          ),
+          const SizedBox(width: 10),
+          const Expanded(
+            child: Text(
+              'Recognition runs on this device. Camera frames are not uploaded. '
+              'SignSync does not connect to bank systems or execute transactions.',
+            ),
+          ),
         ],
-      ),
-    );
-  }
-}
-
-class _ErrorPanel extends StatelessWidget {
-  const _ErrorPanel({required this.message});
-
-  final String message;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: const Color(0xFFFFF1F2),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Icon(Icons.error_outline, color: Color(0xFFBE123C)),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                message,
-                style: const TextStyle(color: Color(0xFF9F1239)),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _PrivacyPanel extends StatelessWidget {
-  const _PrivacyPanel();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Card(
-      child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(Icons.lock_outline, color: Color(0xFF0F766E)),
-            SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                'Offline on-device inference. No video upload is used in this prototype.',
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _LiveCameraEntryPanel extends StatelessWidget {
-  const _LiveCameraEntryPanel();
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Live Camera Prototype',
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'Use Android camera input to capture MediaPipe landmarks, build a 756-feature vector, and run the existing TFLite classifier.',
-            ),
-            const SizedBox(height: 12),
-            FilledButton.icon(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (_) => const LiveCameraPage(),
-                  ),
-                );
-              },
-              icon: const Icon(Icons.videocam),
-              label: const Text('Open Live Camera'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _PhoneDatasetEntryPanel extends StatelessWidget {
-  const _PhoneDatasetEntryPanel();
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Phone Dataset Collection',
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'Collect 25 landmark JSON samples for each of the 36 remaining '
-              'Sprint 2.16B banking intents. The four completed pilot labels '
-              'are protected, and no raw video is saved.',
-            ),
-            const SizedBox(height: 12),
-            OutlinedButton.icon(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (_) => const PhoneDatasetCollectionPage(),
-                  ),
-                );
-              },
-              icon: const Icon(Icons.dataset_outlined),
-              label: const Text('Open Collection'),
-            ),
-          ],
-        ),
       ),
     );
   }

@@ -1,0 +1,576 @@
+{
+  "project": "SignSync",
+  "sprint": "2.17",
+  "model_version": "signsync_40class_sprint_2_17_candidate_v1",
+  "created_at": "2026-07-18T11:09:20+00:00",
+  "training_script": "ml/src/train_sprint_2_17_40class.py",
+  "git_commit": "d878231147ac3e3b9add20a3a2e2b6d91e279e6c",
+  "environment": {
+    "python": "3.12.9",
+    "tensorflow": "2.21.0",
+    "numpy": "2.5.0",
+    "scikit_learn": "1.9.0",
+    "tflite_interpreter": "tensorflow.lite.Interpreter"
+  },
+  "seeds": {
+    "python": 21617,
+    "numpy": 21617,
+    "tensorflow": 21617,
+    "dataset_order": 21617,
+    "augmentation": 42
+  },
+  "contract": {
+    "input_shape": [
+      1,
+      756
+    ],
+    "output_shape": [
+      1,
+      40
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "feature_contract": "metadata/feature_contract.json",
+    "additional_flutter_scaling_required": false
+  },
+  "label_count": 40,
+  "label_order": [
+    "deposit",
+    "withdraw",
+    "balance",
+    "transfer",
+    "account",
+    "card",
+    "pin",
+    "password",
+    "identity_verification",
+    "cash",
+    "payment",
+    "fee",
+    "loan",
+    "savings",
+    "open_account",
+    "close_account",
+    "fraud",
+    "block_card",
+    "help",
+    "confirm",
+    "statement",
+    "document",
+    "bill_payment",
+    "atm",
+    "branch",
+    "cheque",
+    "interest_rate",
+    "credit_card",
+    "debit_card",
+    "lost_card",
+    "replace_card",
+    "change_pin",
+    "reset_password",
+    "refund",
+    "signature",
+    "complaint",
+    "appointment",
+    "account_number",
+    "card_limit",
+    "daily_limit"
+  ],
+  "dataset": {
+    "phone_source_samples": 1000,
+    "phone_train": 600,
+    "phone_validation": 200,
+    "phone_test_locked": 200,
+    "participant": "P02_PHONE",
+    "device": "Samsung Android phone",
+    "historical_total_inspected": 805,
+    "historical_final_40": 375,
+    "historical_train_available": 260,
+    "historical_used_by_winner": 0,
+    "historical_per_label": [
+      {
+        "label_index": 0,
+        "label": "deposit",
+        "total": 5,
+        "train": 3,
+        "validation_excluded": 1,
+        "test_excluded": 1
+      },
+      {
+        "label_index": 1,
+        "label": "withdraw",
+        "total": 5,
+        "train": 3,
+        "validation_excluded": 1,
+        "test_excluded": 1
+      },
+      {
+        "label_index": 2,
+        "label": "balance",
+        "total": 5,
+        "train": 3,
+        "validation_excluded": 1,
+        "test_excluded": 1
+      },
+      {
+        "label_index": 3,
+        "label": "transfer",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 4,
+        "label": "account",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 5,
+        "label": "card",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 6,
+        "label": "pin",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 7,
+        "label": "password",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 8,
+        "label": "identity_verification",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 9,
+        "label": "cash",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 10,
+        "label": "payment",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 11,
+        "label": "fee",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 12,
+        "label": "loan",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 13,
+        "label": "savings",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 14,
+        "label": "open_account",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 15,
+        "label": "close_account",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 16,
+        "label": "fraud",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 17,
+        "label": "block_card",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 18,
+        "label": "help",
+        "total": 5,
+        "train": 3,
+        "validation_excluded": 1,
+        "test_excluded": 1
+      },
+      {
+        "label_index": 19,
+        "label": "confirm",
+        "total": 5,
+        "train": 3,
+        "validation_excluded": 1,
+        "test_excluded": 1
+      },
+      {
+        "label_index": 20,
+        "label": "statement",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 21,
+        "label": "document",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 22,
+        "label": "bill_payment",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 23,
+        "label": "atm",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 24,
+        "label": "branch",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 25,
+        "label": "cheque",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 26,
+        "label": "interest_rate",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 27,
+        "label": "credit_card",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 28,
+        "label": "debit_card",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 29,
+        "label": "lost_card",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 30,
+        "label": "replace_card",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 31,
+        "label": "change_pin",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 32,
+        "label": "reset_password",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 33,
+        "label": "refund",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 34,
+        "label": "signature",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 35,
+        "label": "complaint",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 36,
+        "label": "appointment",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 37,
+        "label": "account_number",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 38,
+        "label": "card_limit",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      },
+      {
+        "label_index": 39,
+        "label": "daily_limit",
+        "total": 10,
+        "train": 7,
+        "validation_excluded": 1,
+        "test_excluded": 2
+      }
+    ]
+  },
+  "augmentation": {
+    "config_version": "sprint_2_16A_conservative_v1",
+    "seed": 42,
+    "derivatives_per_training_sample": 1,
+    "apply_to": "all original training sequences",
+    "spatial_translation": {
+      "enabled": true,
+      "x_range": [
+        -0.0125,
+        0.0125
+      ],
+      "y_range": [
+        -0.0125,
+        0.0125
+      ]
+    },
+    "scale": {
+      "enabled": true,
+      "range": [
+        0.98,
+        1.02
+      ],
+      "origin": "wrist"
+    },
+    "rotation": {
+      "enabled": true,
+      "degrees_range": [
+        -2.5,
+        2.5
+      ],
+      "origin": "wrist"
+    },
+    "coordinate_jitter": {
+      "enabled": true,
+      "gaussian_sigma": 0.0015
+    },
+    "temporal_resampling": {
+      "enabled": false,
+      "reason": "Disabled to keep the first and last sign structure unchanged in the initial pilot."
+    },
+    "frame_masking_or_landmark_dropout": {
+      "enabled": false,
+      "reason": "Disabled to avoid adding synthetic detection loss before the spatial experiment is evaluated."
+    },
+    "horizontal_mirroring": {
+      "enabled": false,
+      "reason": "Handedness and semantic preservation have not been proven for this dataset."
+    },
+    "missing_hand_policy": "Keep all-zero 63-value hand slots exactly zero.",
+    "split_policy": "Augment training samples only; validation and test remain untouched."
+  },
+  "winning_experiment": "experiment_A_phone_only",
+  "best_epoch": 46,
+  "architecture": [
+    512,
+    256,
+    128
+  ],
+  "parameter_count": 558481,
+  "validation_metrics": {
+    "validation_accuracy": 0.99,
+    "validation_macro_precision": 0.9916666666666668,
+    "validation_macro_recall": 0.99,
+    "validation_macro_f1": 0.98989898989899,
+    "validation_weighted_f1": 0.98989898989899,
+    "validation_high_confidence_wrong": 1
+  },
+  "final_test_metrics": {
+    "created_at": "2026-07-18T10:52:41+00:00",
+    "evaluation_policy": "one-time aggregate evaluation of locked winner",
+    "selection_data": "phone validation only",
+    "test_samples": 200,
+    "label_count": 40,
+    "accuracy": 0.955,
+    "macro_precision": 0.9607738095238096,
+    "macro_recall": 0.9550000000000001,
+    "macro_f1": 0.9513943001443002,
+    "weighted_precision": 0.9607738095238096,
+    "weighted_recall": 0.955,
+    "weighted_f1": 0.9513943001443002,
+    "mean_top1_confidence": 0.9850701689720154,
+    "high_confidence_wrong": 6,
+    "high_confidence_wrong_definition": "incorrect with top-1 confidence >= 0.70 and top-1/top-2 margin >= 0.15",
+    "minimum_confidence": 0.9,
+    "minimum_top2_margin": 0.0,
+    "accepted_samples": 193,
+    "rejected_samples": 7,
+    "coverage": 0.965,
+    "accepted_accuracy": 0.9740932642487047,
+    "try_again_rate": 0.03500000000000003,
+    "academic_target_accuracy": 0.9,
+    "academic_target_macro_f1": 0.9,
+    "accuracy_target_reached": true,
+    "macro_f1_target_reached": true
+  },
+  "confidence_recommendation": {
+    "minimum_confidence": 0.9,
+    "minimum_top2_margin": 0.0,
+    "accepted_samples": 192,
+    "coverage": 0.96,
+    "accepted_accuracy": 1.0,
+    "rejection_rate": 0.040000000000000036,
+    "high_confidence_wrong": 0,
+    "selected_using": "phone validation only",
+    "minimum_required_coverage": 0.7,
+    "explanation": "Highest accepted validation accuracy among candidates with at least 70% coverage; ties prefer higher coverage and less restrictive thresholds."
+  },
+  "model_files": {
+    "keras": "ml/models/sprint_2_17_final_40class/models/signsync_40class_final.keras",
+    "float32_tflite": "ml/models/sprint_2_17_final_40class/models/signsync_40class_float32.tflite",
+    "dynamic_range_tflite": "ml/models/sprint_2_17_final_40class/models/signsync_40class_dynamic_range.tflite"
+  },
+  "model_sha256": {
+    "keras": "3617046422966a654c2b952ea07bac43bf43c2c345d76ac99c8d93439ea326ae",
+    "float32_tflite": "a819b655b5341223641ed62f7cc36c593d222beebac4156fe7972079ef8602be",
+    "dynamic_range_tflite": "25efbcef375769f50fa4ad8f46cc18bb816e89982a86225d9e9e7771267c14ad"
+  },
+  "manifest_sha256": {
+    "ml/models/sprint_2_17_final_40class/manifests/phone_train_manifest.csv": "97105a02eba1140d146daa1e19286eabe45a6fe790ae09736f05222520ced1b6",
+    "ml/models/sprint_2_17_final_40class/manifests/phone_validation_manifest.csv": "ac9ecc6327ca9cef2d0ce7586b8fa8ef184ea87696d8a2ad1ae44a80035c9a06",
+    "ml/models/sprint_2_17_final_40class/manifests/phone_test_manifest.csv": "d72b28df4a6bec08b9b73cf45df596c7418aefa4a1867a72fc96475ff2d6ca9b",
+    "ml/models/sprint_2_17_final_40class/manifests/combined_split_manifest.json": "45fadddbc880e51fd18e2fa5f354764807ac593f7e014c8abe3a90de7646060f"
+  },
+  "protected_integrity": {
+    "verified_at": "2026-07-18T11:09:20+00:00",
+    "status": "PASS",
+    "actual_sha256": {
+      "flutter_dynamic_range_sha256": "88cdc0367f40e50081e5bde7644ede242937061843cb68ea1235214e62308ddd",
+      "flutter_float32_sha256": "36ec44e5ebefd1c7de56161a305324488bfd6cfc58337ca9b2679198f424fac8",
+      "phone_backup_sha256": "f3f76c6bbe06305c7ae82e2772c5daca7f76619444f7eca892d7aa253986b70b",
+      "banking_queries_sha256": "6f52d50f8fbbf64cd43479a1a6135f3886164d7857b1430090589d2cccec6b51"
+    },
+    "expected_sha256": {
+      "flutter_dynamic_range_sha256": "88cdc0367f40e50081e5bde7644ede242937061843cb68ea1235214e62308ddd",
+      "flutter_float32_sha256": "36ec44e5ebefd1c7de56161a305324488bfd6cfc58337ca9b2679198f424fac8",
+      "phone_backup_sha256": "f3f76c6bbe06305c7ae82e2772c5daca7f76619444f7eca892d7aa253986b70b",
+      "banking_queries_sha256": "6f52d50f8fbbf64cd43479a1a6135f3886164d7857b1430090589d2cccec6b51"
+    },
+    "raw_phone_sample_count": 1000,
+    "query_intent_count": 40,
+    "query_count": 160,
+    "checks": {
+      "flutter_dynamic_range_sha256": true,
+      "flutter_float32_sha256": true,
+      "phone_backup_sha256": true,
+      "banking_queries_sha256": true,
+      "raw_phone_sample_count_1000": true,
+      "raw_validation_pass": true,
+      "query_intent_ids_match_frozen_order": true,
+      "query_count_160": true
+    },
+    "flutter_models_modified": false,
+    "raw_phone_samples_modified": false
+  },
+  "known_limitations": [
+    "The phone dataset contains one participant and one Samsung A55 capture domain.",
+    "Nine of 200 locked test samples were misclassified, including six high-confidence errors.",
+    "Loan, card, payment, document, and help had the lowest test recall.",
+    "Desktop latency is not Samsung A55 mobile latency.",
+    "The 40-class candidate has not been deployed or live-tested in Flutter."
+  ],
+  "test_evaluation_policy": "locked winner evaluated once; no test-driven retraining",
+  "deployment_status": "candidate_not_deployed"
+}

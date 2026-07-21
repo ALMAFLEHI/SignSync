@@ -22,6 +22,10 @@ class LivePredictionSession {
     required this.featureComputationMs,
     required this.inferenceMs,
     required this.endToEndMs,
+    required this.featureComputationPreciseMs,
+    required this.inferencePreciseMs,
+    required this.predictionProcessingPreciseMs,
+    required this.modelLoadMs,
   });
 
   final PredictionResult prediction;
@@ -30,6 +34,10 @@ class LivePredictionSession {
   final int featureComputationMs;
   final int inferenceMs;
   final int endToEndMs;
+  final double featureComputationPreciseMs;
+  final double inferencePreciseMs;
+  final double predictionProcessingPreciseMs;
+  final double modelLoadMs;
 }
 
 class StabilizedPrediction {

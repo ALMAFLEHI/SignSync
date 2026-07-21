@@ -35,7 +35,7 @@ void main() {
       expect(decision.reason, contains('Confidence below'));
     });
 
-    test('returns Try Again when top-2 predictions are too close', () {
+    test('rejects historical Number Mode without invoking final labels', () {
       final decision = policy.decide(
         mode: SignMode.number,
         filteredTopPredictions: const [
@@ -46,7 +46,20 @@ void main() {
 
       expect(decision.accepted, isFalse);
       expect(decision.displayLabel, PredictionDecisionPolicy.tryAgainLabel);
-      expect(decision.reason, contains('too close'));
+      expect(decision.reason, contains('Historical recognition mode'));
+    });
+
+    test('returns Try Again for non-finite probabilities', () {
+      final decision = policy.decide(
+        mode: SignMode.bankingIntent,
+        filteredTopPredictions: const [
+          TopPrediction(label: 'deposit', probability: double.nan, index: 0),
+          TopPrediction(label: 'transfer', probability: 0.2, index: 3),
+        ],
+      );
+
+      expect(decision.accepted, isFalse);
+      expect(decision.reason, contains('invalid'));
     });
 
     test('returns Try Again for low-confidence document/card ambiguity', () {
@@ -60,8 +73,8 @@ void main() {
 
       expect(decision.accepted, isFalse);
       expect(decision.displayLabel, PredictionDecisionPolicy.tryAgainLabel);
-      expect(decision.confidenceThreshold, 0.70);
-      expect(decision.minimumTop2Gap, 0.15);
+      expect(decision.confidenceThreshold, 0.80);
+      expect(decision.minimumTop2Gap, 0.0);
       expect(decision.reason, contains('Confidence below'));
     });
   });
@@ -100,14 +113,14 @@ PredictionResult _prediction(String label, {required bool accepted}) {
     decision: PredictionDecision(
       accepted: accepted,
       displayLabel: accepted ? label : PredictionDecisionPolicy.tryAgainLabel,
-      confidenceThreshold: 0.70,
-      minimumTop2Gap: 0.15,
+      confidenceThreshold: 0.90,
+      minimumTop2Gap: 0.0,
       top2Gap: 0.4,
       reason: accepted ? null : 'test rejection',
     ),
     topPredictions: [top],
     rawTopPredictions: [top],
-    rawOutputLength: 76,
+    rawOutputLength: 40,
     selectedMode: SignMode.bankingIntent,
     modelAsset: 'test.tflite',
   );

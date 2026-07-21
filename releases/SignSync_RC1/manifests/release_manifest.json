@@ -1,0 +1,163 @@
+{
+  "release_candidate": "SignSync_RC1",
+  "status": "PASS",
+  "created_at": "2026-07-19T05:15:00Z",
+  "scope": "academic FYP prototype and demonstration release candidate",
+  "package_id": "com.example.flutter_app",
+  "ios_bundle_id": "com.example.flutterApp",
+  "version_name": "1.0.0",
+  "version_code": 1,
+  "min_sdk": 24,
+  "target_sdk": 36,
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86_64"
+  ],
+  "apks": {
+    "app-debug.apk": {
+      "sha256": "2F14ABCA6FB4CB0258A2AD87B26DC98416E9A5C04BF598C52851D818726AD75F",
+      "size": 216851907,
+      "build_type": "debug",
+      "signing": "Android debug certificate"
+    },
+    "app-release.apk": {
+      "sha256": "65C7E9083A295AB1722DBD6CC2C8DC8003F4E758857318DB6AE668C6AA3C75BE",
+      "size": 117200909,
+      "build_type": "release mode",
+      "signing": "Android debug certificate; academic distribution only"
+    }
+  },
+  "tests": {
+    "flutter": 108,
+    "python_authoritative": 92,
+    "sprint_2_21": 14
+  },
+  "findings": {
+    "blocker_unresolved": 0,
+    "major_unresolved": 0,
+    "major_resolved": 2,
+    "minor_new": 0,
+    "cosmetic_new": 0
+  },
+  "device": {
+    "model": "SM-A556E",
+    "android": "16",
+    "install_replace": "PASS",
+    "launch": "PASS",
+    "new_recognition_trials": 0
+  },
+  "permissions": {
+    "required": [
+      "android.permission.CAMERA"
+    ],
+    "automatic": [
+      "com.example.flutter_app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+    ],
+    "removed": [
+      "android.permission.INTERNET",
+      "android.permission.ACCESS_NETWORK_STATE",
+      "android.permission.READ_EXTERNAL_STORAGE",
+      "android.permission.WRITE_EXTERNAL_STORAGE",
+      "android.permission.READ_PHONE_STATE"
+    ]
+  },
+  "source_archive": {
+    "path": "SignSync_RC1_Source.zip",
+    "size_bytes": 89657096,
+    "sha256": "67692F17BBEDBA21D9CC82B2FB33A023AE3465081B6F6048BA51257DDF79EB1A",
+    "extraction": {
+      "status": "PASS",
+      "archive": "SignSync_RC1_Source.zip",
+      "entries": 848
+    }
+  },
+  "evidence_archive": {
+    "path": "SignSync_RC1_Evidence.zip",
+    "hash_location": "manifests/SHA256SUMS.txt",
+    "reason": "external checksum avoids self-referential archive hashing"
+  },
+  "protected_hashes": {
+    "keras": "F1D543E0D0E5E8C699B53DA5DD7CAAEBC160695599C4C2D078C6FDDDD1DB120D",
+    "float32_tflite": "D9686110BACFB1F1C5B3BFBF33B2C515393344869A3DCEAFF325903A34DF278C",
+    "dynamic_range_tflite": "BD46131FF20ECB96F240C867C60804A2D9F514AC4F56D63F64E8B60188187A17",
+    "deployment_manifest": "F02E35864C87925A6D06D70F669411388B2F04112F757CB0DF2AAD1296A2F9F1",
+    "dataset_manifest": "677C4ED15F11CE4BEE07754948CCEB21E324BDC1C3481CF265E884F773710D03",
+    "corrected_backup": "07B5660E08640EA2EAC11216E41F4696D01BE52627CF3E1DD15D46F99C20286A",
+    "query_configuration": "6F52D50F8FBBF64CD43479A1A6135F3886164D7857B1430090589D2CCCEC6B51"
+  },
+  "frozen_contract": {
+    "input": [
+      1,
+      756
+    ],
+    "output": [
+      1,
+      40
+    ],
+    "confidence_threshold": 0.8,
+    "minimum_margin": 0.0,
+    "labels": [
+      "deposit",
+      "withdraw",
+      "balance",
+      "transfer",
+      "account",
+      "card",
+      "pin",
+      "password",
+      "identity_verification",
+      "cash",
+      "payment",
+      "fee",
+      "loan",
+      "savings",
+      "open_account",
+      "close_account",
+      "fraud",
+      "block_card",
+      "help",
+      "confirm",
+      "statement",
+      "document",
+      "bill_payment",
+      "atm",
+      "branch",
+      "cheque",
+      "interest_rate",
+      "credit_card",
+      "debit_card",
+      "lost_card",
+      "replace_card",
+      "change_pin",
+      "reset_password",
+      "refund",
+      "signature",
+      "complaint",
+      "appointment",
+      "account_number",
+      "card_limit",
+      "daily_limit"
+    ]
+  },
+  "dataset": {
+    "active_samples": 1000,
+    "labels": 40,
+    "samples_per_label": 25
+  },
+  "query": {
+    "path": "flutter_app/assets/content/banking_queries.json",
+    "intents": 40,
+    "requests": 160
+  },
+  "prohibited_changes": {
+    "retraining": false,
+    "conversion": false,
+    "dataset_modification": false,
+    "query_redesign": false,
+    "cloud_database_analytics": false,
+    "new_human_testing": false,
+    "commit_or_push": false,
+    "later_sprint": false
+  }
+}

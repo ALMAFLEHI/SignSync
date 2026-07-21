@@ -1,0 +1,1798 @@
+{
+  "schema_version": 1,
+  "domain": "banking",
+  "intents": [
+    {
+      "id": "deposit",
+      "display_name": "Deposit",
+      "description": "Requests related to depositing cash or cheques into an account.",
+      "queries": [
+        {
+          "id": "deposit_cash",
+          "text": "I want to deposit cash.",
+          "manual_field_ids": [
+            "amount"
+          ]
+        },
+        {
+          "id": "deposit_cheque",
+          "text": "I want to deposit a cheque.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "deposit_to_account",
+          "text": "I want to deposit money into a specific account.",
+          "manual_field_ids": [
+            "amount",
+            "account_type"
+          ]
+        },
+        {
+          "id": "deposit_requirements",
+          "text": "What is required to make a deposit?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "amount",
+          "label": "Amount",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter amount"
+        },
+        {
+          "id": "account_type",
+          "label": "Account type",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Current",
+            "Savings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "withdraw",
+      "display_name": "Withdraw",
+      "description": "Requests related to withdrawing money from an account.",
+      "queries": [
+        {
+          "id": "withdraw_cash",
+          "text": "I want to withdraw cash.",
+          "manual_field_ids": [
+            "amount"
+          ]
+        },
+        {
+          "id": "withdraw_large_amount",
+          "text": "I need help with a large cash withdrawal.",
+          "manual_field_ids": [
+            "amount"
+          ]
+        },
+        {
+          "id": "withdraw_from_account",
+          "text": "I want to withdraw from a specific account.",
+          "manual_field_ids": [
+            "account_number",
+            "amount"
+          ]
+        },
+        {
+          "id": "withdraw_requirements",
+          "text": "What is required to make a withdrawal?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "amount",
+          "label": "Amount",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter amount"
+        },
+        {
+          "id": "account_number",
+          "label": "Account number",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter account number",
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "balance",
+      "display_name": "Balance",
+      "description": "Requests for account balance information and clarification.",
+      "queries": [
+        {
+          "id": "check_balance",
+          "text": "I want to check my account balance.",
+          "manual_field_ids": [
+            "account_type"
+          ]
+        },
+        {
+          "id": "available_balance",
+          "text": "Please explain my available balance.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "balance_difference",
+          "text": "Why is my available balance different?",
+          "manual_field_ids": []
+        },
+        {
+          "id": "printed_balance",
+          "text": "I need a printed balance confirmation.",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "account_type",
+          "label": "Account type",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Current",
+            "Savings",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transfer",
+      "display_name": "Transfer",
+      "description": "Requests related to bank transfers and transfer support.",
+      "queries": [
+        {
+          "id": "transfer_money",
+          "text": "I want to transfer money to another account.",
+          "manual_field_ids": [
+            "amount",
+            "beneficiary_account"
+          ]
+        },
+        {
+          "id": "transfer_help",
+          "text": "I need help with a bank transfer.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "transfer_missing",
+          "text": "My transfer has not arrived.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "transfer_requirements",
+          "text": "What information is required for a transfer?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "amount",
+          "label": "Amount",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter amount"
+        },
+        {
+          "id": "beneficiary_account",
+          "label": "Beneficiary account",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter beneficiary account",
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "account",
+      "display_name": "Account",
+      "description": "General requests about an existing bank account.",
+      "queries": [
+        {
+          "id": "account_details",
+          "text": "I need information about my account.",
+          "manual_field_ids": [
+            "account_number"
+          ]
+        },
+        {
+          "id": "account_status",
+          "text": "I want to check the status of my account.",
+          "manual_field_ids": [
+            "account_number"
+          ]
+        },
+        {
+          "id": "account_problem",
+          "text": "I have a problem with my account.",
+          "manual_field_ids": [
+            "account_number"
+          ]
+        },
+        {
+          "id": "account_services",
+          "text": "What services are available for this account?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "account_number",
+          "label": "Account number",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter account number",
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "card",
+      "display_name": "Card",
+      "description": "General requests about bank cards and card services.",
+      "queries": [
+        {
+          "id": "card_not_working",
+          "text": "My bank card is not working.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        },
+        {
+          "id": "card_information",
+          "text": "I need information about my bank card.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "card_activation_help",
+          "text": "I need help activating my card.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        },
+        {
+          "id": "card_delivery_status",
+          "text": "I want to check the delivery status of my card.",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "card_last_four",
+          "label": "Last four card digits",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter last four digits",
+          "maximum_length": 4,
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "pin",
+      "display_name": "PIN",
+      "description": "Requests for assistance with a bank card PIN.",
+      "queries": [
+        {
+          "id": "forgot_pin",
+          "text": "I forgot my card PIN.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "pin_not_working",
+          "text": "My card PIN is not working.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "pin_attempts_locked",
+          "text": "My card is locked after incorrect PIN attempts.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "pin_security_help",
+          "text": "I need advice about keeping my PIN secure.",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": []
+    },
+    {
+      "id": "password",
+      "display_name": "Password",
+      "description": "Requests for assistance with a banking password.",
+      "queries": [
+        {
+          "id": "forgot_password",
+          "text": "I forgot my banking password.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "password_not_working",
+          "text": "My banking password is not working.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "password_security",
+          "text": "I am concerned that someone knows my password.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "password_requirements",
+          "text": "What are the password requirements?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": []
+    },
+    {
+      "id": "identity_verification",
+      "display_name": "Identity Verification",
+      "description": "Requests related to proving identity for banking services.",
+      "queries": [
+        {
+          "id": "verification_requirements",
+          "text": "What is required for identity verification?",
+          "manual_field_ids": [
+            "document_type"
+          ]
+        },
+        {
+          "id": "verification_failed",
+          "text": "My identity verification was not accepted.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "verify_identity",
+          "text": "I need to complete identity verification.",
+          "manual_field_ids": [
+            "document_type"
+          ]
+        },
+        {
+          "id": "alternative_document",
+          "text": "Can I use a different identity document?",
+          "manual_field_ids": [
+            "document_type"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "document_type",
+          "label": "Document type",
+          "type": "select",
+          "required": false,
+          "options": [
+            "National ID",
+            "Passport",
+            "Residence card",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cash",
+      "display_name": "Cash",
+      "description": "Requests about cash availability, deposits, and withdrawals.",
+      "queries": [
+        {
+          "id": "cash_availability",
+          "text": "Is cash available for this request?",
+          "manual_field_ids": [
+            "amount"
+          ]
+        },
+        {
+          "id": "cash_denominations",
+          "text": "Which cash denominations are available?",
+          "manual_field_ids": []
+        },
+        {
+          "id": "cash_deposit_help",
+          "text": "I need help with a cash deposit.",
+          "manual_field_ids": [
+            "amount"
+          ]
+        },
+        {
+          "id": "cash_withdrawal_help",
+          "text": "I need help with a cash withdrawal.",
+          "manual_field_ids": [
+            "amount"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "amount",
+          "label": "Amount",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter amount"
+        }
+      ]
+    },
+    {
+      "id": "payment",
+      "display_name": "Payment",
+      "description": "Requests related to making or tracing a payment.",
+      "queries": [
+        {
+          "id": "payment_help",
+          "text": "I need help making a payment.",
+          "manual_field_ids": [
+            "amount"
+          ]
+        },
+        {
+          "id": "payment_failed",
+          "text": "My payment failed.",
+          "manual_field_ids": [
+            "payment_reference"
+          ]
+        },
+        {
+          "id": "payment_pending",
+          "text": "My payment is still pending.",
+          "manual_field_ids": [
+            "payment_reference"
+          ]
+        },
+        {
+          "id": "payment_receipt",
+          "text": "I need a receipt for my payment.",
+          "manual_field_ids": [
+            "payment_reference"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "amount",
+          "label": "Amount",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter amount"
+        },
+        {
+          "id": "payment_reference",
+          "label": "Payment reference",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter reference",
+          "maximum_length": 40
+        }
+      ]
+    },
+    {
+      "id": "fee",
+      "display_name": "Fee",
+      "description": "Requests for explanations of banking fees and charges.",
+      "queries": [
+        {
+          "id": "explain_fee",
+          "text": "Please explain this banking fee.",
+          "manual_field_ids": [
+            "fee_name"
+          ]
+        },
+        {
+          "id": "fee_amount",
+          "text": "How much is the fee for this service?",
+          "manual_field_ids": [
+            "fee_name"
+          ]
+        },
+        {
+          "id": "unexpected_fee",
+          "text": "I was charged an unexpected fee.",
+          "manual_field_ids": [
+            "fee_name"
+          ]
+        },
+        {
+          "id": "fee_refund",
+          "text": "Can this fee be reviewed for a refund?",
+          "manual_field_ids": [
+            "fee_name"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "fee_name",
+          "label": "Fee or service name",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter fee or service"
+        }
+      ]
+    },
+    {
+      "id": "loan",
+      "display_name": "Loan",
+      "description": "Requests about loan options, applications, and repayments.",
+      "queries": [
+        {
+          "id": "loan_options",
+          "text": "What loan options are available?",
+          "manual_field_ids": [
+            "loan_type"
+          ]
+        },
+        {
+          "id": "loan_requirements",
+          "text": "What documents are required for a loan?",
+          "manual_field_ids": [
+            "loan_type"
+          ]
+        },
+        {
+          "id": "loan_status",
+          "text": "I want to check the status of my loan request.",
+          "manual_field_ids": [
+            "loan_type"
+          ]
+        },
+        {
+          "id": "loan_repayment",
+          "text": "I need information about loan repayments.",
+          "manual_field_ids": [
+            "loan_type"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "loan_type",
+          "label": "Loan type",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Personal",
+            "Home",
+            "Vehicle",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "savings",
+      "display_name": "Savings",
+      "description": "Requests about savings accounts and savings goals.",
+      "queries": [
+        {
+          "id": "savings_options",
+          "text": "What savings options are available?",
+          "manual_field_ids": []
+        },
+        {
+          "id": "savings_interest",
+          "text": "Please explain the interest on a savings account.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "savings_goal",
+          "text": "I want help planning a savings goal.",
+          "manual_field_ids": [
+            "goal_amount"
+          ]
+        },
+        {
+          "id": "savings_withdrawal",
+          "text": "What are the withdrawal rules for savings?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "goal_amount",
+          "label": "Savings goal",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter target amount"
+        }
+      ]
+    },
+    {
+      "id": "open_account",
+      "display_name": "Open Account",
+      "description": "Requests related to opening a new bank account.",
+      "queries": [
+        {
+          "id": "open_account_request",
+          "text": "I want to open a bank account.",
+          "manual_field_ids": [
+            "account_type"
+          ]
+        },
+        {
+          "id": "required_documents",
+          "text": "What documents are required to open an account?",
+          "manual_field_ids": [
+            "account_type"
+          ]
+        },
+        {
+          "id": "minimum_deposit",
+          "text": "Is a minimum deposit required to open an account?",
+          "manual_field_ids": [
+            "account_type"
+          ]
+        },
+        {
+          "id": "opening_time",
+          "text": "How long does it take to open an account?",
+          "manual_field_ids": [
+            "account_type"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "account_type",
+          "label": "Account type",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Current",
+            "Savings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "close_account",
+      "display_name": "Close Account",
+      "description": "Requests related to closing an existing account.",
+      "queries": [
+        {
+          "id": "close_account_request",
+          "text": "I want to close my bank account.",
+          "manual_field_ids": [
+            "account_number"
+          ]
+        },
+        {
+          "id": "closing_requirements",
+          "text": "What is required to close an account?",
+          "manual_field_ids": [
+            "account_number"
+          ]
+        },
+        {
+          "id": "remaining_balance",
+          "text": "What happens to the remaining balance when I close the account?",
+          "manual_field_ids": [
+            "account_number"
+          ]
+        },
+        {
+          "id": "closure_confirmation",
+          "text": "I need confirmation that my account is closed.",
+          "manual_field_ids": [
+            "account_number"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "account_number",
+          "label": "Account number",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter account number",
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "fraud",
+      "display_name": "Fraud",
+      "description": "Requests for help with suspected fraud or unauthorized activity.",
+      "queries": [
+        {
+          "id": "report_fraud",
+          "text": "I want to report suspected fraud.",
+          "manual_field_ids": [
+            "incident_date",
+            "incident_details"
+          ]
+        },
+        {
+          "id": "unrecognized_transaction",
+          "text": "I do not recognize a transaction.",
+          "manual_field_ids": [
+            "incident_date"
+          ]
+        },
+        {
+          "id": "fraud_case_status",
+          "text": "I want to check the status of my fraud report.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "secure_account",
+          "text": "Please help me secure my account after suspected fraud.",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "incident_date",
+          "label": "Incident date",
+          "type": "date",
+          "required": false
+        },
+        {
+          "id": "incident_details",
+          "label": "Incident details",
+          "type": "multiline_text",
+          "required": false,
+          "placeholder": "Add optional details",
+          "maximum_length": 300
+        }
+      ]
+    },
+    {
+      "id": "block_card",
+      "display_name": "Block Card",
+      "description": "Requests to communicate that a card should be blocked.",
+      "queries": [
+        {
+          "id": "block_lost_card",
+          "text": "Please help me block my lost card.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        },
+        {
+          "id": "block_stolen_card",
+          "text": "Please help me block my stolen card.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        },
+        {
+          "id": "temporary_block",
+          "text": "I want to ask about temporarily blocking my card.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        },
+        {
+          "id": "block_confirmation",
+          "text": "I need confirmation that my card is blocked.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "card_last_four",
+          "label": "Last four card digits",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter last four digits",
+          "maximum_length": 4,
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "help",
+      "display_name": "Help",
+      "description": "General requests for assistance during a banking interaction.",
+      "queries": [
+        {
+          "id": "general_help",
+          "text": "I need help with a banking service.",
+          "manual_field_ids": [
+            "help_topic"
+          ]
+        },
+        {
+          "id": "form_help",
+          "text": "I need help completing a bank form.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "service_direction",
+          "text": "Please direct me to the correct banking service.",
+          "manual_field_ids": [
+            "help_topic"
+          ]
+        },
+        {
+          "id": "accessibility_help",
+          "text": "I need communication assistance during this visit.",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "help_topic",
+          "label": "Help topic",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter topic",
+          "maximum_length": 80
+        }
+      ]
+    },
+    {
+      "id": "confirm",
+      "display_name": "Confirm",
+      "description": "Requests for confirmation of banking information or a request.",
+      "queries": [
+        {
+          "id": "confirm_request",
+          "text": "Please confirm that my request was received.",
+          "manual_field_ids": [
+            "reference"
+          ]
+        },
+        {
+          "id": "confirm_document",
+          "text": "Please confirm that my document was received.",
+          "manual_field_ids": [
+            "reference"
+          ]
+        },
+        {
+          "id": "confirm_status",
+          "text": "Please confirm the current status.",
+          "manual_field_ids": [
+            "reference"
+          ]
+        },
+        {
+          "id": "written_confirmation",
+          "text": "I need written confirmation of this request.",
+          "manual_field_ids": [
+            "reference"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "reference",
+          "label": "Reference",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter optional reference",
+          "maximum_length": 40
+        }
+      ]
+    },
+    {
+      "id": "statement",
+      "display_name": "Statement",
+      "description": "Requests for account statements and statement explanations.",
+      "queries": [
+        {
+          "id": "request_statement",
+          "text": "I need an account statement.",
+          "manual_field_ids": [
+            "start_date",
+            "end_date"
+          ]
+        },
+        {
+          "id": "printed_statement",
+          "text": "I need a printed account statement.",
+          "manual_field_ids": [
+            "start_date",
+            "end_date"
+          ]
+        },
+        {
+          "id": "statement_period",
+          "text": "I need a statement for a specific period.",
+          "manual_field_ids": [
+            "start_date",
+            "end_date"
+          ]
+        },
+        {
+          "id": "statement_transaction",
+          "text": "I need help finding a transaction on my statement.",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "start_date",
+          "label": "Start date",
+          "type": "date",
+          "required": false
+        },
+        {
+          "id": "end_date",
+          "label": "End date",
+          "type": "date",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "document",
+      "display_name": "Document",
+      "description": "Requests about banking documents and document status.",
+      "queries": [
+        {
+          "id": "submit_document",
+          "text": "I want to submit a banking document.",
+          "manual_field_ids": [
+            "document_type"
+          ]
+        },
+        {
+          "id": "required_document",
+          "text": "Which document is required for this request?",
+          "manual_field_ids": [
+            "document_type"
+          ]
+        },
+        {
+          "id": "document_copy",
+          "text": "I need a copy of a banking document.",
+          "manual_field_ids": [
+            "document_type"
+          ]
+        },
+        {
+          "id": "document_status",
+          "text": "I want to check whether my document was accepted.",
+          "manual_field_ids": [
+            "document_type"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "document_type",
+          "label": "Document name or type",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter document type",
+          "maximum_length": 80
+        }
+      ]
+    },
+    {
+      "id": "bill_payment",
+      "display_name": "Bill Payment",
+      "description": "Requests related to paying or tracing a bill.",
+      "queries": [
+        {
+          "id": "pay_bill_help",
+          "text": "I need help paying a bill.",
+          "manual_field_ids": [
+            "biller_name",
+            "amount"
+          ]
+        },
+        {
+          "id": "bill_payment_failed",
+          "text": "My bill payment failed.",
+          "manual_field_ids": [
+            "biller_name"
+          ]
+        },
+        {
+          "id": "bill_payment_pending",
+          "text": "My bill payment is still pending.",
+          "manual_field_ids": [
+            "biller_name"
+          ]
+        },
+        {
+          "id": "bill_receipt",
+          "text": "I need a receipt for my bill payment.",
+          "manual_field_ids": [
+            "biller_name"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "biller_name",
+          "label": "Biller name",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter biller",
+          "maximum_length": 80
+        },
+        {
+          "id": "amount",
+          "label": "Amount",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter amount"
+        }
+      ]
+    },
+    {
+      "id": "atm",
+      "display_name": "ATM",
+      "description": "Requests about ATM locations and ATM problems.",
+      "queries": [
+        {
+          "id": "nearest_atm",
+          "text": "Where is the nearest ATM?",
+          "manual_field_ids": [
+            "atm_location"
+          ]
+        },
+        {
+          "id": "atm_not_working",
+          "text": "The ATM is not working.",
+          "manual_field_ids": [
+            "atm_location"
+          ]
+        },
+        {
+          "id": "cash_not_received",
+          "text": "The ATM did not give me the cash.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "card_retained",
+          "text": "The ATM kept my card.",
+          "manual_field_ids": [
+            "atm_location"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "atm_location",
+          "label": "ATM location",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter location",
+          "maximum_length": 100
+        }
+      ]
+    },
+    {
+      "id": "branch",
+      "display_name": "Branch",
+      "description": "Requests about branch locations, hours, and services.",
+      "queries": [
+        {
+          "id": "branch_location",
+          "text": "Where is the nearest bank branch?",
+          "manual_field_ids": []
+        },
+        {
+          "id": "branch_hours",
+          "text": "What are the branch opening hours?",
+          "manual_field_ids": []
+        },
+        {
+          "id": "branch_services",
+          "text": "Which services are available at this branch?",
+          "manual_field_ids": []
+        },
+        {
+          "id": "branch_visit",
+          "text": "I want to plan a branch visit.",
+          "manual_field_ids": [
+            "preferred_date",
+            "preferred_time"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "preferred_date",
+          "label": "Preferred date",
+          "type": "date",
+          "required": false
+        },
+        {
+          "id": "preferred_time",
+          "label": "Preferred time",
+          "type": "time",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "cheque",
+      "display_name": "Cheque",
+      "description": "Requests related to depositing, cashing, or tracing a cheque.",
+      "queries": [
+        {
+          "id": "cash_cheque",
+          "text": "I want to cash a cheque.",
+          "manual_field_ids": [
+            "cheque_number"
+          ]
+        },
+        {
+          "id": "deposit_cheque",
+          "text": "I want to deposit a cheque.",
+          "manual_field_ids": [
+            "cheque_number"
+          ]
+        },
+        {
+          "id": "cheque_status",
+          "text": "I want to check the status of a cheque.",
+          "manual_field_ids": [
+            "cheque_number"
+          ]
+        },
+        {
+          "id": "stopped_cheque",
+          "text": "I need help with a stopped cheque.",
+          "manual_field_ids": [
+            "cheque_number"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "cheque_number",
+          "label": "Cheque number",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter cheque number",
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "interest_rate",
+      "display_name": "Interest Rate",
+      "description": "Requests for interest-rate information and explanations.",
+      "queries": [
+        {
+          "id": "current_rate",
+          "text": "What is the current interest rate?",
+          "manual_field_ids": [
+            "product_type"
+          ]
+        },
+        {
+          "id": "rate_calculation",
+          "text": "Please explain how the interest rate is calculated.",
+          "manual_field_ids": [
+            "product_type"
+          ]
+        },
+        {
+          "id": "rate_change",
+          "text": "Why did the interest rate change?",
+          "manual_field_ids": [
+            "product_type"
+          ]
+        },
+        {
+          "id": "rate_comparison",
+          "text": "I want to compare interest rates for banking products.",
+          "manual_field_ids": [
+            "product_type"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "product_type",
+          "label": "Banking product",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Savings",
+            "Loan",
+            "Credit card",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "credit_card",
+      "display_name": "Credit Card",
+      "description": "Requests related to credit cards and credit-card services.",
+      "queries": [
+        {
+          "id": "apply_credit_card",
+          "text": "I need information about applying for a credit card.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "credit_card_balance",
+          "text": "I want to ask about my credit card balance.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        },
+        {
+          "id": "credit_card_problem",
+          "text": "I have a problem with my credit card.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        },
+        {
+          "id": "credit_card_payment",
+          "text": "I need help with a credit card payment.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "card_last_four",
+          "label": "Last four card digits",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter last four digits",
+          "maximum_length": 4,
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "debit_card",
+      "display_name": "Debit Card",
+      "description": "Requests related to debit cards and debit-card services.",
+      "queries": [
+        {
+          "id": "debit_card_request",
+          "text": "I need information about getting a debit card.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "debit_card_problem",
+          "text": "I have a problem with my debit card.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        },
+        {
+          "id": "debit_card_activation",
+          "text": "I need help activating my debit card.",
+          "manual_field_ids": [
+            "card_last_four"
+          ]
+        },
+        {
+          "id": "debit_card_usage",
+          "text": "Where can I use my debit card?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "card_last_four",
+          "label": "Last four card digits",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter last four digits",
+          "maximum_length": 4,
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "lost_card",
+      "display_name": "Lost Card",
+      "description": "Requests for assistance after losing a bank card.",
+      "queries": [
+        {
+          "id": "lost_debit_card",
+          "text": "I lost my debit card.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "lost_credit_card",
+          "text": "I lost my credit card.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "block_lost_card",
+          "text": "Please help me block my lost card.",
+          "manual_field_ids": [
+            "card_type"
+          ]
+        },
+        {
+          "id": "lost_card_replacement",
+          "text": "How can I request a replacement card?",
+          "manual_field_ids": [
+            "card_type"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "card_type",
+          "label": "Card type",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Debit card",
+            "Credit card",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "replace_card",
+      "display_name": "Replace Card",
+      "description": "Requests related to replacing a bank card.",
+      "queries": [
+        {
+          "id": "replace_damaged",
+          "text": "I need to replace a damaged card.",
+          "manual_field_ids": [
+            "card_type"
+          ]
+        },
+        {
+          "id": "replace_expired",
+          "text": "I need to replace an expired card.",
+          "manual_field_ids": [
+            "card_type"
+          ]
+        },
+        {
+          "id": "replacement_status",
+          "text": "I want to check the status of my replacement card.",
+          "manual_field_ids": [
+            "card_type"
+          ]
+        },
+        {
+          "id": "replacement_fee",
+          "text": "Is there a fee to replace my card?",
+          "manual_field_ids": [
+            "card_type"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "card_type",
+          "label": "Card type",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Debit card",
+            "Credit card",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "change_pin",
+      "display_name": "Change PIN",
+      "description": "Requests for help changing a bank card PIN.",
+      "queries": [
+        {
+          "id": "change_pin_request",
+          "text": "I want to change my card PIN.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "pin_change_requirements",
+          "text": "What is required to change my card PIN?",
+          "manual_field_ids": []
+        },
+        {
+          "id": "pin_change_failed",
+          "text": "My PIN change did not work.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "pin_change_location",
+          "text": "Where can I change my card PIN?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": []
+    },
+    {
+      "id": "reset_password",
+      "display_name": "Reset Password",
+      "description": "Requests for help resetting a banking password.",
+      "queries": [
+        {
+          "id": "reset_password_request",
+          "text": "I need to reset my banking password.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "reset_link",
+          "text": "I did not receive the password reset instructions.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "reset_failed",
+          "text": "My password reset did not work.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "reset_requirements",
+          "text": "What is required to reset my password?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": []
+    },
+    {
+      "id": "refund",
+      "display_name": "Refund",
+      "description": "Requests related to requesting or tracing a refund.",
+      "queries": [
+        {
+          "id": "request_refund",
+          "text": "I want to ask for a refund.",
+          "manual_field_ids": [
+            "transaction_reference",
+            "amount"
+          ]
+        },
+        {
+          "id": "refund_status",
+          "text": "I want to check the status of my refund.",
+          "manual_field_ids": [
+            "transaction_reference"
+          ]
+        },
+        {
+          "id": "refund_missing",
+          "text": "My refund has not arrived.",
+          "manual_field_ids": [
+            "transaction_reference"
+          ]
+        },
+        {
+          "id": "refund_requirements",
+          "text": "What information is required for a refund?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "transaction_reference",
+          "label": "Transaction reference",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter reference",
+          "maximum_length": 40
+        },
+        {
+          "id": "amount",
+          "label": "Amount",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter amount"
+        }
+      ]
+    },
+    {
+      "id": "signature",
+      "display_name": "Signature",
+      "description": "Requests related to signatures on banking documents.",
+      "queries": [
+        {
+          "id": "signature_required",
+          "text": "Where is my signature required?",
+          "manual_field_ids": [
+            "document_name"
+          ]
+        },
+        {
+          "id": "update_signature",
+          "text": "I need information about updating my registered signature.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "signature_mismatch",
+          "text": "My signature was not accepted.",
+          "manual_field_ids": [
+            "document_name"
+          ]
+        },
+        {
+          "id": "signature_confirmation",
+          "text": "Please confirm that my signature was received.",
+          "manual_field_ids": [
+            "document_name"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "document_name",
+          "label": "Document name",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter document name",
+          "maximum_length": 80
+        }
+      ]
+    },
+    {
+      "id": "complaint",
+      "display_name": "Complaint",
+      "description": "Requests for making, tracing, or escalating a complaint.",
+      "queries": [
+        {
+          "id": "make_complaint",
+          "text": "I want to make a complaint.",
+          "manual_field_ids": [
+            "complaint_details"
+          ]
+        },
+        {
+          "id": "poor_service",
+          "text": "I want to report poor service.",
+          "manual_field_ids": [
+            "complaint_details"
+          ]
+        },
+        {
+          "id": "complaint_status",
+          "text": "I have not received a response to my complaint.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "escalate_complaint",
+          "text": "How can I escalate my complaint?",
+          "manual_field_ids": [
+            "complaint_details"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "complaint_details",
+          "label": "Complaint details",
+          "type": "multiline_text",
+          "required": false,
+          "placeholder": "Add optional details",
+          "maximum_length": 500
+        }
+      ]
+    },
+    {
+      "id": "appointment",
+      "display_name": "Appointment",
+      "description": "Requests for arranging or changing a bank appointment.",
+      "queries": [
+        {
+          "id": "book_appointment",
+          "text": "I want to book an appointment.",
+          "manual_field_ids": [
+            "appointment_date",
+            "appointment_time",
+            "appointment_topic"
+          ]
+        },
+        {
+          "id": "change_appointment",
+          "text": "I want to change my appointment.",
+          "manual_field_ids": [
+            "appointment_date",
+            "appointment_time"
+          ]
+        },
+        {
+          "id": "cancel_appointment",
+          "text": "I want to cancel my appointment.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "appointment_confirmation",
+          "text": "I need confirmation of my appointment.",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "appointment_date",
+          "label": "Preferred date",
+          "type": "date",
+          "required": false
+        },
+        {
+          "id": "appointment_time",
+          "label": "Preferred time",
+          "type": "time",
+          "required": false
+        },
+        {
+          "id": "appointment_topic",
+          "label": "Appointment topic",
+          "type": "text",
+          "required": false,
+          "placeholder": "Enter topic",
+          "maximum_length": 100
+        }
+      ]
+    },
+    {
+      "id": "account_number",
+      "display_name": "Account Number",
+      "description": "Requests for finding or confirming an account number.",
+      "queries": [
+        {
+          "id": "find_account_number",
+          "text": "Where can I find my account number?",
+          "manual_field_ids": []
+        },
+        {
+          "id": "confirm_account_number",
+          "text": "Please confirm whether this is the correct account number.",
+          "manual_field_ids": [
+            "account_number"
+          ]
+        },
+        {
+          "id": "account_number_format",
+          "text": "Please explain the account number format.",
+          "manual_field_ids": []
+        },
+        {
+          "id": "account_number_document",
+          "text": "Which document shows my account number?",
+          "manual_field_ids": []
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "account_number",
+          "label": "Account number",
+          "type": "masked_number",
+          "required": false,
+          "placeholder": "Enter account number",
+          "sensitive": true,
+          "display_masked": true
+        }
+      ]
+    },
+    {
+      "id": "card_limit",
+      "display_name": "Card Limit",
+      "description": "Requests about card spending limits and declined card use.",
+      "queries": [
+        {
+          "id": "check_card_limit",
+          "text": "I want to check my card limit.",
+          "manual_field_ids": [
+            "card_type"
+          ]
+        },
+        {
+          "id": "change_card_limit",
+          "text": "I want to ask about changing my card limit.",
+          "manual_field_ids": [
+            "card_type",
+            "amount"
+          ]
+        },
+        {
+          "id": "limit_decline",
+          "text": "Was my card declined because of the card limit?",
+          "manual_field_ids": [
+            "card_type"
+          ]
+        },
+        {
+          "id": "limit_requirements",
+          "text": "What is required to change a card limit?",
+          "manual_field_ids": [
+            "card_type"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "card_type",
+          "label": "Card type",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Debit card",
+            "Credit card"
+          ]
+        },
+        {
+          "id": "amount",
+          "label": "Requested limit",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter amount"
+        }
+      ]
+    },
+    {
+      "id": "daily_limit",
+      "display_name": "Daily Limit",
+      "description": "Requests about daily banking limits and remaining allowance.",
+      "queries": [
+        {
+          "id": "check_daily_limit",
+          "text": "I want to check the daily limit.",
+          "manual_field_ids": [
+            "limit_type"
+          ]
+        },
+        {
+          "id": "change_daily_limit",
+          "text": "I want to ask about changing the daily limit.",
+          "manual_field_ids": [
+            "limit_type",
+            "amount"
+          ]
+        },
+        {
+          "id": "remaining_daily_limit",
+          "text": "How much of my daily limit remains?",
+          "manual_field_ids": [
+            "limit_type"
+          ]
+        },
+        {
+          "id": "limit_reset_time",
+          "text": "When does the daily limit reset?",
+          "manual_field_ids": [
+            "limit_type"
+          ]
+        }
+      ],
+      "manual_fields": [
+        {
+          "id": "limit_type",
+          "label": "Limit type",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Cash withdrawal",
+            "Card purchase",
+            "Transfer"
+          ]
+        },
+        {
+          "id": "amount",
+          "label": "Requested limit",
+          "type": "amount",
+          "required": false,
+          "placeholder": "Enter amount"
+        }
+      ]
+    }
+  ]
+}

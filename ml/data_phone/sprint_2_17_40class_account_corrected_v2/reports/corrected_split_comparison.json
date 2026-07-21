@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "created_at": "2026-07-19T00:36:38+00:00",
+  "previous_rows": 1000,
+  "corrected_rows": 1000,
+  "unchanged_non_account_rows": 975,
+  "corrected_account_rows": 25,
+  "unexpected_rows": [],
+  "account_policy": "R01-R15 train, R16-R20 validation, R21-R25 test"
+}

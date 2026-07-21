@@ -11,6 +11,17 @@ class PredictionDecisionPolicy {
     required List<TopPrediction> filteredTopPredictions,
     required SignMode mode,
   }) {
+    if (!mode.isActiveForFinalModel) {
+      return const PredictionDecision(
+        accepted: false,
+        displayLabel: tryAgainLabel,
+        confidenceThreshold: AppConfig.bankingIntentConfidenceThreshold,
+        minimumTop2Gap: AppConfig.minimumTop2Gap,
+        top2Gap: 0,
+        reason:
+            'Historical recognition mode is unavailable with the final model.',
+      );
+    }
     final threshold = confidenceThresholdForMode(mode);
     const minimumGap = AppConfig.minimumTop2Gap;
 
@@ -29,6 +40,17 @@ class PredictionDecisionPolicy {
     final second = filteredTopPredictions.length > 1
         ? filteredTopPredictions[1]
         : null;
+    if (!best.probability.isFinite ||
+        (second != null && !second.probability.isFinite)) {
+      return const PredictionDecision(
+        accepted: false,
+        displayLabel: tryAgainLabel,
+        confidenceThreshold: AppConfig.bankingIntentConfidenceThreshold,
+        minimumTop2Gap: AppConfig.minimumTop2Gap,
+        top2Gap: 0,
+        reason: 'Prediction probabilities are invalid.',
+      );
+    }
     final gap = second == null
         ? best.probability
         : best.probability - second.probability;
@@ -71,13 +93,11 @@ class PredictionDecisionPolicy {
   }
 
   double confidenceThresholdForMode(SignMode mode) {
-    switch (mode) {
-      case SignMode.alphabet:
-        return AppConfig.alphabetConfidenceThreshold;
-      case SignMode.number:
-        return AppConfig.numberConfidenceThreshold;
-      case SignMode.bankingIntent:
-        return AppConfig.bankingIntentConfidenceThreshold;
+    if (!mode.isActiveForFinalModel) {
+      throw UnsupportedError(
+        'Historical recognition mode is unavailable with the final model.',
+      );
     }
+    return AppConfig.bankingIntentConfidenceThreshold;
   }
 }

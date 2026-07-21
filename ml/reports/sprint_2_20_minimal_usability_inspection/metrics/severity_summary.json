@@ -1,0 +1,9 @@
+{
+  "finding_count": 2,
+  "severity_counts": {
+    "2": 1,
+    "1": 1
+  },
+  "critical": 0,
+  "major": 0
+}

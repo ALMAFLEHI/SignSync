@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-07-19T00:37:27+00:00",
+  "sequence_shape": [
+    60,
+    126
+  ],
+  "model_input_shape": [
+    1,
+    756
+  ],
+  "dtype": "float32",
+  "hand_slot_mapping": {
+    "left": {
+      "indices": [
+        0,
+        62
+      ],
+      "landmarks": 21,
+      "coordinates": "x,y,z"
+    },
+    "right": {
+      "indices": [
+        63,
+        125
+      ],
+      "landmarks": 21,
+      "coordinates": "x,y,z"
+    }
+  },
+  "statistic_order": [
+    "mean",
+    "population_std",
+    "minimum",
+    "maximum",
+    "first_frame",
+    "last_frame"
+  ],
+  "standard_deviation": {
+    "type": "population",
+    "ddof": 0
+  },
+  "flattening_order": "Concatenate six 126-value groups in statistic_order; preserve left/right slot and landmark x,y,z ordering within each group.",
+  "missing_hand_policy": "A missing 63-value hand slot remains all zeros.",
+  "additional_flutter_scaling_required": false,
+  "canonical_python_implementation": "ml/src/sprint_2_16A_experiment_utils.py:statistical_features",
+  "canonical_flutter_implementation": "flutter_app/lib/services/feature_engine.dart"
+}

@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Matrix
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
@@ -141,6 +142,8 @@ private class LiveCameraBridge {
                 result.success(null)
             }
             "getPhoneSampleDirectory" -> getPhoneSampleDirectory(result)
+            "getEvaluationDirectory" -> getEvaluationDirectory(result)
+            "getEvaluationDeviceInfo" -> getEvaluationDeviceInfo(result)
             else -> result.notImplemented()
         }
     }
@@ -473,6 +476,70 @@ private class LiveCameraBridge {
             return
         }
         result.success(sampleDirectory.absolutePath)
+    }
+
+    private fun getEvaluationDirectory(result: MethodChannel.Result) {
+        val currentActivity = activity
+        if (currentActivity == null) {
+            result.error("activity_missing", "Android activity is not attached.", null)
+            return
+        }
+        val baseDirectory = currentActivity.getExternalFilesDir(null)
+        if (baseDirectory == null) {
+            result.error(
+                "storage_missing",
+                "Android external files directory is not available.",
+                null
+            )
+            return
+        }
+        val evaluationDirectory = File(baseDirectory, "signsync_evaluation_sessions")
+        if (!evaluationDirectory.exists() && !evaluationDirectory.mkdirs()) {
+            result.error(
+                "storage_create_failed",
+                "Could not create evaluation session directory.",
+                null
+            )
+            return
+        }
+        result.success(evaluationDirectory.absolutePath)
+    }
+
+    @Suppress("DEPRECATION")
+    private fun getEvaluationDeviceInfo(result: MethodChannel.Result) {
+        val currentActivity = activity
+        if (currentActivity == null) {
+            result.error("activity_missing", "Android activity is not attached.", null)
+            return
+        }
+
+        try {
+            val packageInfo = currentActivity.packageManager.getPackageInfo(
+                currentActivity.packageName,
+                0
+            )
+            val buildNumber = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                packageInfo.longVersionCode
+            } else {
+                packageInfo.versionCode.toLong()
+            }
+            result.success(
+                mapOf(
+                    "device_model" to Build.MODEL,
+                    "android_version" to Build.VERSION.RELEASE,
+                    "android_api_level" to Build.VERSION.SDK_INT,
+                    "app_package_id" to currentActivity.packageName,
+                    "app_version" to (packageInfo.versionName ?: "unknown"),
+                    "build_number" to buildNumber.toString()
+                )
+            )
+        } catch (error: PackageManager.NameNotFoundException) {
+            result.error(
+                "package_info_failed",
+                "Could not read the installed app version.",
+                error.toString()
+            )
+        }
     }
 
     private data class HandDetection(

@@ -1,0 +1,29 @@
+{
+  "threshold": 0.8,
+  "minimum_margin": 0.0,
+  "correct_predictions": {
+    "count": 191,
+    "minimum": 0.8272022008895874,
+    "q1": 0.9999927878379822,
+    "median": 1.0,
+    "mean": 0.997629319185986,
+    "q3": 1.0,
+    "maximum": 1.0
+  },
+  "incorrect_predictions": {
+    "count": 9,
+    "minimum": 0.366971880197525,
+    "q1": 0.5695376396179199,
+    "median": 0.6955133080482483,
+    "mean": 0.7307037611802419,
+    "q3": 0.9946028590202332,
+    "maximum": 0.9999809265136719
+  },
+  "incorrect_confidence_ge_0_95": 3,
+  "incorrect_confidence_ge_0_90": 3,
+  "incorrect_confidence_ge_0_80": 4,
+  "correct_confidence_below_0_80": 0,
+  "saved_policy_high_confidence_wrong": 4,
+  "high_confidence_error_definition_for_sprint_2_19": "incorrect with confidence >= frozen 0.80 threshold",
+  "high_confidence_incorrect_predictions": 4
+}

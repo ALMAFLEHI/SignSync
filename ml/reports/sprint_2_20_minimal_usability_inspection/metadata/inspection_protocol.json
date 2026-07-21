@@ -1,0 +1,22 @@
+{
+  "project": "SignSync",
+  "sprint": "2.20 Minimal Usability Inspection and Self-Validation",
+  "generated_at": "2026-07-19T04:07:06+00:00",
+  "evaluator_count": 1,
+  "evaluator_role": "developer/researcher",
+  "method": [
+    "structured cognitive walkthrough",
+    "heuristic inspection",
+    "accessibility and privacy inspection",
+    "automated Flutter workflow validation"
+  ],
+  "purpose": "formative defect detection",
+  "external_participants": false,
+  "participant_study_claimed": false,
+  "questionnaire_data_collected": false,
+  "usability_ratings_calculated": false,
+  "recognition_accuracy_evaluated": false,
+  "generalizable_results_claimed": false,
+  "sprint_2_21_started": false,
+  "mandatory_limitation": "This sprint used a formative researcher-led usability inspection and automated workflow validation. No external participants were available. The findings identify interface strengths and potential improvements but cannot replace future evaluation with Deaf and hard-of-hearing users, banking staff, and independent participants."
+}

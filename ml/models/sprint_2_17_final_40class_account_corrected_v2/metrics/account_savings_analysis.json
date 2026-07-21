@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "created_at": "2026-07-19T00:42:54+00:00",
+  "winner": "experiment_B_phone_augmentation",
+  "scientific_boundary": "five corrected account test samples are new; five savings test samples retain the predetermined historically observed split",
+  "validation": {
+    "account_samples": 5,
+    "savings_samples": 5,
+    "account_correct": 5,
+    "savings_correct": 5,
+    "account_to_savings": 0,
+    "savings_to_account": 0,
+    "account_mean_confidence": 0.9999149203300476,
+    "savings_mean_confidence": 0.9999992609024048
+  },
+  "test": {
+    "account_samples": 5,
+    "savings_samples": 5,
+    "account_correct": 5,
+    "savings_correct": 5,
+    "account_to_savings": 0,
+    "savings_to_account": 0,
+    "account_mean_confidence": 0.9999537110328675,
+    "savings_mean_confidence": 0.9999999761581421
+  },
+  "test_class_metrics": {
+    "account": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 5
+    },
+    "savings": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 5
+    }
+  }
+}

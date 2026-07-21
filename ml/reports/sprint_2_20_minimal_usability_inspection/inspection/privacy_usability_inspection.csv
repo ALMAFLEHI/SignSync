@@ -1,0 +1,8 @@
+privacy_check,status,researcher_observation,visibility,evidence
+Offline processing,PASS,Visible on Home and Banker View.,Normal guided workflow,"UI text, controller inspection, and Flutter privacy/reset tests"
+No video upload,PASS,Visible on Home and supported by the local-only workflow.,Normal guided workflow,"UI text, controller inspection, and Flutter privacy/reset tests"
+Session-only data,PASS,Visible in manual details and Banker View.,Normal guided workflow,"UI text, controller inspection, and Flutter privacy/reset tests"
+No automatic banking action,PASS,Banker disclaimer states that SignSync only communicates the request.,Normal guided workflow,"UI text, controller inspection, and Flutter privacy/reset tests"
+Banker completes action,PASS,Authorized bank staff responsibility is stated in the final view.,Normal guided workflow,"UI text, controller inspection, and Flutter privacy/reset tests"
+Reset clears temporary information,PASS,Controller and four scenario tests verify cleared state.,Normal guided workflow,"UI text, controller inspection, and Flutter privacy/reset tests"
+Manual details are not stored,PASS,Interaction values remain in memory and are removed on reset; only theme preference persists.,Normal guided workflow,"UI text, controller inspection, and Flutter privacy/reset tests"

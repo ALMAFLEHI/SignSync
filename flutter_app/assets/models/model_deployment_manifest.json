@@ -1,0 +1,107 @@
+{
+  "project": "SignSync",
+  "project_title": "A Real-Time, On-Device ASL-to-Text Recognition Framework for Privacy-Preserving Banking Service Interactions",
+  "sprint": "2.18 corrective redeployment",
+  "model_version": "signsync_40class_account_corrected_v2",
+  "dataset_version": "corrected_account_dataset_v2",
+  "deployment_status": "deployed_for_account_savings_a55_verification",
+  "deployed_at": "2026-07-19T03:50:15+03:00",
+  "default_model_type": "dynamic_range_tflite",
+  "default_model_asset": "assets/models/signsync_40class_account_corrected_v2_dynamic_range.tflite",
+  "fallback_model_asset": "assets/models/signsync_40class_account_corrected_v2_float32.tflite",
+  "labels_asset": "assets/models/labels_40.json",
+  "model_metadata_asset": "assets/models/model_metadata_40class.json",
+  "feature_contract_asset": "assets/models/feature_contract_40class.json",
+  "confidence_recommendation_asset": "assets/models/confidence_recommendation_40class.json",
+  "input_shape": [1, 756],
+  "output_shape": [1, 40],
+  "input_dtype": "float32",
+  "output_dtype": "float32",
+  "label_count": 40,
+  "confidence_threshold": 0.8,
+  "minimum_margin": 0.0,
+  "confidence_policy_source": "corrected phone validation only",
+  "feature_contract": {
+    "frames": 60,
+    "values_per_frame": 126,
+    "feature_count": 756,
+    "left_hand_indices": [0, 62],
+    "right_hand_indices": [63, 125],
+    "statistics": [
+      "mean",
+      "population_std",
+      "minimum",
+      "maximum",
+      "first_frame",
+      "last_frame"
+    ],
+    "standard_deviation_ddof": 0,
+    "missing_hand_policy": "preserve_zero_slots"
+  },
+  "recognition_scope": {
+    "banking_intents_only": true,
+    "alphabet_mode_active": false,
+    "number_mode_active": false,
+    "removed_labels_active": false
+  },
+  "source_candidate_package": "ml/models/sprint_2_17_final_40class_account_corrected_v2",
+  "source_candidate_sha256s_file": "ml/models/sprint_2_17_final_40class_account_corrected_v2/metadata/SHA256SUMS.txt",
+  "source_candidate_sha256s_file_hash": "062696FDCC08CA901C88C548FEE2447352F2285799557813393AE81E07F35598",
+  "source_experiment": "experiment_B_phone_augmentation",
+  "source_test_accuracy": 0.955,
+  "source_test_macro_f1": 0.9541666666666666,
+  "source_model_sha256": {
+    "keras": "F1D543E0D0E5E8C699B53DA5DD7CAAEBC160695599C4C2D078C6FDDDD1DB120D",
+    "dynamic_range": "BD46131FF20ECB96F240C867C60804A2D9F514AC4F56D63F64E8B60188187A17",
+    "float32": "D9686110BACFB1F1C5B3BFBF33B2C515393344869A3DCEAFF325903A34DF278C"
+  },
+  "deployed_asset_sha256": {
+    "dynamic_range": "BD46131FF20ECB96F240C867C60804A2D9F514AC4F56D63F64E8B60188187A17",
+    "float32": "D9686110BACFB1F1C5B3BFBF33B2C515393344869A3DCEAFF325903A34DF278C",
+    "labels": "CF8BE5AD57C57A3EDA1029010FA7A5D9663F226294661A869CED375E0236E286",
+    "model_metadata": "A32040866FBE3294EB770C32024F09715B78B13829594A75998085BBD5D81B2C",
+    "feature_contract": "E7E1D95D57DF75FBBFC36028144D4C069FD7B53AE7BE694D1510A474D9021CF6",
+    "confidence_recommendation": "B70491CFB62BF81678923CF4C37AC00BD8788761E8F4C68EC54F397245BC0FE0"
+  },
+  "model_file_sizes_bytes": {
+    "dynamic_range": 580536,
+    "float32": 2237236
+  },
+  "corrected_dataset": {
+    "samples": 1000,
+    "corrected_account_samples": 25,
+    "unchanged_non_account_samples": 975,
+    "canonical_backup": "ml/data_phone/sprint_2_16B_banking_phone_samples_1000_backup.zip",
+    "canonical_backup_sha256": "07B5660E08640EA2EAC11216E41F4696D01BE52627CF3E1DD15D46F99C20286A"
+  },
+  "query_configuration": {
+    "asset": "assets/content/banking_queries.json",
+    "sha256": "6F52D50F8FBBF64CD43479A1A6135F3886164D7857B1430090589D2CCCEC6B51",
+    "intent_count": 40,
+    "query_count": 160,
+    "exact_label_order_required": true
+  },
+  "supersedes": {
+    "package": "ml/models/sprint_2_17_final_40class",
+    "deployment_backup": "assets/model_backups/pre_account_correction_sprint_2_18_20260719",
+    "reason": "The predecessor used incorrect account gesture data that conflicted with savings."
+  },
+  "package_identifiers": {
+    "android_namespace": "com.example.flutter_app",
+    "android_application_id": "com.example.flutter_app",
+    "ios_bundle_id": "com.example.flutterApp"
+  },
+  "mobile_runtime_measurement": {
+    "device": "Samsung Galaxy A55",
+    "model_identifier": "SM-A556E",
+    "status": "pending_account_savings_physical_verification",
+    "observations": 0
+  },
+  "privacy": {
+    "offline": true,
+    "cloud_inference": false,
+    "video_upload": false,
+    "database": false,
+    "customer_interaction_persistence": false
+  }
+}

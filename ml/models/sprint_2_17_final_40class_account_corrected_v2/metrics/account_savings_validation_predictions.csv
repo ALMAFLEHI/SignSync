@@ -1,0 +1,11 @@
+sample_id,actual_label,actual_index,predicted_label,predicted_index,confidence,second_label,second_confidence,margin,accepted,correct
+P02_PHONE_account_R16,account,4,account,4,0.999574601650238,card,0.0003436065453570336,0.999230995104881,True,True
+P02_PHONE_account_R17,account,4,account,4,1.0,document,2.944241725422181e-11,0.9999999999705576,True,True
+P02_PHONE_account_R18,account,4,account,4,1.0,card,2.8854106604025986e-12,0.9999999999971146,True,True
+P02_PHONE_account_R19,account,4,account,4,1.0,document,2.1663060678633883e-08,0.9999999783369393,True,True
+P02_PHONE_account_R20,account,4,account,4,1.0,card,7.457259115772885e-11,0.9999999999254274,True,True
+P02_PHONE_savings_R16,savings,13,savings,13,0.9999995231628418,account_number,4.3072523681075836e-07,0.999999092437605,True,True
+P02_PHONE_savings_R17,savings,13,savings,13,0.9999998807907104,account_number,7.100956622707599e-08,0.9999998097811442,True,True
+P02_PHONE_savings_R18,savings,13,savings,13,1.0,account_number,4.180844115353466e-08,0.9999999581915588,True,True
+P02_PHONE_savings_R19,savings,13,savings,13,0.9999973773956299,account_number,2.573632627900224e-06,0.999994803763002,True,True
+P02_PHONE_savings_R20,savings,13,savings,13,0.9999995231628418,document,4.5929152747703483e-07,0.9999990638713143,True,True

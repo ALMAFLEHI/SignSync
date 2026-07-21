@@ -1,0 +1,22 @@
+{
+  "flutter_pub_get": "PASS",
+  "flutter_analyze": "PASS",
+  "flutter_test": "PASS",
+  "flutter_test_count": 102,
+  "python_tests": "PASS",
+  "python_test_count": 84,
+  "broad_legacy_discovery": {
+    "tests_run": 114,
+    "tests_passed": 111,
+    "known_legacy_failures": 2,
+    "environment_error_count": 1,
+    "interpretation": "Two superseded Sprint 2.17 tests expect the pre-correction dataset hashes; one legacy Keras shape test requires TensorFlow, which is not installed in the inspection runtime. The corrected-account v2, Sprint 2.19, and Sprint 2.20 relevant suite passes in full."
+  },
+  "android_debug_build": "PASS",
+  "apk": {
+    "path": "flutter_app/build/app/outputs/flutter-apk/app-debug.apk",
+    "size_bytes": 231237427,
+    "sha256": "7674F28B651770227F3DD688876795763709316C48ABE7EDE73D8BDBB778C9E9"
+  },
+  "git_diff_check": "PASS"
+}

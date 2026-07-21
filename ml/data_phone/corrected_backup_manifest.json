@@ -1,0 +1,46 @@
+{
+  "project": "SignSync",
+  "status": "PASS",
+  "generated_at": "2026-07-19T00:27:12+00:00",
+  "dataset_status": "corrected_account_dataset_v2",
+  "json_files": 1000,
+  "labels": 40,
+  "samples_per_label": 25,
+  "corrected_account_samples": 25,
+  "unchanged_non_account_samples": 975,
+  "content_manifest": "ml/data_phone/corrections/account_20260719/corrected_phone_source_json_sha256.csv",
+  "content_manifest_sha256": "677c4ed15f11ce4bee07754948cceb21e324bdc1c3481cf265e884f773710d03",
+  "superseded_backup": {
+    "path": "ml/data_phone/invalidated_backups/sprint_2_16B_banking_phone_samples_1000_backup_incorrect_account_20260719.zip",
+    "sha256": "f3f76c6bbe06305c7ae82e2772c5daca7f76619444f7eca892d7aa253986b70b",
+    "status": "SUPERSEDED - INCORRECT ACCOUNT GESTURE DATA"
+  },
+  "timestamped_corrected_backup": {
+    "path": "ml/data_phone/sprint_2_16B_banking_phone_samples_1000_account_corrected_20260719.zip",
+    "sha256": "07b5660e08640ea2eac11216e41f4696d01be52627cf3e1dd15d46f99c20286a",
+    "extraction_validation": {
+      "status": "PASS",
+      "backup": "ml/data_phone/sprint_2_16B_banking_phone_samples_1000_account_corrected_20260719.zip",
+      "checks": {
+        "exactly_1000_json_files": true,
+        "content_hashes_match_canonical_manifest": true,
+        "full_dataset_validation_passed": true,
+        "corrected_account_samples_25": true
+      }
+    }
+  },
+  "canonical_corrected_backup": {
+    "path": "ml/data_phone/sprint_2_16B_banking_phone_samples_1000_backup.zip",
+    "sha256": "07b5660e08640ea2eac11216e41f4696d01be52627cf3e1dd15d46f99c20286a",
+    "extraction_validation": {
+      "status": "PASS",
+      "backup": "ml/data_phone/sprint_2_16B_banking_phone_samples_1000_backup.zip",
+      "checks": {
+        "exactly_1000_json_files": true,
+        "content_hashes_match_canonical_manifest": true,
+        "full_dataset_validation_passed": true,
+        "corrected_account_samples_25": true
+      }
+    }
+  }
+}

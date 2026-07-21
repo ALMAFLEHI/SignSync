@@ -1,0 +1,348 @@
+{
+  "source_path": "ml/data_processed/datasets/signsync_expanded_v2_2hand_60f.npz",
+  "origin": "P02 laptop-recorded MediaPipe landmark dataset",
+  "total_samples": 805,
+  "participants": [
+    "P02"
+  ],
+  "sequence_shape": [
+    60,
+    126
+  ],
+  "invalid_samples": 0,
+  "final_40_label_samples": 375,
+  "final_40_split_counts": {
+    "train": 260,
+    "val": 40,
+    "test": 75
+  },
+  "retained_training_samples": 260,
+  "historical_validation_excluded": 40,
+  "historical_test_excluded": 75,
+  "removed_label_samples": 100,
+  "alphabet_samples": 245,
+  "digit_samples": 85,
+  "phone_exact_sequence_overlap": 0,
+  "per_label": [
+    {
+      "label_index": 0,
+      "label": "deposit",
+      "total": 5,
+      "train": 3,
+      "validation_excluded": 1,
+      "test_excluded": 1
+    },
+    {
+      "label_index": 1,
+      "label": "withdraw",
+      "total": 5,
+      "train": 3,
+      "validation_excluded": 1,
+      "test_excluded": 1
+    },
+    {
+      "label_index": 2,
+      "label": "balance",
+      "total": 5,
+      "train": 3,
+      "validation_excluded": 1,
+      "test_excluded": 1
+    },
+    {
+      "label_index": 3,
+      "label": "transfer",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 4,
+      "label": "account",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 5,
+      "label": "card",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 6,
+      "label": "pin",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 7,
+      "label": "password",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 8,
+      "label": "identity_verification",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 9,
+      "label": "cash",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 10,
+      "label": "payment",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 11,
+      "label": "fee",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 12,
+      "label": "loan",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 13,
+      "label": "savings",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 14,
+      "label": "open_account",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 15,
+      "label": "close_account",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 16,
+      "label": "fraud",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 17,
+      "label": "block_card",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 18,
+      "label": "help",
+      "total": 5,
+      "train": 3,
+      "validation_excluded": 1,
+      "test_excluded": 1
+    },
+    {
+      "label_index": 19,
+      "label": "confirm",
+      "total": 5,
+      "train": 3,
+      "validation_excluded": 1,
+      "test_excluded": 1
+    },
+    {
+      "label_index": 20,
+      "label": "statement",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 21,
+      "label": "document",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 22,
+      "label": "bill_payment",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 23,
+      "label": "atm",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 24,
+      "label": "branch",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 25,
+      "label": "cheque",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 26,
+      "label": "interest_rate",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 27,
+      "label": "credit_card",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 28,
+      "label": "debit_card",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 29,
+      "label": "lost_card",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 30,
+      "label": "replace_card",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 31,
+      "label": "change_pin",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 32,
+      "label": "reset_password",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 33,
+      "label": "refund",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 34,
+      "label": "signature",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 35,
+      "label": "complaint",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 36,
+      "label": "appointment",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 37,
+      "label": "account_number",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 38,
+      "label": "card_limit",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    },
+    {
+      "label_index": 39,
+      "label": "daily_limit",
+      "total": 10,
+      "train": 7,
+      "validation_excluded": 1,
+      "test_excluded": 2
+    }
+  ]
+}

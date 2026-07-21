@@ -1,0 +1,15 @@
+{
+  "status": "CORRECTED REPLACEMENT PACKAGE",
+  "created_at": "2026-07-19",
+  "supersedes": "ml/models/sprint_2_17_final_40class",
+  "supersession_record": "ml/models/sprint_2_17_final_40class_SUPERSEDED.json",
+  "reason": "The predecessor was trained with 25 incorrect account gesture samples that conflicted with savings.",
+  "corrected_dataset": "corrected_account_dataset_v2",
+  "corrective_scope": {
+    "replaced_account_samples": 25,
+    "unchanged_non_account_samples": 975,
+    "full_classifier_retrained_from_scratch": true,
+    "output_classes": 40
+  },
+  "deployment_status": "candidate_not_deployed"
+}

@@ -1,0 +1,182 @@
+{
+  "status": "PASS",
+  "scope": "Sprint 2.19 revised offline evaluation package",
+  "file_count_excluding_inventory_and_sha256s": 35,
+  "files": [
+    {
+      "path": "confusion/confusion_matrix.csv",
+      "size_bytes": 3977,
+      "sha256": "BF001B60448ABFD49B17C5AC40BAEE0801C985730C0720A694337D1B478A8598"
+    },
+    {
+      "path": "confusion/confusion_matrix_normalized.csv",
+      "size_bytes": 7177,
+      "sha256": "7A26EE9EFBAF93732CB6CACE646EEC6C75E65687046B2236892E6E03F560A7F7"
+    },
+    {
+      "path": "confusion/confusion_pairs.csv",
+      "size_bytes": 243,
+      "sha256": "76C8EAF36D8595F437130587C49CC3CF76936A9112FF18E59991AC944575484E"
+    },
+    {
+      "path": "figures/account_vs_savings.png",
+      "size_bytes": 38298,
+      "sha256": "62DFE28B2A63B4A57CFC35A7575AAF295D4471A6060CCC72977FAC13591C8B2A"
+    },
+    {
+      "path": "figures/confidence_distribution.png",
+      "size_bytes": 30626,
+      "sha256": "DCA32E0A18E5DA542090164B673F31DB1C5525CAECE82A7649EF251E68BD475B"
+    },
+    {
+      "path": "figures/confusion_matrix.png",
+      "size_bytes": 159864,
+      "sha256": "A5A0512C0018E1E7CCAB8ACB8590716FB76BC2CFD336C7E0888695F129ED7855"
+    },
+    {
+      "path": "figures/confusion_matrix_normalized.png",
+      "size_bytes": 169858,
+      "sha256": "57966EF0EA36463779B1F94579C35BC401B15E334DAAEEF4B7C2AD17B121248D"
+    },
+    {
+      "path": "figures/offline_metric_summary.png",
+      "size_bytes": 58026,
+      "sha256": "42278A39FC8E64DA54195A43B873FCDB04E30444505EE12A7792114CB9079CEF"
+    },
+    {
+      "path": "figures/per_class_f1.png",
+      "size_bytes": 100658,
+      "sha256": "8C67B56C0AE339BD84F80166A60C371319B63AE6FB268804CA363F8BF414D01C"
+    },
+    {
+      "path": "figures/per_class_recall.png",
+      "size_bytes": 99373,
+      "sha256": "41690F8F8FB3DF00672DBB25814141686A71CD83466417D1AAF99672897C3CB6"
+    },
+    {
+      "path": "figures/rejection_summary.png",
+      "size_bytes": 57265,
+      "sha256": "6CDA14AB19E1DEB7CA83E45FEB8C62257A27F0894E0800B621005442C9F4F044"
+    },
+    {
+      "path": "figures/weak_class_comparison.png",
+      "size_bytes": 56321,
+      "sha256": "CEB339A7A879B1D71C7C4A281F805B5743BA6F9053662BE1098827FEA27E64AD"
+    },
+    {
+      "path": "metadata/evaluation_design.json",
+      "size_bytes": 5652,
+      "sha256": "10B69699082C446E4E2DFF6FC1567FF069597016A80735D32DDD00436E00F9E7"
+    },
+    {
+      "path": "metadata/evaluation_protocol.json",
+      "size_bytes": 832,
+      "sha256": "DBD5D46DB99B374271D3B654ABF5D803D7DCACE5643A32FF17501FCF6F0EFD1C"
+    },
+    {
+      "path": "metadata/integrity_verification.json",
+      "size_bytes": 2776,
+      "sha256": "280F6721ECDE001F81510376BFB7FF575A63535ADAD3724E04634D7535508464"
+    },
+    {
+      "path": "metadata/trial_schedule.csv",
+      "size_bytes": 15662,
+      "sha256": "57E858AB6D6AB0C978BAD3E6A73EB2E08BC7531CE5F766AD82953B3FA558CB76"
+    },
+    {
+      "path": "metrics/account_vs_savings_metrics.json",
+      "size_bytes": 2473,
+      "sha256": "8851267937F8B711E46E778D75A05DA5BAD85E038964C8AFEDDDEFD598FFB68D"
+    },
+    {
+      "path": "metrics/confidence_metrics.json",
+      "size_bytes": 866,
+      "sha256": "A13164C2ADCC6582B7949F62C7A96E764DC72A5329BC6872C02957B01054EB9A"
+    },
+    {
+      "path": "metrics/latency_observations.json",
+      "size_bytes": 2763,
+      "sha256": "140355460BE8FD7E8A4FE664746F4B76181253408BCABE4F1D19AEEC07FE23F0"
+    },
+    {
+      "path": "metrics/overall_metrics.json",
+      "size_bytes": 556,
+      "sha256": "B1655D0E856EB211065B77D2D6B454174C541B3E23EDDDEB9EEA68C2C1CC204D"
+    },
+    {
+      "path": "metrics/per_class_metrics.csv",
+      "size_bytes": 1543,
+      "sha256": "BC1C85714232F50DD26FAC3CB24F48A9ED4EA186D3C20190B9C5D245E5931388"
+    },
+    {
+      "path": "metrics/rejection_metrics.json",
+      "size_bytes": 4946,
+      "sha256": "A28D1305F53F0C68953AAA4CB12A357BD4C6D51C91B3F6C906DEE2AAA9EE3E93"
+    },
+    {
+      "path": "metrics/saved_metric_comparison.json",
+      "size_bytes": 831,
+      "sha256": "C0777A5CC3BE73C4042D8C4D652B0B4C0ABB1672318C0C05269A04606E1A70A2"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 478,
+      "sha256": "5F6B5E0DA358F8073E5A40A0DFBFB69A6E26FEA0303F42D991E6A04888FB1B12"
+    },
+    {
+      "path": "reports/a55_smoke_test_summary.md",
+      "size_bytes": 1013,
+      "sha256": "C3B50C9FA0FF1D74153A37BDF5439A3B018F12B98C8AB769EF7433BC5BBC4047"
+    },
+    {
+      "path": "reports/account_vs_savings_analysis.md",
+      "size_bytes": 1295,
+      "sha256": "2DDEDC61F74BA2EE3450F02CD5EAFA0BDE2D4B05D8D08299604E9E4F570C6B21"
+    },
+    {
+      "path": "reports/confidence_and_rejection_analysis.md",
+      "size_bytes": 902,
+      "sha256": "C99F406D3A50341E5BF53D2145FB52080D58AE67BB729615EAC340A5970FBEFC"
+    },
+    {
+      "path": "reports/error_analysis.md",
+      "size_bytes": 1135,
+      "sha256": "5776AA05652FE22F00596D8CFB19F04DC224D55E07AF87E6B0714A8365BAFFA0"
+    },
+    {
+      "path": "reports/final_technical_evaluation_report.md",
+      "size_bytes": 9487,
+      "sha256": "91A7BA48E2E214FD1EEC4F32A4E5DA9723BC3AC0A6C66EAA1653723FDC3B3BB9"
+    },
+    {
+      "path": "reports/latency_summary.md",
+      "size_bytes": 1079,
+      "sha256": "AB5CDA8B162A7E5E6DA0D7A6D1008687F7F54A2EBA53CDCDF77E2EAE3A696CC9"
+    },
+    {
+      "path": "reports/limitations.md",
+      "size_bytes": 634,
+      "sha256": "04815E3233AC6C8AB4E4ECC9F8F01B7A60AA0AA8FFD90237AB883639402583D2"
+    },
+    {
+      "path": "reports/offline_heldout_evaluation.md",
+      "size_bytes": 2562,
+      "sha256": "8882EEB9ACEB5744C9C922A019B365598CD3A6AF83FB1053B8FA76A64405215B"
+    },
+    {
+      "path": "source/corrected_test_metrics.json",
+      "size_bytes": 1000,
+      "sha256": "0F711D6F60DEEF3D785BA0567880482B65A3C8CEF563B7FA2C9CFC75748CCF7D"
+    },
+    {
+      "path": "source/corrected_test_predictions.csv",
+      "size_bytes": 54311,
+      "sha256": "91D66476C606EB2CF98B84C9AB87A73C79AC4AC2A75076613770013B0D45F46A"
+    },
+    {
+      "path": "source/source_artifact_hashes.json",
+      "size_bytes": 912,
+      "sha256": "511169FAB3839559BFBDB6FF72907E13D05088B8CAFE0C3C277365522DF57A46"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "project": "SignSync",
+  "sprint": "2.19",
+  "protocol_version": "sprint_2_19_live_evaluation_v1",
+  "status": "PREPARED_BUT_NOT_EXECUTED_OPTIONAL_FUTURE_WORK",
+  "random_seed": 21919,
+  "schedule_sha256": "57E858AB6D6AB0C978BAD3E6A73EB2E08BC7531CE5F766AD82953B3FA558CB76",
+  "blocks": 10,
+  "trials": 400,
+  "standard_trials": 200,
+  "mild_variation_trials": 200,
+  "trials_per_label": 10,
+  "trials_per_label_per_condition": 5,
+  "warm_up_trials_excluded": 5,
+  "first_completed_inference_is_formal": true,
+  "technical_failures_logged_separately": true,
+  "physical_results_available": false,
+  "required_for_sprint_completion": false,
+  "final_evaluation_source": "corrected locked 200-sample held-out test plus existing A55 smoke and automated deployment evidence",
+  "formal_live_accuracy_claimed": false
+}

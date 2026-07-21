@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "hash_checks": {
+    "keras": {
+      "path": "ml/models/sprint_2_17_final_40class_account_corrected_v2/models/signsync_40class_account_corrected_v2.keras",
+      "expected_sha256": "F1D543E0D0E5E8C699B53DA5DD7CAAEBC160695599C4C2D078C6FDDDD1DB120D",
+      "actual_sha256": "F1D543E0D0E5E8C699B53DA5DD7CAAEBC160695599C4C2D078C6FDDDD1DB120D",
+      "passed": true
+    },
+    "float32_tflite": {
+      "path": "ml/models/sprint_2_17_final_40class_account_corrected_v2/models/signsync_40class_account_corrected_v2_float32.tflite",
+      "expected_sha256": "D9686110BACFB1F1C5B3BFBF33B2C515393344869A3DCEAFF325903A34DF278C",
+      "actual_sha256": "D9686110BACFB1F1C5B3BFBF33B2C515393344869A3DCEAFF325903A34DF278C",
+      "passed": true
+    },
+    "dynamic_range_tflite": {
+      "path": "ml/models/sprint_2_17_final_40class_account_corrected_v2/models/signsync_40class_account_corrected_v2_dynamic_range.tflite",
+      "expected_sha256": "BD46131FF20ECB96F240C867C60804A2D9F514AC4F56D63F64E8B60188187A17",
+      "actual_sha256": "BD46131FF20ECB96F240C867C60804A2D9F514AC4F56D63F64E8B60188187A17",
+      "passed": true
+    },
+    "deployment_manifest": {
+      "path": "flutter_app/assets/models/model_deployment_manifest.json",
+      "expected_sha256": "F02E35864C87925A6D06D70F669411388B2F04112F757CB0DF2AAD1296A2F9F1",
+      "actual_sha256": "F02E35864C87925A6D06D70F669411388B2F04112F757CB0DF2AAD1296A2F9F1",
+      "passed": true
+    },
+    "corrected_backup": {
+      "path": "ml/data_phone/sprint_2_16B_banking_phone_samples_1000_backup.zip",
+      "expected_sha256": "07B5660E08640EA2EAC11216E41F4696D01BE52627CF3E1DD15D46F99C20286A",
+      "actual_sha256": "07B5660E08640EA2EAC11216E41F4696D01BE52627CF3E1DD15D46F99C20286A",
+      "passed": true
+    },
+    "dataset_manifest": {
+      "path": "ml/data_phone/corrections/account_20260719/corrected_phone_source_json_sha256.csv",
+      "expected_sha256": "677C4ED15F11CE4BEE07754948CCEB21E324BDC1C3481CF265E884F773710D03",
+      "actual_sha256": "677C4ED15F11CE4BEE07754948CCEB21E324BDC1C3481CF265E884F773710D03",
+      "passed": true
+    }
+  },
+  "active_dataset_samples": 1000,
+  "active_dataset_labels": 40,
+  "active_samples_per_label": 25,
+  "package_identifiers": {
+    "android_namespace": "com.example.flutter_app",
+    "android_application_id": "com.example.flutter_app",
+    "ios_bundle_id": "com.example.flutterApp"
+  },
+  "superseded_pre_correction_package": true,
+  "corrected_sprint_2_18_automated_deployment": "PASS",
+  "a55_evidence_screenshot_count": 12,
+  "privacy": {
+    "offline_on_device_inference": true,
+    "cloud_processing": false,
+    "database_added": false,
+    "customer_banking_data_in_evaluation": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "config_version": "sprint_2_16A_conservative_v1",
+  "seed": 42,
+  "derivatives_per_training_sample": 1,
+  "apply_to": "all original training sequences",
+  "spatial_translation": {
+    "enabled": true,
+    "x_range": [-0.0125, 0.0125],
+    "y_range": [-0.0125, 0.0125]
+  },
+  "scale": {
+    "enabled": true,
+    "range": [0.98, 1.02],
+    "origin": "wrist"
+  },
+  "rotation": {
+    "enabled": true,
+    "degrees_range": [-2.5, 2.5],
+    "origin": "wrist"
+  },
+  "coordinate_jitter": {
+    "enabled": true,
+    "gaussian_sigma": 0.0015
+  },
+  "temporal_resampling": {
+    "enabled": false,
+    "reason": "Disabled to keep the first and last sign structure unchanged in the initial pilot."
+  },
+  "frame_masking_or_landmark_dropout": {
+    "enabled": false,
+    "reason": "Disabled to avoid adding synthetic detection loss before the spatial experiment is evaluated."
+  },
+  "horizontal_mirroring": {
+    "enabled": false,
+    "reason": "Handedness and semantic preservation have not been proven for this dataset."
+  },
+  "missing_hand_policy": "Keep all-zero 63-value hand slots exactly zero.",
+  "split_policy": "Augment training samples only; validation and test remain untouched."
+}

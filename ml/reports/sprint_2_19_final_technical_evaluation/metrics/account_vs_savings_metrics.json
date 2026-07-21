@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "account": {
+    "label": "account",
+    "label_index": 4,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5,
+    "correct": 5,
+    "incorrect": 0
+  },
+  "savings": {
+    "label": "savings",
+    "label_index": 13,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5,
+    "correct": 5,
+    "incorrect": 0
+  },
+  "account_to_savings": 0,
+  "savings_to_account": 0,
+  "held_out_predictions": [
+    {
+      "sample_id": "P02_PHONE_account_R21",
+      "actual_label": "account",
+      "predicted_label": "account",
+      "confidence": 0.9999980926513672,
+      "correct": true
+    },
+    {
+      "sample_id": "P02_PHONE_account_R22",
+      "actual_label": "account",
+      "predicted_label": "account",
+      "confidence": 0.9999982118606567,
+      "correct": true
+    },
+    {
+      "sample_id": "P02_PHONE_account_R23",
+      "actual_label": "account",
+      "predicted_label": "account",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "sample_id": "P02_PHONE_account_R24",
+      "actual_label": "account",
+      "predicted_label": "account",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "sample_id": "P02_PHONE_account_R25",
+      "actual_label": "account",
+      "predicted_label": "account",
+      "confidence": 0.9997722506523132,
+      "correct": true
+    },
+    {
+      "sample_id": "P02_PHONE_savings_R21",
+      "actual_label": "savings",
+      "predicted_label": "savings",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "sample_id": "P02_PHONE_savings_R22",
+      "actual_label": "savings",
+      "predicted_label": "savings",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "sample_id": "P02_PHONE_savings_R23",
+      "actual_label": "savings",
+      "predicted_label": "savings",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "sample_id": "P02_PHONE_savings_R24",
+      "actual_label": "savings",
+      "predicted_label": "savings",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "sample_id": "P02_PHONE_savings_R25",
+      "actual_label": "savings",
+      "predicted_label": "savings",
+      "confidence": 0.9999998807907104,
+      "correct": true
+    }
+  ],
+  "interpretation_boundary": "Five samples per class are a locked held-out check, not broad population generalization."
+}

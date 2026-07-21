@@ -1,0 +1,4 @@
+experiment_id,dataset_composition,real_train,augmented_train,historical_train,effective_train,validation_samples,validation_accuracy,validation_macro_precision,validation_macro_recall,validation_macro_f1,validation_weighted_f1,high_confidence_wrong,model_size_bytes,parameter_count,training_duration_seconds,best_epoch
+experiment_A_phone_only,600 real phone train,600,0,0,600,200,0.99,0.9916666666666668,0.99,0.98989898989899,0.98989898989899,1,6733923,558481,47.14538100000209,46
+experiment_B_phone_augmentation,600 real phone train; 600 augmented phone train,600,600,0,1200,200,0.985,0.9875,0.9850000000000001,0.9848484848484848,0.9848484848484849,2,6733924,558481,27.023946799999976,8
+experiment_C_phone_augmentation_historical,600 real phone train; 600 augmented phone train; 260 historical final-label train,600,600,260,1460,200,0.99,0.9916666666666668,0.99,0.98989898989899,0.98989898989899,2,6733924,558481,55.11734440000146,36

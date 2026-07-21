@@ -1,0 +1,16 @@
+{
+  "source": {
+    "status": "PASS",
+    "archive": "SignSync_RC1_Source.zip",
+    "entries": 848,
+    "size_bytes": 89657096,
+    "sha256": "67692F17BBEDBA21D9CC82B2FB33A023AE3465081B6F6048BA51257DDF79EB1A"
+  },
+  "evidence": {
+    "status": "PASS",
+    "archive": "SignSync_RC1_Evidence.zip",
+    "entries": 181,
+    "size_bytes": 14215164,
+    "sha256": "5C05429FD8C459F5E33E23A19C80A7EA493BCDAB74F5E129D00A50921779A84A"
+  }
+}

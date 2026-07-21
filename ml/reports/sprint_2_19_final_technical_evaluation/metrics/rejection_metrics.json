@@ -1,0 +1,255 @@
+{
+  "threshold": 0.8,
+  "total": 200,
+  "accepted": 195,
+  "rejected": 5,
+  "coverage": 0.975,
+  "rejection_rate": 0.025,
+  "accepted_accuracy": 0.9794871794871794,
+  "correct_and_accepted": 191,
+  "incorrect_and_accepted": 4,
+  "correct_but_rejected": 0,
+  "incorrect_and_rejected": 5,
+  "per_class": [
+    {
+      "label": "deposit",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "withdraw",
+      "support": 5,
+      "rejected": 1,
+      "rejection_rate": 0.2
+    },
+    {
+      "label": "balance",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "transfer",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "account",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "card",
+      "support": 5,
+      "rejected": 1,
+      "rejection_rate": 0.2
+    },
+    {
+      "label": "pin",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "password",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "identity_verification",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "cash",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "payment",
+      "support": 5,
+      "rejected": 1,
+      "rejection_rate": 0.2
+    },
+    {
+      "label": "fee",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "loan",
+      "support": 5,
+      "rejected": 1,
+      "rejection_rate": 0.2
+    },
+    {
+      "label": "savings",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "open_account",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "close_account",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "fraud",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "block_card",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "help",
+      "support": 5,
+      "rejected": 1,
+      "rejection_rate": 0.2
+    },
+    {
+      "label": "confirm",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "statement",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "document",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "bill_payment",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "atm",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "branch",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "cheque",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "interest_rate",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "credit_card",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "debit_card",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "lost_card",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "replace_card",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "change_pin",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "reset_password",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "refund",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "signature",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "complaint",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "appointment",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "account_number",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "card_limit",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    },
+    {
+      "label": "daily_limit",
+      "support": 5,
+      "rejected": 0,
+      "rejection_rate": 0.0
+    }
+  ]
+}

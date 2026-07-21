@@ -1,0 +1,30 @@
+{
+  "evaluator_count": 1,
+  "evaluator_role": "developer/researcher",
+  "method": "automated Flutter widget walkthrough using the real guided workflow and predefined intent input",
+  "external_participant_data": false,
+  "test_file": "flutter_app/test/sprint_2_20_usability_inspection_test.dart",
+  "scenario_id": 1,
+  "name": "Account problem",
+  "injected_intent": "account",
+  "result": "PASS",
+  "fake_test_values": {
+    "account_number": "1234561864"
+  },
+  "steps": [
+    "confirm Account",
+    "select account_problem",
+    "enter masked account number",
+    "review",
+    "show to banker",
+    "clear session"
+  ],
+  "expectations": {
+    "exactly_four_queries": "PASS",
+    "correct_query": "PASS",
+    "manual_field": "PASS",
+    "masked_value_ending_1864": "PASS",
+    "banker_view": "PASS",
+    "reset_clears_data": "PASS"
+  }
+}

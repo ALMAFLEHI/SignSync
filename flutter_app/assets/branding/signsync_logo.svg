@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">SignSync logo</title>
+  <desc id="description">An abstract connected S with text lines on a navy rounded square.</desc>
+  <rect width="512" height="512" rx="112" fill="#13263F"/>
+  <path d="M144 160 C208 96 336 112 360 176 C384 240 288 248 232 272 C160 304 136 360 184 400 C232 440 336 408 368 352"
+        fill="none" stroke="#59D4CC" stroke-width="48" stroke-linecap="round"/>
+  <path d="M280 312 H368 M296 352 H344" fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round"/>
+</svg>

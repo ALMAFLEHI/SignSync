@@ -1,0 +1,18 @@
+criterion,status,researcher_observation,method,formal_wcag_certification
+Font sizes,PASS,Theme typography and screenshots show readable hierarchy.,"Code, widget-test, theme, and screenshot inspection",False
+Text contrast,PASS,Theme colors and existing light/dark tests retain readable text.,"Code, widget-test, theme, and screenshot inspection",False
+Button contrast,PASS,Filled and outlined actions remain distinguishable in both themes.,"Code, widget-test, theme, and screenshot inspection",False
+Touch-target size,PASS,Theme buttons use a 52-pixel minimum height.,"Code, widget-test, theme, and screenshot inspection",False
+Scrollability,PASS,Long workflow screens use ListView containers.,"Code, widget-test, theme, and screenshot inspection",False
+Screen-reader semantics,PARTIAL,"Query choices expose semantics and controls have labels, but no manual TalkBack or VoiceOver session was performed.","Code, widget-test, theme, and screenshot inspection",False
+Meaningful button labels,PASS,Primary actions use explicit text labels.,"Code, widget-test, theme, and screenshot inspection",False
+Icon plus text usage,PASS,Task actions pair familiar icons with text.,"Code, widget-test, theme, and screenshot inspection",False
+Error-message clarity,PASS,Recognition and field errors explain the corrective action.,"Code, widget-test, theme, and screenshot inspection",False
+Light-mode readability,PASS,Automated rendering tests pass in the light theme.,"Code, widget-test, theme, and screenshot inspection",False
+Dark-mode readability,PASS,Automated rendering tests and A55 screenshots pass in the dark theme.,"Code, widget-test, theme, and screenshot inspection",False
+Long text wrapping,PASS,Long request text wraps inside flexible list content.,"Code, widget-test, theme, and screenshot inspection",False
+Small-screen overflow,PASS,Existing widget tests complete without overflow exceptions.,"Code, widget-test, theme, and screenshot inspection",False
+Keyboard interaction,PASS,Typed amount and masked-number tests complete successfully.,"Code, widget-test, theme, and screenshot inspection",False
+Date/time interaction,PASS,Date and time controls use labelled platform pickers.,"Code, widget-test, theme, and screenshot inspection",False
+Masked-field visibility toggle,PASS,A labelled Reveal value/Hide value control is available.,"Code, widget-test, theme, and screenshot inspection",False
+Banker-view readability,PASS,"The final view uses large headings, plain language, and labelled sections.","Code, widget-test, theme, and screenshot inspection",False

@@ -14,6 +14,9 @@ import '../services/phone_sample_store.dart';
 class PhoneDatasetCollectionPage extends StatefulWidget {
   const PhoneDatasetCollectionPage({super.key});
 
+  static const Key cameraPreviewKey = ValueKey('phone-dataset-camera-preview');
+  static const double cameraPreviewAspectRatio = 3 / 4;
+
   @override
   State<PhoneDatasetCollectionPage> createState() =>
       _PhoneDatasetCollectionPageState();
@@ -436,15 +439,6 @@ class _PhoneDatasetCollectionPageState
             const SizedBox(height: 12),
             _CameraPreviewCard(preview: _landmarkService.buildPreview()),
             const SizedBox(height: 12),
-            _LabelSelector(
-              selectedLabel: _selectedLabel,
-              counts: _counts,
-              onChanged: _isCapturing || _isSaving ? null : _requestLabelChange,
-              onSelectNext: _isCapturing || _isSaving
-                  ? null
-                  : _selectNextIncomplete,
-            ),
-            const SizedBox(height: 12),
             _CollectionStatusCard(
               cameraStarted: _isCameraStarted,
               lastFrame: lastFrame,
@@ -464,6 +458,15 @@ class _PhoneDatasetCollectionPageState
               onResetCapture: _resetCapture,
               onStopCamera: _stopCamera,
               onDeleteLastSample: _deleteLastSavedSample,
+            ),
+            const SizedBox(height: 12),
+            _LabelSelector(
+              selectedLabel: _selectedLabel,
+              counts: _counts,
+              onChanged: _isCapturing || _isSaving ? null : _requestLabelChange,
+              onSelectNext: _isCapturing || _isSaving
+                  ? null
+                  : _selectNextIncomplete,
             ),
             if (_lastSaveResult != null) ...[
               const SizedBox(height: 12),
@@ -503,8 +506,8 @@ class _Header extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           statusMessage,
-          style: const TextStyle(
-            color: Color(0xFF0F766E),
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -586,9 +589,11 @@ class _PilotSummaryCard extends StatelessWidget {
             for (final label in PhoneSampleStore.sprint216APilotLabels)
               _StatusRow(label: label, value: '25 / 25'),
             const SizedBox(height: 4),
-            const Text(
+            Text(
               'These labels are not selectable or deletable from this page.',
-              style: TextStyle(color: Color(0xFF64748B)),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
           ],
         ),
@@ -606,7 +611,12 @@ class _CameraPreviewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAlias,
-      child: AspectRatio(aspectRatio: 3 / 4, child: preview),
+      child: AspectRatio(
+        key: PhoneDatasetCollectionPage.cameraPreviewKey,
+        // Match the proven portrait preview used by Live Camera Prototype.
+        aspectRatio: PhoneDatasetCollectionPage.cameraPreviewAspectRatio,
+        child: preview,
+      ),
     );
   }
 }
@@ -652,7 +662,9 @@ class _LabelSelectorState extends State<_LabelSelector> {
             Text(
               '${PhoneSampleStore.sprint216BCollectionLabels.length} selectable '
               'labels, ${PhoneDatasetScope.samplesPerLabel} samples each',
-              style: const TextStyle(color: Color(0xFF64748B)),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -711,14 +723,43 @@ class _LabelOption extends StatelessWidget {
       PhoneDatasetScope.samplesPerLabel,
     );
     final completed = remaining == 0;
+    final enabled = onTap != null;
+    final backgroundColor = selected
+        ? colorScheme.primaryContainer
+        : completed
+        ? colorScheme.secondaryContainer
+        : colorScheme.surfaceContainerHigh;
+    final activeForeground = selected
+        ? colorScheme.onPrimaryContainer
+        : completed
+        ? colorScheme.onSecondaryContainer
+        : colorScheme.onSurface;
+    final activeSupporting = selected
+        ? colorScheme.onPrimaryContainer
+        : completed
+        ? colorScheme.onSecondaryContainer
+        : colorScheme.onSurfaceVariant;
+    final foregroundColor = enabled
+        ? activeForeground
+        : colorScheme.onSurface.withValues(alpha: 0.38);
+    final supportingColor = enabled
+        ? activeSupporting
+        : colorScheme.onSurface.withValues(alpha: 0.38);
+    final borderColor = selected
+        ? colorScheme.primary
+        : completed
+        ? colorScheme.secondary
+        : colorScheme.outlineVariant;
+
     return Material(
-      color: selected
-          ? colorScheme.primary.withValues(alpha: 0.08)
-          : Colors.white,
+      key: ValueKey('collection-label-$label'),
+      color: backgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
         side: BorderSide(
-          color: selected ? colorScheme.primary : const Color(0xFFE2E8F0),
+          color: enabled
+              ? borderColor
+              : colorScheme.outlineVariant.withValues(alpha: 0.5),
           width: selected ? 1.5 : 1,
         ),
       ),
@@ -735,11 +776,7 @@ class _LabelOption extends StatelessWidget {
                     : selected
                     ? Icons.radio_button_checked
                     : Icons.radio_button_unchecked,
-                color: completed
-                    ? const Color(0xFF15803D)
-                    : selected
-                    ? colorScheme.primary
-                    : const Color(0xFF94A3B8),
+                color: supportingColor,
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -747,15 +784,18 @@ class _LabelOption extends StatelessWidget {
                   label,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
-                    color: selected ? colorScheme.primary : null,
+                    color: foregroundColor,
                   ),
                 ),
               ),
-              Text('$count / ${PhoneDatasetScope.samplesPerLabel}'),
+              Text(
+                '$count / ${PhoneDatasetScope.samplesPerLabel}',
+                style: TextStyle(color: foregroundColor),
+              ),
               const SizedBox(width: 8),
               Text(
                 remaining == 0 ? 'done' : '$remaining left',
-                style: const TextStyle(color: Color(0xFF64748B)),
+                style: TextStyle(color: supportingColor),
               ),
             ],
           ),
@@ -984,19 +1024,20 @@ class _ErrorPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Card(
-      color: const Color(0xFFFFF1F2),
+      color: colorScheme.errorContainer,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Icon(Icons.error_outline, color: Color(0xFFBE123C)),
+            Icon(Icons.error_outline, color: colorScheme.onErrorContainer),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
                 message,
-                style: const TextStyle(color: Color(0xFF9F1239)),
+                style: TextStyle(color: colorScheme.onErrorContainer),
               ),
             ),
           ],
@@ -1011,15 +1052,18 @@ class _PrivacyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    return Card(
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.lock_outline, color: Color(0xFF0F766E)),
-            SizedBox(width: 8),
-            Expanded(
+            Icon(
+              Icons.lock_outline,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            const SizedBox(width: 8),
+            const Expanded(
               child: Text(
                 'Only landmark JSON samples are saved locally. No raw video is saved or uploaded.',
               ),

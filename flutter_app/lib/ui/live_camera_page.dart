@@ -7,19 +7,45 @@ import 'package:permission_handler/permission_handler.dart';
 import '../config/app_config.dart';
 import '../models/live_landmark_frame.dart';
 import '../models/live_prediction_session.dart';
-import '../models/prediction_source.dart';
+import '../models/prediction_result.dart';
 import '../models/sign_mode.dart';
 import '../services/label_service.dart';
+import '../services/banking_prediction_gate.dart';
 import '../services/live_landmark_service.dart';
 import '../services/live_recognition_service.dart';
-import '../services/stabilized_prediction_tracker.dart';
 import '../services/tflite_sign_classifier.dart';
-import 'widgets/mode_selector.dart';
-import 'widgets/prediction_card.dart';
 import 'widgets/top_predictions_list.dart';
 
+typedef LiveTechnicalErrorCallback =
+    void Function(String eventType, String message);
+
 class LiveCameraPage extends StatefulWidget {
-  const LiveCameraPage({super.key});
+  const LiveCameraPage({
+    super.key,
+    this.bankingOnly = true,
+    this.embedded = false,
+    this.onPrediction,
+    this.onSession,
+    this.onTechnicalError,
+    this.onCaptureReset,
+    this.onCancel,
+    this.captureLocked = false,
+    this.allowTryAgain = true,
+    this.lockAfterSession = false,
+    this.captureCycleToken,
+  });
+
+  final bool bankingOnly;
+  final bool embedded;
+  final ValueChanged<PredictionResult>? onPrediction;
+  final ValueChanged<LivePredictionSession>? onSession;
+  final LiveTechnicalErrorCallback? onTechnicalError;
+  final VoidCallback? onCaptureReset;
+  final VoidCallback? onCancel;
+  final bool captureLocked;
+  final bool allowTryAgain;
+  final bool lockAfterSession;
+  final Object? captureCycleToken;
 
   @override
   State<LiveCameraPage> createState() => _LiveCameraPageState();
@@ -27,16 +53,12 @@ class LiveCameraPage extends StatefulWidget {
 
 class _LiveCameraPageState extends State<LiveCameraPage> {
   final LabelService _labelService = LabelService();
-  final StabilizedPredictionTracker _stabilizedTracker =
-      StabilizedPredictionTracker();
   late final LiveLandmarkService _landmarkService;
 
   TfliteSignClassifier? _classifier;
   LiveRecognitionService? _recognitionService;
   LiveLandmarkFrame? _lastFrame;
   LivePredictionSession? _session;
-  StabilizedPrediction? _stabilizedPrediction;
-  SignMode _selectedMode = SignMode.bankingIntent;
 
   String _statusMessage = 'Loading live camera prototype assets...';
   String? _errorMessage;
@@ -47,9 +69,12 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
   bool _isPredicting = false;
   int _validFrameCount = 0;
 
+  bool get _showDeveloperDetails => !widget.embedded;
+
   @override
   void initState() {
     super.initState();
+    _statusMessage = 'Preparing the final 40-class on-device model...';
     _landmarkService = LiveLandmarkService()
       ..onStatus = _handleStatus
       ..onError = _handleError
@@ -57,6 +82,15 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
       ..onCaptureProgress = _handleCaptureProgress
       ..onCaptureComplete = _handleCaptureComplete;
     _initialize();
+  }
+
+  @override
+  void didUpdateWidget(covariant LiveCameraPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.captureCycleToken != widget.captureCycleToken) {
+      _session = null;
+      _validFrameCount = 0;
+    }
   }
 
   @override
@@ -70,7 +104,7 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
     setState(() {
       _isLoading = true;
       _errorMessage = null;
-      _statusMessage = 'Loading label metadata and TFLite model...';
+      _statusMessage = 'Preparing the final 40-class on-device model...';
     });
 
     try {
@@ -88,7 +122,7 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
         _recognitionService = LiveRecognitionService(classifier: classifier);
         _isLoading = false;
         _statusMessage =
-            'Ready. Start the Android camera, then capture 60 valid frames.';
+            'Ready. Start the camera and perform one banking intent sign.';
       });
     } catch (error) {
       if (!mounted) {
@@ -96,9 +130,12 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
       }
       setState(() {
         _isLoading = false;
-        _errorMessage = error.toString();
+        _errorMessage = _showDeveloperDetails
+            ? error.toString()
+            : 'On-device recognition could not be prepared.';
         _statusMessage = 'Live camera setup could not finish.';
       });
+      widget.onTechnicalError?.call('model_load_failure', error.toString());
     }
   }
 
@@ -126,6 +163,10 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
         _errorMessage = 'Camera permission was denied.';
         _statusMessage = 'Grant camera permission to use live recognition.';
       });
+      widget.onTechnicalError?.call(
+        'camera_permission_issue',
+        'Camera permission was denied.',
+      );
       return;
     }
 
@@ -145,7 +186,9 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
       }
       setState(() {
         _isCameraStarting = false;
-        _errorMessage = error.toString();
+        _errorMessage = _showDeveloperDetails
+            ? error.toString()
+            : 'The camera could not start. Check permission and try again.';
         _statusMessage = 'Camera could not start.';
       });
     }
@@ -183,12 +226,13 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
       _isCapturing = true;
       _isPredicting = false;
       _errorMessage = null;
-      _statusMessage = 'Capturing 60 valid MediaPipe landmark frames...';
+      _statusMessage = 'Capturing 60 valid frames for one banking sign...';
     });
     await _landmarkService.startCapture();
   }
 
   Future<void> _resetCapture() async {
+    final wasCapturing = _isCapturing;
     await _landmarkService.resetCapture();
     if (!mounted) {
       return;
@@ -198,10 +242,12 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
       _isCapturing = false;
       _isPredicting = false;
       _session = null;
-      _stabilizedTracker.reset();
-      _stabilizedPrediction = _stabilizedTracker.current;
+      _errorMessage = null;
       _statusMessage = 'Capture buffer reset.';
     });
+    if (wasCapturing) {
+      widget.onCaptureReset?.call();
+    }
   }
 
   void _handleStatus(String message) {
@@ -221,6 +267,16 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
       _errorMessage = message.isEmpty ? 'Live camera error.' : message;
       _isCameraStarting = false;
     });
+    final detail = message.isEmpty ? 'Live camera error.' : message;
+    final normalized = detail.toLowerCase();
+    widget.onTechnicalError?.call(
+      normalized.contains('mediapipe')
+          ? 'mediapipe_error'
+          : normalized.contains('permission')
+          ? 'camera_permission_issue'
+          : 'camera_error',
+      detail,
+    );
   }
 
   void _handleLiveFrame(LiveLandmarkFrame frame) {
@@ -254,49 +310,47 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
     setState(() {
       _isCapturing = false;
       _isPredicting = true;
-      _statusMessage = '60-frame buffer complete. Running TFLite inference...';
+      _statusMessage = 'Sign captured. Checking the banking intent...';
     });
 
     try {
       final session = recognitionService.predictFromFrames(
         frames: frames,
-        mode: _selectedMode,
+        mode: SignMode.bankingIntent,
         captureMetrics: metrics,
       );
-      final stabilizedPrediction = _stabilizedTracker.add(session.prediction);
       if (!mounted) {
         return;
       }
       setState(() {
         _session = session;
-        _stabilizedPrediction = stabilizedPrediction;
         _isPredicting = false;
         _validFrameCount = metrics.validFrameCount;
-        _statusMessage =
-            stabilizedPrediction.completedCaptures >=
-                stabilizedPrediction.requiredCaptures
-            ? 'Stabilized prediction updated.'
-            : 'Single capture prediction complete. Repeat for 3-capture stabilization.';
+        _statusMessage = session.prediction.decision.accepted
+            ? 'Banking intent recognized.'
+            : 'The sign could not be recognized confidently.';
       });
+      widget.onPrediction?.call(session.prediction);
+      widget.onSession?.call(session);
     } catch (error) {
       if (!mounted) {
         return;
       }
       setState(() {
         _isPredicting = false;
-        _errorMessage = error.toString();
+        _errorMessage = _showDeveloperDetails
+            ? error.toString()
+            : 'The sign could not be processed. Please try again.';
         _statusMessage = 'Live prediction failed.';
       });
+      final detail = error.toString();
+      widget.onTechnicalError?.call(
+        detail.toLowerCase().contains('finite')
+            ? 'non_finite_output'
+            : 'prediction_processing_failure',
+        detail,
+      );
     }
-  }
-
-  void _updateMode(SignMode mode) {
-    setState(() {
-      _selectedMode = mode;
-      _session = null;
-      _stabilizedTracker.reset();
-      _stabilizedPrediction = _stabilizedTracker.current;
-    });
   }
 
   @override
@@ -304,79 +358,81 @@ class _LiveCameraPageState extends State<LiveCameraPage> {
     final session = _session;
     final lastFrame = _lastFrame;
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('Live Camera Prototype')),
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            _Header(statusMessage: _statusMessage),
-            if (_errorMessage != null) ...[
-              const SizedBox(height: 12),
-              _ErrorPanel(message: _errorMessage!),
-            ],
+    final content = SafeArea(
+      child: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          _Header(statusMessage: _statusMessage, bankingOnly: true),
+          if (_errorMessage != null) ...[
             const SizedBox(height: 12),
-            _CameraPreviewCard(preview: _landmarkService.buildPreview()),
-            const SizedBox(height: 12),
-            _LiveStatusCard(
-              modelLoaded: _classifier?.isLoaded ?? false,
-              cameraStarted: _isCameraStarted,
-              lastFrame: lastFrame,
-              validFrameCount: _validFrameCount,
-              isCapturing: _isCapturing,
-            ),
-            const SizedBox(height: 12),
-            ModeSelector(selectedMode: _selectedMode, onChanged: _updateMode),
-            const SizedBox(height: 12),
-            _ControlPanel(
-              isLoading: _isLoading,
-              isCameraStarting: _isCameraStarting,
-              isCameraStarted: _isCameraStarted,
-              isCapturing: _isCapturing,
-              isPredicting: _isPredicting,
-              onStartCamera: _startCamera,
-              onStopCamera: _stopCamera,
-              onStartCapture: _startCapture,
-              onResetCapture: _resetCapture,
-            ),
-            const SizedBox(height: 12),
-            PredictionCard(
-              sample: null,
-              prediction: session?.prediction,
-              isPredicting: _isPredicting,
-              source: PredictionSource.liveCamera,
-            ),
-            if (session != null) ...[
-              const SizedBox(height: 12),
-              _StabilizedPredictionCard(
-                stabilizedPrediction: _stabilizedPrediction,
-              ),
-              const SizedBox(height: 12),
-              _RuntimeMetricsCard(session: session),
-              const SizedBox(height: 12),
-              TopPredictionsList(
-                title: '${_selectedMode.displayName} Live Top Predictions',
-                predictions: session.prediction.topPredictions,
-              ),
-              const SizedBox(height: 12),
-              TopPredictionsList(
-                title: 'Raw Model Top Predictions',
-                predictions: session.prediction.rawTopPredictions,
-              ),
-            ],
-            const SizedBox(height: 12),
-            const _PrivacyCard(),
+            _ErrorPanel(message: _errorMessage!),
           ],
-        ),
+          const SizedBox(height: 12),
+          _CameraPreviewCard(preview: _landmarkService.buildPreview()),
+          const SizedBox(height: 12),
+          _LiveStatusCard(
+            bankingOnly: true,
+            modelLoaded: _classifier?.isLoaded ?? false,
+            cameraStarted: _isCameraStarted,
+            lastFrame: lastFrame,
+            validFrameCount: _validFrameCount,
+            isCapturing: _isCapturing,
+          ),
+          const SizedBox(height: 12),
+          _ControlPanel(
+            bankingOnly: true,
+            isLoading: _isLoading,
+            isCameraStarting: _isCameraStarting,
+            isCameraStarted: _isCameraStarted,
+            isCapturing: _isCapturing,
+            isPredicting: _isPredicting,
+            captureLocked:
+                widget.captureLocked ||
+                (widget.lockAfterSession && session != null),
+            onStartCamera: _startCamera,
+            onStopCamera: _stopCamera,
+            onStartCapture: _startCapture,
+            onResetCapture: _resetCapture,
+            onCancel: widget.onCancel,
+          ),
+          if (session != null) ...[
+            const SizedBox(height: 12),
+            _BankingPredictionNotice(
+              prediction: session.prediction,
+              onTryAgain: _resetCapture,
+              allowTryAgain: widget.allowTryAgain,
+            ),
+          ],
+          if (session != null && _showDeveloperDetails) ...[
+            const SizedBox(height: 12),
+            _RuntimeMetricsCard(session: session),
+            const SizedBox(height: 12),
+            TopPredictionsList(
+              title: 'Final 40-Class Top Predictions',
+              predictions: session.prediction.topPredictions,
+            ),
+          ],
+          const SizedBox(height: 12),
+          const _PrivacyCard(),
+        ],
       ),
+    );
+
+    if (widget.embedded) {
+      return content;
+    }
+    return Scaffold(
+      appBar: AppBar(title: const Text('Final Model Live Diagnostics')),
+      body: content,
     );
   }
 }
 
 class _Header extends StatelessWidget {
-  const _Header({required this.statusMessage});
+  const _Header({required this.statusMessage, required this.bankingOnly});
 
   final String statusMessage;
+  final bool bankingOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -384,16 +440,30 @@ class _Header extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Sprint 2.15 Live Camera',
+          bankingOnly
+              ? 'Final 40-Class Banking Recognition'
+              : 'Final 40-Class Banking Recognition',
           style: Theme.of(
             context,
           ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
         ),
+        if (bankingOnly) ...[
+          const SizedBox(height: 6),
+          const Text(
+            'Position your hands clearly and perform one banking sign.',
+          ),
+          const SizedBox(height: 8),
+          const Chip(
+            key: ValueKey('banking-mode-active'),
+            avatar: Icon(Icons.account_balance_outlined),
+            label: Text('Banking signs only'),
+          ),
+        ],
         const SizedBox(height: 4),
         Text(
           statusMessage,
-          style: const TextStyle(
-            color: Color(0xFF0F766E),
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -418,6 +488,7 @@ class _CameraPreviewCard extends StatelessWidget {
 
 class _LiveStatusCard extends StatelessWidget {
   const _LiveStatusCard({
+    required this.bankingOnly,
     required this.modelLoaded,
     required this.cameraStarted,
     required this.lastFrame,
@@ -425,6 +496,7 @@ class _LiveStatusCard extends StatelessWidget {
     required this.isCapturing,
   });
 
+  final bool bankingOnly;
   final bool modelLoaded;
   final bool cameraStarted;
   final LiveLandmarkFrame? lastFrame;
@@ -441,16 +513,17 @@ class _LiveStatusCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Live Pipeline Status',
+              bankingOnly ? 'Recognition Progress' : 'Live Pipeline Status',
               style: Theme.of(
                 context,
               ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 12),
-            _StatusRow(
-              label: 'TFLite model',
-              value: modelLoaded ? 'Loaded' : 'Loading',
-            ),
+            if (!bankingOnly)
+              _StatusRow(
+                label: 'TFLite model',
+                value: modelLoaded ? 'Loaded' : 'Loading',
+              ),
             _StatusRow(
               label: 'Camera preview',
               value: cameraStarted ? 'Started' : 'Stopped',
@@ -459,14 +532,15 @@ class _LiveStatusCard extends StatelessWidget {
               label: 'Hand detected',
               value: frame?.handDetected == true ? 'Yes' : 'No',
             ),
+            if (!bankingOnly)
+              _StatusRow(
+                label: 'Frame dimension',
+                value: frame?.isValid == true
+                    ? AppConfig.expectedFrameWidth.toString()
+                    : 'Waiting',
+              ),
             _StatusRow(
-              label: 'Frame dimension',
-              value: frame?.isValid == true
-                  ? AppConfig.expectedFrameWidth.toString()
-                  : 'Waiting',
-            ),
-            _StatusRow(
-              label: 'Valid frame buffer',
+              label: bankingOnly ? 'Capture progress' : 'Valid frame buffer',
               value: '$validFrameCount / ${AppConfig.expectedFrameCount}',
             ),
             if (isCapturing) const SizedBox(height: 8),
@@ -483,30 +557,37 @@ class _LiveStatusCard extends StatelessWidget {
 
 class _ControlPanel extends StatelessWidget {
   const _ControlPanel({
+    required this.bankingOnly,
     required this.isLoading,
     required this.isCameraStarting,
     required this.isCameraStarted,
     required this.isCapturing,
     required this.isPredicting,
+    required this.captureLocked,
     required this.onStartCamera,
     required this.onStopCamera,
     required this.onStartCapture,
     required this.onResetCapture,
+    required this.onCancel,
   });
 
+  final bool bankingOnly;
   final bool isLoading;
   final bool isCameraStarting;
   final bool isCameraStarted;
   final bool isCapturing;
   final bool isPredicting;
+  final bool captureLocked;
   final VoidCallback onStartCamera;
   final VoidCallback onStopCamera;
   final VoidCallback onStartCapture;
   final VoidCallback onResetCapture;
+  final VoidCallback? onCancel;
 
   @override
   Widget build(BuildContext context) {
-    final controlsDisabled = isLoading || isCameraStarting || isPredicting;
+    final baseDisabled = isLoading || isCameraStarting || isPredicting;
+    final captureDisabled = baseDisabled || captureLocked;
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -515,7 +596,7 @@ class _ControlPanel extends StatelessWidget {
           runSpacing: 8,
           children: [
             FilledButton.icon(
-              onPressed: controlsDisabled || isCameraStarted
+              onPressed: captureDisabled || isCameraStarted
                   ? null
                   : onStartCamera,
               icon: isCameraStarting
@@ -528,24 +609,83 @@ class _ControlPanel extends StatelessWidget {
               label: const Text('Start Camera'),
             ),
             OutlinedButton.icon(
-              onPressed: controlsDisabled || !isCameraStarted
-                  ? null
-                  : onStopCamera,
+              onPressed: baseDisabled || !isCameraStarted ? null : onStopCamera,
               icon: const Icon(Icons.videocam_off),
               label: const Text('Stop'),
             ),
             FilledButton.icon(
-              onPressed: controlsDisabled || !isCameraStarted || isCapturing
+              onPressed: captureDisabled || !isCameraStarted || isCapturing
                   ? null
                   : onStartCapture,
               icon: const Icon(Icons.back_hand),
-              label: const Text('Capture 60 Frames'),
+              label: Text(bankingOnly ? 'Capture Sign' : 'Capture 60 Frames'),
             ),
             OutlinedButton.icon(
-              onPressed: controlsDisabled ? null : onResetCapture,
+              onPressed: captureDisabled ? null : onResetCapture,
               icon: const Icon(Icons.restart_alt),
               label: const Text('Reset'),
             ),
+            if (bankingOnly && onCancel != null)
+              TextButton.icon(
+                onPressed: captureDisabled ? null : onCancel,
+                icon: const Icon(Icons.close),
+                label: const Text('Cancel'),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _BankingPredictionNotice extends StatelessWidget {
+  const _BankingPredictionNotice({
+    required this.prediction,
+    required this.onTryAgain,
+    required this.allowTryAgain,
+  });
+
+  final PredictionResult prediction;
+  final VoidCallback onTryAgain;
+  final bool allowTryAgain;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    final evaluation = const BankingPredictionGate().evaluate(prediction);
+    final accepted = evaluation.accepted;
+    return Card(
+      color: accepted ? colors.primaryContainer : colors.errorContainer,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              accepted ? Icons.check_circle_outline : Icons.refresh,
+              color: accepted
+                  ? colors.onPrimaryContainer
+                  : colors.onErrorContainer,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              accepted ? 'Banking intent recognized.' : evaluation.message,
+              style: TextStyle(
+                color: accepted
+                    ? colors.onPrimaryContainer
+                    : colors.onErrorContainer,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            if (!accepted && allowTryAgain) ...[
+              const SizedBox(height: 12),
+              FilledButton.icon(
+                key: const ValueKey('recognition-try-again'),
+                onPressed: onTryAgain,
+                icon: const Icon(Icons.refresh),
+                label: const Text('Try Again'),
+              ),
+            ],
           ],
         ),
       ),
@@ -605,66 +745,6 @@ class _RuntimeMetricsCard extends StatelessWidget {
             _StatusRow(
               label: 'End-to-end prediction',
               value: '${session.endToEndMs} ms',
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _StabilizedPredictionCard extends StatelessWidget {
-  const _StabilizedPredictionCard({required this.stabilizedPrediction});
-
-  final StabilizedPrediction? stabilizedPrediction;
-
-  @override
-  Widget build(BuildContext context) {
-    final prediction = stabilizedPrediction;
-    if (prediction == null) {
-      return const SizedBox.shrink();
-    }
-
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Stabilized Prediction',
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 12),
-            _StatusRow(
-              label: 'Captures',
-              value:
-                  '${prediction.completedCaptures} / ${prediction.requiredCaptures}',
-            ),
-            _StatusRow(
-              label: 'Agreement',
-              value:
-                  '${prediction.agreementCount} / ${prediction.requiredAgreement}',
-            ),
-            _StatusRow(label: 'Output', value: prediction.displayLabel),
-            const SizedBox(height: 8),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                for (
-                  var index = 0;
-                  index < prediction.captureLabels.length;
-                  index += 1
-                )
-                  Chip(
-                    label: Text(
-                      'Capture ${index + 1}: ${prediction.captureLabels[index] ?? 'Try Again'}',
-                    ),
-                  ),
-              ],
             ),
           ],
         ),

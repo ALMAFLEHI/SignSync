@@ -1,0 +1,10 @@
+actual_label,predicted_label,count,actual_class_errors_share
+card,cash,1,0.5
+card,replace_card,1,0.5
+document,card,1,1.0
+help,block_card,1,0.5
+help,card,1,0.5
+loan,pin,1,0.5
+loan,reset_password,1,0.5
+payment,card,1,1.0
+withdraw,password,1,1.0

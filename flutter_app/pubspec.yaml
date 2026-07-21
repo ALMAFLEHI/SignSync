@@ -1,5 +1,5 @@
 name: flutter_app
-description: "SignSync Sprint 2.14 Flutter TFLite integration prototype."
+description: "SignSync private on-device banking communication assistant."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -37,6 +37,9 @@ dependencies:
   tflite_flutter: ^0.12.1
   collection: ^1.19.1
   permission_handler: ^12.0.3
+  shared_preferences: ^2.5.3
+  crypto: ^3.0.6
+  csv: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -61,15 +64,17 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/models/model_float32.tflite
-    - assets/models/model_dynamic_range.tflite
-    - assets/metadata/labels.txt
-    - assets/metadata/label_mapping.json
-    - assets/metadata/label_groups.json
-    - assets/metadata/tflite_model_metadata.json
-    - assets/metadata/preprocessing_config.json
+    - assets/models/signsync_40class_account_corrected_v2_dynamic_range.tflite
+    - assets/models/signsync_40class_account_corrected_v2_float32.tflite
+    - assets/models/labels_40.json
+    - assets/models/model_metadata_40class.json
+    - assets/models/feature_contract_40class.json
+    - assets/models/confidence_recommendation_40class.json
+    - assets/models/model_deployment_manifest.json
     - assets/mediapipe/hand_landmarker.task
-    - assets/test_features/
+    - assets/content/banking_queries.json
+    - assets/evaluation/sprint_2_19_trial_schedule.csv
+    - assets/branding/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

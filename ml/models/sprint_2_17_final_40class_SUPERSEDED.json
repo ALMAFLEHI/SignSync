@@ -1,0 +1,22 @@
+{
+  "status": "SUPERSEDED - TRAINED WITH INCORRECT ACCOUNT GESTURE DATA",
+  "discovered_at": "2026-07-19",
+  "old_package_path": "ml/models/sprint_2_17_final_40class",
+  "corrective_package_path": "ml/models/sprint_2_17_final_40class_account_corrected_v2",
+  "reason": "The original 25 account samples used an incorrect gesture that conflicted with savings.",
+  "old_model_sha256": {
+    "keras": "3617046422966A654C2B952EA07BAC43BF43C2C345D76AC99C8D93439EA326AE",
+    "float32_tflite": "A819B655B5341223641ED62F7CC36C593D222BEEBAC4156FE7972079EF8602BE",
+    "dynamic_range_tflite": "25EFBCEF375769F50FA4AD8F46CC18BB816E89982A86225D9E9E7771267C14AD"
+  },
+  "old_test_metrics": {
+    "accuracy": 0.955,
+    "macro_precision": 0.9607738095238096,
+    "macro_recall": 0.9550000000000001,
+    "macro_f1": 0.9513943001443002,
+    "weighted_f1": 0.9513943001443002,
+    "winning_experiment": "experiment_A_phone_only"
+  },
+  "academic_status": "Historical evidence only. These metrics are not final project results.",
+  "preservation": "The old package and all immutable artifacts remain unchanged."
+}

@@ -44,6 +44,6 @@ void main() {
     expect(PhoneDatasetScope.finalBankingPhoneTarget, 1000);
     expect(PhoneSampleStore.sprint216BCollectionLabels, hasLength(36));
     expect(AppConfig.expectedInputWidth, 756);
-    expect(AppConfig.expectedOutputClasses, 76);
+    expect(AppConfig.expectedOutputClasses, 40);
   });
 }

@@ -1,0 +1,73 @@
+{
+  "offline_development_machine": {
+    "float32_tflite": {
+      "scope": "development-machine TFLite interpreter latency; not Samsung A55 latency",
+      "warmup_runs": 10,
+      "measured_runs": 100,
+      "mean_ms": 0.13253199999999998,
+      "median_ms": 0.126,
+      "p95_ms": 0.18814499999999998,
+      "minimum_ms": 0.0808,
+      "maximum_ms": 0.251
+    },
+    "dynamic_range_tflite": {
+      "scope": "development-machine TFLite interpreter latency; not Samsung A55 latency",
+      "warmup_runs": 10,
+      "measured_runs": 100,
+      "mean_ms": 0.031709,
+      "median_ms": 0.0273,
+      "p95_ms": 0.05071,
+      "minimum_ms": 0.0173,
+      "maximum_ms": 0.2472
+    }
+  },
+  "samsung_a55_observed_examples": [
+    {
+      "intent": "document",
+      "screenshot": "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Live_Diagnostics_Document.png",
+      "capture_duration_ms": 14553,
+      "average_capture_fps": 4.12,
+      "feature_computation_ms": 1,
+      "tflite_inference_ms": 2,
+      "prediction_processing_ms": 4,
+      "prediction_processing_field_displayed_as": "End-to-end prediction"
+    },
+    {
+      "intent": "credit_card",
+      "screenshot": "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Live_Diagnostics_Credit_Card.png",
+      "capture_duration_ms": 16676,
+      "average_capture_fps": 3.6,
+      "feature_computation_ms": 1,
+      "tflite_inference_ms": 2,
+      "prediction_processing_ms": 3,
+      "prediction_processing_field_displayed_as": "End-to-end prediction"
+    },
+    {
+      "intent": "complaint",
+      "screenshot": "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Live_Diagnostics_Complaint.png",
+      "capture_duration_ms": 23808,
+      "average_capture_fps": 2.52,
+      "feature_computation_ms": 2,
+      "tflite_inference_ms": 3,
+      "prediction_processing_ms": 5,
+      "prediction_processing_field_displayed_as": "End-to-end prediction"
+    }
+  ],
+  "samsung_a55_in_memory_examples": [
+    {
+      "screenshot": "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Model_Hashes_And_Runtime_Metrics_01.png",
+      "model_load_ms": 1.473,
+      "feature_computation_ms": 1.981,
+      "tflite_inference_ms": 3.26,
+      "prediction_processing_ms": 5.27
+    },
+    {
+      "screenshot": "docs/phase_2_evidence/screenshots/Sprint2.18/Sprint_2_18_Corrected_Model_Hashes_And_Runtime_Metrics_02.png",
+      "model_load_ms": 1.56,
+      "feature_computation_ms": 2.471,
+      "tflite_inference_ms": 1.36,
+      "prediction_processing_ms": 3.886
+    }
+  ],
+  "mobile_statistics_boundary": "Observed screenshot examples only; no mobile mean, median, or P95 is claimed."
+}

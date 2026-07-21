@@ -1,0 +1,29 @@
+{
+  "evaluator_count": 1,
+  "evaluator_role": "developer/researcher",
+  "method": "automated Flutter widget walkthrough using the real guided workflow and predefined intent input",
+  "external_participant_data": false,
+  "test_file": "flutter_app/test/sprint_2_20_usability_inspection_test.dart",
+  "scenario_id": 3,
+  "name": "Document request without populated manual details",
+  "injected_intent": "document",
+  "result": "PARTIAL",
+  "fake_test_values": {},
+  "steps": [
+    "confirm Document",
+    "select document_status",
+    "continue",
+    "submit optional details empty",
+    "review",
+    "show to banker",
+    "back",
+    "start over"
+  ],
+  "expectations": {
+    "manual_details_page_skipped": "PARTIAL",
+    "empty_details_omitted": "PASS",
+    "banker_view_understandable": "PASS",
+    "back_and_start_over": "PASS"
+  },
+  "researcher_observation": "The workflow completes safely with no empty detail row, but the optional-details page is visited because the protected query mapping references document_type."
+}

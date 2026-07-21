@@ -1,4 +1,0 @@
-model_name,validation_accuracy,validation_macro_precision,validation_macro_recall,validation_macro_f1,selected_best
-LogisticRegression,0.918605,0.877907,0.918605,0.891473,no
-RandomForestClassifier,0.941860,0.916667,0.941860,0.924419,no
-ExtraTreesClassifier,0.953488,0.936047,0.953488,0.941860,yes

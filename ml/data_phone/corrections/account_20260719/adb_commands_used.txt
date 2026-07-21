@@ -1,0 +1,4 @@
+$adb = "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe"
+& "$adb" devices -l
+# Executed once for each repetition 01 through 25:
+& "$adb" pull "/storage/emulated/0/Android/data/com.example.flutter_app/files/signsync_phone_samples/P02_PHONE_account_R<01-25>.json" "ml/data_phone/corrections/account_20260719/staging_from_a55/"

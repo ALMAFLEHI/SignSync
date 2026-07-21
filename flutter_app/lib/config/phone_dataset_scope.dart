@@ -1,3 +1,5 @@
+import 'banking_intent_scope.dart';
+
 class PhoneDatasetScope {
   static const String sprintId = '2.16B';
   static const String participantId = 'P02_PHONE';
@@ -51,61 +53,11 @@ class PhoneDatasetScope {
     'daily_limit',
   ];
 
-  static const List<String> activeBankingIntentsV3 = <String>[
-    'deposit',
-    'withdraw',
-    'balance',
-    'transfer',
-    'account',
-    'card',
-    'pin',
-    'password',
-    'identity_verification',
-    'cash',
-    'payment',
-    'fee',
-    'loan',
-    'savings',
-    'open_account',
-    'close_account',
-    'fraud',
-    'block_card',
-    'help',
-    'confirm',
-    'statement',
-    'document',
-    'bill_payment',
-    'atm',
-    'branch',
-    'cheque',
-    'interest_rate',
-    'credit_card',
-    'debit_card',
-    'lost_card',
-    'replace_card',
-    'change_pin',
-    'reset_password',
-    'refund',
-    'signature',
-    'complaint',
-    'appointment',
-    'account_number',
-    'card_limit',
-    'daily_limit',
-  ];
+  static const List<String> activeBankingIntentsV3 =
+      BankingIntentScope.frozenIntents;
 
-  static const List<String> removedBankingIntents = <String>[
-    'online_banking',
-    'mobile_banking',
-    'currency_exchange',
-    'exchange_rate',
-    'fixed_deposit',
-    'customer_service',
-    'update_details',
-    'phone_number',
-    'email_address',
-    'address_change',
-  ];
+  static const List<String> removedBankingIntents =
+      BankingIntentScope.removedIntents;
 
   static void validate() {
     if (sprint216APilotIntents.length != 4 ||

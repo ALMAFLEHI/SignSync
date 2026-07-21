@@ -1,0 +1,252 @@
+{
+  "method": "structured researcher cognitive walkthrough",
+  "evaluator_count": 1,
+  "workflow_steps": 8,
+  "questions_per_step": 8,
+  "observation_count": 64,
+  "status_counts": {
+    "PASS": 64
+  },
+  "automated_expectations": [
+    {
+      "expectation_id": 1,
+      "description": "Home exposes Start Banking Interaction",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 2,
+      "description": "Normal users do not see developer tools",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 3,
+      "description": "Confirmation shows human-readable topic",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 4,
+      "description": "Confirmation shows Confirm, Try Again, and Cancel",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 5,
+      "description": "Query page shows exactly four requests",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 6,
+      "description": "Continue is disabled before selection",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 7,
+      "description": "Correct query mapping is used",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 8,
+      "description": "Manual fields appear only when configured",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 9,
+      "description": "Manual fields are skipped when absent",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 10,
+      "description": "Required invalid fields block continuation",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 11,
+      "description": "Valid fake amount is accepted",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 12,
+      "description": "Invalid amount is rejected",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 13,
+      "description": "Sensitive digits are masked",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 14,
+      "description": "Optional empty fields are omitted",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 15,
+      "description": "Review shows topic and selected request",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 16,
+      "description": "Review hides internal IDs",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 17,
+      "description": "Banker view hides confidence and ML terminology",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 18,
+      "description": "Banker view uses customer-readable wording",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 19,
+      "description": "Banker view shows privacy/offline messaging",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 20,
+      "description": "Try Again clears prediction",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 21,
+      "description": "Cancel clears interaction",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 22,
+      "description": "Start Over clears interaction",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 23,
+      "description": "New Interaction clears interaction",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 24,
+      "description": "Clear Session clears interaction",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 25,
+      "description": "Back navigation is safe",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 26,
+      "description": "Manual values do not return after reset",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 27,
+      "description": "Light mode is readable",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 28,
+      "description": "Dark mode is readable",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 29,
+      "description": "System theme mode works",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 30,
+      "description": "Theme preference persists",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 31,
+      "description": "Query Preview remains read-only",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 32,
+      "description": "Phone Sample Collection remains protected",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 33,
+      "description": "Normal banking data is not persisted",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 34,
+      "description": "Only theme preference persists",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 35,
+      "description": "No network or database calls exist in the workflow",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 36,
+      "description": "Package identifiers are unchanged",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 37,
+      "description": "Model hashes are unchanged",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 38,
+      "description": "Dataset count is unchanged",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 39,
+      "description": "Query JSON is unchanged",
+      "status": "PASS",
+      "evidence": "Existing Flutter suite and Sprint 2.20 focused tests"
+    },
+    {
+      "expectation_id": 40,
+      "description": "All four scenarios pass exactly as specified",
+      "status": "PARTIAL",
+      "evidence": "Scenario 3 completes but does not directly bypass its optional-details page."
+    }
+  ]
+}

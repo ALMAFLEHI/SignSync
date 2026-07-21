@@ -1,0 +1,19 @@
+{
+  "original_predictions": {
+    "path": "ml/models/sprint_2_17_final_40class_account_corrected_v2/metrics/final_test_predictions.csv",
+    "sha256": "91D66476C606EB2CF98B84C9AB87A73C79AC4AC2A75076613770013B0D45F46A"
+  },
+  "copied_predictions": {
+    "path": "ml/reports/sprint_2_19_final_technical_evaluation/source/corrected_test_predictions.csv",
+    "sha256": "91D66476C606EB2CF98B84C9AB87A73C79AC4AC2A75076613770013B0D45F46A"
+  },
+  "original_metrics": {
+    "path": "ml/models/sprint_2_17_final_40class_account_corrected_v2/metrics/final_test_metrics.json",
+    "sha256": "0F711D6F60DEEF3D785BA0567880482B65A3C8CEF563B7FA2C9CFC75748CCF7D"
+  },
+  "copied_metrics": {
+    "path": "ml/reports/sprint_2_19_final_technical_evaluation/source/corrected_test_metrics.json",
+    "sha256": "0F711D6F60DEEF3D785BA0567880482B65A3C8CEF563B7FA2C9CFC75748CCF7D"
+  },
+  "copies_match_sources": true
+}

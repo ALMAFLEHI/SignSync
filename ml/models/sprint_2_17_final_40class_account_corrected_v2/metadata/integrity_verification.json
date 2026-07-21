@@ -1,0 +1,31 @@
+{
+  "verified_at": "2026-07-19T00:48:58+00:00",
+  "status": "PASS",
+  "actual_sha256": {
+    "flutter_dynamic_range_sha256": "25efbcef375769f50fa4ad8f46cc18bb816e89982a86225d9e9e7771267c14ad",
+    "flutter_float32_sha256": "a819b655b5341223641ed62f7cc36c593d222beebac4156fe7972079ef8602be",
+    "phone_backup_sha256": "07b5660e08640ea2eac11216e41f4696d01be52627cf3e1dd15d46f99c20286a",
+    "banking_queries_sha256": "6f52d50f8fbbf64cd43479a1a6135f3886164d7857b1430090589d2cccec6b51"
+  },
+  "expected_sha256": {
+    "flutter_dynamic_range_sha256": "25efbcef375769f50fa4ad8f46cc18bb816e89982a86225d9e9e7771267c14ad",
+    "flutter_float32_sha256": "a819b655b5341223641ed62f7cc36c593d222beebac4156fe7972079ef8602be",
+    "phone_backup_sha256": "07b5660e08640ea2eac11216e41f4696d01be52627cf3e1dd15d46f99c20286a",
+    "banking_queries_sha256": "6f52d50f8fbbf64cd43479a1a6135f3886164d7857b1430090589d2cccec6b51"
+  },
+  "raw_phone_sample_count": 1000,
+  "query_intent_count": 40,
+  "query_count": 160,
+  "checks": {
+    "flutter_dynamic_range_sha256": true,
+    "flutter_float32_sha256": true,
+    "phone_backup_sha256": true,
+    "banking_queries_sha256": true,
+    "raw_phone_sample_count_1000": true,
+    "raw_validation_pass": true,
+    "query_intent_ids_match_frozen_order": true,
+    "query_count_160": true
+  },
+  "flutter_models_modified": false,
+  "raw_phone_samples_modified": false
+}

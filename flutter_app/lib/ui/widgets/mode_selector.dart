@@ -28,27 +28,29 @@ class ModeSelector extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              'Use Alphabet Mode for letters, Number Mode for digits, and Banking Intent Mode for banking signs.',
-              style: Theme.of(
-                context,
-              ).textTheme.bodySmall?.copyWith(color: const Color(0xFF475569)),
+              'The deployed final model recognizes banking intents only.',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
             const SizedBox(height: 12),
             for (final mode in SignMode.values) ...[
               _ModeOption(
                 mode: mode,
                 icon: _iconForMode(mode),
-                isSelected: selectedMode == mode,
-                onTap: () => onChanged(mode),
+                isSelected: selectedMode == mode && mode.isActiveForFinalModel,
+                onTap: mode.isActiveForFinalModel
+                    ? () => onChanged(mode)
+                    : null,
               ),
               if (mode != SignMode.values.last) const SizedBox(height: 8),
             ],
             const SizedBox(height: 8),
             Text(
               selectedMode.description,
-              style: Theme.of(
-                context,
-              ).textTheme.bodySmall?.copyWith(color: const Color(0xFF64748B)),
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
           ],
         ),
@@ -79,63 +81,81 @@ class _ModeOption extends StatelessWidget {
   final SignMode mode;
   final IconData icon;
   final bool isSelected;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final enabled = onTap != null;
     final borderColor = isSelected
         ? colorScheme.primary
-        : const Color(0xFFE2E8F0);
+        : colorScheme.outlineVariant;
     final backgroundColor = isSelected
-        ? colorScheme.primary.withValues(alpha: 0.08)
-        : Colors.white;
+        ? colorScheme.primaryContainer
+        : colorScheme.surfaceContainerHigh;
+    final foregroundColor = !enabled
+        ? colorScheme.onSurfaceVariant
+        : isSelected
+        ? colorScheme.onPrimaryContainer
+        : colorScheme.onSurface;
+    final supportingColor = !enabled
+        ? colorScheme.onSurfaceVariant
+        : isSelected
+        ? colorScheme.onPrimaryContainer
+        : colorScheme.onSurfaceVariant;
 
-    return Material(
-      color: backgroundColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-        side: BorderSide(color: borderColor, width: isSelected ? 1.5 : 1),
-      ),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(8),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-          child: Row(
-            children: [
-              Icon(icon, color: isSelected ? colorScheme.primary : null),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      mode.displayName,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: isSelected ? colorScheme.primary : null,
+    return Semantics(
+      selected: isSelected,
+      button: true,
+      enabled: enabled,
+      child: Material(
+        key: ValueKey('mode-option-${mode.name}'),
+        color: backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+          side: BorderSide(color: borderColor, width: isSelected ? 1.5 : 1),
+        ),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(8),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            child: Row(
+              children: [
+                Icon(icon, color: supportingColor),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        mode.displayName,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: foregroundColor,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      mode.description,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: const Color(0xFF64748B),
+                      const SizedBox(height: 2),
+                      Text(
+                        mode.description,
+                        style: Theme.of(
+                          context,
+                        ).textTheme.bodySmall?.copyWith(color: supportingColor),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Icon(
-                isSelected
-                    ? Icons.radio_button_checked
-                    : Icons.radio_button_unchecked,
-                color: isSelected
-                    ? colorScheme.primary
-                    : const Color(0xFF94A3B8),
-              ),
-            ],
+                const SizedBox(width: 10),
+                Icon(
+                  !enabled
+                      ? Icons.block_outlined
+                      : isSelected
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_unchecked,
+                  color: supportingColor,
+                ),
+              ],
+            ),
           ),
         ),
       ),
