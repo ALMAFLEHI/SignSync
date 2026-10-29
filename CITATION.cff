@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use or reference SignSync, please cite this software."
+title: "SignSync: A Real-Time, On-Device ASL-to-Text Recognition Framework for Privacy-Preserving Banking Service Interactions"
+type: software
+authors:
+  - family-names: "Almaflehi"
+    given-names: "Mohammed Abdulsalam"
+repository-code: "https://github.com/ALMAFLEHI/SignSync"
+url: "https://github.com/ALMAFLEHI/SignSync"
+version: "1.0.0"
+date-released: "2026-07-19"
+keywords:
+  - "American Sign Language"
+  - "accessibility"
+  - "on-device machine learning"
+  - "TensorFlow Lite"
+  - "MediaPipe"
+  - "Flutter"
+  - "banking communication"
+abstract: >-
+  SignSync is an academic Flutter and Android prototype that recognizes 40
+  isolated American Sign Language banking intents on-device, guides the user
+  through confirmation and request selection, and presents a banker-readable
+  request without uploading camera frames or relying on cloud inference.
